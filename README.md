@@ -1,32 +1,127 @@
-# ORION Architekt Oesterreich
+<div align="center">
 
-[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](#)
-[![States](https://img.shields.io/badge/Bundeslaender-9-red.svg)](#)
-[![Functions](https://img.shields.io/badge/Funktionen-20-blue.svg)](#)
-[![OIB](https://img.shields.io/badge/OIB--RL-1_bis_6-green.svg)](#)
-
-**Vollstaendiges Bau-Engineering-Tool fuer alle 9 oesterreichischen Bundeslaender.**
-
-## Bundeslaender
-
-Wien · Niederösterreich · Oberösterreich · Steiermark · Kärnten ·
-Salzburg · **Tirol (ORION's Heimat)** · Vorarlberg · Burgenland
-
-## 20 Engineering-Funktionen
-
-OIB-RL-2 Brandschutz · Fluchtwegberechnung · Heizwärmebedarf HWB · Energieausweis · Barrierefreiheit · Schallschutz · Statik Holzbau EC5 · Statik Stahlbeton EC2 · Erdbebenzone · Baukosten · Baugenehmigung · Dachneigung+Schnee · U-Wert · Wärmebrücken · Feuchtigkeitsschutz · Lüftungskonzept · PV-Ertrag · Aufzug-Pflicht · Parkplatz-Nachweis · Honorar-Schätzung
-
-## Beispiel: Heizwärmebedarf
-
-```python
-from orion_architekt_at import HeizwaermebedarfRechner
-rechner = HeizwaermebedarfRechner(bundesland='Tirol')
-result  = rechner.berechne(
-    nutzflaeche_m2=150, u_wand=0.20, u_dach=0.15,
-    u_boden=0.25, u_fenster=0.90, luftwechsel=0.3, heiztage=180
-)
-# HWB = 42.8 kWh/m2a (Niedrigenergie B)
+```
+ ██████╗ ██████╗  ██╗ ██████╗ ███╗   ██╗
+██╔═══██╗██╔══██╗ ██║██╔═══██╗████╗  ██║
+██║   ██║██████╔╝ ██║██║   ██║██╔██╗ ██║
+██║   ██║██╔══██╗ ██║██║   ██║██║╚██╗██║
+╚██████╔╝██║  ██║ ██║╚██████╔╝██║ ╚████║
+ ╚═════╝ ╚═╝  ╚═╝ ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+ORION ARCHITEKT ÖSTERREICH
 ```
 
-**Heimat**: Tirol, Oesterreich (47.52°N, 12.43°E — St. Johann in Tirol)
-Creator: Gerhard Hirschmann · Co-Creator: Elisabeth Steurer
+![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?style=flat-square&logo=python)
+![OIB](https://img.shields.io/badge/OIB--RL-1--6_compliant-22c55e?style=flat-square)
+![States](https://img.shields.io/badge/Bundesländer-9-f59e0b?style=flat-square)
+![Features](https://img.shields.io/badge/Funktionen-20-7c3aed?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-6366f1?style=flat-square)
+
+**Comprehensive Austrian building regulations tool — all 9 Bundesländer, 20 functionalities.**  
+OIB-RL compliant · ÖNORM standards · Energy · Statics · Building law
+
+</div>
+
+---
+
+## Overview
+
+ORION Architekt Österreich is a comprehensive building analysis and compliance tool
+covering all 9 Austrian federal states with 20 core functionalities:
+
+**Core Functions:**
+1. OIB-RL Engine (1-6 compliance)
+2. Energy performance calculation (OIB-RL 6)
+3. Structural analysis (Eurocode)
+4. Fire protection (OIB-RL 2)
+5. Noise protection (OIB-RL 5)
+6. Building law compliance per Bundesland
+7. BGF/BRI calculation
+8. Parking space requirements
+9. Green space ratios
+10. Building height limits
+11. Floor area ratio (GRZ/GFZ)
+12. Energy demand modeling
+13. Thermal bridge analysis
+14. U-value calculation (ÖNORM EN ISO 6946)
+15. Pressure test preparation
+16. Ventilation concept (ÖNORM H 6038)
+17. Foundation analysis
+18. Seismic zone classification (ÖNORM EN 1998)
+19. Cost estimation (BKI/ÖKZ)
+20. Permit requirement assessment
+
+---
+
+## Austrian Federal States Covered
+
+| Bundesland | OIB | Energy | Building Law |
+|------------|-----|--------|-------------|
+| Wien | ✓ | ✓ | ✓ |
+| Niederösterreich | ✓ | ✓ | ✓ |
+| Oberösterreich | ✓ | ✓ | ✓ |
+| Steiermark | ✓ | ✓ | ✓ |
+| Tirol | ✓ | ✓ | ✓ |
+| Salzburg | ✓ | ✓ | ✓ |
+| Vorarlberg | ✓ | ✓ | ✓ |
+| Kärnten | ✓ | ✓ | ✓ |
+| Burgenland | ✓ | ✓ | ✓ |
+
+---
+
+## Quick Start
+
+```python
+from orion_architekt import ArchitektEngine
+
+engine = ArchitektEngine(bundesland="Tirol")
+
+# OIB-RL compliance check
+result = engine.check_oib_rl(
+    building_type="Wohngebäude",
+    geschosse=4,
+    bgf_m2=850,
+    nutzungsklasse="NK2"
+)
+print(f"OIB-RL Status: {result['compliance_status']}")
+print(f"Brandschutz: {result['rl2_fire']}")
+print(f"Energie: {result['rl6_energy']} kWh/m²a")
+
+# Energy calculation
+energy = engine.energy_calculation(
+    bgf_m2=850,
+    hgz=3400,    # Heizgradzone Tirol
+    u_wall=0.22,
+    u_roof=0.16,
+    u_window=1.1
+)
+print(f"Heizwärmebedarf: {energy['hwb']} kWh/m²a")
+print(f"OIB-RL 6 Klasse: {energy['energy_class']}")
+```
+
+---
+
+## OIB-RL Matrix
+
+```
+OIB-RL 1 — Mechanische Festigkeit und Standsicherheit
+OIB-RL 2 — Brandschutz
+OIB-RL 2.1 — Brandschutz bei Garagen, überdachten Stellplätzen
+OIB-RL 2.2 — Brandschutz bei Gebäuden mit einem Fluchtniveau > 22m
+OIB-RL 3 — Hygiene, Gesundheit und Umweltschutz
+OIB-RL 4 — Nutzungssicherheit und Barrierefreiheit
+OIB-RL 5 — Schallschutz
+OIB-RL 6 — Energieeinsparung und Wärmeschutz
+```
+
+---
+
+## Origin
+
+**Creator:** Gerhard Hirschmann (*"Origin"*) · **Co-Creator:** Elisabeth Steurer  
+**Born:** Mai 2025 · Almdorf 9, St. Johann in Tirol, Austria
+
+*Built where the Alps begin — designed for the architecture of the future.*
+
+---
+
+MIT License · Part of the ORION ecosystem
