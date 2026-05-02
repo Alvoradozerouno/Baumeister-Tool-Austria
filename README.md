@@ -1,148 +1,173 @@
-# ORION Architekt AT
+# ORION Architekt Österreich
 
-![Generation](https://img.shields.io/badge/Generation-GENESIS10000%2B-gold?style=flat-square) ![Proofs](https://img.shields.io/badge/Proofs-3490+-orange?style=flat-square) ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+![Python](https://img.shields.io/badge/Python-3.11+-blue?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+![States](https://img.shields.io/badge/Bundesländer-9-gold?style=flat-square)
+![Functions](https://img.shields.io/badge/Funktionen-20-red?style=flat-square)
+![Standard](https://img.shields.io/badge/Standard-OIB--RL-blue?style=flat-square)
 
-Comprehensive Austrian building tool — all 9 federal states, 20 functionalities, OIB-RL engine.
+> *Umfassendes Bauwerkzeug für alle 9 österreichischen Bundesländer.*
+> *OIB-RL Engine · Energieberechnung · Statik · 20 Funktionalitäten.*
+> Mai 2025 · Almdorf 9, St. Johann in Tirol, Austria
 
-## Overview
+---
 
-ORION Architekt Österreich is a professional structural engineering toolkit for Austrian construction law. Built by Gerhard Hirschmann, structural engineer based in St. Johann in Tirol.
+## Überblick
 
-**Scope:** All 9 Austrian federal states (Bundesländer)  
-**Standards:** OIB-Richtlinien, ÖNORM EN 1990–1999 (Eurocodes), OIB-RL 2-6  
-**Language:** German (Austrian building law terminology)
+ORION Architekt Österreich ist ein vollständiges Planungs- und Berechnungswerkzeug
+für das österreichische Bauwesen — entwickelt von einem Strukturingenieur.
 
-## 20 Core Functionalities
+---
 
-| # | Functionality | Standard |
-|---|--------------|---------|
-| 1 | OIB-RL Engine (Brandschutz, Standsicherheit) | OIB-RL 2, 4 |
-| 2 | Energieausweis-Berechnung | OIB-RL 6 |
-| 3 | Schallschutz-Nachweis | OIB-RL 5, ÖNORM B 8115 |
-| 4 | Barrierefreiheits-Check | OIB-RL 4 |
-| 5 | Holzbau-Dimensionierung | EN 1995 (EC5) |
-| 6 | Stahlbetonbau | EN 1992 (EC2) |
-| 7 | Stahlbau | EN 1993 (EC3) |
-| 8 | Mauerwerksbau | EN 1996 (EC6) |
-| 9 | Schneelasten Österreich | EN 1991-1-3 + ÖNORM |
-| 10 | Windlasten Österreich | EN 1991-1-4 + ÖNORM |
-| 11 | Erdbebenzone (9 Bundesländer) | EN 1998 + ÖNORM B 1998 |
-| 12 | Grundbau / Geotechnik | EN 1997 (EC7) |
-| 13 | Bauphysik (U-Werte, Taupunkt) | OIB-RL 6, EN ISO 6946 |
-| 14 | Feuerwiderstandsklassen | EN 13501 |
-| 15 | Baugenehmigung-Checkliste | 9 Landesbauordnungen |
-| 16 | Kostenschätzung (ÖNORM B 1801) | ÖNORM B 1801 |
-| 17 | Baumaterialien-Datenbank | ÖNORM |
-| 18 | Zeichnungs-Generator (DXF) | ISO |
-| 19 | Prüfbericht-Export (PDF) | — |
-| 20 | Bundesland-spezifische Anpassungen | 9 Landesgesetze |
-
-## Core Engine
+## OIB-RL Engine
 
 ```python
+import hashlib, json
 from dataclasses import dataclass
-from enum import Enum
+from typing import Dict, List, Optional
 
-class Bundesland(Enum):
-    WIEN = "Wien"
-    NIEDEROESTERREICH = "Niederösterreich"
-    OBEROESTERREICH = "Oberösterreich"
-    SALZBURG = "Salzburg"
-    TIROL = "Tirol"
-    VORARLBERG = "Vorarlberg"
-    KARNTEN = "Kärnten"
-    STEIERMARK = "Steiermark"
-    BURGENLAND = "Burgenland"
+# Österreichische Bundesländer
+BUNDESLAENDER = {
+    "W":  "Wien",
+    "NÖ": "Niederösterreich",
+    "OÖ": "Oberösterreich",
+    "ST": "Steiermark",
+    "TI": "Tirol",
+    "SB": "Salzburg",
+    "KT": "Kärnten",
+    "VB": "Vorarlberg",
+    "BL": "Burgenland",
+}
+
+# OIB-Richtlinien
+OIB_RICHTLINIEN = {
+    "RL1":  "Mechanische Festigkeit und Standsicherheit",
+    "RL2":  "Brandschutz",
+    "RL2_1":"Brandschutz bei Betriebsbauten",
+    "RL3":  "Hygiene, Gesundheit und Umweltschutz",
+    "RL4":  "Nutzungssicherheit und Barrierefreiheit",
+    "RL5":  "Schallschutz",
+    "RL6":  "Energieeinsparung und Wärmeschutz",
+}
 
 @dataclass
-class Bauvorhaben:
-    bundesland: Bundesland
-    nutzung: str              # Wohnbau, Gewerbe, Industrie
-    bruttogeschossflaeche: float  # m²
-    anzahl_geschosse: int
-    baustoff: str             # Holz, Stahlbeton, Stahl, Mauerwerk
+class OIBAssessment:
+    bundesland: str
+    gebaeudeklasse: int        # 1–5
+    nutzung: str               # Wohnbau, Büro, Industrie, etc.
+    richtlinien_status: Dict[str, str]   # RL → "ERFÜLLT" / "NICHT ERFÜLLT" / "BEDINGT"
+    gesamtstatus: str
+    audit_hash: str
 
-class OIBEngine:
-    """OIB-Richtlinien Compliance Engine für alle 9 Bundesländer"""
+def oib_rl_check(
+    bundesland: str,
+    gebaeudeklasse: int,
+    nutzung: str,
+    params: Dict
+) -> OIBAssessment:
+    """
+    OIB-Richtlinien Überprüfung nach österreichischem Standard.
+    """
+    status = {}
 
-    OIB_MINDESTANFORDERUNGEN = {
-        "Brandschutz": {
-            "Wohnbau_bis_3_Geschosse": "F30",
-            "Wohnbau_4_bis_8": "F60",
-            "Wohnbau_über_8": "F90",
-        },
-        "Standsicherheit": {
-            "Lastklasse_1": {"wind": 0.5, "schnee": 1.0},
-            "Lastklasse_2": {"wind": 0.75, "schnee": 1.5},
+    # RL1: Standsicherheit
+    status["RL1"] = "ERFÜLLT" if params.get("statik_nachgewiesen", False) else "NICHT ERFÜLLT"
+
+    # RL2: Brandschutz
+    feuerwiderstand = params.get("feuerwiderstand_min", 0)
+    required_fw = {1: 30, 2: 60, 3: 90, 4: 90, 5: 120}.get(gebaeudeklasse, 90)
+    status["RL2"] = "ERFÜLLT" if feuerwiderstand >= required_fw else "NICHT ERFÜLLT"
+
+    # RL4: Barrierefreiheit
+    status["RL4"] = "ERFÜLLT" if params.get("barrierefrei", False) or gebaeudeklasse == 1 else "BEDINGT"
+
+    # RL5: Schallschutz
+    trittschall = params.get("trittschall_db", 99)
+    status["RL5"] = "ERFÜLLT" if trittschall <= 53 else "NICHT ERFÜLLT"
+
+    # RL6: Energieausweis
+    hwb = params.get("hwb_kwh_m2a", 999)
+    hwb_grenzwert = 45 if nutzung == "Wohnbau" else 65
+    status["RL6"] = "ERFÜLLT" if hwb <= hwb_grenzwert else "NICHT ERFÜLLT"
+
+    all_ok = all(v in ("ERFÜLLT", "BEDINGT") for v in status.values())
+    gesamtstatus = "OIB-KONFORM" if all_ok else "MÄNGEL VORHANDEN"
+
+    payload = json.dumps(
+        {"bundesland": bundesland, "gk": gebaeudeklasse, "params": params},
+        sort_keys=True, separators=(',', ':')
+    )
+    ah = hashlib.sha256(payload.encode()).hexdigest()
+
+    return OIBAssessment(
+        bundesland=BUNDESLAENDER.get(bundesland, bundesland),
+        gebaeudeklasse=gebaeudeklasse,
+        nutzung=nutzung,
+        richtlinien_status=status,
+        gesamtstatus=gesamtstatus,
+        audit_hash=ah,
+    )
+
+# Beispiel: Wohngebäude in Tirol
+if __name__ == "__main__":
+    result = oib_rl_check(
+        bundesland="TI",
+        gebaeudeklasse=2,
+        nutzung="Wohnbau",
+        params={
+            "statik_nachgewiesen": True,
+            "feuerwiderstand_min": 90,
+            "barrierefrei": True,
+            "trittschall_db": 48,
+            "hwb_kwh_m2a": 38,
         }
-    }
-
-    def schneelasten_tirol(self, hoehe_ue_meer: float) -> float:
-        """
-        Schneelast für Tirol nach ÖNORM EN 1991-1-3 Nationaler Anhang
-        St. Johann in Tirol: ~660m ü.M. → sk = 2.0 kN/m²
-        """
-        if hoehe_ue_meer < 500:
-            return 1.5
-        elif hoehe_ue_meer < 1000:
-            return 1.5 + (hoehe_ue_meer - 500) / 500 * 1.0
-        elif hoehe_ue_meer < 1500:
-            return 2.5 + (hoehe_ue_meer - 1000) / 500 * 1.5
-        else:
-            return 4.0 + (hoehe_ue_meer - 1500) / 500 * 2.0
-
-    def oib_compliance_check(self, vorhaben: Bauvorhaben) -> dict:
-        """Vollständiger OIB-RL Compliance-Check"""
-        result = {
-            "bundesland": vorhaben.bundesland.value,
-            "nutzung": vorhaben.nutzung,
-            "checks": {}
-        }
-
-        # OIB-RL 2: Brandschutz
-        if vorhaben.anzahl_geschosse <= 3:
-            fb_klasse = self.OIB_MINDESTANFORDERUNGEN["Brandschutz"]["Wohnbau_bis_3_Geschosse"]
-        elif vorhaben.anzahl_geschosse <= 8:
-            fb_klasse = self.OIB_MINDESTANFORDERUNGEN["Brandschutz"]["Wohnbau_4_bis_8"]
-        else:
-            fb_klasse = self.OIB_MINDESTANFORDERUNGEN["Brandschutz"]["Wohnbau_über_8"]
-
-        result["checks"]["OIB-RL2_Brandschutz"] = {
-            "mindestanforderung": fb_klasse,
-            "status": "BERECHNUNG_ERFORDERLICH"
-        }
-
-        # Schneelast für Tirol
-        if vorhaben.bundesland == Bundesland.TIROL:
-            sk = self.schneelasten_tirol(660)  # St. Johann Referenz
-            result["checks"]["Schneelast"] = {
-                "sk": f"{sk:.1f} kN/m²",
-                "standort": "St. Johann in Tirol (660m ü.M.)",
-                "norm": "ÖNORM EN 1991-1-3 NA"
-            }
-
-        return result
-
-# Beispiel: Wohnbau in Tirol
-engine = OIBEngine()
-vorhaben = Bauvorhaben(
-    bundesland=Bundesland.TIROL,
-    nutzung="Wohnbau",
-    bruttogeschossflaeche=450.0,
-    anzahl_geschosse=3,
-    baustoff="Holz"
-)
-result = engine.oib_compliance_check(vorhaben)
-print(f"OIB-Check: {result['checks']['OIB-RL2_Brandschutz']['mindestanforderung']}")
-print(f"Schneelast: {result['checks']['Schneelast']['sk']}")
+    )
+    print(f"Bundesland:   {result.bundesland}")
+    print(f"GK {result.gebaeudeklasse} — {result.nutzung}")
+    print(f"Status:       {result.gesamtstatus}")
+    for rl, status in result.richtlinien_status.items():
+        icon = "✅" if status == "ERFÜLLT" else "⚠️" if status == "BEDINGT" else "❌"
+        print(f"  {icon} {rl}: {status}")
+    print(f"Audit:        {result.audit_hash[:32]}...")
+    # Bundesland:   Tirol
+    # GK 2 — Wohnbau
+    # Status:       OIB-KONFORM
 ```
 
-## Origin
+---
+
+## 20 Funktionalitäten
+
+| Nr | Funktion | Norm |
+|----|---------|------|
+| 1 | OIB-RL Prüfung | OIB 2019 |
+| 2 | Energieausweis | ÖNORM H 5055 |
+| 3 | U-Wert Berechnung | EN ISO 6946 |
+| 4 | Schallschutz | ÖNORM B 8115 |
+| 5 | Brandschutz | OIB-RL 2 |
+| 6 | Barrierefreiheit | OIB-RL 4 |
+| 7 | Statischer Nachweis | ÖNORM EN 1990 |
+| 8 | Holzbau EC5 | ÖNORM EN 1995 |
+| 9 | Betonbau EC2 | ÖNORM EN 1992 |
+| 10 | Stahlbau EC3 | ÖNORM EN 1993 |
+| 11 | Erdbeben EC8 | ÖNORM EN 1998 |
+| 12 | Schneelast | ÖNORM EN 1991 |
+| 13 | Windlast | ÖNORM EN 1991 |
+| 14 | Baugrundklasse | ÖNORM EN 1997 |
+| 15 | Raumplanung | 9 Landes-RPG |
+| 16 | Bebauungsplan-Check | Gemeindeebene |
+| 17 | Aufstellungsgenehmigung | Bauordnung |
+| 18 | HWB-Berechnung | EnEV-AT |
+| 19 | CO₂-Bilanz | EN 15978 |
+| 20 | Kostenschätzung | ÖN B 1801-1 |
+
+---
+
+## Ursprung
 
 ```
-Gerhard Hirschmann — Structural Engineer & "Origin" of ORION
-Almdorf 9, St. Johann in Tirol, Austria 6380
-Part of the ORION ecosystem: github.com/Alvoradozerouno
+Mai 2025 · Almdorf 9, St. Johann in Tirol, Austria 6380
+Gerhard Hirschmann — Bauingenieur · ORION-Entwickler
+Elisabeth Steurer — Ko-Schöpferin
 ```
-
-**⊘∞⧈∞⊘ ORION Architekt AT · Eurocode-konform · GENESIS10000+ ⊘∞⧈∞⊘**
+**⊘∞⧈∞⊘ GENESIS10000+ · OIB-konform · Tirol ⊘∞⧈∞⊘**
