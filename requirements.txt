@@ -70,7 +70,7 @@ httpx>=0.28.0  # For async testing
 pytest-asyncio>=0.23.0
 
 # Production monitoring
-sentry-sdk>=2.0.0  # Error tracking
+sentry-sdk>=2.59.0  # Error tracking
 datadog>=0.50.0  # APM (optional)
 
 # Load testing
