@@ -168,18 +168,22 @@ async def berechne_uwert(request: UWertRequest):
     # Calculate total thickness
     gesamtdicke_mm = sum(schicht.dicke_mm for schicht in request.schichten)
 
-    # Check OIB-RL 6 compliance (exterior wall: max 0.25 W/m2K)
-    oib_rl6_compliant = uwert <= 0.25
+    # Check OIB-RL 6:2023 compliance for exterior wall (max 0.35 W/m²K for Neubau)
+    oib_rl6_compliant = uwert <= 0.35
 
-    # Determine energy class
+    # Determine energy class based on U-value thresholds (OIB-RL 6:2023 Außenwand)
     if uwert <= 0.15:
         energy_class = "A+"
     elif uwert <= 0.20:
         energy_class = "A"
     elif uwert <= 0.25:
         energy_class = "B"
-    else:
+    elif uwert <= 0.35:
         energy_class = "C"
+    elif uwert <= 0.50:
+        energy_class = "D"
+    else:
+        energy_class = "E"
 
     return UWertResult(
         uwert=round(uwert, 3),
@@ -467,3 +471,65 @@ async def get_materialdatenbank(material_typ: Optional[str] = None):
         materials = [m for m in materials if m["kategorie"].lower() == material_typ.lower()]
 
     return {"materials": materials, "total": len(materials)}
+
+
+class HWBGrenzwertRequest(BaseModel):
+    """OIB-RL 6:2023 HWB compliance check request"""
+
+    hwb_ref_rk: float = Field(
+        ...,
+        gt=0,
+        le=500,
+        description="Berechneter HWBRef,RK in kWh/(m²a) — auf Referenzklima umgerechnet",
+    )
+    a_v_verhaeltnis: float = Field(
+        ...,
+        ge=0.20,
+        le=0.80,
+        description="A/V-Verhältnis: wärmeübertragende Hüllfläche / beheiztes Brutto-Volumen (m²/m³)",
+    )
+
+
+@router.post("/hwb-grenzwert-oib6")
+async def pruefe_hwb_grenzwert(request: HWBGrenzwertRequest):
+    """
+    🌡️ **HWB Grenzwert-Prüfung nach OIB-RL 6:2023**
+
+    Prüft ob ein Heizwärmebedarf die Anforderungen der OIB-RL 6 Ausgabe 2023 erfüllt.
+
+    **Formel:** HWBRef,RK,max = 10 + 30 × (A/V) kWh/(m²a)
+
+    | A/V  | HWBmax [kWh/(m²a)] |
+    |------|-------------------|
+    | 0,20 | 16,0              |
+    | 0,40 | 22,0              |
+    | 0,50 | 25,0              |
+    | 0,60 | 28,0              |
+    | 0,80 | 34,0              |
+
+    ⚠️ **Ziviltechniker-Pflicht**: Der Energieausweis muss von einem befugten
+    Ziviltechniker oder Energieberater ausgestellt und in der österreichischen
+    Energieausweis-Datenbank registriert werden (ZTG 2019).
+    """
+    grenzwert = 10.0 + 30.0 * request.a_v_verhaeltnis
+    konform = request.hwb_ref_rk <= grenzwert
+    ueberschreitung_pct = (
+        round((request.hwb_ref_rk - grenzwert) / grenzwert * 100, 1) if not konform else 0.0
+    )
+
+    return {
+        "hwb_ref_rk": request.hwb_ref_rk,
+        "hwb_grenzwert_kwh_m2a": round(grenzwert, 1),
+        "a_v_verhaeltnis": request.a_v_verhaeltnis,
+        "oib_rl6_2023_konform": konform,
+        "ueberschreitung_pct": ueberschreitung_pct,
+        "formel": f"HWBmax = 10 + 30 × {request.a_v_verhaeltnis:.2f} = {grenzwert:.1f} kWh/(m²a)",
+        "norm": "OIB-RL 6:2023 (Ausgabe Mai 2023), Tabelle 1 — Wohngebäude Referenzklima",
+        "fgee_grenzwert": 0.75,
+        "fgee_hinweis": "fGEE ≤ 0,75 für Neubauten (OIB-RL 6:2023, Verschärfung gegenüber 0,85 in OIB-RL 6:2019)",
+        "ziviltechniker_pflicht": (
+            "Energieausweis muss von befugtem Ziviltechniker (ZTG 2019) ausgestellt "
+            "und in der österreichischen Energieausweis-Datenbank registriert werden."
+        ),
+        "status": "pass" if konform else "fail",
+    }

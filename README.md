@@ -7,30 +7,31 @@
 > **Comprehensive Austrian building tool — all 9 federal states, 20 functionalities, OIB-RL engine.**
 > From OIB compliance to energy estimation and structural calculations.
 
-## 20 Functionalities
+## 21 Functionalities
 
 | # | Function | Standard |
 |---|----------|---------|
-| 1 | OIB-RL 2 — Brandschutz | OIB-RL 2:2019 |
-| 2 | OIB-RL 3 — Hygiene | OIB-RL 3:2019 |
-| 3 | OIB-RL 4 — Nutzungssicherheit | OIB-RL 4:2019 |
-| 4 | OIB-RL 5 — Schallschutz | OIB-RL 5:2019 |
-| 5 | OIB-RL 6 — Energieeinsparung | OIB-RL 6:2019 |
-| 6 | U-Wert Berechnung | EN ISO 6946 |
-| 7 | Heizlastberechnung | EN 12831 |
-| 8 | Kühlastberechnung | ÖNORM EN 13370 |
-| 9 | Trittschallschutz | ÖNORM B 8115 |
-| 10 | Holzbaustatik (EC5) | EN 1995 |
-| 11 | Stahlbau (EC3) | EN 1993 |
-| 12 | Massivbau (EC2) | EN 1992 |
-| 13 | Grundbau (EC7) | EN 1997 |
-| 14 | Erdbeben (EC8) | EN 1998 |
-| 15 | Schneelast | EN 1991-1-3 |
-| 16 | Windlast | EN 1991-1-4 |
-| 17 | Raumakustik | EN ISO 3382 |
-| 18 | Tageslichtberechnung | EN 17037 |
-| 19 | Baukostenindex | BKI Österreich |
-| 20 | Gebührenrechner | Honorarordnung AT |
+| 1 | OIB-RL 2 — Brandschutz | OIB-RL 2:2023 |
+| 2 | OIB-RL 3 — Hygiene | OIB-RL 3:2023 |
+| 3 | OIB-RL 4 — Nutzungssicherheit | OIB-RL 4:2023 |
+| 4 | OIB-RL 5 — Schallschutz | OIB-RL 5:2023 |
+| 5 | OIB-RL 6 — Energieeinsparung (fGEE ≤ 0,75; A/V-HWB-Formel) | OIB-RL 6:2023 |
+| 6 | OIB-RL 7 — Nachhaltigkeit/Kreislaufwirtschaft | OIB-RL 7:2023 (Grundlagendok.) |
+| 7 | U-Wert Berechnung | EN ISO 6946 |
+| 8 | Heizlastberechnung | EN 12831 |
+| 9 | Kühlastberechnung | ÖNORM EN 13370 |
+| 10 | Trittschallschutz | ÖNORM B 8115 |
+| 11 | Holzbaustatik (EC5) | EN 1995 |
+| 12 | Stahlbau (EC3) | EN 1993 |
+| 13 | Massivbau (EC2) | EN 1992 |
+| 14 | Grundbau (EC7) | EN 1997 |
+| 15 | Erdbeben (EC8) | EN 1998 |
+| 16 | Schneelast | EN 1991-1-3 |
+| 17 | Windlast | EN 1991-1-4 |
+| 18 | Raumakustik | EN ISO 3382 |
+| 19 | Tageslichtberechnung | EN 17037 |
+| 20 | Baukostenindex | BKI Österreich |
+| 21 | Gebührenrechner | LM.VM 2023 (Kammer der Ziviltechniker:innen) |
 
 ## 9 Bundesländer
 

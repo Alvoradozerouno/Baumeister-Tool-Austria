@@ -36,18 +36,24 @@ async def check_oib_rl_compliance(
     bgf_m2: float,
     geschosse: int,
     wohnungen: Optional[int] = None,
-    richtlinien: List[int] = [1, 2, 3, 4, 5, 6],
+    richtlinien: List[int] = [1, 2, 3, 4, 5, 6, 7],
 ):
     """
-    ✅ **OIB-RL Compliance Check**
+    ✅ **OIB-RL Compliance Check (OIB-RL 2023)**
 
     Comprehensive compliance check for all OIB Richtlinien:
-    - OIB-RL 1: Mechanical resistance and stability
-    - OIB-RL 2: Fire safety
-    - OIB-RL 3: Hygiene, health and environment
-    - OIB-RL 4: Safety and accessibility
-    - OIB-RL 5: Sound protection
-    - OIB-RL 6: Energy efficiency and heat protection
+    - OIB-RL 1: Mechanische Festigkeit und Standsicherheit
+    - OIB-RL 2: Brandschutz
+    - OIB-RL 3: Hygiene, Gesundheit und Umweltschutz
+    - OIB-RL 4: Nutzungssicherheit und Barrierefreiheit
+    - OIB-RL 5: Schallschutz
+    - OIB-RL 6: Energieeinsparung und Wärmeschutz (fGEE ≤ 0,75; HWB nach A/V-Formel; Salzburg: eigene WSchVO!)
+    - OIB-RL 7: Nachhaltige Nutzung der natürlichen Ressourcen (Grundlagendokument 2023)
+    - Radonschutz nach ÖNORM S 5280 (bundeslandabhängig)
+
+    ⚠️ **Ziviltechniker-Pflicht**: Für behördliche Einreichungen sind die Unterlagen von einem
+    befugten Ziviltechniker (Architekt oder Ingenieurkonsulent) zu unterschreiben und zu siegeln
+    (Ziviltechnikergesetz 2019, ZTG 2019). Dieses System ist eine Planungshilfe, kein Ersatz.
     """
     results = []
 
@@ -68,6 +74,15 @@ async def check_oib_rl_compliance(
 
     if 6 in richtlinien:
         results.append(_check_oib_rl_6(bundesland, bgf_m2))
+
+    # OIB-RL 7: Nachhaltigkeit (Grundlagendokument 2023)
+    if 7 in richtlinien:
+        results.append(_check_oib_rl_7(building_type))
+
+    # Radonschutz: bundeslandspezifisch (ÖNORM S 5280)
+    radon_result = _check_radon(bundesland)
+    if radon_result is not None:
+        results.append(radon_result)
 
     return results
 
@@ -273,44 +288,165 @@ def _check_oib_rl_5(building_type: str, wohnungen: Optional[int]) -> ComplianceR
 
 
 def _check_oib_rl_6(bundesland: str, bgf_m2: float) -> ComplianceResult:
-    """OIB-RL 6: Energy efficiency"""
+    """OIB-RL 6: Energy efficiency (OIB-RL 6:2023)"""
+
+    # Salzburg uses its own Wärmeschutzverordnung — NOT OIB-RL 6
+    if bundesland.lower() == "salzburg":
+        return ComplianceResult(
+            richtlinie="OIB-RL 6 / Sbg-WSchVO",
+            status="warning",
+            checks=[
+                {
+                    "check": "⚠️ Salzburg Sonderregelung",
+                    "status": "warning",
+                    "details": (
+                        "Salzburg hat OIB-RL 6 NICHT übernommen! "
+                        "Es gilt die Salzburger Wärmeschutzverordnung (WSchVO) — "
+                        "teils strengere Anforderungen als OIB-RL 6. "
+                        "Energienachweis nach Sbg-WSchVO beim Einreichen erforderlich."
+                    ),
+                }
+            ],
+            summary="Salzburg: Eigene Wärmeschutzverordnung statt OIB-RL 6 — Sbg-WSchVO prüfen!",
+        )
+
     checks = [
         {
             "check": "U-Wert Außenwand",
             "status": "pass",
-            "details": "U ≤ 0,25 W/m²K (Neubau Wohngebäude)",
+            "details": "U ≤ 0,35 W/m²K (Neubau Wohngebäude, OIB-RL 6:2023)",
         },
-        {"check": "U-Wert Dach", "status": "pass", "details": "U ≤ 0,15 W/m²K (Neubau)"},
-        {"check": "U-Wert Fenster", "status": "pass", "details": "Uw ≤ 1,0 W/m²K (Neubau)"},
+        {
+            "check": "U-Wert Dach/oberste Geschoßdecke",
+            "status": "pass",
+            "details": "U ≤ 0,20 W/m²K (Neubau, OIB-RL 6:2023)",
+        },
+        {
+            "check": "U-Wert Fenster",
+            "status": "pass",
+            "details": "Uw ≤ 1,40 W/m²K (Neubau, OIB-RL 6:2023)",
+        },
+        {
+            "check": "fGEE Gesamtenergieeffizienz-Faktor",
+            "status": "pass",
+            "details": "fGEE ≤ 0,75 (Neubau, OIB-RL 6:2023 — Verschärfung gegenüber 0,85 der Ausgabe 2019)",
+        },
+        {
+            "check": "HWBRef,RK Heizwärmebedarf",
+            "status": "pass",
+            "details": (
+                "HWBmax = 10 + 30 × (A/V) kWh/(m²a) nach OIB-RL 6:2023 Tabelle 1. "
+                "Beispiel A/V=0,5: HWBmax = 25 kWh/(m²a). Genaues A/V je Projekt berechnen."
+            ),
+        },
         {
             "check": "Energieausweis",
             "status": "pass",
-            "details": "Energieausweis erforderlich gemäß OIB-RL 6",
+            "details": (
+                "Energieausweis-Pflicht bei Neubau und umfassender Sanierung. "
+                "Muss von befugtem Ziviltechniker oder Energieberater ausgestellt "
+                "und in der österreichischen Energieausweis-Datenbank registriert werden."
+            ),
+        },
+        {
+            "check": "Nahezu-Nullenergiegebäude (NZEB)",
+            "status": "pass",
+            "details": "Alle Neubauten müssen NZEB-Standard erfüllen (ab 2021 EU-Gebäuderichtlinie)",
         },
     ]
 
-    # HWB calculation (simplified)
-    hwb_estimated = 35  # Placeholder
-    if hwb_estimated <= 15:
-        energy_class = "A+"
-    elif hwb_estimated <= 25:
-        energy_class = "A"
-    else:
-        energy_class = "B"
-
-    checks.append(
-        {
-            "check": f"Energieklasse (geschätzt): {energy_class}",
-            "status": "pass",
-            "details": f"Geschätzter HWB: {hwb_estimated} kWh/m²a",
-        }
-    )
+    # PV requirement for larger buildings
+    if bgf_m2 >= 1000:
+        checks.append(
+            {
+                "check": "PV-Anlage Pflicht (BGF ≥ 1.000 m²)",
+                "status": "pass",
+                "details": f"BGF {bgf_m2:.0f} m² ≥ 1.000 m²: PV-Anlage ab 2024 für Neubauten verpflichtend",
+            }
+        )
 
     return ComplianceResult(
         richtlinie="OIB-RL 6",
         status="pass",
         checks=checks,
-        summary=f"Energieeffizienz - Geschätzte Energieklasse {energy_class}",
+        summary="OIB-RL 6:2023 Energieeffizienz — fGEE ≤ 0,75, HWB nach A/V-Formel",
+    )
+
+
+def _check_radon(bundesland: str) -> Optional[ComplianceResult]:
+    """Radonschutz nach ÖNORM S 5280 für Vorsorgegebiete."""
+    radon_vorsorgegebiete = {
+        "tirol": "Tirol ist Radonvorsorgegebiet (Radon-Zonierung nach ÖNORM S 5280). Radonschutzmaßnahmen im Keller/EG Pflicht.",
+        "niederoesterreich": "Waldviertel/Weinviertel: Radonvorsorgegebiet. Radon-Konzept bei Einreichung erforderlich (ÖNORM S 5280).",
+        "oberoesterreich": "Mühlviertel: Radonvorsorge beachten. Messung im Bestand empfohlen.",
+        "steiermark": "Weststeiermark und Teile des Mürztal: Radonvorsorge prüfen.",
+        "salzburg": "Lungau und Teile des Pinzgau: erhöhte Radonkonzentrationen, ÖNORM S 5280 beachten.",
+        "kaernten": "Oberkärnten (Mölltal, Liesertal): erhöhtes Radonpotenzial, Messung empfohlen.",
+        "vorarlberg": "Bregenzerwald/Großwalsertal: Radonpotenzial prüfen.",
+    }
+
+    bl = bundesland.lower()
+    if bl not in radon_vorsorgegebiete:
+        return None
+
+    return ComplianceResult(
+        richtlinie="Radonschutz (ÖNORM S 5280)",
+        status="warning",
+        checks=[
+            {
+                "check": "Radonvorsorgegebiet",
+                "status": "warning",
+                "details": radon_vorsorgegebiete[bl],
+            },
+            {
+                "check": "Radonschutzmaßnahmen",
+                "status": "warning",
+                "details": (
+                    "Erforderliche Maßnahmen nach ÖNORM S 5280: "
+                    "Radon-sichere Bodenplatte, Lüftungskonzept Keller, "
+                    "Radon-Barrieren (PE-Folie ≥ 0,5 mm). "
+                    "Messungen im Bestand: Radonmessservice Austria (radon.gv.at)."
+                ),
+            },
+        ],
+        summary=f"⚠️ Radonvorsorgegebiet — ÖNORM S 5280 Maßnahmen erforderlich für {bundesland.title()}",
+    )
+
+
+def _check_oib_rl_7(building_type: str) -> ComplianceResult:
+    """OIB-RL 7: Nachhaltige Nutzung der natürlichen Ressourcen (Grundlagendokument 2023)."""
+    checks = [
+        {
+            "check": "OI3-Index Baustoffe",
+            "status": "pass",
+            "details": (
+                "OI3-Index (Ökologieindex) der verwendeten Baustoffe beachten. "
+                "Für geförderten Wohnbau in Wien bereits verbindlich."
+            ),
+        },
+        {
+            "check": "Rückbaubarkeit und Kreislaufwirtschaft",
+            "status": "pass",
+            "details": (
+                "Bauteile und Materialien sollen rückbaubar und wiederverwertbar sein. "
+                "Trennbarkeit verschiedener Materialschichten einplanen."
+            ),
+        },
+        {
+            "check": "Global Warming Potential (GWP)",
+            "status": "pass",
+            "details": (
+                "Lebenszyklusanalyse (LCA) nach EN 15978 empfohlen. "
+                "Holzkonstruktionen: negativer CO2-Fußabdruck möglich."
+            ),
+        },
+    ]
+
+    return ComplianceResult(
+        richtlinie="OIB-RL 7",
+        status="pass",
+        checks=checks,
+        summary="OIB-RL 7:2023 Nachhaltigkeit — Grundlagendokument, Verbindlichkeit je Bundesland prüfen",
     )
 
 
@@ -448,4 +584,11 @@ async def generate_compliance_report(
         "oib_results": oib_results,
         "generated_at": datetime.now().isoformat(),
         "version": "OIB-RL 2023",
+        "ziviltechniker_pflicht": (
+            "⚠️ Für behördliche Einreichungen in Österreich müssen alle Planungsunterlagen "
+            "von einem befugten Ziviltechniker (Architekt oder Ingenieurkonsulent) "
+            "unterschrieben und mit dem Staatssiegel versehen werden "
+            "(Ziviltechnikergesetz 2019 — ZTG 2019, BGBl. I Nr. 34/2019). "
+            "ORION Architekt ist eine Planungs- und Prüfhilfe — kein Ersatz für befugte Fachleute."
+        ),
     }

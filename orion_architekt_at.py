@@ -305,17 +305,36 @@ OIB_RICHTLINIEN_AT = {
         "titel": "Energieeinsparung und Wärmeschutz",
         "version": "Ausgabe 2023",
         "kerninhalt": [
-            "Heizwärmebedarf (HWB): max. Referenzwert je nach Gebäudetyp",
-            "Gesamtenergieeffizienz-Faktor (fGEE) ≤ 0,85 (Neubau)",
+            "Heizwärmebedarf (HWBRef,RK): max. Referenzwert je nach A/V-Verhältnis (Formel: HWB ≤ 10 + 30·(A/V))",
+            "Gesamtenergieeffizienz-Faktor (fGEE) ≤ 0,75 (Neubau ab OIB-RL 6:2023)",
             "U-Wert-Anforderungen für Bauteile",
             "Energieausweis-Pflicht bei Neubau und umfassender Sanierung",
-            "Nahezu-Nullenergiegebäude (NZEB) als Ziel",
+            "Nahezu-Nullenergiegebäude (NZEB) Pflicht für alle Neubauten",
+            "Sommerlicher Wärmeschutz: Kühlbedarf begrenzt",
+            "PV-Pflicht für Neubauten ab 2024 (>1.000 m² BGF)",
         ],
         "abweichungen": {
-            "salzburg": "⚠️ OIB-RL 6 NICHT übernommen! Eigene Salzburger Wärmeschutzverordnung mit teils strengeren Anforderungen!",
-            "vorarlberg": "Faktisch strengere Energiestandards, Passivhaus-Nähe üblich",
-            "wien": "BRISE prüft Energiewerte automatisch",
+            "salzburg": "⚠️ OIB-RL 6 NICHT übernommen! Eigene Salzburger Wärmeschutzverordnung (WSchVO) gilt — teils strengere Anforderungen!",
+            "vorarlberg": "Faktisch strengere Energiestandards, Passivhaus-Nähe üblich, eigene Energiebuchhaltungsvorschriften",
+            "wien": "BRISE-Vienna prüft Energiewerte automatisch via IFC-Modell",
         },
+    },
+    "OIB-RL 7": {
+        "titel": "Nachhaltige Nutzung der natürlichen Ressourcen",
+        "version": "Grundlagendokument 2023 (Verbindlichkeit abhängig von Bundesland-Übernahme)",
+        "kerninhalt": [
+            "Kreislaufwirtschaft: Rückbaubarkeit und Materialwiederverwendung",
+            "Ökobilanzierung (Global Warming Potential — GWP) über den Lebenszyklus",
+            "OI3-Index (Ökologie-Index) für Baustoffe",
+            "Klimaaktiv-Kompatibilität als Qualitätsrahmen",
+            "Ressourceneffizienz: Wasser, Boden, Energie im Lebenszyklus",
+        ],
+        "abweichungen": {
+            "wien": "OI3-Index Anforderung bei gefördertem Wohnbau bereits verbindlich",
+            "vorarlberg": "Nachhaltigkeit in Wohnbauförderungs-Richtlinie integriert",
+            "oberoesterreich": "Holzbau-Bonus: CO2-Bilanz positiv bei Holzkonstruktionen",
+        },
+        "hinweis": "OIB-RL 7 befindet sich noch in der Übernahmephase durch die Bundesländer. Aktuelle Anforderungen über ris.bka.gv.at und oib.or.at prüfen!",
     },
 }
 
@@ -3556,7 +3575,7 @@ OENORM_NACHSCHLAGEWERK = [
                 "titel": "Bauprojekt- und Objektmanagement — Kosten",
                 "pflicht": False,
                 "inhalt": "Kostengliederung: Kostengruppen 1-7, Planungsorientierte Kostenermittlung",
-                "verweis": "Honorarordnungen",
+                "verweis": "LM.VM 2023 (Leistungsmodelle.Vergütungsmodelle der Kammer der Ziviltechniker:innen)",
             },
             {
                 "nummer": "ÖNORM B 2110",
@@ -3707,13 +3726,18 @@ def berechne_hwb_grob(
         kategorie = "F-G (energetisch kritisch)"
 
     fgee = round(hwb / 70, 2) if hwb > 0 else 0
+    # OIB-RL 6:2023 — fGEE Neubau-Grenzwert: 0,75
+    fgee_neubau_grenzwert = 0.75
+    fgee_ok = fgee <= fgee_neubau_grenzwert
 
     return {
         "hwb": hwb,
         "fgee": fgee,
+        "fgee_grenzwert_oib6_2023": fgee_neubau_grenzwert,
+        "fgee_neubau_konform": fgee_ok,
         "kategorie": kategorie,
-        "neubau_ok": hwb <= 50,
-        "hinweis": "Grobe Orientierung! Für den Energieausweis ist eine detaillierte Berechnung durch einen Energieberater erforderlich.",
+        "neubau_ok": hwb <= 50 and fgee_ok,
+        "hinweis": "Grobe Orientierung! Für den Energieausweis ist eine detaillierte Berechnung durch einen befugten Energieberater (Ziviltechniker) erforderlich.",
     }
 
 
@@ -4383,6 +4407,51 @@ def berechne_hwb_exakt(
         "a_boden": round(a_boden_fl, 1),
         "heizung": heiz["name"],
         "co2_kg_jahr": round(endenergie * heiz["co2_kg_kwh"]),
+        # OIB-RL 6:2023 compliance
+        "fgee_grenzwert_oib6_2023": 0.75,
+        "fgee_neubau_konform": round(fgee, 2) <= 0.75,
+        "ziviltechniker_pflicht": "Energieausweis muss von befugtem Ziviltechniker oder Energieberater ausgestellt und registriert werden.",
+    }
+
+
+def berechne_hwb_grenzwert_oib6_2023(a_v_verhaeltnis: float) -> float:
+    """Berechnet den zulässigen HWBRef,RK-Grenzwert nach OIB-RL 6:2023 Tabelle 1.
+
+    Formel: HWBRef,RK,max = 10 + 30 × (A/V)
+    Gültig für Wohngebäude (Referenzklima).
+
+    Args:
+        a_v_verhaeltnis: A/V-Verhältnis in m²/m³ (wärmeübertragende Hüllfläche / beheiztes Brutto-Volumen)
+                         Typisch 0,20 (kompaktes MFH) bis 0,80 (freistehendes EFH)
+
+    Returns:
+        Maximaler HWBRef,RK in kWh/(m²a)
+    """
+    a_v = max(0.20, min(a_v_verhaeltnis, 0.80))  # Grenzen laut OIB-RL 6 Tabelle
+    return round(10.0 + 30.0 * a_v, 1)
+
+
+def pruefe_hwb_oib6_2023(hwb_ref_rk: float, a_v_verhaeltnis: float) -> dict:
+    """Prüft ob ein HWB-Wert die OIB-RL 6:2023 Anforderungen erfüllt.
+
+    Args:
+        hwb_ref_rk: Berechneter HWBRef,RK in kWh/(m²a) (auf Referenzklima umgerechnet)
+        a_v_verhaeltnis: A/V-Verhältnis des Gebäudes in m²/m³
+
+    Returns:
+        dict mit Konformitätsprüfung und Details
+    """
+    grenzwert = berechne_hwb_grenzwert_oib6_2023(a_v_verhaeltnis)
+    konform = hwb_ref_rk <= grenzwert
+    ueberschreitung_pct = round((hwb_ref_rk - grenzwert) / grenzwert * 100, 1) if not konform else 0.0
+    return {
+        "hwb_ref_rk": hwb_ref_rk,
+        "hwb_grenzwert": grenzwert,
+        "a_v_verhaeltnis": a_v_verhaeltnis,
+        "oib_rl6_2023_konform": konform,
+        "ueberschreitung_pct": ueberschreitung_pct,
+        "formel": f"HWBmax = 10 + 30 × {a_v_verhaeltnis:.2f} = {grenzwert} kWh/(m²a)",
+        "norm": "OIB-RL 6:2023 Tabelle 1 (Wohngebäude Referenzklima)",
     }
 
 

@@ -530,7 +530,98 @@ async def health_check():
         "standards": [
             "ÖNORM A 2063-1:2024",
             "ÖNORM A 2063-2:2021",
-            "ÖNORM B 2110:2013",
+            "ÖNORM B 2110:2023",
             "ÖNORM B 1801-1:2009",
+            "BVergG 2018 (Bundesvergabegesetz)",
+            "Schwellenwerteverordnung 2025",
         ],
+    }
+
+
+@router.get("/metadata/vergabe-schwellenwerte")
+async def get_vergabe_schwellenwerte():
+    """
+    🏛️ **Vergabe-Schwellenwerte Österreich**
+
+    Aktuelle Vergabeschwellen gemäß Schwellenwerteverordnung 2025
+    (BGBl. II Nr. 448/2024, gültig ab 01.01.2025) und BVergG 2018.
+
+    ⚠️ Schwellenwerte werden regelmäßig angepasst — immer auf ris.bka.gv.at prüfen!
+    """
+    return {
+        "rechtsgrundlage": "Bundesvergabegesetz 2018 (BVergG 2018) i.V.m. Schwellenwerteverordnung 2025",
+        "gueltig_ab": "2025-01-01",
+        "quelle": "ris.bka.gv.at, EUR-Lex (EU-Schwellenwerte)",
+        "hinweis": (
+            "Alle Beträge exkl. USt. Schwellenwerte werden alle 2 Jahre von der EU-Kommission "
+            "angepasst. Aktuelle Werte immer über ris.bka.gv.at prüfen."
+        ),
+        "unterschwellenbereich": {
+            "direktvergabe": {
+                "liefer_dienstleistungen": 143_000,
+                "bauauftraege": 500_000,
+                "beschreibung": "Keine Ausschreibung erforderlich, aber Marktpreisvergleich empfohlen",
+                "einheit": "EUR exkl. USt.",
+            },
+            "direktvergabe_mit_bekanntmachung": {
+                "liefer_dienstleistungen": 143_000,
+                "bauauftraege": 500_000,
+                "beschreibung": "Vorherige Bekanntmachung der Absicht, Direktvergabe durchzuführen",
+                "einheit": "EUR exkl. USt.",
+            },
+            "verhandlungsverfahren_ohne_bekanntmachung": {
+                "alle_auftraege": 143_000,
+                "beschreibung": "Nationale Verfahrensart unterhalb EU-Schwellen",
+                "einheit": "EUR exkl. USt.",
+            },
+            "nicht_offenes_verfahren_ohne_bekanntmachung": {
+                "liefer_dienstleistungen": 143_000,
+                "bauauftraege": 1_000_000,
+                "beschreibung": "Beschränkte Ausschreibung ohne öffentliche Bekanntmachung",
+                "einheit": "EUR exkl. USt.",
+            },
+        },
+        "oberschwellenbereich_eu": {
+            "liefer_dienstleistungen_zentraler_auftraggeber": {
+                "schwelle": 143_000,
+                "beschreibung": "EU-weite Ausschreibungspflicht für zentrale öffentliche Stellen",
+                "einheit": "EUR exkl. USt.",
+            },
+            "liefer_dienstleistungen_sonstige_auftraggeber": {
+                "schwelle": 221_000,
+                "beschreibung": "EU-weite Ausschreibungspflicht für sonstige öffentliche Auftraggeber",
+                "einheit": "EUR exkl. USt.",
+            },
+            "bauauftraege": {
+                "schwelle": 5_538_000,
+                "beschreibung": "EU-weite Ausschreibungspflicht für alle Bauaufträge",
+                "einheit": "EUR exkl. USt.",
+            },
+        },
+        "evergabe_pflicht": {
+            "beschreibung": (
+                "Elektronische Vergabe (eVergabe) ist ab den EU-Oberschwellenwerten "
+                "verpflichtend. Angebote und Teilnahmeanträge müssen elektronisch "
+                "eingereicht werden (qualifizierte elektronische Signatur erforderlich)."
+            ),
+            "plattformen": [
+                "ankö.at (Auftragnehmerkataster Österreich)",
+                "auftraggebernews.gv.at",
+                "TED (Tenders Electronic Daily, EU-Amtsblatt)",
+            ],
+        },
+        "oenorm_b2110_2023": {
+            "beschreibung": (
+                "ÖNORM B 2110:2023 (Allgemeine Vertragsbestimmungen für Bauleistungen) "
+                "ist als Vertragsgrundlage in österreichischen Bauverträgen weitverbreitet. "
+                "Abweichungen von der ÖNORM müssen explizit in den Vergabeunterlagen "
+                "festgelegt werden."
+            ),
+            "wichtige_punkte": [
+                "Dokumentationspflichten bei eVergabe",
+                "Mängelhaftung: 3 Jahre (Regelfall)",
+                "Leistungsabweichungen: ± 20% ohne Preisanpassung",
+                "Übergabeprotokoll als Pflichtdokument",
+            ],
+        },
     }

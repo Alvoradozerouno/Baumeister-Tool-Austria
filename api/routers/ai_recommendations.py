@@ -155,10 +155,15 @@ async def optimize_building(building: BuildingInput):
     }
 
     return OptimizationResult(
-        score=score,
+        score=min(score, 100.0),
         recommendations=recommendations,
         estimated_savings=estimated_savings,
-        compliance_warnings=compliance_warnings,
+        compliance_warnings=compliance_warnings
+        + [
+            "⚠️ Ziviltechniker-Pflicht: Für behördliche Einreichungen sind alle Planungsunterlagen "
+            "von einem befugten Ziviltechniker (Architekt/Ingenieurkonsulent, ZTG 2019) "
+            "zu unterschreiben und zu siegeln. ORION ist eine Planungshilfe, kein Ersatz."
+        ],
         suggested_materials=suggested_materials,
         energy_optimization=energy_optimization,
     )
