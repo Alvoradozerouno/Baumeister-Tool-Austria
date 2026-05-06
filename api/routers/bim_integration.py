@@ -228,125 +228,134 @@ async def calculate_uwert_from_bim(file: UploadFile = File(...)):
             os.unlink(tmp_file_path)
 
 
-# Helper functions - Real IFC processing using ifcopenshell
+# Helper functions - Real IFC processing using ifcopenshell or fallback STEP parser
 
 
 def _parse_ifc_file(file_path: str, bundesland: str, building_type: str) -> IFCAnalysisResult:
     """
-    Parse IFC file using real ifcopenshell library
-
-    Replaces mock implementation with actual BIM processing
+    Parse IFC file.
+    1. Try ifcopenshell (full geometry + properties)
+    2. Fallback: pure-Python STEP parser (metadata + element counts)
     """
+    import logging as _logging
+
+    _logger = _logging.getLogger(__name__)
+
     try:
-        import logging
+        from bim_ifc_real import IFC_AVAILABLE, IFCProcessor
 
-        from bim_ifc_real import IFCProcessor
+        if IFC_AVAILABLE:
+            _logger.info("Using ifcopenshell for IFC processing")
+            processor = IFCProcessor()
+            ifc_project = processor.process_ifc_file(file_path, extract_geometry=True)
 
-        logger = logging.getLogger(__name__)
-        logger.info(f"Processing IFC file: {file_path}")
+            # Count building elements by type
+            building_elements: dict = {}
+            for element in ifc_project.elements:
+                etype = element.element_type if hasattr(element, "element_type") else str(type(element))
+                building_elements[etype] = building_elements.get(etype, 0) + 1
 
-        # Initialize IFC processor
-        processor = IFCProcessor()
+            compliance_checks = []
+            warnings = []
 
-        # Process IFC file with geometry extraction
-        ifc_project = processor.process_ifc_file(file_path, extract_geometry=True)
-
-        # Count building elements by type
-        building_elements = {}
-        for element in ifc_project.elements:
-            element_type = element.get("type", "Unknown")
-            building_elements[element_type] = building_elements.get(element_type, 0) + 1
-
-        # Extract compliance checks from processed data
-        compliance_checks = []
-        warnings = []
-
-        # Basic room height check (OIB-RL 3: minimum 2.50m)
-        min_height = float("inf")
-        for storey in ifc_project.storeys:
-            height = storey.get("height_m", 0)
-            if height > 0 and height < min_height:
-                min_height = height
-
-        if min_height >= 2.5:
-            compliance_checks.append(
-                {
-                    "check": "Minimum Room Height",
-                    "status": "pass",
-                    "details": f"Minimum storey height: {min_height:.2f}m (OIB-RL 3: ≥2.50m)",
-                    "standard": "OIB-RL 3",
-                }
-            )
-        else:
-            compliance_checks.append(
-                {
-                    "check": "Minimum Room Height",
-                    "status": "fail",
-                    "details": f"Minimum storey height: {min_height:.2f}m (required: ≥2.50m)",
-                    "standard": "OIB-RL 3",
-                }
-            )
-            warnings.append(f"Room height below minimum: {min_height:.2f}m")
-
-        # Door width check (ÖNORM B 1600: minimum 80cm, recommended 90cm for accessibility)
-        door_count = building_elements.get("IfcDoor", 0)
-        if door_count > 0:
-            compliance_checks.append(
-                {
+            door_count = building_elements.get("IfcDoor", 0)
+            if door_count > 0:
+                compliance_checks.append({
                     "check": "Door Widths",
                     "status": "info",
-                    "details": f"Found {door_count} doors - manual verification recommended for accessibility (ÖNORM B 1600: ≥90cm)",
+                    "details": f"{door_count} Türen gefunden — manuelle Prüfung für Barrierefreiheit empfohlen (ÖNORM B 1600: ≥90cm)",
                     "standard": "ÖNORM B 1600",
-                }
-            )
+                })
 
-        # Window area check (OIB-RL 3: natural light requirements)
-        window_count = building_elements.get("IfcWindow", 0)
-        if window_count > 0:
-            compliance_checks.append(
-                {
+            window_count = building_elements.get("IfcWindow", 0)
+            if window_count > 0:
+                compliance_checks.append({
                     "check": "Window Areas",
                     "status": "info",
-                    "details": f"Found {window_count} windows - verify natural light requirements per room",
+                    "details": f"{window_count} Fenster — Tageslichtnachweis prüfen (OIB-RL 3: Fensterflächenanteil ≥10% der Raumfläche)",
                     "standard": "OIB-RL 3",
-                }
+                })
+
+            material_types: dict = {}
+            for element in ifc_project.elements:
+                mat = getattr(element, "material", None)
+                if mat:
+                    material_types[mat] = material_types.get(mat, 0) + 1
+            material_list = [
+                {"name": m, "category": "Baumaterial", "quantity": f"{c} Elemente"}
+                for m, c in list(material_types.items())[:10]
+            ]
+
+            return IFCAnalysisResult(
+                file_name=os.path.basename(file_path),
+                ifc_version=ifc_project.ifc_schema if hasattr(ifc_project, "ifc_schema") else ifc_project.ifc_version,
+                building_elements=building_elements,
+                total_area_m2=ifc_project.total_area if hasattr(ifc_project, "total_area") else 0.0,
+                total_volume_m3=ifc_project.total_volume,
+                stories=len(ifc_project.storeys),
+                compliance_checks=compliance_checks,
+                warnings=warnings,
+                material_list=material_list,
+                geometry_valid=len(ifc_project.elements) > 0,
             )
 
-        # Extract material list
-        material_list = []
-        material_types = {}
-        for element in ifc_project.elements:
-            material = element.get("material", "")
-            if material and material != "Not specified":
-                material_types[material] = material_types.get(material, 0) + 1
+        else:
+            raise ImportError("ifcopenshell not installed")
 
-        for material, count in material_types.items():
-            material_list.append(
-                {"name": material, "category": "Building Material", "quantity": f"{count} elements"}
+    except (ImportError, RuntimeError) as e:
+        # Fallback: pure-Python STEP parser
+        _logger.info("ifcopenshell not available (%s), using STEP fallback parser", e)
+        try:
+            from bim_ifc_real import parse_ifc_fallback
+
+            res = parse_ifc_fallback(file_path)
+            building_elements = res.element_counts_display()
+            compliance_checks = []
+            warnings = []
+
+            door_count = building_elements.get("IfcDoor", 0)
+            if door_count > 0:
+                compliance_checks.append({
+                    "check": "Door Widths",
+                    "status": "info",
+                    "details": f"{door_count} Türen gefunden — Barrierefreiheitsprüfung empfohlen",
+                    "standard": "ÖNORM B 1600",
+                })
+
+            wall_count = building_elements.get("IfcWall", 0)
+            if wall_count > 0:
+                compliance_checks.append({
+                    "check": "Wall Count",
+                    "status": "pass",
+                    "details": f"{wall_count} Wände extrahiert",
+                    "standard": "—",
+                })
+
+            material_list = [
+                {"name": m, "category": "Baumaterial", "quantity": "extrahiert"}
+                for m in res.materials[:10]
+            ]
+
+            stories = max(len(res.storey_names), 1)
+            return IFCAnalysisResult(
+                file_name=os.path.basename(file_path),
+                ifc_version=res.ifc_schema + " (STEP-Parser)",
+                building_elements=building_elements,
+                total_area_m2=round(res.total_area_m2, 2),
+                total_volume_m3=round(res.total_volume_m3, 2),
+                stories=stories,
+                compliance_checks=compliance_checks,
+                warnings=warnings,
+                material_list=material_list,
+                geometry_valid=sum(building_elements.values()) > 0,
             )
-
-        return IFCAnalysisResult(
-            file_name=os.path.basename(file_path),
-            ifc_version=ifc_project.ifc_schema,
-            building_elements=building_elements,
-            total_area_m2=sum(s.get("area_m2", 0) for s in ifc_project.storeys),
-            total_volume_m3=ifc_project.total_volume,
-            stories=len(ifc_project.storeys),
-            compliance_checks=compliance_checks,
-            warnings=warnings,
-            material_list=material_list[:10],  # Limit to top 10 materials
-            geometry_valid=len(ifc_project.elements) > 0,
-        )
-
-    except ImportError as e:
-        logger.error(f"ifcopenshell not available: {e}")
-        raise HTTPException(
-            status_code=500,
-            detail="BIM processing library not installed. Install with: pip install ifcopenshell",
-        )
+        except Exception as e2:
+            _logger.error("STEP fallback parser also failed: %s", e2)
+            raise HTTPException(status_code=400, detail=f"IFC-Datei konnte nicht verarbeitet werden: {e2}")
     except Exception as e:
-        logger.error(f"IFC processing failed: {type(e).__name__}: {e}")
-        raise HTTPException(status_code=400, detail=f"IFC file processing failed: {str(e)}")
+        _logger.error("IFC processing error: %s", e)
+        raise HTTPException(status_code=400, detail=f"IFC-Verarbeitung fehlgeschlagen: {e}")
+
 
 
 def _validate_bim_compliance(file_path: str, validation: BIMValidationRequest) -> Dict:

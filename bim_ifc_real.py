@@ -113,7 +113,7 @@ class IFCProcessor:
             self.logger.error(f"Failed to load IFC file: {e}")
             raise
 
-    def extract_project_info(self, ifc_file: ifcopenshell.file) -> Dict[str, Any]:
+    def extract_project_info(self, ifc_file: Any) -> Dict[str, Any]:
         """Extract project metadata"""
         project = ifc_file.by_type("IfcProject")[0]
 
@@ -148,7 +148,7 @@ class IFCProcessor:
 
         return project_info
 
-    def extract_storeys(self, ifc_file: ifcopenshell.file) -> List[Dict[str, Any]]:
+    def extract_storeys(self, ifc_file: Any) -> List[Dict[str, Any]]:
         """Extract building storeys"""
         storeys = []
 
@@ -166,7 +166,7 @@ class IFCProcessor:
 
         return storeys
 
-    def extract_geometry(self, ifc_file: ifcopenshell.file, element: Any) -> Optional[IFCGeometry]:
+    def extract_geometry(self, ifc_file: Any, element: Any) -> Optional[IFCGeometry]:
         """Extract element geometry"""
         try:
             settings = ifcopenshell.geom.settings()
@@ -223,7 +223,7 @@ class IFCProcessor:
             self.logger.warning(f"Could not extract geometry for {element.GlobalId}: {e}")
             return None
 
-    def extract_properties(self, ifc_file: ifcopenshell.file, element: Any) -> Dict[str, Any]:
+    def extract_properties(self, ifc_file: Any, element: Any) -> Dict[str, Any]:
         """Extract element properties"""
         properties = {}
 
@@ -241,7 +241,7 @@ class IFCProcessor:
 
         return properties
 
-    def extract_quantities(self, ifc_file: ifcopenshell.file, element: Any) -> Dict[str, float]:
+    def extract_quantities(self, ifc_file: Any, element: Any) -> Dict[str, float]:
         """Extract element quantities"""
         quantities = {}
 
@@ -271,7 +271,7 @@ class IFCProcessor:
 
         return quantities
 
-    def extract_material(self, ifc_file: ifcopenshell.file, element: Any) -> Optional[str]:
+    def extract_material(self, ifc_file: Any, element: Any) -> Optional[str]:
         """Extract element material"""
         try:
             material_associations = [
@@ -548,3 +548,143 @@ if __name__ == "__main__":
     else:
         print("❌ IFC Processing NOT Available")
         print("Install with: pip install ifcopenshell")
+
+
+# ---------------------------------------------------------------------------
+# Pure-Python STEP/IFC Fallback Parser
+# Used when ifcopenshell is not installed.
+# Parses the ASCII STEP format (ISO 10303-21) that all IFC files use.
+# ---------------------------------------------------------------------------
+
+import re
+
+
+class StepIFCParser:
+    """
+    Minimal STEP (ISO 10303-21) parser for IFC files.
+    Extracts entities without geometry — just metadata and element counts.
+    Works without ifcopenshell.
+    """
+
+    # IFC entity types we care about
+    _ELEMENT_TYPES = {
+        "IFCWALL", "IFCWALLSTANDARDCASE", "IFCSLAB", "IFCBEAM", "IFCCOLUMN",
+        "IFCWINDOW", "IFCDOOR", "IFCROOF", "IFCSTAIR", "IFCRAILING",
+        "IFCSPACE", "IFCBUILDING", "IFCBUILDINGSTOREY", "IFCPROJECT", "IFCSITE",
+        "IFCMATERIAL", "IFCMATERIALLAYER",
+    }
+
+    def parse(self, file_path: str) -> "StepIFCResult":
+        """Parse an IFC file and return structured metadata."""
+        result = StepIFCResult()
+
+        try:
+            with open(file_path, "r", encoding="utf-8", errors="replace") as f:
+                content = f.read()
+        except OSError as e:
+            raise ValueError(f"Cannot read IFC file: {e}")
+
+        # Detect IFC schema version from FILE_SCHEMA
+        schema_match = re.search(r"FILE_SCHEMA\s*\(\s*\(\s*'([^']+)'", content)
+        result.ifc_schema = schema_match.group(1) if schema_match else "IFC4"
+
+        # Detect project name from IFCPROJECT — 3rd attribute (Name), handles $=null args
+        proj_match = re.search(
+            r"IFCPROJECT\('[^']*'\s*,\s*(?:'[^']*'|\$)\s*,\s*'([^']*)'",
+            content,
+        )
+        result.project_name = proj_match.group(1) if proj_match else "Unnamed Project"
+
+        # Count entity types
+        for etype in self._ELEMENT_TYPES:
+            count = len(re.findall(rf"\b{etype}\s*\(", content, re.IGNORECASE))
+            if count:
+                result.entity_counts[etype] = count
+
+        # Extract storeys — 3rd attribute is Name, 2nd can be $ (null)
+        storey_pattern = re.compile(
+            r"IFCBUILDINGSTOREY\('[^']*'\s*,\s*(?:'[^']*'|\$)\s*,\s*'([^']*)'",
+            re.IGNORECASE,
+        )
+        for m in storey_pattern.finditer(content):
+            name = m.group(1).strip()
+            if name and name not in result.storey_names:
+                result.storey_names.append(name)
+
+        # Extract materials — 2nd attribute is Name, 1st can be $ (null)
+        mat_pattern = re.compile(
+            r"IFCMATERIAL\s*\(\s*(?:'[^']*'|\$)\s*,\s*'([^']*)'",
+            re.IGNORECASE,
+        )
+        for m in mat_pattern.finditer(content):
+            mat = m.group(1).strip()
+            if mat and mat not in result.materials:
+                result.materials.append(mat)
+
+        # Extract quantities from IfcQuantityArea (GrossFloorArea etc.)
+        qty_pattern = re.compile(
+            r"IFCQUANTITYAREA\('[^']*','([^']*)'[^,]*,[^,]*,([0-9.]+)", re.IGNORECASE
+        )
+        total_area = 0.0
+        for m in qty_pattern.finditer(content):
+            try:
+                val = float(m.group(2))
+                total_area += val
+            except ValueError:
+                pass
+        result.total_area_m2 = total_area
+
+        # Approximate volume from IfcQuantityVolume
+        vol_pattern = re.compile(
+            r"IFCQUANTITYVOLUME\('[^']*','[^']*'[^,]*,[^,]*,([0-9.]+)", re.IGNORECASE
+        )
+        total_vol = 0.0
+        for m in vol_pattern.finditer(content):
+            try:
+                total_vol += float(m.group(1))
+            except ValueError:
+                pass
+        result.total_volume_m3 = total_vol
+
+        # Count file lines for size estimation
+        result.file_lines = content.count("\n")
+
+        return result
+
+
+class StepIFCResult:
+    """Result of StepIFCParser."""
+
+    def __init__(self):
+        self.ifc_schema: str = "IFC4"
+        self.project_name: str = "Unknown"
+        self.entity_counts: Dict[str, int] = {}
+        self.storey_names: List[str] = []
+        self.materials: List[str] = []
+        self.total_area_m2: float = 0.0
+        self.total_volume_m3: float = 0.0
+        self.file_lines: int = 0
+
+    def element_counts_display(self) -> Dict[str, int]:
+        """Return display-friendly element counts (mapped to IFC type names)."""
+        mapping = {
+            "IFCWALL": "IfcWall", "IFCWALLSTANDARDCASE": "IfcWall",
+            "IFCSLAB": "IfcSlab", "IFCBEAM": "IfcBeam",
+            "IFCCOLUMN": "IfcColumn", "IFCWINDOW": "IfcWindow",
+            "IFCDOOR": "IfcDoor", "IFCROOF": "IfcRoof",
+            "IFCSTAIR": "IfcStair", "IFCSPACE": "IfcSpace",
+        }
+        result: Dict[str, int] = {}
+        for raw, display in mapping.items():
+            if raw in self.entity_counts:
+                result[display] = result.get(display, 0) + self.entity_counts[raw]
+        return result
+
+
+def parse_ifc_fallback(file_path: str) -> StepIFCResult:
+    """
+    Parse IFC file without ifcopenshell.
+    Returns metadata, element counts, materials, storey names.
+    """
+    return StepIFCParser().parse(file_path)
+

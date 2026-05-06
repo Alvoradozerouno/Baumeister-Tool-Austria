@@ -7,13 +7,15 @@ import os
 import sys
 import time
 from contextlib import asynccontextmanager
+from pathlib import Path
 from typing import Optional
 
 from fastapi import Depends, FastAPI, HTTPException, Request, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.openapi.utils import get_openapi
-from fastapi.responses import JSONResponse
+from fastapi.responses import FileResponse, JSONResponse
+from fastapi.staticfiles import StaticFiles
 from prometheus_fastapi_instrumentator import Instrumentator
 
 # Add parent directory to path
@@ -30,7 +32,11 @@ from api.routers import (
     calculations,
     collaboration,
     compliance,
+    fem_router,
+    ml_router,
+    norms_router,
     reports,
+    submission_router,
     tendering,
     validation,
 )
@@ -138,6 +144,27 @@ app.include_router(ai_recommendations.router, prefix="/api/v1/ai", tags=["ai"])
 app.include_router(bim_integration.router, prefix="/api/v1/bim", tags=["bim"])
 app.include_router(collaboration.router, prefix="/api/v1/collaboration", tags=["collaboration"])
 app.include_router(auth_router, prefix="/auth", tags=["auth"])
+
+
+# New feature routers
+app.include_router(ml_router.router, prefix="/api/v1/ml", tags=["ml"])
+app.include_router(fem_router.router, prefix="/api/v1/fem", tags=["fem"])
+app.include_router(norms_router.router, prefix="/api/v1/norms", tags=["norms"])
+app.include_router(submission_router.router, prefix="/api/v1/submission", tags=["submission"])
+
+# Serve frontend static files
+_FRONTEND_DIR = Path(__file__).parent.parent / "frontend"
+if _FRONTEND_DIR.exists():
+    app.mount("/static/css", StaticFiles(directory=str(_FRONTEND_DIR / "css")), name="css")
+    app.mount("/static/js", StaticFiles(directory=str(_FRONTEND_DIR / "js")), name="js")
+
+    @app.get("/app", include_in_schema=False)
+    @app.get("/app/{path:path}", include_in_schema=False)
+    async def serve_frontend(path: str = ""):
+        index = _FRONTEND_DIR / "index.html"
+        if index.exists():
+            return FileResponse(str(index))
+        raise HTTPException(status_code=404, detail="Frontend not found")
 
 
 # Health check endpoints

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ORION Architekt-AT — Österreichische Bausoftware</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-brand">⊘∞⧈∞⊘ ORION Architekt-AT</div>
+  <div class="nav-links">
+    <a href="#dashboard" class="nav-link active" data-section="dashboard">Dashboard</a>
+    <a href="#berechnungen" class="nav-link" data-section="berechnungen">Berechnungen</a>
+    <a href="#bim" class="nav-link" data-section="bim">BIM / IFC</a>
+    <a href="#ki" class="nav-link" data-section="ki">KI &amp; ML</a>
+    <a href="#statik" class="nav-link" data-section="statik">Statik FEM</a>
+    <a href="#normen" class="nav-link" data-section="normen">Normen-Monitor</a>
+    <a href="#einreichung" class="nav-link" data-section="einreichung">Einreichung</a>
+    <a href="#kollaboration" class="nav-link" data-section="kollaboration">Kollaboration</a>
+  </div>
+  <div class="nav-status">
+    <span id="api-status" class="status-dot offline"></span>
+    <span id="api-status-text">Verbinde...</span>
+  </div>
+</nav>
+
+<main class="main-content">
+
+<!-- DASHBOARD -->
+<section id="section-dashboard" class="section active">
+  <h1>Dashboard</h1>
+  <div class="bundesland-selector">
+    <label>Bundesland:</label>
+    <select id="bundesland-global">
+      <option value="wien">Wien</option>
+      <option value="niederoesterreich">Niederösterreich</option>
+      <option value="oberoesterreich">Oberösterreich</option>
+      <option value="salzburg">Salzburg</option>
+      <option value="tirol" selected>Tirol</option>
+      <option value="vorarlberg">Vorarlberg</option>
+      <option value="steiermark">Steiermark</option>
+      <option value="kaernten">Kärnten</option>
+      <option value="burgenland">Burgenland</option>
+    </select>
+  </div>
+  <div class="card-grid">
+    <div class="card" onclick="runQuickCheck()">
+      <div class="card-icon">🏗️</div>
+      <h3>OIB-Schnellcheck</h3>
+      <p>Alle 6 OIB-Richtlinien prüfen</p>
+    </div>
+    <div class="card" onclick="showSection('normen')">
+      <div class="card-icon">📋</div>
+      <h3>Normen-Monitor</h3>
+      <p id="normen-count">Aktueller Stand wird geladen…</p>
+    </div>
+    <div class="card" onclick="showSection('bim')">
+      <div class="card-icon">🧊</div>
+      <h3>IFC Upload</h3>
+      <p>BIM-Modell analysieren</p>
+    </div>
+    <div class="card" onclick="showSection('statik')">
+      <div class="card-icon">📐</div>
+      <h3>FEM-Tragwerk</h3>
+      <p>Balken- &amp; Rahmenstatik</p>
+    </div>
+    <div class="card" onclick="showSection('ki')">
+      <div class="card-icon">🤖</div>
+      <h3>KI-Optimierung</h3>
+      <p>ML Kostenprognose</p>
+    </div>
+    <div class="card" onclick="showSection('einreichung')">
+      <div class="card-icon">📄</div>
+      <h3>Einreichunterlagen</h3>
+      <p>Automatische Unterlage</p>
+    </div>
+  </div>
+  <div id="dashboard-result" class="result-box hidden"></div>
+</section>
+
+<!-- BERECHNUNGEN -->
+<section id="section-berechnungen" class="section hidden">
+  <h1>Berechnungen</h1>
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab(this,'uwert')">U-Wert</button>
+    <button class="tab" onclick="switchTab(this,'stellplaetze')">Stellplätze</button>
+    <button class="tab" onclick="switchTab(this,'barrierefreiheit')">Barrierefreiheit</button>
+    <button class="tab" onclick="switchTab(this,'fluchtweg')">Fluchtwege</button>
+    <button class="tab" onclick="switchTab(this,'heizlast')">Heizlast</button>
+    <button class="tab" onclick="switchTab(this,'schallschutz')">Schallschutz</button>
+  </div>
+
+  <!-- U-Wert -->
+  <div id="tab-uwert" class="tab-content active">
+    <h2>U-Wert Berechnung (EN ISO 6946)</h2>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Bauteiltyp</label>
+        <select id="uw-bauteiltyp">
+          <option value="aussenwand">Außenwand</option>
+          <option value="dach">Dach / Decke</option>
+          <option value="boden">Bodenplatte</option>
+          <option value="fenster">Fenster</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Schichten (JSON-Array)</label>
+        <textarea id="uw-schichten" rows="4" placeholder='[{"material":"Ziegel","dicke_m":0.25,"lambda":0.6},{"material":"EPS","dicke_m":0.16,"lambda":0.035}]'>[{"material":"Ziegel","dicke_m":0.25,"lambda":0.6},{"material":"EPS","dicke_m":0.16,"lambda":0.035}]</textarea>
+      </div>
+    </div>
+    <button class="btn-primary" onclick="calcUwert()">U-Wert berechnen</button>
+    <div id="uwert-result" class="result-box hidden"></div>
+  </div>
+
+  <!-- Stellplätze -->
+  <div id="tab-stellplaetze" class="tab-content hidden">
+    <h2>Stellplatzberechnung</h2>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Gebäudetyp</label>
+        <select id="sp-typ">
+          <option value="wohnbau">Wohnbau</option>
+          <option value="buero">Büro</option>
+          <option value="handel">Handel</option>
+          <option value="gastgewerbe">Gastgewerbe</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>BGF (m²)</label>
+        <input type="number" id="sp-bgf" value="500" min="10">
+      </div>
+      <div class="form-group">
+        <label>Wohneinheiten</label>
+        <input type="number" id="sp-we" value="6" min="1">
+      </div>
+      <div class="form-group">
+        <label>Bundesland</label>
+        <select id="sp-bl">
+          <option value="wien">Wien</option>
+          <option value="tirol" selected>Tirol</option>
+          <option value="salzburg">Salzburg</option>
+          <option value="oberoesterreich">Oberösterreich</option>
+          <option value="niederoesterreich">Niederösterreich</option>
+          <option value="vorarlberg">Vorarlberg</option>
+          <option value="steiermark">Steiermark</option>
+          <option value="kaernten">Kärnten</option>
+          <option value="burgenland">Burgenland</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn-primary" onclick="calcStellplaetze()">Berechnen</button>
+    <div id="stellplaetze-result" class="result-box hidden"></div>
+  </div>
+
+  <!-- Barrierefreiheit -->
+  <div id="tab-barrierefreiheit" class="tab-content hidden">
+    <h2>Barrierefreiheit (ÖNORM B 1600/1601)</h2>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Bundesland</label>
+        <select id="bf-bl">
+          <option value="wien">Wien</option><option value="tirol" selected>Tirol</option>
+          <option value="salzburg">Salzburg</option><option value="oberoesterreich">Oberösterreich</option>
+          <option value="niederoesterreich">Niederösterreich</option><option value="vorarlberg">Vorarlberg</option>
+          <option value="steiermark">Steiermark</option><option value="kaernten">Kärnten</option>
+          <option value="burgenland">Burgenland</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Gebäudeklasse</label>
+        <select id="bf-gk">
+          <option value="1">GK1 (EFH)</option><option value="2">GK2</option>
+          <option value="3">GK3</option><option value="4">GK4</option><option value="5">GK5</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Geschossanzahl</label>
+        <input type="number" id="bf-geschosse" value="3" min="1" max="30">
+      </div>
+      <div class="form-group">
+        <label>Wohneinheiten</label>
+        <input type="number" id="bf-we" value="6" min="1">
+      </div>
+    </div>
+    <button class="btn-primary" onclick="calcBarrierefreiheit()">Prüfen</button>
+    <div id="bf-result" class="result-box hidden"></div>
+  </div>
+
+  <!-- Fluchtweg -->
+  <div id="tab-fluchtweg" class="tab-content hidden">
+    <h2>Fluchtweg-Prüfung (OIB-RL 4)</h2>
+    <div class="form-grid">
+      <div class="form-group"><label>Gebäudeklasse</label>
+        <select id="fw-gk"><option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option></select>
+      </div>
+      <div class="form-group"><label>Max. Fluchtweglänge (m)</label><input type="number" id="fw-laenge" value="30"></div>
+      <div class="form-group"><label>Geschossanzahl</label><input type="number" id="fw-geschosse" value="4"></div>
+      <div class="form-group"><label>Nutzungseinheiten/Geschoss</label><input type="number" id="fw-ne" value="4"></div>
+    </div>
+    <button class="btn-primary" onclick="calcFluchtweg()">Prüfen</button>
+    <div id="fw-result" class="result-box hidden"></div>
+  </div>
+
+  <!-- Heizlast -->
+  <div id="tab-heizlast" class="tab-content hidden">
+    <h2>Heizlastberechnung (EN 12831)</h2>
+    <div class="form-grid">
+      <div class="form-group"><label>BGF (m²)</label><input type="number" id="hl-bgf" value="200"></div>
+      <div class="form-group"><label>U-Wert Wand (W/m²K)</label><input type="number" id="hl-uw" value="0.18" step="0.01"></div>
+      <div class="form-group"><label>U-Wert Fenster (W/m²K)</label><input type="number" id="hl-uwf" value="0.8" step="0.01"></div>
+      <div class="form-group"><label>Bundesland</label>
+        <select id="hl-bl"><option value="tirol" selected>Tirol</option><option value="wien">Wien</option>
+        <option value="salzburg">Salzburg</option><option value="vorarlberg">Vorarlberg</option></select>
+      </div>
+    </div>
+    <button class="btn-primary" onclick="calcHeizlast()">Berechnen</button>
+    <div id="hl-result" class="result-box hidden"></div>
+  </div>
+
+  <!-- Schallschutz -->
+  <div id="tab-schallschutz" class="tab-content hidden">
+    <h2>Schallschutz (ÖNORM B 8115)</h2>
+    <div class="form-grid">
+      <div class="form-group"><label>Bauteil-Typ</label>
+        <select id="ss-typ"><option value="wand">Trennwand</option><option value="decke">Trenndecke</option></select>
+      </div>
+      <div class="form-group"><label>Flächengewicht (kg/m²)</label><input type="number" id="ss-masse" value="300"></div>
+      <div class="form-group"><label>Raumtyp</label>
+        <select id="ss-raum"><option value="wohnen">Wohnen</option><option value="schlafen">Schlafen</option><option value="buero">Büro</option></select>
+      </div>
+    </div>
+    <button class="btn-primary" onclick="calcSchallschutz()">Berechnen</button>
+    <div id="ss-result" class="result-box hidden"></div>
+  </div>
+</section>
+
+<!-- BIM / IFC -->
+<section id="section-bim" class="section hidden">
+  <h1>BIM / IFC Analyse</h1>
+  <div class="upload-area" id="ifc-dropzone">
+    <div class="upload-icon">🧊</div>
+    <p>IFC-Datei hierher ziehen oder klicken</p>
+    <p class="upload-hint">Unterstützt: IFC2x3, IFC4, IFC4.3</p>
+    <input type="file" id="ifc-file" accept=".ifc,.IFC" style="display:none" onchange="uploadIFC()">
+    <button class="btn-secondary" onclick="document.getElementById('ifc-file').click()">Datei wählen</button>
+  </div>
+  <div class="form-grid" style="margin-top:1rem">
+    <div class="form-group">
+      <label>Bundesland</label>
+      <select id="bim-bl"><option value="wien">Wien</option><option value="tirol" selected>Tirol</option>
+      <option value="salzburg">Salzburg</option></select>
+    </div>
+    <div class="form-group">
+      <label>Gebäudetyp</label>
+      <select id="bim-typ"><option value="mehrfamilienhaus">Mehrfamilienhaus</option>
+      <option value="einfamilienhaus">Einfamilienhaus</option><option value="buero">Büro</option></select>
+    </div>
+  </div>
+  <div id="bim-progress" class="progress-bar hidden"><div class="progress-fill"></div></div>
+  <div id="bim-result" class="result-box hidden"></div>
+</section>
+
+<!-- KI / ML -->
+<section id="section-ki" class="section hidden">
+  <h1>KI &amp; Machine Learning</h1>
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab(this,'ki-kosten')">Kostenprognose</button>
+    <button class="tab" onclick="switchTab(this,'ki-energie')">Energie-Optimierung</button>
+    <button class="tab" onclick="switchTab(this,'ki-empfehlung')">Materialempfehlung</button>
+  </div>
+
+  <div id="tab-ki-kosten" class="tab-content active">
+    <h2>ML Kostenprognose</h2>
+    <p class="info-text">Echtes scikit-learn Modell — trainiert auf österreichischen Baukostendaten 2020–2025</p>
+    <div class="form-grid">
+      <div class="form-group"><label>Bundesland</label>
+        <select id="ki-bl"><option value="wien">Wien</option><option value="tirol" selected>Tirol</option>
+        <option value="salzburg">Salzburg</option><option value="oberoesterreich">Oberösterreich</option>
+        <option value="niederoesterreich">Niederösterreich</option><option value="vorarlberg">Vorarlberg</option>
+        <option value="steiermark">Steiermark</option><option value="kaernten">Kärnten</option>
+        <option value="burgenland">Burgenland</option></select>
+      </div>
+      <div class="form-group"><label>Gebäudetyp</label>
+        <select id="ki-typ"><option value="mehrfamilienhaus">Mehrfamilienhaus</option>
+        <option value="einfamilienhaus">Einfamilienhaus</option><option value="buero">Büro</option>
+        <option value="hochhaus">Hochhaus</option></select>
+      </div>
+      <div class="form-group"><label>BGF (m²)</label><input type="number" id="ki-bgf" value="500" min="20"></div>
+      <div class="form-group"><label>Geschosse</label><input type="number" id="ki-geschosse" value="4" min="1"></div>
+      <div class="form-group"><label>Energieziel</label>
+        <select id="ki-energieziel"><option value="A++">A++</option><option value="A+">A+</option>
+        <option value="A" selected>A</option><option value="B">B</option></select>
+      </div>
+      <div class="form-group"><label>Budget (€, optional)</label><input type="number" id="ki-budget" placeholder="z.B. 1500000"></div>
+    </div>
+    <button class="btn-primary" onclick="runMLCost()">ML-Prognose berechnen</button>
+    <div id="ki-cost-result" class="result-box hidden"></div>
+  </div>
+
+  <div id="tab-ki-energie" class="tab-content hidden">
+    <h2>Energie-Optimierung (ML)</h2>
+    <p class="info-text">Gradient-Boosting Modell für Energieklassen-Optimierung</p>
+    <div class="form-grid">
+      <div class="form-group"><label>Aktueller U-Wert Wand (W/m²K)</label><input type="number" id="ke-uw" value="0.35" step="0.01"></div>
+      <div class="form-group"><label>Aktueller U-Wert Dach (W/m²K)</label><input type="number" id="ke-ud" value="0.20" step="0.01"></div>
+      <div class="form-group"><label>Fensterflächenanteil (%)</label><input type="number" id="ke-ff" value="20" min="5" max="80"></div>
+      <div class="form-group"><label>Klimazone</label>
+        <select id="ke-kz"><option value="1">1 — Tiefland (Wien)</option><option value="2">2 — Mittelland</option>
+        <option value="3" selected>3 — Alpin (Tirol)</option></select>
+      </div>
+      <div class="form-group"><label>Ziel-Energieklasse</label>
+        <select id="ke-ziel"><option value="A++">A++</option><option value="A+" selected>A+</option><option value="A">A</option></select>
+      </div>
+    </div>
+    <button class="btn-primary" onclick="runMLEnergy()">Optimierung berechnen</button>
+    <div id="ki-energy-result" class="result-box hidden"></div>
+  </div>
+
+  <div id="tab-ki-empfehlung" class="tab-content hidden">
+    <h2>Materialempfehlung</h2>
+    <div class="form-grid">
+      <div class="form-group"><label>Bauteiltyp</label>
+        <select id="km-typ"><option value="aussenwand">Außenwand</option><option value="dach">Dach</option>
+        <option value="boden">Bodenplatte</option></select>
+      </div>
+      <div class="form-group"><label>Priorität</label>
+        <select id="km-prio"><option value="kosten">Kostenoptimal</option>
+        <option value="energie">Energieoptimal</option><option value="nachhaltigkeit">Nachhaltig</option></select>
+      </div>
+      <div class="form-group"><label>Ziel-U-Wert (W/m²K)</label><input type="number" id="km-uw" value="0.15" step="0.01"></div>
+    </div>
+    <button class="btn-primary" onclick="runMLMaterial()">Empfehlung berechnen</button>
+    <div id="ki-material-result" class="result-box hidden"></div>
+  </div>
+</section>
+
+<!-- STATIK FEM -->
+<section id="section-statik" class="section hidden">
+  <h1>FEM Tragwerksberechnung</h1>
+  <p class="info-text">Euler-Bernoulli Balken-FEM nach Eurocode — scipy-basiert, kein externes CAD nötig</p>
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab(this,'fem-balken')">Einfeldträger</button>
+    <button class="tab" onclick="switchTab(this,'fem-mehrfeld')">Durchlaufträger</button>
+    <button class="tab" onclick="switchTab(this,'fem-rahmen')">Einfacher Rahmen</button>
+  </div>
+
+  <div id="tab-fem-balken" class="tab-content active">
+    <h2>Einfeldträger</h2>
+    <div class="form-grid">
+      <div class="form-group"><label>Länge L (m)</label><input type="number" id="fem-l" value="6.0" step="0.1"></div>
+      <div class="form-group"><label>E-Modul (GPa)</label><input type="number" id="fem-e" value="30" step="1"></div>
+      <div class="form-group"><label>Trägheitsmoment I (cm⁴)</label><input type="number" id="fem-i" value="5000" step="100"></div>
+      <div class="form-group"><label>Streckenlast q (kN/m)</label><input type="number" id="fem-q" value="15" step="0.5"></div>
+      <div class="form-group"><label>Einzellast F (kN)</label><input type="number" id="fem-f" value="0" step="1"></div>
+      <div class="form-group"><label>Position F (m von links)</label><input type="number" id="fem-fa" value="3.0" step="0.1"></div>
+      <div class="form-group"><label>Lagerung links</label>
+        <select id="fem-lager-l"><option value="fixed">Eingespannt</option><option value="pinned" selected>Gelenkig</option><option value="roller">Rollenlager</option></select>
+      </div>
+      <div class="form-group"><label>Lagerung rechts</label>
+        <select id="fem-lager-r"><option value="fixed">Eingespannt</option><option value="pinned" selected>Gelenkig</option><option value="roller">Rollenlager</option></select>
+      </div>
+    </div>
+    <button class="btn-primary" onclick="calcFEM()">FEM berechnen</button>
+    <div id="fem-result" class="result-box hidden"></div>
+    <canvas id="fem-canvas" width="700" height="300" style="display:none;margin-top:1rem;border:1px solid #ccc;border-radius:6px;width:100%"></canvas>
+  </div>
+
+  <div id="tab-fem-mehrfeld" class="tab-content hidden">
+    <h2>Durchlaufträger (2-Feld)</h2>
+    <div class="form-grid">
+      <div class="form-group"><label>Länge Feld 1 (m)</label><input type="number" id="fem2-l1" value="5.0" step="0.1"></div>
+      <div class="form-group"><label>Länge Feld 2 (m)</label><input type="number" id="fem2-l2" value="6.0" step="0.1"></div>
+      <div class="form-group"><label>E-Modul (GPa)</label><input type="number" id="fem2-e" value="30"></div>
+      <div class="form-group"><label>I (cm⁴)</label><input type="number" id="fem2-i" value="5000"></div>
+      <div class="form-group"><label>Last Feld 1 (kN/m)</label><input type="number" id="fem2-q1" value="15"></div>
+      <div class="form-group"><label>Last Feld 2 (kN/m)</label><input type="number" id="fem2-q2" value="20"></div>
+    </div>
+    <button class="btn-primary" onclick="calcFEM2()">FEM berechnen</button>
+    <div id="fem2-result" class="result-box hidden"></div>
+    <canvas id="fem2-canvas" width="700" height="300" style="display:none;margin-top:1rem;border:1px solid #ccc;border-radius:6px;width:100%"></canvas>
+  </div>
+
+  <div id="tab-fem-rahmen" class="tab-content hidden">
+    <h2>Einfacher Rahmen</h2>
+    <div class="form-grid">
+      <div class="form-group"><label>Rahmenbreite B (m)</label><input type="number" id="fr-b" value="6.0" step="0.1"></div>
+      <div class="form-group"><label>Rahmenhöhe H (m)</label><input type="number" id="fr-h" value="4.0" step="0.1"></div>
+      <div class="form-group"><label>Horizontale Last (kN)</label><input type="number" id="fr-fh" value="10"></div>
+      <div class="form-group"><label>Vertikale Last (kN/m)</label><input type="number" id="fr-fv" value="20"></div>
+    </div>
+    <button class="btn-primary" onclick="calcRahmen()">Berechnen</button>
+    <div id="rahmen-result" class="result-box hidden"></div>
+  </div>
+</section>
+
+<!-- NORMEN-MONITOR -->
+<section id="section-normen" class="section hidden">
+  <h1>Normen-Monitor</h1>
+  <p class="info-text">Automatische Überwachung von OIB, RIS Austria und ÖNORM auf Änderungen</p>
+  <div style="display:flex;gap:1rem;margin-bottom:1rem;flex-wrap:wrap">
+    <button class="btn-primary" onclick="checkNorms()">🔍 Jetzt prüfen</button>
+    <button class="btn-secondary" onclick="getNormHistory()">📜 Verlauf</button>
+  </div>
+  <div id="normen-result" class="result-box hidden"></div>
+  <div id="normen-detail" class="result-box hidden"></div>
+</section>
+
+<!-- BEHÖRDENEINREICHUNG -->
+<section id="section-einreichung" class="section hidden">
+  <h1>Behördeneinreichung</h1>
+  <p class="info-text">Automatische Erstellung der erforderlichen Unterlagen für das Bauansuchen</p>
+  <div class="form-grid">
+    <div class="form-group"><label>Bundesland</label>
+      <select id="ein-bl"><option value="wien">Wien</option><option value="tirol" selected>Tirol</option>
+      <option value="salzburg">Salzburg</option><option value="oberoesterreich">Oberösterreich</option>
+      <option value="niederoesterreich">Niederösterreich</option><option value="vorarlberg">Vorarlberg</option>
+      <option value="steiermark">Steiermark</option><option value="kaernten">Kärnten</option>
+      <option value="burgenland">Burgenland</option></select>
+    </div>
+    <div class="form-group"><label>Vorhaben</label>
+      <select id="ein-vorhaben"><option value="neubau">Neubau</option><option value="zubau">Zubau</option>
+      <option value="umbau">Umbau</option><option value="abbruch">Abbruch</option>
+      <option value="dachausbau">Dachausbau</option></select>
+    </div>
+    <div class="form-group"><label>Gebäudetyp</label>
+      <select id="ein-typ"><option value="wohnbau">Wohnbau</option><option value="gewerbe">Gewerbe</option>
+      <option value="gemischt">Gemischt</option></select>
+    </div>
+    <div class="form-group"><label>BGF (m²)</label><input type="number" id="ein-bgf" value="300"></div>
+    <div class="form-group"><label>Bauherr (Name)</label><input type="text" id="ein-bh" placeholder="z.B. Fam. Muster"></div>
+    <div class="form-group"><label>Grundstück (KG/EZ)</label><input type="text" id="ein-kgez" placeholder="KG 12345 EZ 67"></div>
+  </div>
+  <button class="btn-primary" onclick="generateEinreichung()">📄 Unterlagen generieren</button>
+  <div id="einreichung-result" class="result-box hidden"></div>
+</section>
+
+<!-- KOLLABORATION -->
+<section id="section-kollaboration" class="section hidden">
+  <h1>Echtzeit-Kollaboration</h1>
+  <div class="form-grid">
+    <div class="form-group"><label>Projekt-ID</label><input type="text" id="kol-pid" value="proj_demo_001"></div>
+    <div class="form-group"><label>Benutzer-ID</label><input type="text" id="kol-uid" value="user_001"></div>
+    <div class="form-group"><label>Name</label><input type="text" id="kol-name" value="Arch. DI Muster"></div>
+  </div>
+  <div style="display:flex;gap:1rem;margin-bottom:1rem;flex-wrap:wrap">
+    <button class="btn-primary" onclick="connectWS()">🔌 Verbinden</button>
+    <button class="btn-secondary" onclick="disconnectWS()">⏹ Trennen</button>
+  </div>
+  <div id="ws-status" class="badge badge-offline">Nicht verbunden</div>
+  <div id="kol-users" class="result-box hidden"></div>
+  <div style="margin-top:1rem">
+    <h3>Nachricht senden</h3>
+    <div class="form-grid">
+      <div class="form-group"><input type="text" id="kol-msg" placeholder="Nachricht..."></div>
+    </div>
+    <button class="btn-primary" onclick="sendWSMsg()">Senden</button>
+  </div>
+  <div id="kol-messages" class="messages-box"></div>
+</section>
+
+</main>
+
+<div id="loading-overlay" class="loading-overlay hidden">
+  <div class="spinner"></div>
+  <p id="loading-text">Berechne...</p>
+</div>
+
+<script src="/static/js/app.js"></script>
+</body>
+</html>
