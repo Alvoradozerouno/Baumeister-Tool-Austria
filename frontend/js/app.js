@@ -36,7 +36,23 @@ function switchTab(btn, id) {
   }
 }
 
-// ── API status ───────────────────────────────────────────────────────────────
+// ── Security helpers ─────────────────────────────────────────────────────────
+
+/**
+ * Escape HTML special characters to prevent XSS when inserting user-provided
+ * or server-provided text into innerHTML.
+ */
+function esc(str) {
+  if (str === null || str === undefined) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+
 
 async function checkAPIStatus() {
   try {
@@ -678,7 +694,7 @@ function connectWS() {
     document.getElementById('ws-status').textContent = '● Verbunden';
     document.getElementById('ws-status').className = 'badge badge-success';
     document.getElementById('kol-users').classList.remove('hidden');
-    document.getElementById('kol-users').innerHTML = `<b>Verbunden mit Projekt ${pid} als ${uid}</b>`;
+    document.getElementById('kol-users').innerHTML = `<b>Verbunden mit Projekt ${esc(pid)} als ${esc(uid)}</b>`;
     appendMessage('System', 'WebSocket verbunden', 'incoming');
   };
   ws.onmessage = e => {
@@ -716,7 +732,13 @@ function appendMessage(from, text, dir) {
   const box = document.getElementById('kol-messages');
   const el = document.createElement('div');
   el.className = `message-item ${dir}`;
-  el.innerHTML = `<div>${text}</div><div class="message-meta">${from} · ${new Date().toLocaleTimeString('de-AT')}</div>`;
+  const msgDiv = document.createElement('div');
+  msgDiv.textContent = text;
+  const metaDiv = document.createElement('div');
+  metaDiv.className = 'message-meta';
+  metaDiv.textContent = `${from} · ${new Date().toLocaleTimeString('de-AT')}`;
+  el.appendChild(msgDiv);
+  el.appendChild(metaDiv);
   box.appendChild(el);
   box.scrollTop = box.scrollHeight;
 }

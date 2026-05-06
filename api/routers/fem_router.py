@@ -1,3 +1,4 @@
+import logging
 """
 ORION Architekt-AT — FEM REST-Router
 /api/v1/fem/single-span-beam
@@ -7,6 +8,7 @@ ORION Architekt-AT — FEM REST-Router
 
 from typing import List, Optional
 
+logger = logging.getLogger(__name__)
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 
@@ -71,7 +73,8 @@ async def single_span_beam(req: SingleSpanRequest):
             support_right=req.support_right,
         )
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.error("Internal error: %s", e)
+        raise HTTPException(status_code=500, detail="Interner Serverfehler")
 
 
 @router.post("/continuous-beam")
@@ -92,7 +95,8 @@ async def continuous_beam(req: ContinuousBeamRequest):
             q_kN_m=req.q_kN_m,
         )
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.error("Internal error: %s", e)
+        raise HTTPException(status_code=500, detail="Interner Serverfehler")
 
 
 @router.post("/simple-frame")
@@ -114,4 +118,5 @@ async def simple_frame(req: FrameRequest):
             I_beam_cm4=req.I_beam_cm4,
         )
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.error("Internal error: %s", e)
+        raise HTTPException(status_code=500, detail="Interner Serverfehler")

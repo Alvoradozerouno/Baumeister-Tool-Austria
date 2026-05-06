@@ -6,6 +6,8 @@ ORION Architekt-AT — Normen-Monitor REST-Router
 /api/v1/norms/hora/{lat}/{lon}
 """
 
+import logging
+
 from fastapi import APIRouter, HTTPException
 
 from api.external_data import (
@@ -15,6 +17,7 @@ from api.external_data import (
     get_norm_history,
 )
 
+logger = logging.getLogger(__name__)
 router = APIRouter()
 
 
@@ -29,7 +32,8 @@ async def check_norms():
     try:
         return await check_norm_changes()
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.error("Internal error: %s", e)
+        raise HTTPException(status_code=500, detail="Interner Serverfehler")
 
 
 @router.get("/history")
@@ -49,7 +53,8 @@ async def ris_updates(bundesland: str = None):
     try:
         return {"updates": await fetch_ris_updates(bundesland)}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.error("RIS updates failed: %s", e)
+        raise HTTPException(status_code=502, detail="Externe Datenquelle nicht erreichbar")
 
 
 @router.get("/hora/{lat}/{lon}")
@@ -65,4 +70,5 @@ async def hora_hazards(lat: float, lon: float):
     try:
         return await fetch_hora_hazards(lat, lon)
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.error("Internal error: %s", e)
+        raise HTTPException(status_code=500, detail="Interner Serverfehler")

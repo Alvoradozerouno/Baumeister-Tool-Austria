@@ -1,8 +1,10 @@
+import logging
 """
 ORION Architekt-AT — Behördeneinreichung REST-Router
 /api/v1/submission/generate
 """
 
+logger = logging.getLogger(__name__)
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 
@@ -54,4 +56,5 @@ async def generate_submission(req: SubmissionRequest):
             grundstueck_kgez=req.grundstueck_kgez,
         )
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.error("Internal error: %s", e)
+        raise HTTPException(status_code=500, detail="Interner Serverfehler")

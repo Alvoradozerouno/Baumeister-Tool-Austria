@@ -1,3 +1,4 @@
+import logging
 """
 ORION Architekt-AT — ML REST-Router
 /api/v1/ml/predict-cost
@@ -7,6 +8,7 @@ ORION Architekt-AT — ML REST-Router
 
 from typing import Optional
 
+logger = logging.getLogger(__name__)
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 
@@ -57,7 +59,8 @@ async def predict_cost(req: CostRequest):
             budget_euro=req.budget_euro,
         )
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.error("Internal error: %s", e)
+        raise HTTPException(status_code=500, detail="Interner Serverfehler")
 
 
 @router.post("/optimize-energy")
@@ -77,7 +80,8 @@ async def optimize_energy(req: EnergyRequest):
             ziel_energieklasse=req.ziel_energieklasse,
         )
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.error("Internal error: %s", e)
+        raise HTTPException(status_code=500, detail="Interner Serverfehler")
 
 
 @router.post("/recommend-material")
@@ -96,4 +100,5 @@ async def recommend_material_endpoint(req: MaterialRequest):
     try:
         return recommend_material(req.bauteil_typ, req.prioritaet, req.ziel_uwert)
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.error("Internal error: %s", e)
+        raise HTTPException(status_code=500, detail="Interner Serverfehler")
