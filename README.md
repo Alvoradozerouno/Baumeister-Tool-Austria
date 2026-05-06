@@ -156,6 +156,14 @@ if __name__ == "__main__":
     print(f"CO2:           {ausweis.co2_kg_m2a} kg/m²a")
 ```
 
+## Betrieb & Hinweise
+
+| Punkt | Details |
+|-------|---------|
+| **Externe API-Aufrufe** | Die Integration von RIS Austria und hora.gv.at setzt echten Internet-Zugang voraus. Auf Servern ohne ausgehende Verbindungen (z. B. Air-Gap, strenge Firewall) liefern die Endpunkte `/api/v1/norms/` und die hora.gv.at-Parzellenabfrage einen Fehler — alle anderen Funktionen bleiben davon unberührt. |
+| **ML-Modelle beim Start** | Beim ersten Aufruf eines ML-Endpunkts (`/api/v1/ml/`) trainiert scikit-learn die Modelle in-memory. Das dauert ca. 2 s; alle folgenden Anfragen sind sofort schnell. Modelle werden nicht persistiert — nach einem Neustart beginnt das Training erneut. |
+| **Frontend-Build** | Kein Build-Schritt erforderlich. Das Frontend (`frontend/`) ist reines Vanilla-JS/HTML/CSS ohne npm, webpack oder sonstige Toolchain. Die Dateien werden von FastAPI direkt als StaticFiles unter `/app` ausgeliefert. |
+
 ## Herkunft
 
 ```
