@@ -18,7 +18,8 @@ services:
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-orion_db}
       POSTGRES_USER: ${POSTGRES_USER:-orion}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      # WARNING: Set POSTGRES_PASSWORD env var in production. Default is for CI/dev only.
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-orion_dev_password}
       PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - postgres_data:/var/lib/postgresql/data
@@ -29,7 +30,8 @@ services:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-orion}"]
       interval: 10s
       timeout: 5s
-      retries: 5
+      retries: 10
+      start_period: 30s
     networks:
       - orion-network
 
@@ -40,7 +42,8 @@ services:
     image: redis:7-alpine
     container_name: orion-redis
     restart: unless-stopped
-    command: redis-server --requirepass ${REDIS_PASSWORD} --maxmemory 512mb --maxmemory-policy allkeys-lru
+    # WARNING: Set REDIS_PASSWORD env var in production. Default is for CI/dev only.
+    command: redis-server --requirepass ${REDIS_PASSWORD:-redis_dev_password} --maxmemory 512mb --maxmemory-policy allkeys-lru
     volumes:
       - redis_data:/data
     ports:
@@ -49,7 +52,8 @@ services:
       test: ["CMD-SHELL", "redis-cli -a ${REDIS_PASSWORD:-} ping | grep -q PONG"]
       interval: 10s
       timeout: 5s
-      retries: 5
+      retries: 10
+      start_period: 15s
     networks:
       - orion-network
 
@@ -76,16 +80,17 @@ services:
       VERSION: "3.0.0"
 
       # Database
-      DATABASE_URL: postgresql://${POSTGRES_USER:-orion}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-orion_db}
+      DATABASE_URL: postgresql://${POSTGRES_USER:-orion}:${POSTGRES_PASSWORD:-orion_dev_password}@postgres:5432/${POSTGRES_DB:-orion_db}
       DATABASE_POOL_SIZE: 20
       DATABASE_MAX_OVERFLOW: 40
 
       # Redis
-      REDIS_URL: redis://:${REDIS_PASSWORD}@redis:6379/0
+      REDIS_URL: redis://:${REDIS_PASSWORD:-redis_dev_password}@redis:6379/0
 
       # Security
-      SECRET_KEY: ${SECRET_KEY}
-      JWT_SECRET_KEY: ${JWT_SECRET_KEY}
+      # WARNING: Set SECRET_KEY and JWT_SECRET_KEY env vars in production. Defaults are for CI/dev only.
+      SECRET_KEY: ${SECRET_KEY:-dev-secret-key-change-in-production}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY:-dev-jwt-secret-change-in-production}
       JWT_ALGORITHM: HS256
       JWT_ACCESS_TOKEN_EXPIRE_MINUTES: 60
 
@@ -184,7 +189,8 @@ services:
     container_name: orion-grafana
     restart: unless-stopped
     environment:
-      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD}
+      # WARNING: Set GRAFANA_ADMIN_PASSWORD env var in production. Default is for CI/dev only.
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:-admin}
       GF_INSTALL_PLUGINS: grafana-piechart-panel
     volumes:
       - grafana_data:/var/lib/grafana
