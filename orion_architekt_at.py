@@ -4443,7 +4443,9 @@ def pruefe_hwb_oib6_2023(hwb_ref_rk: float, a_v_verhaeltnis: float) -> dict:
     """
     grenzwert = berechne_hwb_grenzwert_oib6_2023(a_v_verhaeltnis)
     konform = hwb_ref_rk <= grenzwert
-    ueberschreitung_pct = round((hwb_ref_rk - grenzwert) / grenzwert * 100, 1) if not konform else 0.0
+    ueberschreitung_pct = (
+        round((hwb_ref_rk - grenzwert) / grenzwert * 100, 1) if not konform else 0.0
+    )
     return {
         "hwb_ref_rk": hwb_ref_rk,
         "hwb_grenzwert": grenzwert,

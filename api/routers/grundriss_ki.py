@@ -220,12 +220,12 @@ class NutzungsTyp(str, Enum):
 
 
 class OptimierungsZiel(str, Enum):
-    FLAECHE = "flaeche"           # Kompaktheit maximieren
-    BELICHTUNG = "belichtung"     # Tageslicht maximieren
+    FLAECHE = "flaeche"  # Kompaktheit maximieren
+    BELICHTUNG = "belichtung"  # Tageslicht maximieren
     BARRIEREFREIHEIT = "barrierefreiheit"  # Rollstuhl optimiert
     ENERGIEEFFIZIENZ = "energieeffizienz"  # A/V-Verhältnis minimieren
-    KOSTEN = "kosten"             # Baukosten minimieren
-    KOMFORT = "komfort"           # Großzügige Raumgrößen
+    KOSTEN = "kosten"  # Baukosten minimieren
+    KOMFORT = "komfort"  # Großzügige Raumgrößen
 
 
 class Raum(BaseModel):
@@ -268,9 +268,7 @@ class GrundrissGenerierungRequest(BaseModel):
     def validate_bundesland(cls, v: str) -> str:
         normalized = _normiere_bl(v)
         if normalized not in MINDESTANFORDERUNGEN:
-            raise ValueError(
-                f"Unbekanntes Bundesland '{v}'. Gültig: {list(MINDESTANFORDERUNGEN)}"
-            )
+            raise ValueError(f"Unbekanntes Bundesland '{v}'. Gültig: {list(MINDESTANFORDERUNGEN)}")
         return normalized
 
 
@@ -417,8 +415,24 @@ def _berechne_raumgroessen(
         )
 
     # Eingangsgeschoß (EG)
-    _add("Vorraum/Eingang", "vorraum", anforderungen["vorraum_min_m2"], 1.0, stockwerk=0, ausrichtung="N", tageslicht=False)
-    _add("WC Gast", "wc", anforderungen["wc_min_m2"], 0.3, stockwerk=0, ausrichtung="N", tageslicht=False)
+    _add(
+        "Vorraum/Eingang",
+        "vorraum",
+        anforderungen["vorraum_min_m2"],
+        1.0,
+        stockwerk=0,
+        ausrichtung="N",
+        tageslicht=False,
+    )
+    _add(
+        "WC Gast",
+        "wc",
+        anforderungen["wc_min_m2"],
+        0.3,
+        stockwerk=0,
+        ausrichtung="N",
+        tageslicht=False,
+    )
 
     # Wohnbereich
     if n <= 2:
@@ -427,7 +441,14 @@ def _berechne_raumgroessen(
         wz_extra = 8.0
     else:
         wz_extra = 12.0
-    _add("Wohnzimmer", "wohnzimmer", anforderungen["wohnzimmer_min_m2"], wz_extra, stockwerk=0, ausrichtung="S")
+    _add(
+        "Wohnzimmer",
+        "wohnzimmer",
+        anforderungen["wohnzimmer_min_m2"],
+        wz_extra,
+        stockwerk=0,
+        ausrichtung="S",
+    )
 
     # Küche / Essbereich
     _add("Küche", "kueche", anforderungen["kueche_min_m2"], 2.0, stockwerk=0, ausrichtung="W")
@@ -437,27 +458,61 @@ def _berechne_raumgroessen(
         stw = 1 if req.geschosse > 1 else 0
         if i == 0:
             extra_sz = 4.0 if n > 2 else 2.0
-            _add("Schlafzimmer Eltern", "schlafzimmer", anforderungen["schlafzimmer_min_m2"], extra_sz, stockwerk=stw, ausrichtung="O")
+            _add(
+                "Schlafzimmer Eltern",
+                "schlafzimmer",
+                anforderungen["schlafzimmer_min_m2"],
+                extra_sz,
+                stockwerk=stw,
+                ausrichtung="O",
+            )
         else:
             extra_kz = 1.0
-            _add(f"Kinderzimmer {i}", "kinderzimmer", anforderungen["kinderzimmer_min_m2"], extra_kz, stockwerk=stw, ausrichtung="S")
+            _add(
+                f"Kinderzimmer {i}",
+                "kinderzimmer",
+                anforderungen["kinderzimmer_min_m2"],
+                extra_kz,
+                stockwerk=stw,
+                ausrichtung="S",
+            )
 
     # Bad (OG bei Mehrgeschoßig)
     stw_bad = 1 if req.geschosse > 1 else 0
-    _add("Bad", "bad", anforderungen["bad_min_m2"], 2.0, stockwerk=stw_bad, ausrichtung="N", tageslicht=False)
+    _add(
+        "Bad",
+        "bad",
+        anforderungen["bad_min_m2"],
+        2.0,
+        stockwerk=stw_bad,
+        ausrichtung="N",
+        tageslicht=False,
+    )
 
     # Abstellraum
-    _add("Abstellraum", "abstellraum", anforderungen["abstellraum_min_m2"], 1.0, stockwerk=0, ausrichtung="N", tageslicht=False)
+    _add(
+        "Abstellraum",
+        "abstellraum",
+        anforderungen["abstellraum_min_m2"],
+        1.0,
+        stockwerk=0,
+        ausrichtung="N",
+        tageslicht=False,
+    )
 
     # Barrierefreiheits-Anpassungen
     if req.barrierefreiheit:
         for r in raeume:
             if r["typ"] == "wc":
                 r["flaeche_m2"] = max(r["flaeche_m2"], 4.0)  # Rollstuhl: mind. 4 m²
-                r["hinweis"] = "Rollstuhlgereicht: mind. 4 m², Drehraumø 150 cm erforderlich (OIB-RL 4)"
+                r["hinweis"] = (
+                    "Rollstuhlgereicht: mind. 4 m², Drehraumø 150 cm erforderlich (OIB-RL 4)"
+                )
             if r["typ"] == "bad":
                 r["flaeche_m2"] = max(r["flaeche_m2"], 6.5)
-                r["hinweis"] = "Rollstuhlgerecht: mind. 6,5 m², unterfahrbare Waschbecken, Haltegriffe (OIB-RL 4)"
+                r["hinweis"] = (
+                    "Rollstuhlgerecht: mind. 6,5 m², unterfahrbare Waschbecken, Haltegriffe (OIB-RL 4)"
+                )
             if r["typ"] == "vorraum":
                 r["flaeche_m2"] = max(r["flaeche_m2"], 4.5)
                 r["hinweis"] = "Bewegungsfläche mind. 150×150 cm (OIB-RL 4 § 5)"
@@ -465,9 +520,7 @@ def _berechne_raumgroessen(
     return raeume
 
 
-def _berechne_a_v(
-    netto_m2: float, geschosse: int, breite: float, tiefe: float
-) -> float:
+def _berechne_a_v(netto_m2: float, geschosse: int, breite: float, tiefe: float) -> float:
     """Vereinfachtes A/V-Verhältnis (kompaktere Form = bessere Energieeffizienz)"""
     h = 2.70 * geschosse
     v = breite * tiefe * h
@@ -502,7 +555,9 @@ def _ki_score(
         OptimierungsZiel.BELICHTUNG: {"norm": 0.4, "flaeche": 0.3, "av": 0.3},
     }
     gew = gewichte.get(ziel, {"norm": 0.4, "flaeche": 0.3, "av": 0.3})
-    score = (normkonform * gew["norm"] + flaechen_score * gew["flaeche"] + av_score * gew["av"]) * 100
+    score = (
+        normkonform * gew["norm"] + flaechen_score * gew["flaeche"] + av_score * gew["av"]
+    ) * 100
     if not barrierefreiheit_ok:
         score *= 0.9
     return round(min(100.0, max(0.0, score)), 1)
@@ -526,21 +581,33 @@ def _generiere_hinweise(
             )
 
     if a_v > 0.8:
-        hinweise.append(f"💡 Kompakteren Gebäudekörper wählen — A/V-Verhältnis {a_v:.2f} ist ungünstig für OIB-RL 6")
+        hinweise.append(
+            f"💡 Kompakteren Gebäudekörper wählen — A/V-Verhältnis {a_v:.2f} ist ungünstig für OIB-RL 6"
+        )
     elif a_v < 0.4:
-        hinweise.append(f"✅ Ausgezeichnetes A/V-Verhältnis {a_v:.2f} — ideal für Energieeffizienz (OIB-RL 6)")
+        hinweise.append(
+            f"✅ Ausgezeichnetes A/V-Verhältnis {a_v:.2f} — ideal für Energieeffizienz (OIB-RL 6)"
+        )
 
     if ziel == OptimierungsZiel.BARRIEREFREIHEIT or barrierefreiheit:
         hinweise.append("♿ Türbreiten: mind. 90 cm lichte Breite (OIB-RL 4 § 4.3)")
-        hinweise.append(f"♿ Aufzug prüfen: ab {anforderungen['aufzug_ab_geschosse']} Geschoßen Pflicht (lokale BO)")
+        hinweise.append(
+            f"♿ Aufzug prüfen: ab {anforderungen['aufzug_ab_geschosse']} Geschoßen Pflicht (lokale BO)"
+        )
 
     if ziel == OptimierungsZiel.BELICHTUNG:
-        hinweise.append(f"☀️ Fensterflächen: mind. {anforderungen['fensterflaecheanteile'] * 100:.0f}% der Bodenfläche pro Aufenthaltsraum (lokale BO)")
-        hinweise.append("☀️ Südausrichtung von Wohn- und Schlafräumen maximiert passive Solargewinne")
+        hinweise.append(
+            f"☀️ Fensterflächen: mind. {anforderungen['fensterflaecheanteile'] * 100:.0f}% der Bodenfläche pro Aufenthaltsraum (lokale BO)"
+        )
+        hinweise.append(
+            "☀️ Südausrichtung von Wohn- und Schlafräumen maximiert passive Solargewinne"
+        )
 
     if geschosse >= anforderungen.get("aufzug_ab_geschosse", 5):
         hinweise.append(
-            "🏗️ Aufzugspflicht: Ab {} Geschoßen ist ein barrierefreier Aufzug erforderlich (lokale BO)".format(anforderungen["aufzug_ab_geschosse"])
+            "🏗️ Aufzugspflicht: Ab {} Geschoßen ist ein barrierefreier Aufzug erforderlich (lokale BO)".format(
+                anforderungen["aufzug_ab_geschosse"]
+            )
         )
 
     return hinweise
@@ -608,7 +675,9 @@ async def generiere_grundriss(req: GrundrissGenerierungRequest) -> GrundrissErge
     normkonform_count = sum(1 for r in raeume if r["normkonform"])
     norm_pct = round(normkonform_count / len(raeume) * 100, 1) if raeume else 0.0
 
-    hinweise = _generiere_hinweise(raeume, anforderungen, req.ziel, a_v, req.barrierefreiheit, req.geschosse)
+    hinweise = _generiere_hinweise(
+        raeume, anforderungen, req.ziel, a_v, req.barrierefreiheit, req.geschosse
+    )
 
     ki = _ki_score(raeume, netto_m2, a_v, req.ziel, bf_ok)
 
@@ -717,7 +786,9 @@ async def optimiere_grundriss(req: GrundrissOptimierungRequest) -> GrundrissErge
     a_v = _berechne_a_v(netto_m2=netto_m2, geschosse=max_stw + 1, breite=12, tiefe=10)
     bf_ok = req.barrierefreiheit
     norm_pct = round(sum(1 for r in raeume_opt if r["normkonform"]) / len(raeume_opt) * 100, 1)
-    hinweise = _generiere_hinweise(raeume_opt, anforderungen, req.ziel, a_v, req.barrierefreiheit, max_stw + 1)
+    hinweise = _generiere_hinweise(
+        raeume_opt, anforderungen, req.ziel, a_v, req.barrierefreiheit, max_stw + 1
+    )
     ki = _ki_score(raeume_opt, netto_m2, a_v, req.ziel, bf_ok)
 
     vorschlaege = [
@@ -822,7 +893,9 @@ async def validiere_grundriss(req: GrundrissValidierungRequest) -> ValidierungsE
         req.anzahl_wohneinheiten >= anforderungen["barrierefreiheit_pflicht_ab_wohneinheiten"]
     )
     if bf_pflicht:
-        wc_raeume = [r for r in req.raeume if (r.typ if isinstance(r.typ, str) else r.typ.value) == "wc"]
+        wc_raeume = [
+            r for r in req.raeume if (r.typ if isinstance(r.typ, str) else r.typ.value) == "wc"
+        ]
         if not any(r.flaeche_m2 >= 4.0 for r in wc_raeume):
             verstösse.append(
                 {

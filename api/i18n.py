@@ -521,10 +521,7 @@ def get_alle_uebersetzungen(sprache: str | SpracheCode) -> Dict[str, str]:
     Nützlich für Frontend-Locale-Bundles.
     """
     lang = sprache.value if isinstance(sprache, SpracheCode) else str(sprache).lower()[:2]
-    return {
-        k: (v.get(lang) or v.get("de") or k)
-        for k, v in _TRANSLATIONS.items()
-    }
+    return {k: (v.get(lang) or v.get("de") or k) for k, v in _TRANSLATIONS.items()}
 
 
 def parse_accept_language(accept_language_header: Optional[str]) -> SpracheCode:

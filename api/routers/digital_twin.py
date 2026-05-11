@@ -100,7 +100,9 @@ class SensorKonfiguration(BaseModel):
     typ: SensorTyp
     protokoll: ProtokollTyp
     adresse: str = Field(description="IP:Port, Geräteadresse o.ä.")
-    objekt_id: Optional[str] = Field(default=None, description="BACnet Objekt-ID / Modbus Register / KNX-Gruppenadresse")
+    objekt_id: Optional[str] = Field(
+        default=None, description="BACnet Objekt-ID / Modbus Register / KNX-Gruppenadresse"
+    )
     einheit: Optional[str] = None
     messintervall_sekunden: int = Field(default=300, ge=10)
     raum_id: Optional[str] = None
@@ -116,12 +118,18 @@ class GebaeudeProfil(BaseModel):
     nutzung: GebaeudeBetriebTyp
     bgf_m2: float = Field(gt=0, description="Bruttogrundfläche in m²")
     geschosse: int = Field(ge=1, le=50)
-    a_v_verhaeltnis: Optional[float] = Field(default=None, description="A/V-Verhältnis aus Energieausweis")
+    a_v_verhaeltnis: Optional[float] = Field(
+        default=None, description="A/V-Verhältnis aus Energieausweis"
+    )
 
     # Energieausweis-Sollwerte (aus bestehendem OIB-RL 6 Nachweis)
-    hwb_soll_kwh_m2a: Optional[float] = Field(default=None, description="Heizwärmebedarf Sollwert lt. EA")
+    hwb_soll_kwh_m2a: Optional[float] = Field(
+        default=None, description="Heizwärmebedarf Sollwert lt. EA"
+    )
     fgee_soll: Optional[float] = Field(default=None, description="fGEE Sollwert lt. EA")
-    energieklasse_soll: Optional[str] = Field(default=None, description="Energieklasse lt. EA z.B. A+, A, B")
+    energieklasse_soll: Optional[str] = Field(
+        default=None, description="Energieklasse lt. EA z.B. A+, A, B"
+    )
 
     sensoren: List[SensorKonfiguration] = Field(default_factory=list)
 
@@ -131,7 +139,9 @@ class GebaeudeProjekt(BaseModel):
 
     projekt_name: str = Field(min_length=1)
     profil: GebaeudeProfil
-    ifc_modell_pfad: Optional[str] = Field(default=None, description="Pfad zum IFC-Modell (Server-seitig)")
+    ifc_modell_pfad: Optional[str] = Field(
+        default=None, description="Pfad zum IFC-Modell (Server-seitig)"
+    )
 
 
 class SensorMesswert(BaseModel):
@@ -163,7 +173,10 @@ class EnergieVergleichRequest(BaseModel):
     hwb_soll_kwh_m2a: float = Field(gt=0, description="HWB-Sollwert lt. Energieausweis")
     fgee_soll: float = Field(gt=0, description="fGEE-Sollwert lt. Energieausweis")
 
-    heizenergie_traeger: str = Field(default="erdgas", description="Energieträger: erdgas, heizoel, waermepumpe, fernwaerme, holz")
+    heizenergie_traeger: str = Field(
+        default="erdgas",
+        description="Energieträger: erdgas, heizoel, waermepumpe, fernwaerme, holz",
+    )
     heizungsanlage_bj: Optional[int] = Field(default=None)
 
 
@@ -198,6 +211,7 @@ _SENSOR_DATA: Dict[str, List[SensorMesswert]] = {}  # gebaeude_id → Messwerte
 def _generiere_id(prefix: str = "GBD") -> str:
     import hashlib
     import time
+
     h = hashlib.md5(str(time.time_ns()).encode()).hexdigest()[:8].upper()
     return f"{prefix}-{h}"
 
@@ -210,7 +224,7 @@ def _generiere_id(prefix: str = "GBD") -> str:
 PRIMAERENERGIEFAKTOREN: Dict[str, float] = {
     "erdgas": 1.17,
     "heizoel": 1.13,
-    "waermepumpe": 2.70,   # elektrisch
+    "waermepumpe": 2.70,  # elektrisch
     "fernwaerme": 0.60,
     "holz": 0.10,
     "pellets": 0.10,
@@ -237,14 +251,14 @@ CO2_FAKTOREN: Dict[str, float] = {
 # Energieausweis-Klassen (fGEE-Grenzen, OIB-RL 6:2025)
 ENERGIEKLASSEN: List[Tuple[str, float]] = [
     ("A++", 0.40),
-    ("A+",  0.55),
-    ("A",   0.70),
-    ("B",   0.90),
-    ("C",   1.10),
-    ("D",   1.30),
-    ("E",   1.60),
-    ("F",   2.00),
-    ("G",   9999.0),
+    ("A+", 0.55),
+    ("A", 0.70),
+    ("B", 0.90),
+    ("C", 1.10),
+    ("D", 1.30),
+    ("E", 1.60),
+    ("F", 2.00),
+    ("G", 9999.0),
 ]
 
 
@@ -275,7 +289,11 @@ def _berechne_energievergleich(req: EnergieVergleichRequest) -> Dict[str, Any]:
     # Netto: Solarertrag abziehen
     co2_netto = max(0.0, co2_kg - req.solarertrag_kwh * CO2_FAKTOREN["strom"])
 
-    abweichung_pct = ((hwb_ist - req.hwb_soll_kwh_m2a) / req.hwb_soll_kwh_m2a * 100) if req.hwb_soll_kwh_m2a else 0
+    abweichung_pct = (
+        ((hwb_ist - req.hwb_soll_kwh_m2a) / req.hwb_soll_kwh_m2a * 100)
+        if req.hwb_soll_kwh_m2a
+        else 0
+    )
     fgee_abw = fgee_ist - req.fgee_soll
 
     klasse_ist = _bestimme_energieklasse(fgee_ist)
@@ -301,7 +319,9 @@ def _berechne_energievergleich(req: EnergieVergleichRequest) -> Dict[str, Any]:
         empfehlungen.append("Energieausweis-Neuerstellung prüfen")
 
     if req.solarertrag_kwh > 0:
-        empfehlungen.append(f"Solarertrag {round(req.solarertrag_kwh, 0)} kWh reduziert CO₂ um {round(req.solarertrag_kwh * CO2_FAKTOREN['strom'], 1)} kg/Jahr")
+        empfehlungen.append(
+            f"Solarertrag {round(req.solarertrag_kwh, 0)} kWh reduziert CO₂ um {round(req.solarertrag_kwh * CO2_FAKTOREN['strom'], 1)} kg/Jahr"
+        )
 
     # Dekarbonisierungseinsparpotenzial: Wechsel auf Wärmepumpe
     if req.heizenergie_traeger in ("erdgas", "heizoel"):
@@ -340,7 +360,11 @@ WARTUNGSZYKLEN: Dict[str, Dict[str, Any]] = {
     "heizkessel_gas": {
         "kategorie": WartungsKategorie.HEIZUNG,
         "intervall_jahre": 1,
-        "massnahmen": ["Brennereinstellung", "Abgasmessung (§ 15a B-VG Vereinbarung)", "Sicherheitsventile prüfen"],
+        "massnahmen": [
+            "Brennereinstellung",
+            "Abgasmessung (§ 15a B-VG Vereinbarung)",
+            "Sicherheitsventile prüfen",
+        ],
         "norm": "ÖNORM H 5170, Kehr- und Überprüfungsordnung",
         "lebensdauer_jahre": 20,
     },
@@ -354,42 +378,71 @@ WARTUNGSZYKLEN: Dict[str, Dict[str, Any]] = {
     "waermepumpe": {
         "kategorie": WartungsKategorie.HEIZUNG,
         "intervall_jahre": 2,
-        "massnahmen": ["Kältemitteldruck prüfen", "Wärmetauscher reinigen", "Kältemittelleckage prüfen (F-Gas-VO)"],
+        "massnahmen": [
+            "Kältemitteldruck prüfen",
+            "Wärmetauscher reinigen",
+            "Kältemittelleckage prüfen (F-Gas-VO)",
+        ],
         "norm": "EU-F-Gas-Verordnung Nr. 517/2014, ÖNORM EN 378",
         "lebensdauer_jahre": 25,
     },
     "lueftungsanlage_mrv": {
         "kategorie": WartungsKategorie.LUEFTUNG,
         "intervall_jahre": 1,
-        "massnahmen": ["Filter wechseln (G4, F7)", "Wärmetauscher reinigen", "Luftmengen nachmessen", "Kondensatablauf prüfen"],
+        "massnahmen": [
+            "Filter wechseln (G4, F7)",
+            "Wärmetauscher reinigen",
+            "Luftmengen nachmessen",
+            "Kondensatablauf prüfen",
+        ],
         "norm": "ÖNORM H 6036, OIB-RL 3",
         "lebensdauer_jahre": 20,
     },
     "aufzug": {
         "kategorie": WartungsKategorie.AUFZUG,
         "intervall_jahre": 0.25,  # vierteljährlich
-        "massnahmen": ["Sicherheitsprüfung (Sachverständiger)", "Notruf testen", "Ölstand prüfen", "Führungsschienen schmieren"],
+        "massnahmen": [
+            "Sicherheitsprüfung (Sachverständiger)",
+            "Notruf testen",
+            "Ölstand prüfen",
+            "Führungsschienen schmieren",
+        ],
         "norm": "ÖNORM EN 13015, Aufzugsgesetz",
         "lebensdauer_jahre": 30,
     },
     "brandmeldeanlage": {
         "kategorie": WartungsKategorie.BRANDSCHUTZ,
         "intervall_jahre": 1,
-        "massnahmen": ["Melder testen", "Zentrale prüfen", "Alarmierung testen", "Protokoll erstellen"],
+        "massnahmen": [
+            "Melder testen",
+            "Zentrale prüfen",
+            "Alarmierung testen",
+            "Protokoll erstellen",
+        ],
         "norm": "ÖNORM EN 54, OIB-RL 2",
         "lebensdauer_jahre": 15,
     },
     "sprinkleranlage": {
         "kategorie": WartungsKategorie.BRANDSCHUTZ,
         "intervall_jahre": 1,
-        "massnahmen": ["Druckprüfung", "Sprinklerköpfe prüfen", "Fließprüfung", "Protokoll für Behörde"],
+        "massnahmen": [
+            "Druckprüfung",
+            "Sprinklerköpfe prüfen",
+            "Fließprüfung",
+            "Protokoll für Behörde",
+        ],
         "norm": "ÖNORM EN 12845, OIB-RL 2",
         "lebensdauer_jahre": 25,
     },
     "photovoltaik": {
         "kategorie": WartungsKategorie.PHOTOVOLTAIK,
         "intervall_jahre": 2,
-        "massnahmen": ["Module reinigen", "Verschattung prüfen", "Wechselrichter prüfen", "Ertragsdaten auswerten"],
+        "massnahmen": [
+            "Module reinigen",
+            "Verschattung prüfen",
+            "Wechselrichter prüfen",
+            "Ertragsdaten auswerten",
+        ],
         "norm": "ÖNORM EN IEC 62446, OIB-RL 6:2025 Solarpflicht",
         "lebensdauer_jahre": 30,
     },
@@ -403,21 +456,34 @@ WARTUNGSZYKLEN: Dict[str, Dict[str, Any]] = {
     "fassade_wdvs": {
         "kategorie": WartungsKategorie.FASSADE,
         "intervall_jahre": 5,
-        "massnahmen": ["Risse und Absplitterungen prüfen", "Algenbefall behandeln", "Sockelbereich prüfen"],
+        "massnahmen": [
+            "Risse und Absplitterungen prüfen",
+            "Algenbefall behandeln",
+            "Sockelbereich prüfen",
+        ],
         "norm": "ETAG 004, OIB-RL 1",
         "lebensdauer_jahre": 30,
     },
     "elektrische_anlage": {
         "kategorie": WartungsKategorie.ELEKTRISCH,
         "intervall_jahre": 5,
-        "massnahmen": ["E-Check (Sachverständiger)", "FI-Schalter prüfen", "Schutzleiter prüfen", "Protokoll"],
+        "massnahmen": [
+            "E-Check (Sachverständiger)",
+            "FI-Schalter prüfen",
+            "Schutzleiter prüfen",
+            "Protokoll",
+        ],
         "norm": "ÖNORM E 8001, ElWOG",
         "lebensdauer_jahre": 30,
     },
     "sanitaer_rohrleitungen": {
         "kategorie": WartungsKategorie.SANITAER,
         "intervall_jahre": 3,
-        "massnahmen": ["Leckagen prüfen", "Ventile gängig halten", "Trinkwasserqualität prüfen (ÖVGW W 101)"],
+        "massnahmen": [
+            "Leckagen prüfen",
+            "Ventile gängig halten",
+            "Trinkwasserqualität prüfen (ÖVGW W 101)",
+        ],
         "norm": "ÖNORM EN 806, ÖVGW W 101",
         "lebensdauer_jahre": 50,
     },
@@ -444,13 +510,16 @@ def _generiere_wartungsplan(req: WartungsplanRequest) -> Dict[str, Any]:
 
         if vorlage is None:
             # Fallback: generische Wartung
-            vorlage = (anlage_typ, {
-                "kategorie": "sonstige",
-                "intervall_jahre": 2,
-                "massnahmen": ["Sichtprüfung", "Reinigung", "Funktion testen"],
-                "norm": "Herstellerempfehlung",
-                "lebensdauer_jahre": 20,
-            })
+            vorlage = (
+                anlage_typ,
+                {
+                    "kategorie": "sonstige",
+                    "intervall_jahre": 2,
+                    "massnahmen": ["Sichtprüfung", "Reinigung", "Funktion testen"],
+                    "norm": "Herstellerempfehlung",
+                    "lebensdauer_jahre": 20,
+                },
+            )
 
         key, v = vorlage
         anlage_bj = anlage.get("baujahr", req.baujahr)
@@ -465,22 +534,26 @@ def _generiere_wartungsplan(req: WartungsplanRequest) -> Dict[str, Any]:
         if alter_jahre > v["lebensdauer_jahre"]:
             prioritaet = "kritisch"
 
-        aufgaben.append({
-            "anlage": anlage.get("name", key),
-            "typ": anlage.get("typ", key),
-            "kategorie": v["kategorie"].value if hasattr(v["kategorie"], "value") else v["kategorie"],
-            "baujahr_anlage": anlage_bj,
-            "alter_jahre": alter_jahre,
-            "intervall_jahre": v["intervall_jahre"],
-            "naechste_wartung": naechste_wartung.strftime("%Y-%m-%d"),
-            "massnahmen": v["massnahmen"],
-            "norm": v["norm"],
-            "restlebensdauer_jahre": restlebensdauer,
-            "prioritaet": prioritaet,
-            "hersteller": anlage.get("hersteller"),
-            "modell": anlage.get("modell"),
-            "seriennummer": anlage.get("seriennummer"),
-        })
+        aufgaben.append(
+            {
+                "anlage": anlage.get("name", key),
+                "typ": anlage.get("typ", key),
+                "kategorie": (
+                    v["kategorie"].value if hasattr(v["kategorie"], "value") else v["kategorie"]
+                ),
+                "baujahr_anlage": anlage_bj,
+                "alter_jahre": alter_jahre,
+                "intervall_jahre": v["intervall_jahre"],
+                "naechste_wartung": naechste_wartung.strftime("%Y-%m-%d"),
+                "massnahmen": v["massnahmen"],
+                "norm": v["norm"],
+                "restlebensdauer_jahre": restlebensdauer,
+                "prioritaet": prioritaet,
+                "hersteller": anlage.get("hersteller"),
+                "modell": anlage.get("modell"),
+                "seriennummer": anlage.get("seriennummer"),
+            }
+        )
 
     # IFC-Informationen verarbeiten (falls vorhanden)
     if req.ifc_analyseresultat:
@@ -488,20 +561,22 @@ def _generiere_wartungsplan(req: WartungsplanRequest) -> Dict[str, Any]:
         for mat in ifc_materialien:
             mat_name = mat.get("name", "").lower()
             if "dach" in mat_name or "roof" in mat_name:
-                aufgaben.append({
-                    "anlage": f"Dach: {mat.get('name', 'Dachbelag')}",
-                    "typ": "flachdach",
-                    "kategorie": "dach",
-                    "baujahr_anlage": req.baujahr,
-                    "alter_jahre": jetzt.year - req.baujahr,
-                    "intervall_jahre": 1,
-                    "naechste_wartung": (jetzt + timedelta(days=365)).strftime("%Y-%m-%d"),
-                    "massnahmen": WARTUNGSZYKLEN["flachdach"]["massnahmen"],
-                    "norm": WARTUNGSZYKLEN["flachdach"]["norm"],
-                    "restlebensdauer_jahre": max(0, 20 - (jetzt.year - req.baujahr)),
-                    "prioritaet": "normal" if (jetzt.year - req.baujahr) < 15 else "hoch",
-                    "quelle": "IFC-Modell (automatisch erkannt)",
-                })
+                aufgaben.append(
+                    {
+                        "anlage": f"Dach: {mat.get('name', 'Dachbelag')}",
+                        "typ": "flachdach",
+                        "kategorie": "dach",
+                        "baujahr_anlage": req.baujahr,
+                        "alter_jahre": jetzt.year - req.baujahr,
+                        "intervall_jahre": 1,
+                        "naechste_wartung": (jetzt + timedelta(days=365)).strftime("%Y-%m-%d"),
+                        "massnahmen": WARTUNGSZYKLEN["flachdach"]["massnahmen"],
+                        "norm": WARTUNGSZYKLEN["flachdach"]["norm"],
+                        "restlebensdauer_jahre": max(0, 20 - (jetzt.year - req.baujahr)),
+                        "prioritaet": "normal" if (jetzt.year - req.baujahr) < 15 else "hoch",
+                        "quelle": "IFC-Modell (automatisch erkannt)",
+                    }
+                )
 
     # Sortieren nach Dringlichkeit
     prio_order = {"kritisch": 0, "hoch": 1, "normal": 2}
@@ -537,6 +612,7 @@ def _generiere_wartungsplan(req: WartungsplanRequest) -> Dict[str, Any]:
 # CO₂-Tracking & Dekarbonisierungs-Roadmap
 # ---------------------------------------------------------------------------
 
+
 def _berechne_co2_roadmap(
     co2_aktuell_kg_m2a: float,
     bgf_m2: float,
@@ -550,47 +626,55 @@ def _berechne_co2_roadmap(
     jetzt = datetime.now()
     ziel_2030 = co2_aktuell_kg_m2a * 0.55  # -45%
     ziel_2040 = co2_aktuell_kg_m2a * 0.30  # -70%
-    ziel_2050 = 0.0                          # netto-null
+    ziel_2050 = 0.0  # netto-null
 
     massnahmen: List[Dict[str, Any]] = []
 
     if heiztraeger in ("erdgas", "heizoel"):
         einsparung_wp = co2_aktuell_kg_m2a * 0.60
-        massnahmen.append({
-            "massnahme": "Heizungstausch → Wärmepumpe",
-            "zeithorizont": "2025–2030",
-            "co2_einsparung_kg_m2a": round(einsparung_wp, 2),
-            "kosten_eur_m2": "80–150",
-            "foerderung": "Klimabonus (Bund), Wohnbauförderung (Land)",
-            "norm": "OIB-RL 6:2025, Erneuerbaren-Ausbau-Gesetz (EAG)",
-        })
+        massnahmen.append(
+            {
+                "massnahme": "Heizungstausch → Wärmepumpe",
+                "zeithorizont": "2025–2030",
+                "co2_einsparung_kg_m2a": round(einsparung_wp, 2),
+                "kosten_eur_m2": "80–150",
+                "foerderung": "Klimabonus (Bund), Wohnbauförderung (Land)",
+                "norm": "OIB-RL 6:2025, Erneuerbaren-Ausbau-Gesetz (EAG)",
+            }
+        )
 
-    massnahmen.append({
-        "massnahme": "Gebäudehülle sanieren (Außenwanddämmung, Fenstertausch)",
-        "zeithorizont": "2026–2035",
-        "co2_einsparung_kg_m2a": round(co2_aktuell_kg_m2a * 0.25, 2),
-        "kosten_eur_m2": "200–400",
-        "foerderung": "Sanierungsbonus (Bund), Wohnbauförderung (Land)",
-        "norm": "OIB-RL 6:2025, Renovierungspass",
-    })
+    massnahmen.append(
+        {
+            "massnahme": "Gebäudehülle sanieren (Außenwanddämmung, Fenstertausch)",
+            "zeithorizont": "2026–2035",
+            "co2_einsparung_kg_m2a": round(co2_aktuell_kg_m2a * 0.25, 2),
+            "kosten_eur_m2": "200–400",
+            "foerderung": "Sanierungsbonus (Bund), Wohnbauförderung (Land)",
+            "norm": "OIB-RL 6:2025, Renovierungspass",
+        }
+    )
 
-    massnahmen.append({
-        "massnahme": "Photovoltaik-Anlage installieren (Solarpflicht ab 2027)",
-        "zeithorizont": "2025–2030 (Solarpflicht ab 2027 für Nicht-Wohngebäude)",
-        "co2_einsparung_kg_m2a": round(co2_aktuell_kg_m2a * 0.15, 2),
-        "kosten_eur_m2": "30–80",
-        "foerderung": "EAG-Investitionszuschuss, Netzübertragungstarif",
-        "norm": "OIB-RL 6:2025, EAG",
-    })
+    massnahmen.append(
+        {
+            "massnahme": "Photovoltaik-Anlage installieren (Solarpflicht ab 2027)",
+            "zeithorizont": "2025–2030 (Solarpflicht ab 2027 für Nicht-Wohngebäude)",
+            "co2_einsparung_kg_m2a": round(co2_aktuell_kg_m2a * 0.15, 2),
+            "kosten_eur_m2": "30–80",
+            "foerderung": "EAG-Investitionszuschuss, Netzübertragungstarif",
+            "norm": "OIB-RL 6:2025, EAG",
+        }
+    )
 
-    massnahmen.append({
-        "massnahme": "Lüftungsanlage mit Wärmerückgewinnung",
-        "zeithorizont": "2028–2035",
-        "co2_einsparung_kg_m2a": round(co2_aktuell_kg_m2a * 0.10, 2),
-        "kosten_eur_m2": "50–100",
-        "foerderung": "Wohnbauförderung (Bundesland)",
-        "norm": "OIB-RL 3, ÖNORM H 6036",
-    })
+    massnahmen.append(
+        {
+            "massnahme": "Lüftungsanlage mit Wärmerückgewinnung",
+            "zeithorizont": "2028–2035",
+            "co2_einsparung_kg_m2a": round(co2_aktuell_kg_m2a * 0.10, 2),
+            "kosten_eur_m2": "50–100",
+            "foerderung": "Wohnbauförderung (Bundesland)",
+            "norm": "OIB-RL 3, ÖNORM H 6036",
+        }
+    )
 
     return {
         "co2_aktuell_kg_m2a": round(co2_aktuell_kg_m2a, 2),
@@ -702,8 +786,15 @@ async def get_gebaeude_status(
 
     letzter_wert: Dict[str, Any] = {}
     for m in messwerte:
-        if m.sensor_id not in letzter_wert or m.zeitstempel > letzter_wert[m.sensor_id]["zeitstempel"]:
-            letzter_wert[m.sensor_id] = {"wert": m.wert, "einheit": m.einheit, "zeitstempel": m.zeitstempel.isoformat()}
+        if (
+            m.sensor_id not in letzter_wert
+            or m.zeitstempel > letzter_wert[m.sensor_id]["zeitstempel"]
+        ):
+            letzter_wert[m.sensor_id] = {
+                "wert": m.wert,
+                "einheit": m.einheit,
+                "zeitstempel": m.zeitstempel.isoformat(),
+            }
 
     return {
         "gebaeude_id": gebaeude_id,
@@ -773,7 +864,9 @@ async def generiere_wartungsplan(req: WartungsplanRequest) -> Dict[str, Any]:
 async def co2_roadmap(
     gebaeude_id: str = Path(description="Gebäude-ID"),
     co2_aktuell_kg_m2a: float = Query(gt=0, description="Aktueller CO₂-Wert in kg/m²a"),
-    heiztraeger: str = Query(default="erdgas", description="erdgas|heizoel|waermepumpe|fernwaerme|holz"),
+    heiztraeger: str = Query(
+        default="erdgas", description="erdgas|heizoel|waermepumpe|fernwaerme|holz"
+    ),
 ) -> Dict[str, Any]:
     """
     Erstellt eine Dekarbonisierungs-Roadmap gemäß EU-Taxonomie und EPBD III.
@@ -822,7 +915,11 @@ async def protokoll_info() -> Dict[str, Any]:
                 "protokoll": "Modbus TCP",
                 "enum_wert": "modbus_tcp",
                 "beschreibung": "Energiezähler, Wechselrichter, Sensoren",
-                "typische_anwendungen": ["Energiemessung", "PV-Wechselrichter", "Frequenzumrichter"],
+                "typische_anwendungen": [
+                    "Energiemessung",
+                    "PV-Wechselrichter",
+                    "Frequenzumrichter",
+                ],
                 "standard": "Modbus Application Protocol v1.1b3",
                 "port": 502,
             },

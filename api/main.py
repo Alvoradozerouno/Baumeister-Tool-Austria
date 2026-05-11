@@ -113,9 +113,18 @@ app = FastAPI(
         {"name": "ai", "description": "🤖 AI-powered recommendations (UNIQUE)"},
         {"name": "bim", "description": "🏗️ BIM integration (UNIQUE)"},
         {"name": "collaboration", "description": "👥 Real-time collaboration (UNIQUE)"},
-        {"name": "grundriss-ki", "description": "🧠 KI-Grundrissoptimierung mit AT Bauordnungs-Anforderungen (UNIQUE)"},
-        {"name": "digital-twin", "description": "🏙️ Digitaler Zwilling — BACnet/Modbus/KNX, Energiemonitoring, Wartungsplan (UNIQUE)"},
-        {"name": "i18n", "description": "🌍 Mehrsprachigkeit — DE, EN, SL (Kärnten), HR, HU (Burgenland)"},
+        {
+            "name": "grundriss-ki",
+            "description": "🧠 KI-Grundrissoptimierung mit AT Bauordnungs-Anforderungen (UNIQUE)",
+        },
+        {
+            "name": "digital-twin",
+            "description": "🏙️ Digitaler Zwilling — BACnet/Modbus/KNX, Energiemonitoring, Wartungsplan (UNIQUE)",
+        },
+        {
+            "name": "i18n",
+            "description": "🌍 Mehrsprachigkeit — DE, EN, SL (Kärnten), HR, HU (Burgenland)",
+        },
         {"name": "auth", "description": "Authentication & authorization"},
         {"name": "health", "description": "Health & monitoring"},
     ],

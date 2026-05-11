@@ -110,9 +110,7 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
     }
 
     user_record = demo_users.get(form_data.username)
-    if not user_record or not secrets.compare_digest(
-        user_record["password"], form_data.password
-    ):
+    if not user_record or not secrets.compare_digest(user_record["password"], form_data.password):
         logger.warning(f"Failed login attempt for user: {form_data.username}")
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
@@ -151,4 +149,3 @@ async def get_current_user_info(current_user: User = Depends(get_current_active_
         "roles": current_user.roles,
         "is_active": current_user.is_active,
     }
-
