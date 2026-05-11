@@ -317,6 +317,7 @@ class RaumVorschlag(BaseModel):
     tiefe_m: float
     stockwerk: int
     ausrichtung: str
+    tageslicht_erforderlich: bool = True
     normkonform: bool
     min_flaeche_m2: float
     hinweis: Optional[str] = None
@@ -408,6 +409,7 @@ def _berechne_raumgroessen(
                 "tiefe_m": round(tiefe, 2),
                 "stockwerk": stockwerk,
                 "ausrichtung": ausrichtung,
+                "tageslicht_erforderlich": tageslicht,
                 "min_flaeche_m2": min_m2,
                 "normkonform": flaeche >= min_m2,
                 "hinweis": None,
@@ -524,16 +526,16 @@ def _generiere_hinweise(
             )
 
     if a_v > 0.8:
-        hinweise.append("💡 Kompakteren Gebäudekörper wählen — A/V-Verhältnis {:.2f} ist ungünstig für OIB-RL 6".format(a_v))
+        hinweise.append(f"💡 Kompakteren Gebäudekörper wählen — A/V-Verhältnis {a_v:.2f} ist ungünstig für OIB-RL 6")
     elif a_v < 0.4:
-        hinweise.append("✅ Ausgezeichnetes A/V-Verhältnis {:.2f} — ideal für Energieeffizienz (OIB-RL 6)".format(a_v))
+        hinweise.append(f"✅ Ausgezeichnetes A/V-Verhältnis {a_v:.2f} — ideal für Energieeffizienz (OIB-RL 6)")
 
     if ziel == OptimierungsZiel.BARRIEREFREIHEIT or barrierefreiheit:
         hinweise.append("♿ Türbreiten: mind. 90 cm lichte Breite (OIB-RL 4 § 4.3)")
-        hinweise.append("♿ Aufzug prüfen: ab {} Geschoßen Pflicht (lokale BO)".format(anforderungen["aufzug_ab_geschosse"]))
+        hinweise.append(f"♿ Aufzug prüfen: ab {anforderungen['aufzug_ab_geschosse']} Geschoßen Pflicht (lokale BO)")
 
     if ziel == OptimierungsZiel.BELICHTUNG:
-        hinweise.append("☀️ Fensterflächen: mind. {:.0f}% der Bodenfläche pro Aufenthaltsraum (lokale BO)".format(anforderungen["fensterflaecheanteile"] * 100))
+        hinweise.append(f"☀️ Fensterflächen: mind. {anforderungen['fensterflaecheanteile'] * 100:.0f}% der Bodenfläche pro Aufenthaltsraum (lokale BO)")
         hinweise.append("☀️ Südausrichtung von Wohn- und Schlafräumen maximiert passive Solargewinne")
 
     if geschosse >= anforderungen.get("aufzug_ab_geschosse", 5):
@@ -619,6 +621,7 @@ async def generiere_grundriss(req: GrundrissGenerierungRequest) -> GrundrissErge
             tiefe_m=r["tiefe_m"],
             stockwerk=r["stockwerk"],
             ausrichtung=r["ausrichtung"],
+            tageslicht_erforderlich=r.get("tageslicht_erforderlich", True),
             normkonform=r["normkonform"],
             min_flaeche_m2=r["min_flaeche_m2"],
             hinweis=r.get("hinweis"),
@@ -726,6 +729,7 @@ async def optimiere_grundriss(req: GrundrissOptimierungRequest) -> GrundrissErge
             tiefe_m=r["tiefe_m"],
             stockwerk=r["stockwerk"],
             ausrichtung=r["ausrichtung"],
+            tageslicht_erforderlich=r.get("tageslicht_erforderlich", True),
             normkonform=r["normkonform"],
             min_flaeche_m2=r["min_flaeche_m2"],
             hinweis=r.get("hinweis"),
