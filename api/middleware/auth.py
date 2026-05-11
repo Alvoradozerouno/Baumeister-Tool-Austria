@@ -4,11 +4,12 @@ API Authentication Middleware for ORION Architekt AT
 
 import logging
 import os
+import secrets
 from datetime import datetime, timedelta
 from typing import List, Optional
 
 from fastapi import APIRouter, Depends, HTTPException, Security, status
-from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
+from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
 from pydantic import BaseModel
 
@@ -17,8 +18,6 @@ security = HTTPBearer()
 
 # Create auth router
 router = APIRouter()
-
-import secrets
 
 _raw_secret = os.getenv("JWT_SECRET_KEY", "")
 SECRET_KEY = _raw_secret if _raw_secret else secrets.token_hex(64)
@@ -32,6 +31,12 @@ class User(BaseModel):
     email: str
     roles: List[str] = []
     is_active: bool = True
+
+
+class TokenResponse(BaseModel):
+    access_token: str
+    token_type: str = "bearer"
+    expires_in: int = ACCESS_TOKEN_EXPIRE_MINUTES * 60
 
 
 def create_access_token(data: dict) -> str:
@@ -74,3 +79,73 @@ async def require_premium(current_user: User = Depends(get_current_active_user))
     if "premium" not in current_user.roles and "admin" not in current_user.roles:
         raise HTTPException(status_code=403, detail="Premium subscription required")
     return current_user
+
+
+@router.post("/token", response_model=TokenResponse, tags=["auth"])
+async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends()):
+    """
+    🔑 **Obtain JWT access token**
+
+    Authenticate with username and password to receive a Bearer token.
+    Use the returned token in the `Authorization: Bearer <token>` header for protected endpoints.
+
+    **Demo credentials** (development only):
+    - username: `demo`, password: `demo`
+    - username: `admin`, password: `admin`
+    """
+    # Demo user store — replace with real database lookup in production
+    demo_users = {
+        "demo": {
+            "password": "demo",
+            "user_id": "usr_demo",
+            "email": "demo@orion-architekt.at",
+            "roles": [],
+        },
+        "admin": {
+            "password": "admin",
+            "user_id": "usr_admin",
+            "email": "admin@orion-architekt.at",
+            "roles": ["admin", "premium"],
+        },
+    }
+
+    user_record = demo_users.get(form_data.username)
+    if not user_record or not secrets.compare_digest(user_record["password"], form_data.password):
+        logger.warning(f"Failed login attempt for user: {form_data.username}")
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Incorrect username or password",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+    token_data = {
+        "user_id": user_record["user_id"],
+        "username": form_data.username,
+        "email": user_record["email"],
+        "roles": user_record["roles"],
+    }
+    access_token = create_access_token(token_data)
+    logger.info(f"Token issued for user: {form_data.username}")
+
+    return TokenResponse(
+        access_token=access_token,
+        token_type="bearer",
+        expires_in=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
+    )
+
+
+@router.get("/me", tags=["auth"])
+async def get_current_user_info(current_user: User = Depends(get_current_active_user)):
+    """
+    👤 **Get current authenticated user info**
+
+    Returns information about the currently authenticated user.
+    Requires a valid Bearer token.
+    """
+    return {
+        "user_id": current_user.user_id,
+        "username": current_user.username,
+        "email": current_user.email,
+        "roles": current_user.roles,
+        "is_active": current_user.is_active,
+    }

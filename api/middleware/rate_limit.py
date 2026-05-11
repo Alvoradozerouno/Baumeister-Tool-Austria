@@ -11,6 +11,7 @@ from typing import Dict, Optional
 
 import redis
 from fastapi import HTTPException, Request, status
+from fastapi.responses import JSONResponse
 from starlette.middleware.base import BaseHTTPMiddleware
 
 # Redis connection for distributed rate limiting
@@ -48,9 +49,9 @@ class RateLimitMiddleware(BaseHTTPMiddleware):
         allowed, retry_after = self._check_rate_limit(client_id, tier)
 
         if not allowed:
-            return HTTPException(
+            return JSONResponse(
                 status_code=status.HTTP_429_TOO_MANY_REQUESTS,
-                detail=f"Rate limit exceeded. Try again in {retry_after} seconds.",
+                content={"detail": f"Rate limit exceeded. Try again in {retry_after} seconds."},
                 headers={
                     "Retry-After": str(retry_after),
                     "X-RateLimit-Limit": str(tier["limit"]),

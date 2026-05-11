@@ -30,6 +30,10 @@ from api.routers import (
     calculations,
     collaboration,
     compliance,
+    digital_twin,
+    grundriss_ki,
+    i18n_router,
+    monitoring,
     reports,
     tendering,
     validation,
@@ -75,6 +79,9 @@ app = FastAPI(
     * 👥 **Real-time Collaboration** - UNIQUE: Multi-user project work
     * 📊 **Advanced Analytics** - Performance metrics and insights
     * 📝 **ÖNORM A 2063 Tendering** - UNIQUE: Professional Austrian tendering system
+    * 🧠 **KI-Grundrissoptimierung** - UNIQUE: AI floor plan generation with AT building codes
+    * 🏙️ **Digitaler Zwilling** - UNIQUE: BACnet/Modbus/KNX, energy monitoring, maintenance plans
+    * 🌍 **Mehrsprachig** - DE, EN, SL (Kärnten), HR, HU (Burgenland)
 
     ## Authentication
 
@@ -106,15 +113,34 @@ app = FastAPI(
         {"name": "ai", "description": "🤖 AI-powered recommendations (UNIQUE)"},
         {"name": "bim", "description": "🏗️ BIM integration (UNIQUE)"},
         {"name": "collaboration", "description": "👥 Real-time collaboration (UNIQUE)"},
+        {
+            "name": "grundriss-ki",
+            "description": "🧠 KI-Grundrissoptimierung mit AT Bauordnungs-Anforderungen (UNIQUE)",
+        },
+        {
+            "name": "digital-twin",
+            "description": "🏙️ Digitaler Zwilling — BACnet/Modbus/KNX, Energiemonitoring, Wartungsplan (UNIQUE)",
+        },
+        {
+            "name": "i18n",
+            "description": "🌍 Mehrsprachigkeit — DE, EN, SL (Kärnten), HR, HU (Burgenland)",
+        },
         {"name": "auth", "description": "Authentication & authorization"},
         {"name": "health", "description": "Health & monitoring"},
     ],
 )
 
 # Middleware
+_cors_origins_raw = os.getenv("ALLOWED_ORIGINS", "")
+_cors_origins = [o.strip() for o in _cors_origins_raw.split(",") if o.strip()] or ["*"]
+if _cors_origins == ["*"]:
+    logger.warning(
+        "CORS is configured with wildcard origin ('*'). "
+        "Set the ALLOWED_ORIGINS environment variable to restrict origins in production."
+    )
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, specify exact origins
+    allow_origins=_cors_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -138,6 +164,10 @@ app.include_router(ai_recommendations.router, prefix="/api/v1/ai", tags=["ai"])
 app.include_router(bim_integration.router, prefix="/api/v1/bim", tags=["bim"])
 app.include_router(collaboration.router, prefix="/api/v1/collaboration", tags=["collaboration"])
 app.include_router(auth_router, prefix="/auth", tags=["auth"])
+app.include_router(monitoring.router, prefix="/monitoring", tags=["health"])
+app.include_router(grundriss_ki.router, prefix="/api/v1/grundriss", tags=["grundriss-ki"])
+app.include_router(digital_twin.router, prefix="/api/v1/digital-twin", tags=["digital-twin"])
+app.include_router(i18n_router.router, prefix="/api/v1/i18n", tags=["i18n"])
 
 
 # Health check endpoints
