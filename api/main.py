@@ -501,7 +501,7 @@ async function comparebl() {
   el.innerHTML = '<div style="font-size:0.8rem;margin-top:0.5rem">Lade...</div>';
   const d = await fetchJson('/api/v1/bundesland/compare?bundeslaender=' + bl1 + '&bundeslaender=' + bl2);
   if (d.error) { el.innerHTML = '<div style="color:red;font-size:0.8rem">' + d.error + '</div>'; return; }
-  const rows = Object.entries(d.vergleich || {}).map(([k,v]) =>
+  const rows = Object.entries(d.daten || {}).map(([k,v]) =>
     '<tr><td style="padding:0.2rem 0.5rem;border-bottom:1px solid #333;font-size:0.75rem">' + k + '</td>' +
     Object.values(v).map(x => '<td style="padding:0.2rem 0.5rem;border-bottom:1px solid #333;font-size:0.75rem">' + JSON.stringify(x) + '</td>').join('') + '</tr>'
   ).join('');
@@ -512,8 +512,8 @@ async function loadBpi() {
   const el = document.getElementById('bpiResult');
   el.innerHTML = '<div style="font-size:0.8rem;margin-top:0.5rem">Lade...</div>';
   const d = await fetchJson('/api/v1/at-data/baupreisindex');
-  if (!d.index) { el.innerHTML = '<div style="color:red;font-size:0.8rem">Fehler</div>'; return; }
-  const last5 = d.index.slice(-5);
+  if (!d.zeitreihe) { el.innerHTML = '<div style="color:red;font-size:0.8rem">Fehler</div>'; return; }
+  const last5 = d.zeitreihe.slice(-5);
   const rows = last5.map(e =>
     '<tr><td style="padding:0.2rem 0.4rem;font-size:0.75rem">' + e.quartal + '</td>' +
     '<td style="padding:0.2rem 0.4rem;font-size:0.75rem;text-align:right">' + e.index_gesamt + '</td></tr>'
