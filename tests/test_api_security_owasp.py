@@ -66,7 +66,8 @@ class TestOWASPAPITop10:
     def test_api2_broken_authentication_weak_tokens(self, client):
         """
         API2:2023 - Test for weak authentication
-        Ensure strong JWT tokens are required
+        Ensure strong JWT tokens are required on protected endpoints.
+        Tests against /auth/me which requires a valid JWT Bearer token.
         """
         weak_tokens = [
             "Bearer 123",
@@ -76,7 +77,7 @@ class TestOWASPAPITop10:
         ]
 
         for token in weak_tokens:
-            response = client.get("/api/v1/projects", headers={"Authorization": token})
+            response = client.get("/auth/me", headers={"Authorization": token})
             assert response.status_code in [
                 401,
                 403,

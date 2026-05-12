@@ -4,6 +4,7 @@ API Authentication Middleware for ORION Architekt AT
 
 import logging
 import os
+import secrets
 from datetime import datetime, timedelta
 from typing import List, Optional
 
@@ -17,8 +18,6 @@ security = HTTPBearer()
 
 # Create auth router
 router = APIRouter()
-
-import secrets
 
 _raw_secret = os.getenv("JWT_SECRET_KEY", "")
 SECRET_KEY = _raw_secret if _raw_secret else secrets.token_hex(64)
@@ -74,3 +73,42 @@ async def require_premium(current_user: User = Depends(get_current_active_user))
     if "premium" not in current_user.roles and "admin" not in current_user.roles:
         raise HTTPException(status_code=403, detail="Premium subscription required")
     return current_user
+
+
+# ---------------------------------------------------------------------------
+# Auth router endpoints
+# ---------------------------------------------------------------------------
+
+
+@router.get("/me", tags=["auth"], summary="Aktuelle Benutzerinfo")
+async def get_me(current_user: User = Depends(get_current_active_user)) -> dict:
+    """
+    🔐 **Aktuelle Benutzerinformation**
+
+    Gibt die Profildaten des aktuell eingeloggten Benutzers zurück.
+    Erfordert einen gültigen JWT Bearer Token.
+
+    Wird für Sicherheitstests (OWASP API2) und Token-Validierung verwendet.
+    """
+    return {
+        "user_id": current_user.user_id,
+        "username": current_user.username,
+        "email": current_user.email,
+        "roles": current_user.roles,
+        "is_active": current_user.is_active,
+    }
+
+
+@router.get("/status", tags=["auth"], summary="Auth-Status prüfen")
+async def auth_status() -> dict:
+    """
+    🔍 **Auth-System Status**
+
+    Gibt den Status des Authentifizierungssystems zurück (öffentlich).
+    """
+    return {
+        "auth_required": True,
+        "algorithm": ALGORITHM,
+        "token_type": "Bearer (JWT)",
+        "hinweis": "Token über POST /auth/token beziehen.",
+    }

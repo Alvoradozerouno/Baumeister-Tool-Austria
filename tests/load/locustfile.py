@@ -3,9 +3,10 @@ ORION Architekt-AT - Load Testing with Locust
 ==============================================
 
 Performance and load testing scenarios for production validation.
+Covers Austria-first endpoints: Bundesländer, AT-Data, Projects, Compliance.
 
 Author: ORION Engineering Team
-Date: 2026-04-12
+Date: 2026-05-12
 Status: PRODUCTION TESTING
 """
 
@@ -48,6 +49,8 @@ MATERIALS = [
     ("Innendämmung", 40, 0.04),
     ("Gipskarton", 12, 0.21),
 ]
+
+OIB_NUMMERN = ["OIB-RL 1", "OIB-RL 2", "OIB-RL 3", "OIB-RL 4", "OIB-RL 5", "OIB-RL 6"]
 
 
 # ============================================================================
@@ -93,10 +96,31 @@ class AnonymousUser(BaseORIONUser):
         """View OpenAPI spec"""
         self.client.get("/openapi.json", name="/openapi.json")
 
+    @task(4)
+    def browse_bundeslaender(self):
+        """Browse Bundesländer list (public AT data)"""
+        self.client.get("/api/v1/bundesland/", name="/api/v1/bundesland/")
+
+    @task(3)
+    def view_bundesland_detail(self):
+        """View single Bundesland details"""
+        bl = random.choice(BUNDESLAENDER)
+        self.client.get(f"/api/v1/bundesland/{bl}", name="/api/v1/bundesland/{bl}")
+
+    @task(2)
+    def view_oib_richtlinien(self):
+        """Browse OIB-RL overview"""
+        self.client.get("/api/v1/at-data/oib-richtlinien", name="/api/v1/at-data/oib-richtlinien")
+
+    @task(2)
+    def view_baupreisindex(self):
+        """View Baupreisindex (Statistik Austria)"""
+        self.client.get("/api/v1/at-data/baupreisindex", name="/api/v1/at-data/baupreisindex")
+
 
 class AuthenticatedFreeUser(BaseORIONUser):
     """
-    Authenticated free tier user (100 req/min limit)
+    Authenticated free tier user
     Weight: 30% of users
     """
 
@@ -121,9 +145,9 @@ class AuthenticatedFreeUser(BaseORIONUser):
         payload = {"schichten": schichten, "innen_uebergang": 0.13, "aussen_uebergang": 0.04}
 
         with self.client.post(
-            "/api/v1/berechnungen/uwert",
+            "/api/v1/calculations/uwert",
             json=payload,
-            name="/api/v1/berechnungen/uwert",
+            name="/api/v1/calculations/uwert",
             catch_response=True,
         ) as response:
             if response.status_code == 200:
@@ -139,17 +163,22 @@ class AuthenticatedFreeUser(BaseORIONUser):
 
     @task(5)
     def calculate_stellplaetze(self):
-        """Parking space calculation"""
-        payload = {
-            "bundesland": random.choice(BUNDESLAENDER),
-            "wohnungen": random.randint(10, 100),
-            "building_type": random.choice(BUILDING_TYPES),
-        }
+        """Parking space calculation via Bundesland endpoint"""
+        bl = random.choice(BUNDESLAENDER)
+        wohnungen = random.randint(10, 100)
+        self.client.get(
+            f"/api/v1/bundesland/{bl}/stellplaetze?wohnungen={wohnungen}",
+            name="/api/v1/bundesland/{bl}/stellplaetze",
+        )
 
-        self.client.post(
-            "/api/v1/berechnungen/stellplaetze",
-            json=payload,
-            name="/api/v1/berechnungen/stellplaetze",
+    @task(4)
+    def check_aufzug(self):
+        """Elevator requirement check via Bundesland endpoint"""
+        bl = random.choice(BUNDESLAENDER)
+        geschosse = random.randint(1, 10)
+        self.client.get(
+            f"/api/v1/bundesland/{bl}/aufzug?geschosse={geschosse}",
+            name="/api/v1/bundesland/{bl}/aufzug",
         )
 
     @task(3)
@@ -165,7 +194,9 @@ class AuthenticatedFreeUser(BaseORIONUser):
         }
 
         self.client.post(
-            "/api/v1/checks/barrierefreiheit", json=payload, name="/api/v1/checks/barrierefreiheit"
+            "/api/v1/calculations/barrierefreiheit-check",
+            json=payload,
+            name="/api/v1/calculations/barrierefreiheit-check",
         )
 
     @task(2)
@@ -180,15 +211,44 @@ class AuthenticatedFreeUser(BaseORIONUser):
         }
 
         self.client.post(
-            "/api/v1/berechnungen/heizlast", json=payload, name="/api/v1/berechnungen/heizlast"
+            "/api/v1/calculations/heizlast-berechnung",
+            json=payload,
+            name="/api/v1/calculations/heizlast-berechnung",
+        )
+
+    @task(3)
+    def browse_kostenrichtwerte(self):
+        """Browse cost reference values"""
+        bl = random.choice(BUNDESLAENDER)
+        self.client.get(
+            f"/api/v1/at-data/kostenrichtwerte?bundesland={bl}",
+            name="/api/v1/at-data/kostenrichtwerte",
+        )
+
+    @task(2)
+    def browse_foerderungen(self):
+        """Browse Förderungen per Bundesland"""
+        bl = random.choice(BUNDESLAENDER)
+        self.client.get(
+            f"/api/v1/bundesland/{bl}/foerderungen",
+            name="/api/v1/bundesland/{bl}/foerderungen",
+        )
+
+    @task(1)
+    def compare_bundeslaender(self):
+        """Compare two Bundesländer"""
+        bl1, bl2 = random.sample(BUNDESLAENDER, 2)
+        self.client.get(
+            f"/api/v1/bundesland/compare?bundeslaender={bl1}&bundeslaender={bl2}",
+            name="/api/v1/bundesland/compare",
         )
 
 
 class AuthenticatedPremiumUser(BaseORIONUser):
     """
-    Authenticated premium user (1000 req/min limit)
+    Authenticated premium user
     Weight: 15% of users
-    Higher usage patterns
+    Higher usage patterns, projects, BIM
     """
 
     weight = 1.5
@@ -213,7 +273,9 @@ class AuthenticatedPremiumUser(BaseORIONUser):
             payload = {"schichten": schichten, "innen_uebergang": 0.13, "aussen_uebergang": 0.04}
 
             self.client.post(
-                "/api/v1/berechnungen/uwert", json=payload, name="/api/v1/berechnungen/uwert"
+                "/api/v1/calculations/uwert",
+                json=payload,
+                name="/api/v1/calculations/uwert",
             )
 
             time.sleep(0.1)  # Small delay between batch operations
@@ -227,40 +289,61 @@ class AuthenticatedPremiumUser(BaseORIONUser):
             "bgf_m2": random.randint(200, 2000),
             "geschosse": random.randint(2, 12),
             "wohnungen": random.randint(20, 200),
-            "richtlinien": [1, 2, 3, 4, 5, 6],
         }
 
-        self.client.post("/api/v1/compliance/oib", json=payload, name="/api/v1/compliance/oib")
+        self.client.post(
+            "/api/v1/compliance/oib-rl-check",
+            json=payload,
+            name="/api/v1/compliance/oib-rl-check",
+        )
+
+    @task(8)
+    def project_lifecycle(self):
+        """Create a project and check compliance summary"""
+        # Create project
+        payload = {
+            "name": f"Projekt {random.randint(1, 9999)}",
+            "bundesland": random.choice(BUNDESLAENDER),
+            "building_type": random.choice(BUILDING_TYPES),
+            "bgf_m2": random.uniform(200, 5000),
+            "geschosse": random.randint(2, 8),
+            "wohnungen": random.randint(5, 50),
+        }
+
+        with self.client.post(
+            "/api/v1/projects/",
+            json=payload,
+            name="/api/v1/projects/ [create]",
+            catch_response=True,
+        ) as response:
+            if response.status_code == 201:
+                project_id = response.json().get("id")
+                response.success()
+                if project_id:
+                    # Check compliance summary
+                    self.client.get(
+                        f"/api/v1/projects/{project_id}/compliance-summary",
+                        name="/api/v1/projects/{id}/compliance-summary",
+                    )
+            else:
+                response.failure(f"Project creation failed: {response.status_code}")
 
     @task(5)
-    def advanced_calculations(self):
-        """Multiple calculation types in sequence"""
-        # First calculate U-value
-        uwert_payload = {
-            "schichten": [
-                {"material": "Beton", "dicke_mm": 200, "lambda_wert": 2.1},
-                {"material": "Dämmung", "dicke_mm": 160, "lambda_wert": 0.035},
-            ]
-        }
-        self.client.post("/api/v1/berechnungen/uwert", json=uwert_payload)
-
-        # Then check accessibility
-        barrierefreiheit_payload = {
-            "tuer_breite_cm": 90,
-            "rampe_vorhanden": True,
-            "rampe_steigung_prozent": 6,
-            "aufzug_vorhanden": True,
-            "geschosse": 5,
-            "bundesland": "wien",
-        }
-        self.client.post("/api/v1/checks/barrierefreiheit", json=barrierefreiheit_payload)
+    def browse_oib_single(self):
+        """Browse single OIB-RL with Bundesland filter"""
+        nummer = random.choice(OIB_NUMMERN)
+        bl = random.choice(BUNDESLAENDER)
+        self.client.get(
+            f"/api/v1/at-data/oib-richtlinien?nummer={nummer}&bundesland={bl}",
+            name="/api/v1/at-data/oib-richtlinien?nummer=",
+        )
 
 
 class EnterpriseUser(BaseORIONUser):
     """
-    Enterprise user with highest limits (10000 req/min)
+    Enterprise user with highest limits
     Weight: 5% of users
-    Heavy API usage
+    Heavy API usage — projects, compliance, AT data
     """
 
     weight = 0.5
@@ -283,12 +366,30 @@ class EnterpriseUser(BaseORIONUser):
 
                 payload = {"schichten": schichten}
                 self.client.post(
-                    "/api/v1/berechnungen/uwert",
+                    "/api/v1/calculations/uwert",
                     json=payload,
-                    name="/api/v1/berechnungen/uwert [Enterprise]",
+                    name="/api/v1/calculations/uwert [Enterprise]",
                 )
 
             time.sleep(0.05)  # Minimal delay
+
+    @task(15)
+    def at_data_bulk(self):
+        """Bulk AT data queries"""
+        # Query all Bundesländer
+        self.client.get("/api/v1/bundesland/", name="/api/v1/bundesland/ [Enterprise]")
+
+        # Baupreisindex
+        self.client.get(
+            "/api/v1/at-data/baupreisindex", name="/api/v1/at-data/baupreisindex [Enterprise]"
+        )
+
+        # Kostenrichtwerte for 3 random Bundesländer
+        for bl in random.sample(BUNDESLAENDER, 3):
+            self.client.get(
+                f"/api/v1/at-data/kostenrichtwerte?bundesland={bl}",
+                name="/api/v1/at-data/kostenrichtwerte [Enterprise]",
+            )
 
 
 # ============================================================================
@@ -311,19 +412,23 @@ class StressTestUser(BaseORIONUser):
         """Rapid fire requests to stress the system"""
         endpoints = [
             (
-                "/api/v1/berechnungen/uwert",
+                "POST",
+                "/api/v1/calculations/uwert",
                 {"schichten": [{"material": "Test", "dicke_mm": 100, "lambda_wert": 1.0}]},
             ),
             (
-                "/api/v1/berechnungen/stellplaetze",
-                {"bundesland": "wien", "wohnungen": 50, "building_type": "mehrfamilienhaus"},
+                "GET",
+                f"/api/v1/bundesland/{random.choice(BUNDESLAENDER)}/stellplaetze?wohnungen=10",
+                None,
             ),
-            ("/health", None),
+            ("GET", "/health", None),
+            ("GET", "/api/v1/bundesland/", None),
+            ("GET", "/api/v1/at-data/baupreisindex", None),
         ]
 
-        endpoint, payload = random.choice(endpoints)
+        method, endpoint, payload = random.choice(endpoints)
 
-        if payload:
+        if method == "POST":
             self.client.post(endpoint, json=payload, name=f"{endpoint} [STRESS]")
         else:
             self.client.get(endpoint, name=f"{endpoint} [STRESS]")
@@ -338,7 +443,7 @@ class StressTestUser(BaseORIONUser):
 def on_test_start(environment, **kwargs):
     """Called when load test starts"""
     print("=" * 80)
-    print("ORION Load Test Starting")
+    print("ORION Austria-leading Load Test Starting")
     print("=" * 80)
     print(f"Target: {environment.host}")
     print(
@@ -351,7 +456,7 @@ def on_test_start(environment, **kwargs):
 def on_test_stop(environment, **kwargs):
     """Called when load test stops"""
     print("=" * 80)
-    print("ORION Load Test Completed")
+    print("ORION Austria-leading Load Test Completed")
     print("=" * 80)
 
 
@@ -369,3 +474,4 @@ def on_request(request_type, name, response_time, response_length, exception, **
     # Track slow requests (>1s)
     if response_time > 1000:
         print(f"SLOW REQUEST: {name} took {response_time}ms")
+
