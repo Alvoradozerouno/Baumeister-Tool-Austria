@@ -25,11 +25,13 @@ from api.middleware.auth import router as auth_router
 from api.models import User
 from api.routers import (
     ai_recommendations,
+    at_datasources,
     bim_integration,
     bundesland,
     calculations,
     collaboration,
     compliance,
+    projects,
     reports,
     tendering,
     validation,
@@ -94,18 +96,17 @@ app = FastAPI(
     },
     license_info={"name": "MIT License", "url": "https://opensource.org/licenses/MIT"},
     openapi_tags=[
-        {
-            "name": "calculations",
-            "description": "Building calculations (U-Wert, Stellplätze, etc.)",
-        },
+        {"name": "calculations", "description": "Building calculations (U-Wert, Stellplätze, etc.)"},
         {"name": "compliance", "description": "OIB-RL & ÖNORM compliance checks"},
         {"name": "validation", "description": "Knowledge base validation"},
-        {"name": "bundesland", "description": "Bundesland-specific regulations"},
+        {"name": "bundesland", "description": "🗺️ Alle 9 Bundesländer — Bauordnung, Stellplätze, Aufzug, Förderungen, Vergleich"},
         {"name": "reports", "description": "Generate comprehensive reports"},
         {"name": "tendering", "description": "📝 ÖNORM A 2063 Tendering & Bid Management (UNIQUE)"},
         {"name": "ai", "description": "🤖 AI-powered recommendations (UNIQUE)"},
         {"name": "bim", "description": "🏗️ BIM integration (UNIQUE)"},
         {"name": "collaboration", "description": "👥 Real-time collaboration (UNIQUE)"},
+        {"name": "projects", "description": "📁 Projekt- und Büroverwaltung — Austria-first Arbeitseinheit"},
+        {"name": "at-data", "description": "🇦🇹 Österreichische Datenquellen — OIB-RL, Baupreisindex, Kostenrichtwerte, Materialien"},
         {"name": "auth", "description": "Authentication & authorization"},
         {"name": "health", "description": "Health & monitoring"},
     ],
@@ -137,6 +138,8 @@ app.include_router(tendering.router, tags=["tendering"])  # Uses own prefix
 app.include_router(ai_recommendations.router, prefix="/api/v1/ai", tags=["ai"])
 app.include_router(bim_integration.router, prefix="/api/v1/bim", tags=["bim"])
 app.include_router(collaboration.router, prefix="/api/v1/collaboration", tags=["collaboration"])
+app.include_router(projects.router, prefix="/api/v1/projects", tags=["projects"])
+app.include_router(at_datasources.router, prefix="/api/v1/at-data", tags=["at-data"])
 app.include_router(auth_router, prefix="/auth", tags=["auth"])
 
 
@@ -182,16 +185,23 @@ async def root():
     return {
         "name": "ORION Architekt-AT API",
         "version": "3.0.0",
-        "description": "Austrian Building Regulations API",
+        "description": "Österreichische Baurechts-API — Austria-leading",
+        "fokus": "Alle 9 Bundesländer · OIB-RL 1-7 · ÖNORM · BIM · Förderungen",
         "docs_url": "/docs",
         "redoc_url": "/redoc",
         "unique_features": [
-            "AI-Powered Building Optimization",
-            "BIM Integration (IFC Processing)",
-            "Real-time Multi-user Collaboration",
-            "Complete OIB-RL 1-6 Coverage",
-            "All 9 Austrian Bundesländer",
-            "Knowledge Base Validation",
+            "Alle 9 Bundesländer mit vollständigen Baurechts-Daten",
+            "OIB-RL 1-7 (2023) vollständig — inkl. Salzburg-Sonderweg",
+            "Bundesländer-Vergleich (Stellplätze, Aufzug, Schneelasten, Kosten)",
+            "Österreichische Förderungsübersicht (Bund + alle Bundesländer)",
+            "Baupreisindex Österreich (Statistik Austria, Stand Q4 2025)",
+            "Kostenrichtwerte 2026 mit regionalen Faktoren",
+            "AI-gestützte Gebäudeoptimierung",
+            "BIM/IFC-Integration (IFC2x3, IFC4, IFC4.3)",
+            "Echtzeit-Zusammenarbeit im Büro",
+            "Projekt- und Büroverwaltung",
+            "ÖNORM A 2063 Ausschreibung",
+            "Audit-Trail für Compliance-Nachweise",
         ],
     }
 
