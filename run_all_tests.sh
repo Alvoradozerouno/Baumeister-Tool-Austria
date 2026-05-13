@@ -165,12 +165,47 @@ PASSED_TESTS=0
 
 echo "Test Results:"
 echo "============="
-[ $PYTEST_RESULT -eq 0 ] && echo -e "${GREEN}✅ Unit Tests (pytest)${NC}" && ((PASSED_TESTS++)) || echo -e "${RED}❌ Unit Tests (pytest)${NC}"
-[ $COMPLETE_INT_RESULT -eq 0 ] && echo -e "${GREEN}✅ Complete Integration (10 modules)${NC}" && ((PASSED_TESTS++)) || echo -e "${RED}❌ Complete Integration${NC}"
-[ $AI_INT_RESULT -eq 0 ] && echo -e "${GREEN}✅ AI Integration${NC}" && ((PASSED_TESTS++)) || echo -e "${RED}❌ AI Integration${NC}"
-[ $MULTI_AGENT_RESULT -eq 0 ] && echo -e "${GREEN}✅ Multi-Agent Integration${NC}" && ((PASSED_TESTS++)) || echo -e "${RED}❌ Multi-Agent Integration${NC}"
-[ $GENESIS_RESULT -eq 0 ] && echo -e "${GREEN}✅ GENESIS Integration${NC}" && ((PASSED_TESTS++)) || echo -e "${RED}❌ GENESIS Integration${NC}"
-[ $OENORM_RESULT -eq 0 ] && echo -e "${GREEN}✅ ÖNORM A 2063${NC}" && ((PASSED_TESTS++)) || echo -e "${RED}❌ ÖNORM A 2063${NC}"
+if [ $PYTEST_RESULT -eq 0 ]; then
+    echo -e "${GREEN}✅ Unit Tests (pytest)${NC}"
+    PASSED_TESTS=$((PASSED_TESTS + 1))
+else
+    echo -e "${RED}❌ Unit Tests (pytest)${NC}"
+fi
+
+if [ $COMPLETE_INT_RESULT -eq 0 ]; then
+    echo -e "${GREEN}✅ Complete Integration (10 modules)${NC}"
+    PASSED_TESTS=$((PASSED_TESTS + 1))
+else
+    echo -e "${RED}❌ Complete Integration${NC}"
+fi
+
+if [ $AI_INT_RESULT -eq 0 ]; then
+    echo -e "${GREEN}✅ AI Integration${NC}"
+    PASSED_TESTS=$((PASSED_TESTS + 1))
+else
+    echo -e "${RED}❌ AI Integration${NC}"
+fi
+
+if [ $MULTI_AGENT_RESULT -eq 0 ]; then
+    echo -e "${GREEN}✅ Multi-Agent Integration${NC}"
+    PASSED_TESTS=$((PASSED_TESTS + 1))
+else
+    echo -e "${RED}❌ Multi-Agent Integration${NC}"
+fi
+
+if [ $GENESIS_RESULT -eq 0 ]; then
+    echo -e "${GREEN}✅ GENESIS Integration${NC}"
+    PASSED_TESTS=$((PASSED_TESTS + 1))
+else
+    echo -e "${RED}❌ GENESIS Integration${NC}"
+fi
+
+if [ $OENORM_RESULT -eq 0 ]; then
+    echo -e "${GREEN}✅ ÖNORM A 2063${NC}"
+    PASSED_TESTS=$((PASSED_TESTS + 1))
+else
+    echo -e "${RED}❌ ÖNORM A 2063${NC}"
+fi
 
 echo ""
 echo "Success Rate: $PASSED_TESTS/$TOTAL_TESTS ($(( PASSED_TESTS * 100 / TOTAL_TESTS ))%)"
