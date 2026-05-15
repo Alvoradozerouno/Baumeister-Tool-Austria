@@ -96,7 +96,7 @@ STATISCHES GUTACHTEN
 Projekt:          Test-Wohnhaus
 Bauherr:          Max Mustermann
 Standort:         N/A
-Datum:            2026-05-15
+Datum:            2026-04-10
 Norm:             ÖNORM EN 1992-1-1
 
 ================================================================================

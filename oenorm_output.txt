@@ -1,9 +1,9 @@
 ============================= test session starts ==============================
 platform linux -- Python 3.12.3, pytest-9.0.3, pluggy-1.6.0 -- /usr/bin/python3
 cachedir: .pytest_cache
-rootdir: /home/runner/work/Baumaster.at/Baumaster.at
+rootdir: /home/runner/work/ORION-Architekt-AT/ORION-Architekt-AT
 configfile: pyproject.toml
-plugins: asyncio-1.3.0, cov-7.1.0, xdist-3.8.0, anyio-4.13.0, locust-2.44.0
+plugins: asyncio-1.3.0, cov-7.1.0, xdist-3.8.0, locust-2.43.4, anyio-4.13.0
 asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
 created: 2/2 workers
 2 workers [18 items]
@@ -12,8 +12,8 @@ scheduling tests via LoadScheduling
 
 test_orion_oenorm_a2063.py::TestLVGeneration::test_generiere_lv_einfamilienhaus_basic 
 test_orion_oenorm_a2063.py::TestLVPosition::test_lv_position_creation 
-[gw0] [  5%] PASSED test_orion_oenorm_a2063.py::TestLVPosition::test_lv_position_creation 
-[gw1] [ 11%] PASSED test_orion_oenorm_a2063.py::TestLVGeneration::test_generiere_lv_einfamilienhaus_basic 
+[gw1] [  5%] PASSED test_orion_oenorm_a2063.py::TestLVGeneration::test_generiere_lv_einfamilienhaus_basic 
+[gw0] [ 11%] PASSED test_orion_oenorm_a2063.py::TestLVPosition::test_lv_position_creation 
 test_orion_oenorm_a2063.py::TestLVPosition::test_lv_position_gp_recalculation 
 test_orion_oenorm_a2063.py::TestLVGeneration::test_generiere_lv_groessere_bgf 
 [gw0] [ 16%] PASSED test_orion_oenorm_a2063.py::TestLVPosition::test_lv_position_gp_recalculation 
@@ -21,30 +21,30 @@ test_orion_oenorm_a2063.py::TestLVGeneration::test_generiere_lv_groessere_bgf
 test_orion_oenorm_a2063.py::TestLVGeneration::test_lv_gewerke_vollstaendig 
 test_orion_oenorm_a2063.py::TestOENORMExport::test_exportiere_oenorm_json_gewerke_gruppierung 
 [gw0] [ 27%] PASSED test_orion_oenorm_a2063.py::TestLVGeneration::test_lv_gewerke_vollstaendig 
-test_orion_oenorm_a2063.py::TestOENORMExport::test_exportiere_oenorm_json_structure 
 [gw1] [ 33%] PASSED test_orion_oenorm_a2063.py::TestOENORMExport::test_exportiere_oenorm_json_gewerke_gruppierung 
-[gw0] [ 38%] PASSED test_orion_oenorm_a2063.py::TestOENORMExport::test_exportiere_oenorm_json_structure 
+test_orion_oenorm_a2063.py::TestOENORMExport::test_exportiere_oenorm_json_structure 
 test_orion_oenorm_a2063.py::TestOENORMExport::test_exportiere_oenorm_bundesland_spezifika 
-test_orion_oenorm_a2063.py::TestAngebotsvergleich::test_vergleiche_angebote_basic 
+[gw0] [ 38%] PASSED test_orion_oenorm_a2063.py::TestOENORMExport::test_exportiere_oenorm_json_structure 
 [gw1] [ 44%] PASSED test_orion_oenorm_a2063.py::TestOENORMExport::test_exportiere_oenorm_bundesland_spezifika 
+test_orion_oenorm_a2063.py::TestAngebotsvergleich::test_vergleiche_angebote_basic 
 [gw0] [ 50%] PASSED test_orion_oenorm_a2063.py::TestAngebotsvergleich::test_vergleiche_angebote_basic 
 test_orion_oenorm_a2063.py::TestAngebotsvergleich::test_vergleiche_angebote_preisspanne 
-test_orion_oenorm_a2063.py::TestAngebotsvergleich::test_vergleiche_angebote_empfehlung_warnung 
 [gw1] [ 55%] PASSED test_orion_oenorm_a2063.py::TestAngebotsvergleich::test_vergleiche_angebote_preisspanne 
-[gw0] [ 61%] PASSED test_orion_oenorm_a2063.py::TestAngebotsvergleich::test_vergleiche_angebote_empfehlung_warnung 
+test_orion_oenorm_a2063.py::TestAngebotsvergleich::test_vergleiche_angebote_empfehlung_warnung 
 test_orion_oenorm_a2063.py::TestAngebotsvergleich::test_vergleiche_angebote_sortierung 
-test_orion_oenorm_a2063.py::TestGAEBExport::test_exportiere_gaeb_xml_structure 
+[gw0] [ 61%] PASSED test_orion_oenorm_a2063.py::TestAngebotsvergleich::test_vergleiche_angebote_empfehlung_warnung 
 [gw1] [ 66%] PASSED test_orion_oenorm_a2063.py::TestAngebotsvergleich::test_vergleiche_angebote_sortierung 
-[gw0] [ 72%] PASSED test_orion_oenorm_a2063.py::TestGAEBExport::test_exportiere_gaeb_xml_structure 
+test_orion_oenorm_a2063.py::TestGAEBExport::test_exportiere_gaeb_xml_structure 
 test_orion_oenorm_a2063.py::TestVollstaendigeAusschreibung::test_erstelle_vollstaendige_ausschreibung_einfamilienhaus 
+[gw0] [ 72%] PASSED test_orion_oenorm_a2063.py::TestGAEBExport::test_exportiere_gaeb_xml_structure 
 test_orion_oenorm_a2063.py::TestVollstaendigeAusschreibung::test_erstelle_ausschreibung_verschiedene_bundeslaender 
 [gw1] [ 77%] PASSED test_orion_oenorm_a2063.py::TestVollstaendigeAusschreibung::test_erstelle_vollstaendige_ausschreibung_einfamilienhaus 
 test_orion_oenorm_a2063.py::TestVollstaendigeAusschreibung::test_erstelle_ausschreibung_custom_auftraggeber 
 [gw1] [ 83%] PASSED test_orion_oenorm_a2063.py::TestVollstaendigeAusschreibung::test_erstelle_ausschreibung_custom_auftraggeber 
-[gw0] [ 88%] PASSED test_orion_oenorm_a2063.py::TestVollstaendigeAusschreibung::test_erstelle_ausschreibung_verschiedene_bundeslaender 
 test_orion_oenorm_a2063.py::TestGewerkeKatalog::test_gewerke_katalog_structure 
-test_orion_oenorm_a2063.py::TestGewerkeKatalog::test_gewerke_katalog_vollstaendig 
+[gw0] [ 88%] PASSED test_orion_oenorm_a2063.py::TestVollstaendigeAusschreibung::test_erstelle_ausschreibung_verschiedene_bundeslaender 
 [gw1] [ 94%] PASSED test_orion_oenorm_a2063.py::TestGewerkeKatalog::test_gewerke_katalog_structure 
+test_orion_oenorm_a2063.py::TestGewerkeKatalog::test_gewerke_katalog_vollstaendig 
 [gw0] [100%] PASSED test_orion_oenorm_a2063.py::TestGewerkeKatalog::test_gewerke_katalog_vollstaendig 
 
 ================================ tests coverage ================================
@@ -56,71 +56,69 @@ ai_quantity_takeoff.py                    133    133     0%
 ai_tender_evaluation.py                   187    187     0%
 api/__init__.py                             1      1     0%
 api/database.py                            17     17     0%
-api/graphql_schema.py                     269    269     0%
-api/main.py                                88     88     0%
-api/middleware/__init__.py                  5      5     0%
-api/middleware/auth.py                     46     46     0%
-api/middleware/logging_middleware.py       96     96     0%
-api/middleware/rate_limit.py              130    130     0%
-api/middleware/security_advanced.py       101    101     0%
-api/models.py                             116    116     0%
+api/graphql_schema.py                     268    268     0%
+api/main.py                                81     81     0%
+api/middleware/__init__.py                  4      4     0%
+api/middleware/auth.py                    136    136     0%
+api/middleware/logging_middleware.py       89     89     0%
+api/middleware/rate_limit.py              122    122     0%
+api/middleware/security_advanced.py       100    100     0%
+api/models.py                             117    117     0%
 api/routers/__init__.py                     0      0   100%
 api/routers/advanced_ai.py                128    128     0%
 api/routers/ai_recommendations.py          68     68     0%
-api/routers/bim_integration.py            186    186     0%
+api/routers/bim_integration.py            148    148     0%
 api/routers/bundesland.py                  27     27     0%
-api/routers/calculations.py               186    186     0%
-api/routers/collaboration.py              156    156     0%
-api/routers/compliance.py                 107    107     0%
-api/routers/monitoring.py                 115    115     0%
+api/routers/calculations.py               128    128     0%
+api/routers/collaboration.py              154    154     0%
+api/routers/compliance.py                  96     96     0%
 api/routers/reports.py                     24     24     0%
-api/routers/tendering.py                  170    170     0%
+api/routers/tendering.py                  169    169     0%
 api/routers/validation.py                  20     20     0%
 api/safety/__init__.py                      3      3     0%
 api/safety/audit_trail.py                 135    135     0%
-api/validation.py                         278    278     0%
-app.py                                    935    935     0%
+app.py                                    909    909     0%
 automatic_load_calculation.py             196    196     0%
-bim_ifc_real.py                           229    229     0%
-e_procurement.py                          193    193     0%
+bim_ifc_real.py                           227    227     0%
+e_procurement.py                          191    191     0%
 eidas_signature.py                        125    125     0%
 examples_multi_agent.py                    94     94     0%
 generative_design_ai.py                   338    338     0%
-integration_fixes.py                      119    119     0%
+integration_fixes.py                      118    118     0%
 iso_19650_bim.py                          127    127     0%
 live_cost_database.py                     110    110     0%
-main.py                                    56     56     0%
+main.py                                    52     52     0%
 models.py                                  71     71     0%
-orion_agent_core.py                       704    704     0%
+orion_agent_core.py                       680    680     0%
 orion_architekt.py                         29     29     0%
-orion_architekt_at.py                     813    813     0%
+orion_architekt_at.py                     803    803     0%
 orion_calendar.py                          78     78     0%
 orion_emergenz.py                          93     93     0%
 orion_exceptions.py                       106    106     0%
-orion_gmail.py                            136    136     0%
-orion_heartbeat.py                        236    236     0%
-orion_kb_validation.py                    249    249     0%
-orion_kernel.py                           149    149     0%
-orion_lang.py                             227    227     0%
-orion_lang_advanced.py                    283    283     0%
+orion_gmail.py                            133    133     0%
+orion_heartbeat.py                        227    227     0%
+orion_kb_validation.py                    191    191     0%
+orion_kernel.py                           124    124     0%
+orion_lang.py                             215    215     0%
+orion_lang_advanced.py                    268    268     0%
 orion_logging.py                           88     88     0%
 orion_master_integration.py               237    237     0%
-orion_multi_agent_system.py               245    245     0%
+orion_multi_agent_system.py               244    244     0%
 orion_oenorm_a2063.py                     254    107    58%
 orion_trajectory.py                        76     76     0%
 reinforcement_detailing.py                329    329     0%
-setup.py                                    9      9     0%
+setup.py                                    8      8     0%
 structural_engineering_integration.py     202    202     0%
 structural_software_connectors.py         268    268     0%
 sustainability_esg.py                     299    299     0%
 test_ai_integration.py                    132    132     0%
 test_api_endpoints.py                     241    241     0%
-test_complete_integration.py              226    226     0%
+test_complete_integration.py              224    224     0%
 test_genesis_integration.py               128    128     0%
 test_multi_agent_integration.py           140    140     0%
 test_orion_oenorm_a2063.py                141      0   100%
 -----------------------------------------------------------
-TOTAL                                   11503  11215     3%
+TOTAL                                   10871  10583     3%
 Coverage HTML written to dir htmlcov
 Coverage XML written to file coverage.xml
-============================== 18 passed in 5.11s ==============================
+============================== 18 passed in 5.31s ==============================

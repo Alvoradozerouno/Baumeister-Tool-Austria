@@ -1,4 +1,4 @@
-# GENESIS Social Preview Image Guide
+# Repository Social Preview Image Guide
 
 ## Specifications
 
@@ -6,6 +6,7 @@
 - **Format**: PNG or JPG
 - **Max file size**: 1MB
 - **Location**: Repository settings → Social preview
+- **Prepared asset**: `/home/runner/work/Baumaster.at/Baumaster.at/assets/baumaster_repo_art.png`
 
 ## Design Elements
 
@@ -16,29 +17,29 @@
   - Gradient: Diagonal from top-left to bottom-right
 
 ### Logo/Branding
-- **GENESIS ASCII Logo** (centered, top third)
-- Use professional monospace font (Courier New or similar)
-- Color: White (#FFFFFF)
+- Use the prepared **Baumaster.at digital art** as base image
+- Keep the wordmark **BAUMASTER.AT** centered and dominant
+- Subtitle: **Österreichische Bauintelligenz**
 
 ### Text Elements
 
 **Main Title** (center):
 ```
-GENESIS DUAL-SYSTEM V3.0.1
+BAUMASTER.AT
 ```
 - Font: Roboto Bold, 72px
 - Color: White (#FFFFFF)
 
 **Subtitle** (below title):
 ```
-Austrian Building Compliance & Safety Validation
+Österreichische Bauintelligenz
 ```
 - Font: Roboto Regular, 36px
 - Color: Light Gray (#E0E0E0)
 
 **Features** (bottom third, in columns):
 ```
-ISO 26262 ASIL-D  |  EU AI Act  |  TRL 5  |  Open Source
+9 Bundesländer  |  OIB & ÖNORM  |  BIM & Ausschreibung  |  AI-gestützt
 ```
 - Font: Roboto Medium, 28px
 - Color: White (#FFFFFF)

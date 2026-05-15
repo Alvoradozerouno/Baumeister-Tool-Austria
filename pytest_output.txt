@@ -1,352 +1,178 @@
 ============================= test session starts ==============================
 platform linux -- Python 3.12.3, pytest-9.0.3, pluggy-1.6.0 -- /usr/bin/python3
 cachedir: .pytest_cache
-rootdir: /home/runner/work/Baumaster.at/Baumaster.at
+rootdir: /home/runner/work/ORION-Architekt-AT/ORION-Architekt-AT
 configfile: pyproject.toml
-plugins: asyncio-1.3.0, cov-7.1.0, xdist-3.8.0, anyio-4.13.0, locust-2.44.0
+plugins: asyncio-1.3.0, cov-7.1.0, xdist-3.8.0, locust-2.43.4, anyio-4.13.0
 asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
 created: 2/2 workers
-2 workers [165 items]
+2 workers [81 items]
 
 scheduling tests via LoadScheduling
 
-tests/test_api_comprehensive.py::TestHealthChecks::test_health_check 
-tests/test_api_comprehensive.py::TestCalculations::test_heizlast_berechnung_valid 
-[gw0] [  0%] PASSED tests/test_api_comprehensive.py::TestHealthChecks::test_health_check 
-tests/test_api_comprehensive.py::TestHealthChecks::test_liveness_check 
-[gw1] [  1%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_heizlast_berechnung_valid 
-tests/test_api_comprehensive.py::TestCalculations::test_materialdatenbank_all 
-[gw0] [  1%] PASSED tests/test_api_comprehensive.py::TestHealthChecks::test_liveness_check 
-tests/test_api_comprehensive.py::TestHealthChecks::test_root_endpoint 
-[gw1] [  2%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_materialdatenbank_all 
-tests/test_api_comprehensive.py::TestCalculations::test_materialdatenbank_filtered 
-[gw0] [  3%] PASSED tests/test_api_comprehensive.py::TestHealthChecks::test_root_endpoint 
-tests/test_api_comprehensive.py::TestCalculations::test_uwert_calculation_valid 
-[gw1] [  3%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_materialdatenbank_filtered 
-tests/test_api_comprehensive.py::TestValidationHelpers::test_sanitize_string_valid 
-[gw1] [  4%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_sanitize_string_valid 
-tests/test_api_comprehensive.py::TestValidationHelpers::test_sanitize_string_with_umlaut 
-[gw1] [  4%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_sanitize_string_with_umlaut 
-tests/test_api_comprehensive.py::TestValidationHelpers::test_sanitize_string_removes_null_bytes 
-[gw1] [  5%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_sanitize_string_removes_null_bytes 
-tests/test_api_comprehensive.py::TestValidationHelpers::test_sanitize_string_too_long 
-[gw0] [  6%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_uwert_calculation_valid 
-[gw1] [  6%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_sanitize_string_too_long 
-tests/test_api_comprehensive.py::TestCalculations::test_uwert_calculation_empty_layers 
-tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_api_key_valid 
-[gw1] [  7%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_api_key_valid 
-tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_api_key_invalid_format 
-[gw1] [  7%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_api_key_invalid_format 
-tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_jwt_format_valid 
-[gw1] [  8%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_jwt_format_valid 
-[gw0] [  9%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_uwert_calculation_empty_layers 
-tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_jwt_format_invalid 
-tests/test_api_comprehensive.py::TestCalculations::test_uwert_calculation_negative_thickness 
-[gw1] [  9%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_jwt_format_invalid 
-tests/test_api_comprehensive.py::TestRateLimiting::test_rate_limit_headers_present 
-[gw0] [ 10%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_uwert_calculation_negative_thickness 
-tests/test_api_comprehensive.py::TestCalculations::test_uwert_calculation_zero_lambda 
-[gw1] [ 10%] PASSED tests/test_api_comprehensive.py::TestRateLimiting::test_rate_limit_headers_present 
-tests/test_api_comprehensive.py::TestRateLimiting::test_rate_limit_not_exceeded_normal_use 
-[gw0] [ 11%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_uwert_calculation_zero_lambda 
-tests/test_api_comprehensive.py::TestCalculations::test_stellplaetze_valid 
-[gw0] [ 12%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_stellplaetze_valid 
-tests/test_api_comprehensive.py::TestCalculations::test_stellplaetze_invalid_bundesland 
-[gw0] [ 12%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_stellplaetze_invalid_bundesland 
-tests/test_api_comprehensive.py::TestCalculations::test_stellplaetze_zero_wohnungen 
-[gw0] [ 13%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_stellplaetze_zero_wohnungen 
-tests/test_api_comprehensive.py::TestCalculations::test_stellplaetze_all_bundeslaender 
-[gw1] [ 13%] PASSED tests/test_api_comprehensive.py::TestRateLimiting::test_rate_limit_not_exceeded_normal_use 
-tests/test_api_comprehensive.py::TestErrorHandling::test_404_endpoint_not_found 
-[gw1] [ 14%] PASSED tests/test_api_comprehensive.py::TestErrorHandling::test_404_endpoint_not_found 
-tests/test_api_comprehensive.py::TestErrorHandling::test_invalid_json_body 
-[gw1] [ 15%] PASSED tests/test_api_comprehensive.py::TestErrorHandling::test_invalid_json_body 
-tests/test_api_comprehensive.py::TestErrorHandling::test_missing_required_field 
-[gw1] [ 15%] PASSED tests/test_api_comprehensive.py::TestErrorHandling::test_missing_required_field 
-tests/test_api_comprehensive.py::TestErrorHandling::test_wrong_data_type 
-[gw0] [ 16%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_stellplaetze_all_bundeslaender 
-tests/test_api_comprehensive.py::TestCalculations::test_flaeche_calculation_valid 
-[gw1] [ 16%] PASSED tests/test_api_comprehensive.py::TestErrorHandling::test_wrong_data_type 
-tests/test_api_comprehensive.py::TestIntegration::test_full_building_workflow 
-[gw0] [ 17%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_flaeche_calculation_valid 
-tests/test_api_comprehensive.py::TestCalculations::test_flaeche_negative_dimensions 
-[gw0] [ 18%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_flaeche_negative_dimensions 
-tests/test_api_comprehensive.py::TestCalculations::test_flaeche_unrealistic_dimensions 
-[gw1] [ 18%] PASSED tests/test_api_comprehensive.py::TestIntegration::test_full_building_workflow 
-[gw0] [ 19%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_flaeche_unrealistic_dimensions 
-tests/test_api_comprehensive.py::TestCalculations::test_barrierefreiheit_check_valid 
-tests/test_api_comprehensive.py::TestPerformance::test_response_time_health_check 
-[gw1] [ 20%] PASSED tests/test_api_comprehensive.py::TestPerformance::test_response_time_health_check 
-tests/test_api_comprehensive.py::TestPerformance::test_concurrent_requests 
-[gw0] [ 20%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_barrierefreiheit_check_valid 
-tests/test_api_comprehensive.py::TestCalculations::test_barrierefreiheit_door_too_narrow 
-[gw0] [ 21%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_barrierefreiheit_door_too_narrow 
-tests/test_api_comprehensive.py::TestCalculations::test_barrierefreiheit_elevator_required 
-[gw0] [ 21%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_barrierefreiheit_elevator_required 
-tests/test_api_comprehensive.py::TestCalculations::test_fluchtweg_check_valid 
-[gw0] [ 22%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_fluchtweg_check_valid 
-tests/test_api_comprehensive.py::TestCalculations::test_fluchtweg_distance_too_long 
-[gw0] [ 23%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_fluchtweg_distance_too_long 
-tests/test_api_comprehensive.py::TestCalculations::test_schallschutz_berechnung_valid 
-[gw0] [ 23%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_schallschutz_berechnung_valid 
-tests/test_audit_trail.py::TestAuditEntry::test_entry_verification 
-[gw0] [ 24%] PASSED tests/test_audit_trail.py::TestAuditEntry::test_entry_verification 
-tests/test_audit_trail.py::TestAuditEntry::test_entry_hash_calculation 
-[gw0] [ 24%] PASSED tests/test_audit_trail.py::TestAuditEntry::test_entry_hash_calculation 
-tests/test_audit_trail.py::TestAuditTrail::test_create_trail 
-[gw0] [ 25%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_create_trail 
-tests/test_audit_trail.py::TestAuditTrail::test_add_entry 
-[gw0] [ 26%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_add_entry 
-tests/test_audit_trail.py::TestAuditTrail::test_chain_linkage 
-[gw0] [ 26%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_chain_linkage 
-tests/test_audit_trail.py::TestAuditTrail::test_chain_tampering_detection 
-[gw0] [ 27%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_chain_tampering_detection 
-tests/test_audit_trail.py::TestAuditTrail::test_persistence 
-[gw0] [ 27%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_persistence 
-tests/test_audit_trail.py::TestAuditTrail::test_get_entries_by_type 
-[gw0] [ 28%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_get_entries_by_type 
-tests/test_audit_trail.py::TestAuditTrail::test_get_entries_by_actor 
-[gw0] [ 29%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_get_entries_by_actor 
+tests/test_audit_trail.py::TestAuditEntry::test_create_entry 
 tests/test_audit_trail.py::TestAuditTrail::test_export_json 
-[gw0] [ 29%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_export_json 
+[gw0] [  1%] PASSED tests/test_audit_trail.py::TestAuditEntry::test_create_entry 
+tests/test_audit_trail.py::TestAuditEntry::test_entry_verification 
+[gw0] [  2%] PASSED tests/test_audit_trail.py::TestAuditEntry::test_entry_verification 
+[gw1] [  3%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_export_json 
+tests/test_audit_trail.py::TestAuditEntry::test_entry_hash_calculation 
 tests/test_audit_trail.py::TestAuditTrail::test_export_csv 
-[gw0] [ 30%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_export_csv 
+[gw0] [  4%] PASSED tests/test_audit_trail.py::TestAuditEntry::test_entry_hash_calculation 
+tests/test_audit_trail.py::TestAuditTrail::test_create_trail 
+[gw1] [  6%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_export_csv 
 tests/test_audit_trail.py::TestAuditTrail::test_statistics 
-[gw0] [ 30%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_statistics 
+[gw0] [  7%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_create_trail 
+tests/test_audit_trail.py::TestAuditTrail::test_add_entry 
+[gw1] [  8%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_statistics 
 tests/test_audit_trail.py::TestConvenienceFunctions::test_create_compliance_trail 
-[gw0] [ 31%] PASSED tests/test_audit_trail.py::TestConvenienceFunctions::test_create_compliance_trail 
+[gw0] [  9%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_add_entry 
+tests/test_audit_trail.py::TestAuditTrail::test_chain_linkage 
+[gw1] [ 11%] PASSED tests/test_audit_trail.py::TestConvenienceFunctions::test_create_compliance_trail 
 tests/test_audit_trail.py::TestConvenienceFunctions::test_create_calculation_trail 
-[gw0] [ 32%] PASSED tests/test_audit_trail.py::TestConvenienceFunctions::test_create_calculation_trail 
+[gw0] [ 12%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_chain_linkage 
+tests/test_audit_trail.py::TestAuditTrail::test_chain_tampering_detection 
+[gw1] [ 13%] PASSED tests/test_audit_trail.py::TestConvenienceFunctions::test_create_calculation_trail 
 tests/test_audit_trail.py::TestConvenienceFunctions::test_create_bim_trail 
-[gw0] [ 32%] PASSED tests/test_audit_trail.py::TestConvenienceFunctions::test_create_bim_trail 
+[gw0] [ 14%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_chain_tampering_detection 
+tests/test_audit_trail.py::TestAuditTrail::test_persistence 
+[gw1] [ 16%] PASSED tests/test_audit_trail.py::TestConvenienceFunctions::test_create_bim_trail 
 tests/test_audit_trail.py::TestRealWorldScenarios::test_compliance_workflow 
-[gw0] [ 33%] PASSED tests/test_audit_trail.py::TestRealWorldScenarios::test_compliance_workflow 
-tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_data_minimization_principle 
-[gw0] [ 33%] PASSED tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_data_minimization_principle 
-tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_data_sanitization 
-[gw0] [ 34%] PASSED tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_data_sanitization 
-tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_right_to_erasure_architecture 
-[gw0] [ 35%] PASSED tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_right_to_erasure_architecture 
-tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_data_retention_limits 
-[gw0] [ 35%] PASSED tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_data_retention_limits 
-tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_records_of_processing_activities 
-[gw0] [ 36%] PASSED tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_records_of_processing_activities 
-tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_pseudonymization 
-[gw0] [ 36%] PASSED tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_pseudonymization 
-tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_qualified_signature_format 
-[gw0] [ 37%] PASSED tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_qualified_signature_format 
-tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_signature_formats 
-[gw0] [ 38%] PASSED tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_signature_formats 
-tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_timestamp_authority 
-[gw0] [ 38%] PASSED tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_timestamp_authority 
-tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_austrian_trust_providers 
-[gw0] [ 39%] PASSED tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_austrian_trust_providers 
-tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_signature_verification 
-[gw0] [ 40%] PASSED tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_signature_verification 
-tests/test_eu_compliance_comprehensive.py::TestEUAIActCompliance::test_ai_act_logging_requirements 
-[gw0] [ 40%] PASSED tests/test_eu_compliance_comprehensive.py::TestEUAIActCompliance::test_ai_act_logging_requirements 
-tests/test_eu_compliance_comprehensive.py::TestEUAIActCompliance::test_ai_act_immutable_audit_trail 
-[gw0] [ 41%] PASSED tests/test_eu_compliance_comprehensive.py::TestEUAIActCompliance::test_ai_act_immutable_audit_trail 
-tests/test_eu_compliance_comprehensive.py::TestEUAIActCompliance::test_ai_act_traceability_requirements 
-[gw0] [ 41%] PASSED tests/test_eu_compliance_comprehensive.py::TestEUAIActCompliance::test_ai_act_traceability_requirements 
-tests/test_eu_compliance_comprehensive.py::TestEUAIActCompliance::test_ai_act_human_oversight_documentation 
-[gw0] [ 42%] PASSED tests/test_eu_compliance_comprehensive.py::TestEUAIActCompliance::test_ai_act_human_oversight_documentation 
-tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_text_alternatives 
-[gw0] [ 43%] PASSED tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_text_alternatives 
-tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_keyboard_accessible 
-[gw0] [ 43%] PASSED tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_keyboard_accessible 
-tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_predictable_errors 
-[gw0] [ 44%] PASSED tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_predictable_errors 
-tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_parsing_valid_json 
-[gw0] [ 44%] PASSED tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_parsing_valid_json 
-tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_en301549_time_limits 
-[gw1] [ 45%] PASSED tests/test_api_comprehensive.py::TestPerformance::test_concurrent_requests 
-tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api1_broken_object_level_authorization 
-[gw0] [ 46%] PASSED tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_en301549_time_limits 
-tests/test_eu_compliance_comprehensive.py::TestPublicProcurementCompliance::test_procurement_directive_electronic_means 
-[gw0] [ 46%] PASSED tests/test_eu_compliance_comprehensive.py::TestPublicProcurementCompliance::test_procurement_directive_electronic_means 
-tests/test_eu_compliance_comprehensive.py::TestPublicProcurementCompliance::test_procurement_directive_equal_treatment 
-[gw0] [ 47%] PASSED tests/test_eu_compliance_comprehensive.py::TestPublicProcurementCompliance::test_procurement_directive_equal_treatment 
-tests/test_eu_compliance_comprehensive.py::TestPublicProcurementCompliance::test_procurement_directive_transparency 
-[gw0] [ 47%] PASSED tests/test_eu_compliance_comprehensive.py::TestPublicProcurementCompliance::test_procurement_directive_transparency 
-tests/test_eu_compliance_comprehensive.py::TestPublicProcurementCompliance::test_oenorm_a2063_compliance 
-[gw0] [ 48%] PASSED tests/test_eu_compliance_comprehensive.py::TestPublicProcurementCompliance::test_oenorm_a2063_compliance 
-tests/test_eu_compliance_comprehensive.py::TestDigitalServicesActCompliance::test_dsa_transparency_reporting 
-[gw0] [ 49%] PASSED tests/test_eu_compliance_comprehensive.py::TestDigitalServicesActCompliance::test_dsa_transparency_reporting 
-tests/test_eu_compliance_comprehensive.py::TestDigitalServicesActCompliance::test_dsa_terms_of_service_availability 
-[gw0] [ 49%] PASSED tests/test_eu_compliance_comprehensive.py::TestDigitalServicesActCompliance::test_dsa_terms_of_service_availability 
-tests/test_eu_compliance_comprehensive.py::TestNIS2DirectiveCompliance::test_nis2_incident_handling 
-[gw0] [ 50%] PASSED tests/test_eu_compliance_comprehensive.py::TestNIS2DirectiveCompliance::test_nis2_incident_handling 
-[gw1] [ 50%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api1_broken_object_level_authorization 
-tests/test_eu_compliance_comprehensive.py::TestNIS2DirectiveCompliance::test_nis2_supply_chain_security 
-[gw0] [ 51%] PASSED tests/test_eu_compliance_comprehensive.py::TestNIS2DirectiveCompliance::test_nis2_supply_chain_security 
-tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api2_broken_authentication_weak_tokens 
+[gw0] [ 17%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_persistence 
+tests/test_audit_trail.py::TestAuditTrail::test_get_entries_by_type 
+[gw1] [ 18%] PASSED tests/test_audit_trail.py::TestRealWorldScenarios::test_compliance_workflow 
+[gw0] [ 19%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_get_entries_by_type 
+tests/test_audit_trail.py::TestAuditTrail::test_get_entries_by_actor 
 tests/test_eurocode_modules.py::test_ec2_betonbau 
-[gw0] [ 52%] PASSED tests/test_eurocode_modules.py::test_ec2_betonbau 
-tests/test_eurocode_modules.py::test_ec3_stahlbau 
-[gw0] [ 52%] PASSED tests/test_eurocode_modules.py::test_ec3_stahlbau 
-tests/test_eurocode_modules.py::test_ec6_mauerwerksbau 
-[gw0] [ 53%] PASSED tests/test_eurocode_modules.py::test_ec6_mauerwerksbau 
+[gw0] [ 20%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_get_entries_by_actor 
 tests/test_eurocode_modules.py::test_ec7_geotechnik 
-[gw0] [ 53%] PASSED tests/test_eurocode_modules.py::test_ec7_geotechnik 
+[gw0] [ 22%] PASSED tests/test_eurocode_modules.py::test_ec7_geotechnik 
 tests/test_eurocode_modules.py::test_ec8_erdbeben 
-[gw0] [ 54%] PASSED tests/test_eurocode_modules.py::test_ec8_erdbeben 
+[gw1] [ 23%] PASSED tests/test_eurocode_modules.py::test_ec2_betonbau 
+tests/test_eurocode_modules.py::test_ec3_stahlbau 
+[gw0] [ 24%] PASSED tests/test_eurocode_modules.py::test_ec8_erdbeben 
 tests/test_kb_validation.py::TestStandardVersions::test_all_standards_exist 
-[gw0] [ 55%] PASSED tests/test_kb_validation.py::TestStandardVersions::test_all_standards_exist 
+[gw0] [ 25%] PASSED tests/test_kb_validation.py::TestStandardVersions::test_all_standards_exist 
 tests/test_kb_validation.py::TestStandardVersions::test_get_standard_version_valid 
-[gw0] [ 55%] PASSED tests/test_kb_validation.py::TestStandardVersions::test_get_standard_version_valid 
+[gw0] [ 27%] PASSED tests/test_kb_validation.py::TestStandardVersions::test_get_standard_version_valid 
+[gw1] [ 28%] PASSED tests/test_eurocode_modules.py::test_ec3_stahlbau 
+tests/test_eurocode_modules.py::test_ec6_mauerwerksbau 
 tests/test_kb_validation.py::TestStandardVersions::test_get_standard_version_invalid 
-[gw1] [ 56%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api2_broken_authentication_weak_tokens 
-[gw0] [ 56%] PASSED tests/test_kb_validation.py::TestStandardVersions::test_get_standard_version_invalid 
-tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api2_rate_limiting_login 
+[gw0] [ 29%] PASSED tests/test_kb_validation.py::TestStandardVersions::test_get_standard_version_invalid 
 tests/test_kb_validation.py::TestStandardVersions::test_is_standard_current_oib 
-[gw0] [ 57%] PASSED tests/test_kb_validation.py::TestStandardVersions::test_is_standard_current_oib 
+[gw0] [ 30%] PASSED tests/test_kb_validation.py::TestStandardVersions::test_is_standard_current_oib 
 tests/test_kb_validation.py::TestStandardVersions::test_is_standard_current_oenorm 
-[gw0] [ 58%] PASSED tests/test_kb_validation.py::TestStandardVersions::test_is_standard_current_oenorm 
+[gw1] [ 32%] PASSED tests/test_eurocode_modules.py::test_ec6_mauerwerksbau 
+[gw0] [ 33%] PASSED tests/test_kb_validation.py::TestStandardVersions::test_is_standard_current_oenorm 
 tests/test_kb_validation.py::TestOIBUpdates::test_check_oib_updates_structure 
-[gw0] [ 58%] PASSED tests/test_kb_validation.py::TestOIBUpdates::test_check_oib_updates_structure 
-tests/test_kb_validation.py::TestOIBUpdates::test_check_oib_all_richtlinien 
-[gw0] [ 59%] PASSED tests/test_kb_validation.py::TestOIBUpdates::test_check_oib_all_richtlinien 
 tests/test_kb_validation.py::TestOENORMUpdates::test_check_oenorm_b1800 
-[gw0] [ 60%] PASSED tests/test_kb_validation.py::TestOENORMUpdates::test_check_oenorm_b1800 
+[gw1] [ 34%] PASSED tests/test_kb_validation.py::TestOENORMUpdates::test_check_oenorm_b1800 
+[gw0] [ 35%] PASSED tests/test_kb_validation.py::TestOIBUpdates::test_check_oib_updates_structure 
+tests/test_kb_validation.py::TestOIBUpdates::test_check_oib_all_richtlinien 
 tests/test_kb_validation.py::TestOENORMUpdates::test_check_oenorm_invalid 
-[gw0] [ 60%] PASSED tests/test_kb_validation.py::TestOENORMUpdates::test_check_oenorm_invalid 
+[gw1] [ 37%] PASSED tests/test_kb_validation.py::TestOENORMUpdates::test_check_oenorm_invalid 
+[gw0] [ 38%] PASSED tests/test_kb_validation.py::TestOIBUpdates::test_check_oib_all_richtlinien 
 tests/test_kb_validation.py::TestRISIntegration::test_check_ris_tirol 
-[gw1] [ 61%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api2_rate_limiting_login 
-tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api3_excessive_data_exposure 
-[gw1] [ 61%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api3_excessive_data_exposure 
-tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api4_file_upload_size_limit 
-[gw1] [ 62%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api4_file_upload_size_limit 
-tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api4_pagination_limits 
-[gw1] [ 63%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api4_pagination_limits 
-tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api5_admin_endpoints_protected 
-[gw1] [ 63%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api5_admin_endpoints_protected 
-tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api6_rate_limiting_critical_operations 
-[gw1] [ 64%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api6_rate_limiting_critical_operations 
-tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api7_ssrf_prevention 
-[gw1] [ 64%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api7_ssrf_prevention 
-tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api8_security_headers 
-[gw1] [ 65%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api8_security_headers 
-tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api8_no_debug_info_in_errors 
-[gw1] [ 66%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api8_no_debug_info_in_errors 
-tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api9_api_documentation_exists 
-[gw0] [ 66%] PASSED tests/test_kb_validation.py::TestRISIntegration::test_check_ris_tirol 
-tests/test_kb_validation.py::TestRISIntegration::test_check_ris_wien 
-[gw0] [ 67%] PASSED tests/test_kb_validation.py::TestRISIntegration::test_check_ris_wien 
-tests/test_kb_validation.py::TestNaturgefahren::test_check_naturgefahren_basic 
-[gw0] [ 67%] PASSED tests/test_kb_validation.py::TestNaturgefahren::test_check_naturgefahren_basic 
-tests/test_kb_validation.py::TestNaturgefahren::test_check_naturgefahren_with_plz 
-[gw0] [ 68%] PASSED tests/test_kb_validation.py::TestNaturgefahren::test_check_naturgefahren_with_plz 
-tests/test_kb_validation.py::TestNaturgefahren::test_check_naturgefahren_with_gemeinde 
-[gw0] [ 69%] PASSED tests/test_kb_validation.py::TestNaturgefahren::test_check_naturgefahren_with_gemeinde 
-tests/test_kb_validation.py::TestDataFreshness::test_check_data_freshness_aktuell 
-[gw0] [ 69%] PASSED tests/test_kb_validation.py::TestDataFreshness::test_check_data_freshness_aktuell 
 tests/test_kb_validation.py::TestDataFreshness::test_check_data_freshness_veraltet 
-[gw0] [ 70%] PASSED tests/test_kb_validation.py::TestDataFreshness::test_check_data_freshness_veraltet 
+[gw0] [ 39%] PASSED tests/test_kb_validation.py::TestDataFreshness::test_check_data_freshness_veraltet 
+[gw1] [ 40%] PASSED tests/test_kb_validation.py::TestRISIntegration::test_check_ris_tirol 
+tests/test_kb_validation.py::TestRISIntegration::test_check_ris_wien 
 tests/test_kb_validation.py::TestDataFreshness::test_check_data_freshness_invalid_date 
-[gw0] [ 70%] PASSED tests/test_kb_validation.py::TestDataFreshness::test_check_data_freshness_invalid_date 
+[gw1] [ 41%] PASSED tests/test_kb_validation.py::TestRISIntegration::test_check_ris_wien 
+[gw0] [ 43%] PASSED tests/test_kb_validation.py::TestDataFreshness::test_check_data_freshness_invalid_date 
 tests/test_kb_validation.py::TestValidationReport::test_validate_knowledge_base_basic 
-[gw0] [ 71%] PASSED tests/test_kb_validation.py::TestValidationReport::test_validate_knowledge_base_basic 
+tests/test_kb_validation.py::TestNaturgefahren::test_check_naturgefahren_basic 
+[gw1] [ 44%] PASSED tests/test_kb_validation.py::TestNaturgefahren::test_check_naturgefahren_basic 
+[gw0] [ 45%] PASSED tests/test_kb_validation.py::TestValidationReport::test_validate_knowledge_base_basic 
 tests/test_kb_validation.py::TestValidationReport::test_validate_knowledge_base_full 
-[gw0] [ 72%] PASSED tests/test_kb_validation.py::TestValidationReport::test_validate_knowledge_base_full 
+tests/test_kb_validation.py::TestNaturgefahren::test_check_naturgefahren_with_plz 
+[gw0] [ 46%] PASSED tests/test_kb_validation.py::TestValidationReport::test_validate_knowledge_base_full 
 tests/test_kb_validation.py::TestValidationReport::test_export_validation_report_json 
-[gw0] [ 72%] PASSED tests/test_kb_validation.py::TestValidationReport::test_export_validation_report_json 
+[gw1] [ 48%] PASSED tests/test_kb_validation.py::TestNaturgefahren::test_check_naturgefahren_with_plz 
+tests/test_kb_validation.py::TestNaturgefahren::test_check_naturgefahren_with_gemeinde 
+[gw1] [ 49%] PASSED tests/test_kb_validation.py::TestNaturgefahren::test_check_naturgefahren_with_gemeinde 
+tests/test_kb_validation.py::TestDataFreshness::test_check_data_freshness_aktuell 
+[gw0] [ 50%] PASSED tests/test_kb_validation.py::TestValidationReport::test_export_validation_report_json 
 tests/test_kb_validation.py::TestValidationReport::test_export_validation_report_text 
-[gw0] [ 73%] PASSED tests/test_kb_validation.py::TestValidationReport::test_export_validation_report_text 
-tests/test_kb_validation.py::TestCheckAllStandards::test_check_all_standards_count 
-[gw0] [ 73%] PASSED tests/test_kb_validation.py::TestCheckAllStandards::test_check_all_standards_count 
+[gw1] [ 51%] PASSED tests/test_kb_validation.py::TestDataFreshness::test_check_data_freshness_aktuell 
 tests/test_kb_validation.py::TestCheckAllStandards::test_check_all_standards_structure 
-[gw0] [ 74%] PASSED tests/test_kb_validation.py::TestCheckAllStandards::test_check_all_standards_structure 
+[gw0] [ 53%] PASSED tests/test_kb_validation.py::TestValidationReport::test_export_validation_report_text 
+tests/test_kb_validation.py::TestCheckAllStandards::test_check_all_standards_count 
+[gw1] [ 54%] PASSED tests/test_kb_validation.py::TestCheckAllStandards::test_check_all_standards_structure 
 tests/test_kb_validation.py::TestCaching::test_cache_invalidation 
-[gw0] [ 75%] PASSED tests/test_kb_validation.py::TestCaching::test_cache_invalidation 
-tests/test_kb_validation.py::TestIntegration::test_complete_validation_workflow 
-[gw0] [ 75%] PASSED tests/test_kb_validation.py::TestIntegration::test_complete_validation_workflow 
-tests/test_orion_architekt_at.py::TestBundeslaender::test_all_bundeslaender_exist 
-[gw0] [ 76%] PASSED tests/test_orion_architekt_at.py::TestBundeslaender::test_all_bundeslaender_exist 
-tests/test_orion_architekt_at.py::TestBundeslaender::test_bundesland_structure 
-[gw0] [ 76%] PASSED tests/test_orion_architekt_at.py::TestBundeslaender::test_bundesland_structure 
-tests/test_orion_architekt_at.py::TestOIBRichtlinien::test_all_oib_rl_exist 
-[gw0] [ 77%] PASSED tests/test_orion_architekt_at.py::TestOIBRichtlinien::test_all_oib_rl_exist 
+[gw0] [ 55%] PASSED tests/test_kb_validation.py::TestCheckAllStandards::test_check_all_standards_count 
 tests/test_orion_architekt_at.py::TestOIBRichtlinien::test_oib_rl_structure 
-[gw0] [ 78%] PASSED tests/test_orion_architekt_at.py::TestOIBRichtlinien::test_oib_rl_structure 
+[gw1] [ 56%] PASSED tests/test_kb_validation.py::TestCaching::test_cache_invalidation 
+tests/test_kb_validation.py::TestIntegration::test_complete_validation_workflow 
+[gw0] [ 58%] PASSED tests/test_orion_architekt_at.py::TestOIBRichtlinien::test_oib_rl_structure 
 tests/test_orion_architekt_at.py::TestUWertBerechnung::test_uwert_simple_wall 
-[gw0] [ 78%] PASSED tests/test_orion_architekt_at.py::TestUWertBerechnung::test_uwert_simple_wall 
+[gw1] [ 59%] PASSED tests/test_kb_validation.py::TestIntegration::test_complete_validation_workflow 
+[gw0] [ 60%] PASSED tests/test_orion_architekt_at.py::TestUWertBerechnung::test_uwert_simple_wall 
 tests/test_orion_architekt_at.py::TestUWertBerechnung::test_uwert_oib_konform 
-[gw0] [ 79%] PASSED tests/test_orion_architekt_at.py::TestUWertBerechnung::test_uwert_oib_konform 
+tests/test_orion_architekt_at.py::TestBundeslaender::test_all_bundeslaender_exist 
+[gw0] [ 61%] PASSED tests/test_orion_architekt_at.py::TestUWertBerechnung::test_uwert_oib_konform 
+[gw1] [ 62%] PASSED tests/test_orion_architekt_at.py::TestBundeslaender::test_all_bundeslaender_exist 
+tests/test_orion_architekt_at.py::TestBundeslaender::test_bundesland_structure 
 tests/test_orion_architekt_at.py::TestStellplatzberechnung::test_stellplatz_wohnbau_tirol 
-[gw0] [ 80%] PASSED tests/test_orion_architekt_at.py::TestStellplatzberechnung::test_stellplatz_wohnbau_tirol 
+[gw0] [ 64%] PASSED tests/test_orion_architekt_at.py::TestStellplatzberechnung::test_stellplatz_wohnbau_tirol 
+[gw1] [ 65%] PASSED tests/test_orion_architekt_at.py::TestBundeslaender::test_bundesland_structure 
+tests/test_orion_architekt_at.py::TestOIBRichtlinien::test_all_oib_rl_exist 
+[gw1] [ 66%] PASSED tests/test_orion_architekt_at.py::TestOIBRichtlinien::test_all_oib_rl_exist 
 tests/test_orion_architekt_at.py::TestStellplatzberechnung::test_stellplatz_wohnbau_wien 
-[gw0] [ 80%] PASSED tests/test_orion_architekt_at.py::TestStellplatzberechnung::test_stellplatz_wohnbau_wien 
 tests/test_orion_architekt_at.py::TestStellplatzberechnung::test_stellplatz_buero 
-[gw0] [ 81%] PASSED tests/test_orion_architekt_at.py::TestStellplatzberechnung::test_stellplatz_buero 
-tests/test_orion_architekt_at.py::TestBarrierefreiheit::test_barrierefreiheit_wien_3og 
-[gw0] [ 81%] PASSED tests/test_orion_architekt_at.py::TestBarrierefreiheit::test_barrierefreiheit_wien_3og 
-tests/test_orion_architekt_at.py::TestBarrierefreiheit::test_barrierefreiheit_wien_3og_kein_aufzug 
-[gw0] [ 82%] PASSED tests/test_orion_architekt_at.py::TestBarrierefreiheit::test_barrierefreiheit_wien_3og_kein_aufzug 
-tests/test_orion_architekt_at.py::TestBarrierefreiheit::test_barrierefreiheit_tuerbreite 
-[gw0] [ 83%] PASSED tests/test_orion_architekt_at.py::TestBarrierefreiheit::test_barrierefreiheit_tuerbreite 
+[gw0] [ 67%] PASSED tests/test_orion_architekt_at.py::TestStellplatzberechnung::test_stellplatz_wohnbau_wien 
 tests/test_orion_architekt_at.py::TestFluchtwegBerechnung::test_fluchtweg_gk1 
-[gw0] [ 83%] PASSED tests/test_orion_architekt_at.py::TestFluchtwegBerechnung::test_fluchtweg_gk1 
+[gw1] [ 69%] PASSED tests/test_orion_architekt_at.py::TestStellplatzberechnung::test_stellplatz_buero 
+[gw0] [ 70%] PASSED tests/test_orion_architekt_at.py::TestFluchtwegBerechnung::test_fluchtweg_gk1 
+tests/test_orion_architekt_at.py::TestBarrierefreiheit::test_barrierefreiheit_wien_3og 
+[gw1] [ 71%] PASSED tests/test_orion_architekt_at.py::TestBarrierefreiheit::test_barrierefreiheit_wien_3og 
 tests/test_orion_architekt_at.py::TestFluchtwegBerechnung::test_fluchtweg_zu_lang 
-[gw0] [ 84%] PASSED tests/test_orion_architekt_at.py::TestFluchtwegBerechnung::test_fluchtweg_zu_lang 
+[gw0] [ 72%] PASSED tests/test_orion_architekt_at.py::TestFluchtwegBerechnung::test_fluchtweg_zu_lang 
 tests/test_orion_architekt_at.py::TestTageslichtBerechnung::test_tageslicht_ausreichend 
-[gw0] [ 84%] PASSED tests/test_orion_architekt_at.py::TestTageslichtBerechnung::test_tageslicht_ausreichend 
+tests/test_orion_architekt_at.py::TestBarrierefreiheit::test_barrierefreiheit_wien_3og_kein_aufzug 
+[gw1] [ 74%] PASSED tests/test_orion_architekt_at.py::TestBarrierefreiheit::test_barrierefreiheit_wien_3og_kein_aufzug 
+[gw0] [ 75%] PASSED tests/test_orion_architekt_at.py::TestTageslichtBerechnung::test_tageslicht_ausreichend 
+tests/test_orion_architekt_at.py::TestBarrierefreiheit::test_barrierefreiheit_tuerbreite 
 tests/test_orion_architekt_at.py::TestTageslichtBerechnung::test_tageslicht_zu_wenig 
-[gw0] [ 85%] PASSED tests/test_orion_architekt_at.py::TestTageslichtBerechnung::test_tageslicht_zu_wenig 
+[gw1] [ 76%] PASSED tests/test_orion_architekt_at.py::TestBarrierefreiheit::test_barrierefreiheit_tuerbreite 
 tests/test_orion_architekt_at.py::TestAbstandsflaechen::test_abstandsflaechen_tirol 
-[gw0] [ 86%] PASSED tests/test_orion_architekt_at.py::TestAbstandsflaechen::test_abstandsflaechen_tirol 
-tests/test_orion_architekt_at.py::TestAbstandsflaechen::test_abstandsflaechen_wien 
-[gw0] [ 86%] PASSED tests/test_orion_architekt_at.py::TestAbstandsflaechen::test_abstandsflaechen_wien 
-tests/test_orion_architekt_at.py::TestBlitzschutz::test_blitzschutz_wohnhaus 
-[gw0] [ 87%] PASSED tests/test_orion_architekt_at.py::TestBlitzschutz::test_blitzschutz_wohnhaus 
+[gw0] [ 77%] PASSED tests/test_orion_architekt_at.py::TestTageslichtBerechnung::test_tageslicht_zu_wenig 
 tests/test_orion_architekt_at.py::TestBlitzschutz::test_blitzschutz_hochhaus 
-[gw0] [ 87%] PASSED tests/test_orion_architekt_at.py::TestBlitzschutz::test_blitzschutz_hochhaus 
+[gw1] [ 79%] PASSED tests/test_orion_architekt_at.py::TestAbstandsflaechen::test_abstandsflaechen_tirol 
+[gw0] [ 80%] PASSED tests/test_orion_architekt_at.py::TestBlitzschutz::test_blitzschutz_hochhaus 
+tests/test_orion_architekt_at.py::TestAbstandsflaechen::test_abstandsflaechen_wien 
+[gw1] [ 81%] PASSED tests/test_orion_architekt_at.py::TestAbstandsflaechen::test_abstandsflaechen_wien 
 tests/test_orion_architekt_at.py::TestRauchableitung::test_rauchableitung_gk1 
-[gw0] [ 88%] PASSED tests/test_orion_architekt_at.py::TestRauchableitung::test_rauchableitung_gk1 
+[gw0] [ 82%] PASSED tests/test_orion_architekt_at.py::TestRauchableitung::test_rauchableitung_gk1 
 tests/test_orion_architekt_at.py::TestRauchableitung::test_rauchableitung_gk4 
-[gw0] [ 89%] PASSED tests/test_orion_architekt_at.py::TestRauchableitung::test_rauchableitung_gk4 
+tests/test_orion_architekt_at.py::TestBlitzschutz::test_blitzschutz_wohnhaus 
+[gw0] [ 83%] PASSED tests/test_orion_architekt_at.py::TestRauchableitung::test_rauchableitung_gk4 
+[gw1] [ 85%] PASSED tests/test_orion_architekt_at.py::TestBlitzschutz::test_blitzschutz_wohnhaus 
 tests/test_orion_architekt_at.py::TestGefahrenzonen::test_gefahrenzonen_lawinen 
-[gw0] [ 89%] PASSED tests/test_orion_architekt_at.py::TestGefahrenzonen::test_gefahrenzonen_lawinen 
 tests/test_orion_architekt_at.py::TestGefahrenzonen::test_gefahrenzonen_tal 
-[gw0] [ 90%] PASSED tests/test_orion_architekt_at.py::TestGefahrenzonen::test_gefahrenzonen_tal 
+[gw0] [ 86%] PASSED tests/test_orion_architekt_at.py::TestGefahrenzonen::test_gefahrenzonen_lawinen 
+[gw1] [ 87%] PASSED tests/test_orion_architekt_at.py::TestGefahrenzonen::test_gefahrenzonen_tal 
 tests/test_orion_architekt_at.py::TestFlaechenberechnung::test_flaechen_wohnhaus 
-[gw0] [ 90%] PASSED tests/test_orion_architekt_at.py::TestFlaechenberechnung::test_flaechen_wohnhaus 
+[gw0] [ 88%] PASSED tests/test_orion_architekt_at.py::TestFlaechenberechnung::test_flaechen_wohnhaus 
 tests/test_orion_architekt_at.py::TestFlaechenberechnung::test_flaechen_kompaktheit 
-[gw0] [ 91%] PASSED tests/test_orion_architekt_at.py::TestFlaechenberechnung::test_flaechen_kompaktheit 
 tests/test_orion_architekt_at.py::TestLeistungsverzeichnis::test_lv_neubau 
-[gw0] [ 92%] PASSED tests/test_orion_architekt_at.py::TestLeistungsverzeichnis::test_lv_neubau 
+[gw1] [ 90%] PASSED tests/test_orion_architekt_at.py::TestFlaechenberechnung::test_flaechen_kompaktheit 
+[gw0] [ 91%] PASSED tests/test_orion_architekt_at.py::TestLeistungsverzeichnis::test_lv_neubau 
 tests/test_orion_architekt_at.py::TestLeistungsverzeichnis::test_lv_sanierung 
-[gw0] [ 92%] PASSED tests/test_orion_architekt_at.py::TestLeistungsverzeichnis::test_lv_sanierung 
 tests/test_orion_architekt_at.py::TestRaumprogramm::test_raumprogramm_familie 
+[gw1] [ 92%] PASSED tests/test_orion_architekt_at.py::TestLeistungsverzeichnis::test_lv_sanierung 
 [gw0] [ 93%] PASSED tests/test_orion_architekt_at.py::TestRaumprogramm::test_raumprogramm_familie 
 tests/test_orion_architekt_at.py::TestRaumprogramm::test_raumprogramm_budget_check 
-[gw0] [ 93%] PASSED tests/test_orion_architekt_at.py::TestRaumprogramm::test_raumprogramm_budget_check 
 tests/test_orion_architekt_at.py::TestValidationFunctions::test_pruefe_wissensdatenbank 
-[gw0] [ 94%] PASSED tests/test_orion_architekt_at.py::TestValidationFunctions::test_pruefe_wissensdatenbank 
+[gw1] [ 95%] PASSED tests/test_orion_architekt_at.py::TestRaumprogramm::test_raumprogramm_budget_check 
+[gw0] [ 96%] PASSED tests/test_orion_architekt_at.py::TestValidationFunctions::test_pruefe_wissensdatenbank 
 tests/test_orion_architekt_at.py::TestValidationFunctions::test_pruefe_oib_richtlinien 
-[gw0] [ 95%] PASSED tests/test_orion_architekt_at.py::TestValidationFunctions::test_pruefe_oib_richtlinien 
 tests/test_orion_architekt_at.py::TestValidationFunctions::test_pruefe_oenorm 
-[gw0] [ 95%] PASSED tests/test_orion_architekt_at.py::TestValidationFunctions::test_pruefe_oenorm 
+[gw1] [ 97%] PASSED tests/test_orion_architekt_at.py::TestValidationFunctions::test_pruefe_oib_richtlinien 
+[gw0] [ 98%] PASSED tests/test_orion_architekt_at.py::TestValidationFunctions::test_pruefe_oenorm 
 tests/test_orion_architekt_at.py::TestIntegration::test_complete_building_check_workflow 
-[gw0] [ 96%] PASSED tests/test_orion_architekt_at.py::TestIntegration::test_complete_building_check_workflow 
-[gw1] [ 96%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api9_api_documentation_exists 
-tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api9_deprecated_endpoints_removed 
-[gw1] [ 97%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api9_deprecated_endpoints_removed 
-tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api10_input_validation_external_data 
-[gw1] [ 98%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api10_input_validation_external_data 
-tests/test_api_security_owasp.py::TestOWASPAPITop10::test_cors_configuration 
-[gw1] [ 98%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_cors_configuration 
-tests/test_api_security_owasp.py::TestOWASPAPITop10::test_content_type_validation 
-[gw1] [ 99%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_content_type_validation 
-tests/test_audit_trail.py::TestAuditEntry::test_create_entry 
-[gw1] [100%] PASSED tests/test_audit_trail.py::TestAuditEntry::test_create_entry 
+[gw1] [100%] PASSED tests/test_orion_architekt_at.py::TestIntegration::test_complete_building_check_workflow 
 
-=============================== warnings summary ===============================
-tests/test_api_comprehensive.py::TestErrorHandling::test_invalid_json_body
-  /home/runner/.local/lib/python3.12/site-packages/httpx/_models.py:408: DeprecationWarning: Use 'content=<...>' to upload raw bytes/text content.
-    headers, stream = encode_request(
-
--- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
 ================================ tests coverage ================================
 _______________ coverage: platform linux, python 3.12.3-final-0 ________________
 
@@ -355,35 +181,33 @@ Name                                       Stmts   Miss  Cover
 ai_quantity_takeoff.py                       133    133     0%
 ai_tender_evaluation.py                      187    187     0%
 api/__init__.py                                1      0   100%
-api/database.py                               17      6    65%
-api/graphql_schema.py                        269    269     0%
-api/main.py                                   88     17    81%
-api/middleware/__init__.py                     5      0   100%
-api/middleware/auth.py                        46     19    59%
-api/middleware/logging_middleware.py          96     42    56%
-api/middleware/rate_limit.py                 130     56    57%
-api/middleware/security_advanced.py          101     61    40%
-api/models.py                                116      2    98%
+api/database.py                               17     17     0%
+api/graphql_schema.py                        268    268     0%
+api/main.py                                   81     81     0%
+api/middleware/__init__.py                     4      4     0%
+api/middleware/auth.py                       136    136     0%
+api/middleware/logging_middleware.py          89     89     0%
+api/middleware/rate_limit.py                 122    122     0%
+api/middleware/security_advanced.py          100    100     0%
+api/models.py                                117    117     0%
 api/routers/__init__.py                        0      0   100%
 api/routers/advanced_ai.py                   128    128     0%
-api/routers/ai_recommendations.py             68     41    40%
-api/routers/bim_integration.py               186    138    26%
-api/routers/bundesland.py                     27     11    59%
-api/routers/calculations.py                  186     12    94%
-api/routers/collaboration.py                 156     74    53%
-api/routers/compliance.py                    107     77    28%
-api/routers/monitoring.py                    115    115     0%
-api/routers/reports.py                        24      6    75%
-api/routers/tendering.py                     170     63    63%
-api/routers/validation.py                     20      3    85%
+api/routers/ai_recommendations.py             68     68     0%
+api/routers/bim_integration.py               148    148     0%
+api/routers/bundesland.py                     27     27     0%
+api/routers/calculations.py                  128    128     0%
+api/routers/collaboration.py                 154    154     0%
+api/routers/compliance.py                     96     96     0%
+api/routers/reports.py                        24     24     0%
+api/routers/tendering.py                     169    169     0%
+api/routers/validation.py                     20     20     0%
 api/safety/__init__.py                         3      0   100%
 api/safety/audit_trail.py                    135     16    88%
-api/validation.py                            278    110    60%
-app.py                                       935    935     0%
+app.py                                       909    909     0%
 automatic_load_calculation.py                196    196     0%
-bim_ifc_real.py                              229    229     0%
-e_procurement.py                             193     81    58%
-eidas_signature.py                           125     24    81%
+bim_ifc_real.py                              227    227     0%
+e_procurement.py                             191    191     0%
+eidas_signature.py                           125    125     0%
 eurocode_ec2_at/src/beton_träger_v1.py       234     43    82%
 eurocode_ec3_at/src/stahl_träger_v1.py       159     35    78%
 eurocode_ec6_at/src/mauerwerk_wand_v1.py     101     25    75%
@@ -391,41 +215,41 @@ eurocode_ec7_at/src/fundament_v1.py          100     20    80%
 eurocode_ec8_at/src/erdbeben_v1.py            95     20    79%
 examples_multi_agent.py                       94     94     0%
 generative_design_ai.py                      338    338     0%
-integration_fixes.py                         119    119     0%
+integration_fixes.py                         118    118     0%
 iso_19650_bim.py                             127    127     0%
 live_cost_database.py                        110    110     0%
-main.py                                       56     56     0%
+main.py                                       52     52     0%
 models.py                                     71     71     0%
-orion_agent_core.py                          704    704     0%
+orion_agent_core.py                          680    680     0%
 orion_architekt.py                            29     29     0%
-orion_architekt_at.py                        813    483    41%
+orion_architekt_at.py                        803    475    41%
 orion_calendar.py                             78     78     0%
 orion_emergenz.py                             93     93     0%
 orion_exceptions.py                          106    106     0%
-orion_gmail.py                               136    136     0%
-orion_heartbeat.py                           236    236     0%
-orion_kb_validation.py                       249     66    73%
-orion_kernel.py                              149    149     0%
-orion_lang.py                                227    227     0%
-orion_lang_advanced.py                       283    283     0%
-orion_logging.py                              88     40    55%
+orion_gmail.py                               133    133     0%
+orion_heartbeat.py                           227    227     0%
+orion_kb_validation.py                       191     36    81%
+orion_kernel.py                              124    124     0%
+orion_lang.py                                215    215     0%
+orion_lang_advanced.py                       268    268     0%
+orion_logging.py                              88     88     0%
 orion_master_integration.py                  237    237     0%
-orion_multi_agent_system.py                  245    245     0%
-orion_oenorm_a2063.py                        254    202    20%
+orion_multi_agent_system.py                  244    244     0%
+orion_oenorm_a2063.py                        254    254     0%
 orion_trajectory.py                           76     76     0%
 reinforcement_detailing.py                   329    329     0%
-setup.py                                       9      9     0%
+setup.py                                       8      8     0%
 structural_engineering_integration.py        202    202     0%
 structural_software_connectors.py            268    268     0%
 sustainability_esg.py                        299    299     0%
 test_ai_integration.py                       132    132     0%
 test_api_endpoints.py                        241    241     0%
-test_complete_integration.py                 226    226     0%
+test_complete_integration.py                 224    224     0%
 test_genesis_integration.py                  128    128     0%
 test_multi_agent_integration.py              140    140     0%
 test_orion_oenorm_a2063.py                   141    141     0%
 --------------------------------------------------------------
-TOTAL                                      12192   9614    21%
+TOTAL                                      11560  10408    10%
 Coverage HTML written to dir htmlcov
 Coverage XML written to file coverage.xml
-======================= 165 passed, 1 warning in 14.52s ========================
+============================= 81 passed in 11.56s ==============================
