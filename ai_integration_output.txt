@@ -3,7 +3,7 @@
   ORION Architekt AT - AI Integration Test
 ================================================================================
 
-Testdatum: 2026-04-10 20:39:55
+Testdatum: 2026-05-15 20:45:44
 Projekt: Einfamilienhaus Wien - Neubau
 Workflow: IFC → AI Takeoff → Live Costs → LV → AI Evaluation
 
