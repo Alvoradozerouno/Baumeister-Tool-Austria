@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 [![Austria](https://img.shields.io/badge/Austria-9%20Bundesl%C3%A4nder-red)](https://github.com/Alvoradozerouno/ORION-Architekt-AT)
 
-![Baumaster.at hero artwork with Austrian building intelligence branding, blueprint house motif, and Austria-wide compliance themes](assets/baumaster_repo_art.png)
+![Baumaster.at - Austrian building intelligence platform](assets/baumaster_repo_art.png)
 
 > **Comprehensive Austrian building tool — all 9 federal states, 20 functionalities, OIB-RL engine.**
 > From OIB compliance to energy estimation and structural calculations.
