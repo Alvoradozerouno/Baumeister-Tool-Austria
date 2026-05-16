@@ -32,8 +32,8 @@ WORKDIR /build
 # Copy requirements file
 COPY requirements.txt .
 
-# Install Python dependencies
-RUN pip install --user --no-cache-dir -r requirements.txt
+# Install Python dependencies into portable prefix for runtime image
+RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
 
 # ============================================================================
 # Stage 2: Production Stage
@@ -48,8 +48,9 @@ LABEL maintainer="ORION Architekt-AT Team <support@orion-architekt.at>" \
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    PATH=/root/.local/bin:$PATH \
+    PATH=/usr/local/bin:$PATH \
     APP_HOME=/app \
+    HOME=/home/orion \
     ENVIRONMENT=production
 
 # Install runtime dependencies only
@@ -59,13 +60,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Create non-root user for security
-RUN groupadd -r orion && useradd -r -g orion orion
+RUN groupadd -r orion && useradd -m -d /home/orion -r -g orion orion
 
 # Create app directory
 WORKDIR ${APP_HOME}
 
 # Copy Python dependencies from builder
-COPY --from=builder /root/.local /root/.local
+COPY --from=builder /install /usr/local
 
 # Copy application code
 COPY --chown=orion:orion . .

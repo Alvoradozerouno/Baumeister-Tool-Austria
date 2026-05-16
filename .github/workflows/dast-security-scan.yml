@@ -57,7 +57,7 @@ jobs:
           JWT_SECRET_KEY: test_jwt_secret_key_for_ci_testing_only_not_production
           GRAFANA_ADMIN_PASSWORD: test_grafana_password
         run: |
-          docker compose -f docker-compose.production.yml up -d
+          docker compose -f docker-compose.production.yml up -d postgres redis api
           sleep 45  # Wait for services to be fully ready
 
       - name: Verify application is running
@@ -68,12 +68,19 @@ jobs:
           JWT_SECRET_KEY: test_jwt_secret_key_for_ci_testing_only_not_production
           GRAFANA_ADMIN_PASSWORD: test_grafana_password
         run: |
-          curl -f http://localhost/health || (docker compose -f docker-compose.production.yml logs && exit 1)
+          for i in $(seq 1 30); do
+            if curl -fsS http://localhost:8000/health/live; then
+              exit 0
+            fi
+            sleep 3
+          done
+          docker compose -f docker-compose.production.yml logs
+          exit 1
 
       - name: ZAP Baseline Scan
         uses: zaproxy/action-baseline@v0.10.0
         with:
-          target: 'http://localhost'
+          target: 'http://localhost:8000'
           rules_file_name: '.zap/rules.tsv'
           cmd_options: '-a -j -l WARN -T 60'
           fail_action: false  # Don't fail build, just report
@@ -133,13 +140,30 @@ jobs:
           JWT_SECRET_KEY: test_jwt_secret_key_for_ci_testing_only_not_production
           GRAFANA_ADMIN_PASSWORD: test_grafana_password
         run: |
-          docker compose -f docker-compose.production.yml up -d
+          docker compose -f docker-compose.production.yml up -d postgres redis api
           sleep 45
+
+      - name: Verify application is running
+        env:
+          POSTGRES_PASSWORD: test_postgres_password
+          REDIS_PASSWORD: test_redis_password
+          SECRET_KEY: test_secret_key_for_ci_testing_only_not_production
+          JWT_SECRET_KEY: test_jwt_secret_key_for_ci_testing_only_not_production
+          GRAFANA_ADMIN_PASSWORD: test_grafana_password
+        run: |
+          for i in $(seq 1 30); do
+            if curl -fsS http://localhost:8000/health/live; then
+              exit 0
+            fi
+            sleep 3
+          done
+          docker compose -f docker-compose.production.yml logs
+          exit 1
 
       - name: ZAP Full Scan
         uses: zaproxy/action-full-scan@v0.10.0
         with:
-          target: 'http://localhost'
+          target: 'http://localhost:8000'
           rules_file_name: '.zap/rules.tsv'
           cmd_options: '-a -j -l WARN'
           fail_action: false
@@ -196,12 +220,12 @@ jobs:
           JWT_SECRET_KEY: test_jwt_secret_key_for_ci_testing_only_not_production
           GRAFANA_ADMIN_PASSWORD: test_grafana_password
         run: |
-          docker compose -f docker-compose.production.yml up -d
+          docker compose -f docker-compose.production.yml up -d postgres redis api
           sleep 45
 
       - name: Run API Security Tests
         env:
-          TEST_API_URL: http://localhost
+          TEST_API_URL: http://localhost:8000
         run: |
           pytest tests/test_api_security_owasp.py -v --tb=short || true
 
@@ -231,7 +255,9 @@ jobs:
       - name: Check if there are new commits to scan
         id: check-commits
         run: |
-          if [ "${{ github.event_name }}" = "push" ]; then
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event_name }}" = "push" ]; then
             BEFORE="${{ github.event.before }}"
             if [ "$BEFORE" = "0000000000000000000000000000000000000000" ] || [ "$BEFORE" = "${{ github.sha }}" ]; then
               echo "skip=true" >> "$GITHUB_OUTPUT"
