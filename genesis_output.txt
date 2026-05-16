@@ -14,38 +14,38 @@ test_genesis_integration.py::TestEpistemicStates::test_create_unknown_state
 test_genesis_integration.py::TestEpistemicStates::test_create_verified_state_from_eurocode 
 [gw1] [  5%] PASSED test_genesis_integration.py::TestEpistemicStates::test_create_unknown_state 
 [gw0] [ 11%] PASSED test_genesis_integration.py::TestEpistemicStates::test_create_verified_state_from_eurocode 
-test_genesis_integration.py::TestEpistemicStates::test_create_estimated_state_from_monte_carlo 
 test_genesis_integration.py::TestEpistemicStates::test_low_confidence_requires_fallback 
-[gw0] [ 16%] PASSED test_genesis_integration.py::TestEpistemicStates::test_create_estimated_state_from_monte_carlo 
-[gw1] [ 22%] PASSED test_genesis_integration.py::TestEpistemicStates::test_low_confidence_requires_fallback 
-test_genesis_integration.py::TestDecisionPolicyEngine::test_deterministic_mode_requires_verified_inputs 
+test_genesis_integration.py::TestEpistemicStates::test_create_estimated_state_from_monte_carlo 
+[gw1] [ 16%] PASSED test_genesis_integration.py::TestEpistemicStates::test_low_confidence_requires_fallback 
+[gw0] [ 22%] PASSED test_genesis_integration.py::TestEpistemicStates::test_create_estimated_state_from_monte_carlo 
 test_genesis_integration.py::TestEpistemicStates::test_verified_state_validation 
-[gw1] [ 27%] PASSED test_genesis_integration.py::TestDecisionPolicyEngine::test_deterministic_mode_requires_verified_inputs 
+test_genesis_integration.py::TestDecisionPolicyEngine::test_deterministic_mode_requires_verified_inputs 
+[gw0] [ 27%] PASSED test_genesis_integration.py::TestDecisionPolicyEngine::test_deterministic_mode_requires_verified_inputs 
 test_genesis_integration.py::TestDecisionPolicyEngine::test_deterministic_mode_rejects_estimated_inputs 
-[gw0] [ 33%] PASSED test_genesis_integration.py::TestEpistemicStates::test_verified_state_validation 
+[gw1] [ 33%] PASSED test_genesis_integration.py::TestEpistemicStates::test_verified_state_validation 
 test_genesis_integration.py::TestEpistemicStates::test_estimated_state_validation 
-[gw1] [ 38%] PASSED test_genesis_integration.py::TestDecisionPolicyEngine::test_deterministic_mode_rejects_estimated_inputs 
+[gw0] [ 38%] PASSED test_genesis_integration.py::TestDecisionPolicyEngine::test_deterministic_mode_rejects_estimated_inputs 
+[gw1] [ 44%] PASSED test_genesis_integration.py::TestEpistemicStates::test_estimated_state_validation 
 test_genesis_integration.py::TestDecisionPolicyEngine::test_unknown_inputs_trigger_fallback 
-[gw0] [ 44%] PASSED test_genesis_integration.py::TestEpistemicStates::test_estimated_state_validation 
-[gw1] [ 50%] PASSED test_genesis_integration.py::TestDecisionPolicyEngine::test_unknown_inputs_trigger_fallback 
 test_genesis_integration.py::TestDecisionPolicyEngine::test_legal_documents_require_fallback 
+[gw0] [ 50%] PASSED test_genesis_integration.py::TestDecisionPolicyEngine::test_unknown_inputs_trigger_fallback 
 test_genesis_integration.py::TestDecisionPolicyEngine::test_low_confidence_triggers_fallback 
-[gw0] [ 55%] PASSED test_genesis_integration.py::TestDecisionPolicyEngine::test_legal_documents_require_fallback 
-[gw1] [ 61%] PASSED test_genesis_integration.py::TestDecisionPolicyEngine::test_low_confidence_triggers_fallback 
-test_genesis_integration.py::TestDecisionPolicyEngine::test_policy_engine_statistics 
+[gw1] [ 55%] PASSED test_genesis_integration.py::TestDecisionPolicyEngine::test_legal_documents_require_fallback 
+[gw0] [ 61%] PASSED test_genesis_integration.py::TestDecisionPolicyEngine::test_low_confidence_triggers_fallback 
 test_genesis_integration.py::TestTheArchitektIntegration::test_architekt_has_policy_engine 
-[gw0] [ 66%] PASSED test_genesis_integration.py::TestDecisionPolicyEngine::test_policy_engine_statistics 
-[gw1] [ 72%] PASSED test_genesis_integration.py::TestTheArchitektIntegration::test_architekt_has_policy_engine 
+test_genesis_integration.py::TestDecisionPolicyEngine::test_policy_engine_statistics 
+[gw1] [ 66%] PASSED test_genesis_integration.py::TestDecisionPolicyEngine::test_policy_engine_statistics 
+[gw0] [ 72%] PASSED test_genesis_integration.py::TestTheArchitektIntegration::test_architekt_has_policy_engine 
 test_genesis_integration.py::TestTheArchitektIntegration::test_create_epistemic_state_from_deterministic_result 
 test_genesis_integration.py::TestTheArchitektIntegration::test_create_epistemic_state_from_probabilistic_result 
-[gw0] [ 77%] PASSED test_genesis_integration.py::TestTheArchitektIntegration::test_create_epistemic_state_from_deterministic_result 
-[gw1] [ 83%] PASSED test_genesis_integration.py::TestTheArchitektIntegration::test_create_epistemic_state_from_probabilistic_result 
+[gw1] [ 77%] PASSED test_genesis_integration.py::TestTheArchitektIntegration::test_create_epistemic_state_from_deterministic_result 
+[gw0] [ 83%] PASSED test_genesis_integration.py::TestTheArchitektIntegration::test_create_epistemic_state_from_probabilistic_result 
 test_genesis_integration.py::TestTheArchitektIntegration::test_check_decision_policy 
 test_genesis_integration.py::TestORIONMultiAgentSystem::test_system_reports_genesis_framework 
-[gw0] [ 88%] PASSED test_genesis_integration.py::TestTheArchitektIntegration::test_check_decision_policy 
-[gw1] [ 94%] PASSED test_genesis_integration.py::TestORIONMultiAgentSystem::test_system_reports_genesis_framework 
+[gw1] [ 88%] PASSED test_genesis_integration.py::TestTheArchitektIntegration::test_check_decision_policy 
+[gw0] [ 94%] PASSED test_genesis_integration.py::TestORIONMultiAgentSystem::test_system_reports_genesis_framework 
 test_genesis_integration.py::TestORIONMultiAgentSystem::test_system_has_policy_statistics 
-[gw0] [100%] PASSED test_genesis_integration.py::TestORIONMultiAgentSystem::test_system_has_policy_statistics 
+[gw1] [100%] PASSED test_genesis_integration.py::TestORIONMultiAgentSystem::test_system_has_policy_statistics 
 
 ================================ tests coverage ================================
 _______________ coverage: platform linux, python 3.12.3-final-0 ________________
@@ -134,4 +134,4 @@ test_orion_oenorm_a2063.py                           141    141     0%
 TOTAL                                              12595  11366    10%
 Coverage HTML written to dir htmlcov
 Coverage XML written to file coverage.xml
-============================== 18 passed in 7.82s ==============================
+============================== 18 passed in 8.04s ==============================

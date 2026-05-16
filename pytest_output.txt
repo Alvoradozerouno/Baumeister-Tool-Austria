@@ -31,8 +31,8 @@ tests/test_api_comprehensive.py::TestValidationHelpers::test_sanitize_string_rem
 [gw1] [  5%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_sanitize_string_removes_null_bytes 
 tests/test_api_comprehensive.py::TestValidationHelpers::test_sanitize_string_too_long 
 [gw1] [  6%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_sanitize_string_too_long 
-tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_api_key_valid 
 [gw0] [  6%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_uwert_calculation_valid 
+tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_api_key_valid 
 tests/test_api_comprehensive.py::TestCalculations::test_uwert_calculation_empty_layers 
 [gw1] [  7%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_api_key_valid 
 tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_api_key_invalid_format 
@@ -41,12 +41,12 @@ tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_jwt_format
 [gw1] [  8%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_jwt_format_valid 
 tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_jwt_format_invalid 
 [gw1] [  9%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_jwt_format_invalid 
-tests/test_api_comprehensive.py::TestRateLimiting::test_rate_limit_headers_present 
 [gw0] [  9%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_uwert_calculation_empty_layers 
 tests/test_api_comprehensive.py::TestCalculations::test_uwert_calculation_negative_thickness 
+tests/test_api_comprehensive.py::TestRateLimiting::test_rate_limit_headers_present 
 [gw1] [ 10%] PASSED tests/test_api_comprehensive.py::TestRateLimiting::test_rate_limit_headers_present 
-tests/test_api_comprehensive.py::TestRateLimiting::test_rate_limit_not_exceeded_normal_use 
 [gw0] [ 10%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_uwert_calculation_negative_thickness 
+tests/test_api_comprehensive.py::TestRateLimiting::test_rate_limit_not_exceeded_normal_use 
 tests/test_api_comprehensive.py::TestCalculations::test_uwert_calculation_zero_lambda 
 [gw0] [ 11%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_uwert_calculation_zero_lambda 
 tests/test_api_comprehensive.py::TestCalculations::test_stellplaetze_valid 
@@ -64,18 +64,18 @@ tests/test_api_comprehensive.py::TestErrorHandling::test_invalid_json_body
 tests/test_api_comprehensive.py::TestErrorHandling::test_missing_required_field 
 [gw1] [ 15%] PASSED tests/test_api_comprehensive.py::TestErrorHandling::test_missing_required_field 
 tests/test_api_comprehensive.py::TestErrorHandling::test_wrong_data_type 
-[gw1] [ 16%] PASSED tests/test_api_comprehensive.py::TestErrorHandling::test_wrong_data_type 
-tests/test_api_comprehensive.py::TestIntegration::test_full_building_workflow 
 [gw0] [ 16%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_stellplaetze_all_bundeslaender 
+[gw1] [ 16%] PASSED tests/test_api_comprehensive.py::TestErrorHandling::test_wrong_data_type 
 tests/test_api_comprehensive.py::TestCalculations::test_flaeche_calculation_valid 
+tests/test_api_comprehensive.py::TestIntegration::test_full_building_workflow 
 [gw0] [ 17%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_flaeche_calculation_valid 
 tests/test_api_comprehensive.py::TestCalculations::test_flaeche_negative_dimensions 
 [gw0] [ 18%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_flaeche_negative_dimensions 
 tests/test_api_comprehensive.py::TestCalculations::test_flaeche_unrealistic_dimensions 
 [gw1] [ 18%] PASSED tests/test_api_comprehensive.py::TestIntegration::test_full_building_workflow 
-tests/test_api_comprehensive.py::TestPerformance::test_response_time_health_check 
 [gw0] [ 19%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_flaeche_unrealistic_dimensions 
 tests/test_api_comprehensive.py::TestCalculations::test_barrierefreiheit_check_valid 
+tests/test_api_comprehensive.py::TestPerformance::test_response_time_health_check 
 [gw1] [ 20%] PASSED tests/test_api_comprehensive.py::TestPerformance::test_response_time_health_check 
 tests/test_api_comprehensive.py::TestPerformance::test_concurrent_requests 
 [gw0] [ 20%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_barrierefreiheit_check_valid 
@@ -153,12 +153,12 @@ tests/test_eu_compliance_comprehensive.py::TestEUAIActCompliance::test_ai_act_hu
 [gw0] [ 42%] PASSED tests/test_eu_compliance_comprehensive.py::TestEUAIActCompliance::test_ai_act_human_oversight_documentation 
 tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_text_alternatives 
 [gw0] [ 43%] PASSED tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_text_alternatives 
+[gw1] [ 43%] PASSED tests/test_api_comprehensive.py::TestPerformance::test_concurrent_requests 
 tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_keyboard_accessible 
-[gw0] [ 43%] PASSED tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_keyboard_accessible 
-tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_predictable_errors 
-[gw1] [ 44%] PASSED tests/test_api_comprehensive.py::TestPerformance::test_concurrent_requests 
-[gw0] [ 44%] PASSED tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_predictable_errors 
 tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api1_broken_object_level_authorization 
+[gw0] [ 44%] PASSED tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_keyboard_accessible 
+tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_predictable_errors 
+[gw0] [ 44%] PASSED tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_predictable_errors 
 tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_parsing_valid_json 
 [gw0] [ 45%] PASSED tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_parsing_valid_json 
 tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_en301549_time_limits 
@@ -172,13 +172,13 @@ tests/test_eu_compliance_comprehensive.py::TestPublicProcurementCompliance::test
 tests/test_eu_compliance_comprehensive.py::TestPublicProcurementCompliance::test_oenorm_a2063_compliance 
 [gw0] [ 48%] PASSED tests/test_eu_compliance_comprehensive.py::TestPublicProcurementCompliance::test_oenorm_a2063_compliance 
 tests/test_eu_compliance_comprehensive.py::TestDigitalServicesActCompliance::test_dsa_transparency_reporting 
+[gw1] [ 49%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api1_broken_object_level_authorization 
 [gw0] [ 49%] PASSED tests/test_eu_compliance_comprehensive.py::TestDigitalServicesActCompliance::test_dsa_transparency_reporting 
 tests/test_eu_compliance_comprehensive.py::TestDigitalServicesActCompliance::test_dsa_terms_of_service_availability 
-[gw0] [ 49%] PASSED tests/test_eu_compliance_comprehensive.py::TestDigitalServicesActCompliance::test_dsa_terms_of_service_availability 
-tests/test_eu_compliance_comprehensive.py::TestNIS2DirectiveCompliance::test_nis2_incident_handling 
-[gw1] [ 50%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api1_broken_object_level_authorization 
-[gw0] [ 50%] PASSED tests/test_eu_compliance_comprehensive.py::TestNIS2DirectiveCompliance::test_nis2_incident_handling 
 tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api2_broken_authentication_weak_tokens 
+[gw0] [ 50%] PASSED tests/test_eu_compliance_comprehensive.py::TestDigitalServicesActCompliance::test_dsa_terms_of_service_availability 
+tests/test_eu_compliance_comprehensive.py::TestNIS2DirectiveCompliance::test_nis2_incident_handling 
+[gw0] [ 50%] PASSED tests/test_eu_compliance_comprehensive.py::TestNIS2DirectiveCompliance::test_nis2_incident_handling 
 tests/test_eu_compliance_comprehensive.py::TestNIS2DirectiveCompliance::test_nis2_supply_chain_security 
 [gw0] [ 51%] PASSED tests/test_eu_compliance_comprehensive.py::TestNIS2DirectiveCompliance::test_nis2_supply_chain_security 
 tests/test_eurocode_modules.py::test_ec2_betonbau 
@@ -195,13 +195,13 @@ tests/test_kb_validation.py::TestStandardVersions::test_all_standards_exist
 [gw0] [ 55%] PASSED tests/test_kb_validation.py::TestStandardVersions::test_all_standards_exist 
 tests/test_kb_validation.py::TestStandardVersions::test_get_standard_version_valid 
 [gw0] [ 55%] PASSED tests/test_kb_validation.py::TestStandardVersions::test_get_standard_version_valid 
-tests/test_kb_validation.py::TestStandardVersions::test_get_standard_version_invalid 
 [gw1] [ 56%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api2_broken_authentication_weak_tokens 
+tests/test_kb_validation.py::TestStandardVersions::test_get_standard_version_invalid 
 [gw0] [ 56%] PASSED tests/test_kb_validation.py::TestStandardVersions::test_get_standard_version_invalid 
 tests/test_kb_validation.py::TestStandardVersions::test_is_standard_current_oib 
+tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api2_rate_limiting_login 
 [gw0] [ 57%] PASSED tests/test_kb_validation.py::TestStandardVersions::test_is_standard_current_oib 
 tests/test_kb_validation.py::TestStandardVersions::test_is_standard_current_oenorm 
-tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api2_rate_limiting_login 
 [gw0] [ 58%] PASSED tests/test_kb_validation.py::TestStandardVersions::test_is_standard_current_oenorm 
 tests/test_kb_validation.py::TestOIBUpdates::test_check_oib_updates_structure 
 [gw0] [ 58%] PASSED tests/test_kb_validation.py::TestOIBUpdates::test_check_oib_updates_structure 
@@ -428,4 +428,4 @@ test_orion_oenorm_a2063.py                   141    141     0%
 TOTAL                                      12192   9614    21%
 Coverage HTML written to dir htmlcov
 Coverage XML written to file coverage.xml
-======================= 165 passed, 1 warning in 14.84s ========================
+======================= 165 passed, 1 warning in 15.79s ========================
