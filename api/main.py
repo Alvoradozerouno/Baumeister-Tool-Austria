@@ -30,7 +30,10 @@ from api.routers import (
     calculations,
     collaboration,
     compliance,
+    multi_agent_consensus,
+    orion_runtime,
     reports,
+    ros2_bridge,
     tendering,
     validation,
 )
@@ -95,7 +98,7 @@ app = FastAPI(
     license_info={"name": "MIT License", "url": "https://opensource.org/licenses/MIT"},
     openapi_tags=[
         {
-            "name": "calculations",
+    "name": "calculations",
             "description": "Building calculations (U-Wert, Stellplätze, etc.)",
         },
         {"name": "compliance", "description": "OIB-RL & ÖNORM compliance checks"},
@@ -107,6 +110,9 @@ app = FastAPI(
         {"name": "bim", "description": "🏗️ BIM integration (UNIQUE)"},
         {"name": "collaboration", "description": "👥 Real-time collaboration (UNIQUE)"},
         {"name": "auth", "description": "Authentication & authorization"},
+        {"name": "orion-runtime", "description": "🚀 ORION Runtime - Deterministic Temporal Edge Runtime (NEW)"},
+        {"name": "ros2-bridge", "description": "🤖 ROS2 Bridge - Autonomous robotics integration (NEW)"},
+        {"name": "consensus", "description": "🧠 Multi-Agent Consensus - 8-agent evaluation system (NEW)"},
         {"name": "health", "description": "Health & monitoring"},
     ],
 )
@@ -137,6 +143,9 @@ app.include_router(tendering.router, tags=["tendering"])  # Uses own prefix
 app.include_router(ai_recommendations.router, prefix="/api/v1/ai", tags=["ai"])
 app.include_router(bim_integration.router, prefix="/api/v1/bim", tags=["bim"])
 app.include_router(collaboration.router, prefix="/api/v1/collaboration", tags=["collaboration"])
+app.include_router(orion_runtime.router, tags=["orion-runtime"])  # Uses own prefix
+app.include_router(ros2_bridge.router, tags=["ros2-bridge"])  # Uses own prefix
+app.include_router(multi_agent_consensus.router, tags=["consensus"])  # Uses own prefix
 app.include_router(auth_router, prefix="/auth", tags=["auth"])
 
 

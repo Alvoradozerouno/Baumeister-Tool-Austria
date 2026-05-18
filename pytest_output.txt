@@ -1,350 +1,1610 @@
 ============================= test session starts ==============================
 platform linux -- Python 3.12.3, pytest-9.0.3, pluggy-1.6.0 -- /usr/bin/python3
 cachedir: .pytest_cache
-rootdir: /home/runner/work/Baumaster.at/Baumaster.at
+rootdir: /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria
 configfile: pyproject.toml
 plugins: asyncio-1.3.0, cov-7.1.0, xdist-3.8.0, anyio-4.13.0, locust-2.44.0
 asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
 created: 2/2 workers
-2 workers [165 items]
+2 workers [199 items]
 
 scheduling tests via LoadScheduling
 
-tests/test_api_comprehensive.py::TestHealthChecks::test_health_check 
-tests/test_api_comprehensive.py::TestCalculations::test_heizlast_berechnung_valid 
-[gw0] [  0%] PASSED tests/test_api_comprehensive.py::TestHealthChecks::test_health_check 
-tests/test_api_comprehensive.py::TestHealthChecks::test_liveness_check 
-[gw1] [  1%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_heizlast_berechnung_valid 
-tests/test_api_comprehensive.py::TestCalculations::test_materialdatenbank_all 
-[gw0] [  1%] PASSED tests/test_api_comprehensive.py::TestHealthChecks::test_liveness_check 
-tests/test_api_comprehensive.py::TestHealthChecks::test_root_endpoint 
-[gw1] [  2%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_materialdatenbank_all 
-tests/test_api_comprehensive.py::TestCalculations::test_materialdatenbank_filtered 
-[gw0] [  3%] PASSED tests/test_api_comprehensive.py::TestHealthChecks::test_root_endpoint 
-tests/test_api_comprehensive.py::TestCalculations::test_uwert_calculation_valid 
-[gw1] [  3%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_materialdatenbank_filtered 
-tests/test_api_comprehensive.py::TestValidationHelpers::test_sanitize_string_valid 
-[gw1] [  4%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_sanitize_string_valid 
 tests/test_api_comprehensive.py::TestValidationHelpers::test_sanitize_string_with_umlaut 
-[gw1] [  4%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_sanitize_string_with_umlaut 
+tests/test_api_comprehensive.py::TestHealthChecks::test_health_check 
+[gw1] [  0%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_sanitize_string_with_umlaut 
 tests/test_api_comprehensive.py::TestValidationHelpers::test_sanitize_string_removes_null_bytes 
-[gw1] [  5%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_sanitize_string_removes_null_bytes 
+[gw1] [  1%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_sanitize_string_removes_null_bytes 
 tests/test_api_comprehensive.py::TestValidationHelpers::test_sanitize_string_too_long 
-[gw1] [  6%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_sanitize_string_too_long 
+[gw1] [  1%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_sanitize_string_too_long 
 tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_api_key_valid 
+[gw1] [  2%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_api_key_valid 
+tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_api_key_invalid_format 
+[gw1] [  2%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_api_key_invalid_format 
+tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_jwt_format_valid 
+[gw1] [  3%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_jwt_format_valid 
+tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_jwt_format_invalid 
+[gw1] [  3%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_jwt_format_invalid 
+tests/test_api_comprehensive.py::TestRateLimiting::test_rate_limit_headers_present 
+[gw0] [  4%] PASSED tests/test_api_comprehensive.py::TestHealthChecks::test_health_check 
+tests/test_api_comprehensive.py::TestHealthChecks::test_liveness_check 
+[gw0] [  4%] PASSED tests/test_api_comprehensive.py::TestHealthChecks::test_liveness_check 
+tests/test_api_comprehensive.py::TestHealthChecks::test_root_endpoint 
+[gw1] [  5%] PASSED tests/test_api_comprehensive.py::TestRateLimiting::test_rate_limit_headers_present 
+tests/test_api_comprehensive.py::TestRateLimiting::test_rate_limit_not_exceeded_normal_use 
+[gw0] [  5%] PASSED tests/test_api_comprehensive.py::TestHealthChecks::test_root_endpoint 
+tests/test_api_comprehensive.py::TestCalculations::test_uwert_calculation_valid 
 [gw0] [  6%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_uwert_calculation_valid 
 tests/test_api_comprehensive.py::TestCalculations::test_uwert_calculation_empty_layers 
-[gw1] [  7%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_api_key_valid 
-tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_api_key_invalid_format 
-[gw1] [  7%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_api_key_invalid_format 
-tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_jwt_format_valid 
-[gw1] [  8%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_jwt_format_valid 
-tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_jwt_format_invalid 
-[gw1] [  9%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_validate_jwt_format_invalid 
-tests/test_api_comprehensive.py::TestRateLimiting::test_rate_limit_headers_present 
-[gw0] [  9%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_uwert_calculation_empty_layers 
+[gw0] [  6%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_uwert_calculation_empty_layers 
 tests/test_api_comprehensive.py::TestCalculations::test_uwert_calculation_negative_thickness 
-[gw1] [ 10%] PASSED tests/test_api_comprehensive.py::TestRateLimiting::test_rate_limit_headers_present 
-tests/test_api_comprehensive.py::TestRateLimiting::test_rate_limit_not_exceeded_normal_use 
-[gw0] [ 10%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_uwert_calculation_negative_thickness 
+[gw0] [  7%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_uwert_calculation_negative_thickness 
 tests/test_api_comprehensive.py::TestCalculations::test_uwert_calculation_zero_lambda 
-[gw0] [ 11%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_uwert_calculation_zero_lambda 
+[gw0] [  7%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_uwert_calculation_zero_lambda 
 tests/test_api_comprehensive.py::TestCalculations::test_stellplaetze_valid 
-[gw0] [ 12%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_stellplaetze_valid 
+[gw0] [  8%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_stellplaetze_valid 
 tests/test_api_comprehensive.py::TestCalculations::test_stellplaetze_invalid_bundesland 
-[gw0] [ 12%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_stellplaetze_invalid_bundesland 
-tests/test_api_comprehensive.py::TestCalculations::test_stellplaetze_zero_wohnungen 
-[gw0] [ 13%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_stellplaetze_zero_wohnungen 
-tests/test_api_comprehensive.py::TestCalculations::test_stellplaetze_all_bundeslaender 
-[gw1] [ 13%] PASSED tests/test_api_comprehensive.py::TestRateLimiting::test_rate_limit_not_exceeded_normal_use 
+[gw1] [  8%] PASSED tests/test_api_comprehensive.py::TestRateLimiting::test_rate_limit_not_exceeded_normal_use 
 tests/test_api_comprehensive.py::TestErrorHandling::test_404_endpoint_not_found 
-[gw1] [ 14%] PASSED tests/test_api_comprehensive.py::TestErrorHandling::test_404_endpoint_not_found 
+[gw0] [  9%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_stellplaetze_invalid_bundesland 
+tests/test_api_comprehensive.py::TestCalculations::test_stellplaetze_zero_wohnungen 
+[gw1] [  9%] PASSED tests/test_api_comprehensive.py::TestErrorHandling::test_404_endpoint_not_found 
 tests/test_api_comprehensive.py::TestErrorHandling::test_invalid_json_body 
-[gw1] [ 15%] PASSED tests/test_api_comprehensive.py::TestErrorHandling::test_invalid_json_body 
+[gw0] [ 10%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_stellplaetze_zero_wohnungen 
+tests/test_api_comprehensive.py::TestCalculations::test_stellplaetze_all_bundeslaender 
+[gw1] [ 10%] PASSED tests/test_api_comprehensive.py::TestErrorHandling::test_invalid_json_body 
 tests/test_api_comprehensive.py::TestErrorHandling::test_missing_required_field 
-[gw1] [ 15%] PASSED tests/test_api_comprehensive.py::TestErrorHandling::test_missing_required_field 
+[gw1] [ 11%] PASSED tests/test_api_comprehensive.py::TestErrorHandling::test_missing_required_field 
 tests/test_api_comprehensive.py::TestErrorHandling::test_wrong_data_type 
-[gw1] [ 16%] PASSED tests/test_api_comprehensive.py::TestErrorHandling::test_wrong_data_type 
-[gw0] [ 16%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_stellplaetze_all_bundeslaender 
+[gw1] [ 11%] PASSED tests/test_api_comprehensive.py::TestErrorHandling::test_wrong_data_type 
 tests/test_api_comprehensive.py::TestIntegration::test_full_building_workflow 
-tests/test_api_comprehensive.py::TestCalculations::test_flaeche_calculation_valid 
-[gw0] [ 17%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_flaeche_calculation_valid 
-tests/test_api_comprehensive.py::TestCalculations::test_flaeche_negative_dimensions 
-[gw0] [ 18%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_flaeche_negative_dimensions 
-tests/test_api_comprehensive.py::TestCalculations::test_flaeche_unrealistic_dimensions 
-[gw1] [ 18%] PASSED tests/test_api_comprehensive.py::TestIntegration::test_full_building_workflow 
+[gw1] [ 12%] PASSED tests/test_api_comprehensive.py::TestIntegration::test_full_building_workflow 
 tests/test_api_comprehensive.py::TestPerformance::test_response_time_health_check 
-[gw0] [ 19%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_flaeche_unrealistic_dimensions 
-tests/test_api_comprehensive.py::TestCalculations::test_barrierefreiheit_check_valid 
-[gw1] [ 20%] PASSED tests/test_api_comprehensive.py::TestPerformance::test_response_time_health_check 
+[gw0] [ 12%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_stellplaetze_all_bundeslaender 
+[gw1] [ 13%] PASSED tests/test_api_comprehensive.py::TestPerformance::test_response_time_health_check 
+tests/test_api_comprehensive.py::TestCalculations::test_flaeche_calculation_valid 
 tests/test_api_comprehensive.py::TestPerformance::test_concurrent_requests 
-[gw0] [ 20%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_barrierefreiheit_check_valid 
+[gw0] [ 13%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_flaeche_calculation_valid 
+tests/test_api_comprehensive.py::TestCalculations::test_flaeche_negative_dimensions 
+[gw0] [ 14%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_flaeche_negative_dimensions 
+tests/test_api_comprehensive.py::TestCalculations::test_flaeche_unrealistic_dimensions 
+[gw0] [ 14%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_flaeche_unrealistic_dimensions 
+tests/test_api_comprehensive.py::TestCalculations::test_barrierefreiheit_check_valid 
+[gw0] [ 15%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_barrierefreiheit_check_valid 
 tests/test_api_comprehensive.py::TestCalculations::test_barrierefreiheit_door_too_narrow 
-[gw0] [ 21%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_barrierefreiheit_door_too_narrow 
+[gw0] [ 15%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_barrierefreiheit_door_too_narrow 
 tests/test_api_comprehensive.py::TestCalculations::test_barrierefreiheit_elevator_required 
-[gw0] [ 21%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_barrierefreiheit_elevator_required 
+[gw0] [ 16%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_barrierefreiheit_elevator_required 
 tests/test_api_comprehensive.py::TestCalculations::test_fluchtweg_check_valid 
-[gw0] [ 22%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_fluchtweg_check_valid 
+[gw0] [ 16%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_fluchtweg_check_valid 
 tests/test_api_comprehensive.py::TestCalculations::test_fluchtweg_distance_too_long 
-[gw0] [ 23%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_fluchtweg_distance_too_long 
+[gw0] [ 17%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_fluchtweg_distance_too_long 
 tests/test_api_comprehensive.py::TestCalculations::test_schallschutz_berechnung_valid 
-[gw0] [ 23%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_schallschutz_berechnung_valid 
-tests/test_audit_trail.py::TestAuditEntry::test_entry_verification 
-[gw0] [ 24%] PASSED tests/test_audit_trail.py::TestAuditEntry::test_entry_verification 
-tests/test_audit_trail.py::TestAuditEntry::test_entry_hash_calculation 
-[gw0] [ 24%] PASSED tests/test_audit_trail.py::TestAuditEntry::test_entry_hash_calculation 
-tests/test_audit_trail.py::TestAuditTrail::test_create_trail 
-[gw0] [ 25%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_create_trail 
-tests/test_audit_trail.py::TestAuditTrail::test_add_entry 
-[gw0] [ 26%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_add_entry 
-tests/test_audit_trail.py::TestAuditTrail::test_chain_linkage 
-[gw0] [ 26%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_chain_linkage 
-tests/test_audit_trail.py::TestAuditTrail::test_chain_tampering_detection 
-[gw0] [ 27%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_chain_tampering_detection 
-tests/test_audit_trail.py::TestAuditTrail::test_persistence 
-[gw0] [ 27%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_persistence 
-tests/test_audit_trail.py::TestAuditTrail::test_get_entries_by_type 
-[gw0] [ 28%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_get_entries_by_type 
-tests/test_audit_trail.py::TestAuditTrail::test_get_entries_by_actor 
-[gw0] [ 29%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_get_entries_by_actor 
-tests/test_audit_trail.py::TestAuditTrail::test_export_json 
-[gw0] [ 29%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_export_json 
-tests/test_audit_trail.py::TestAuditTrail::test_export_csv 
-[gw0] [ 30%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_export_csv 
+[gw0] [ 17%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_schallschutz_berechnung_valid 
+tests/test_api_comprehensive.py::TestCalculations::test_heizlast_berechnung_valid 
+[gw0] [ 18%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_heizlast_berechnung_valid 
+tests/test_api_comprehensive.py::TestCalculations::test_materialdatenbank_all 
+[gw0] [ 18%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_materialdatenbank_all 
+tests/test_api_comprehensive.py::TestCalculations::test_materialdatenbank_filtered 
+[gw0] [ 19%] PASSED tests/test_api_comprehensive.py::TestCalculations::test_materialdatenbank_filtered 
+tests/test_api_comprehensive.py::TestValidationHelpers::test_sanitize_string_valid 
+[gw0] [ 19%] PASSED tests/test_api_comprehensive.py::TestValidationHelpers::test_sanitize_string_valid 
 tests/test_audit_trail.py::TestAuditTrail::test_statistics 
-[gw0] [ 30%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_statistics 
+[gw0] [ 20%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_statistics 
 tests/test_audit_trail.py::TestConvenienceFunctions::test_create_compliance_trail 
-[gw0] [ 31%] PASSED tests/test_audit_trail.py::TestConvenienceFunctions::test_create_compliance_trail 
+[gw0] [ 20%] PASSED tests/test_audit_trail.py::TestConvenienceFunctions::test_create_compliance_trail 
 tests/test_audit_trail.py::TestConvenienceFunctions::test_create_calculation_trail 
-[gw0] [ 32%] PASSED tests/test_audit_trail.py::TestConvenienceFunctions::test_create_calculation_trail 
+[gw0] [ 21%] PASSED tests/test_audit_trail.py::TestConvenienceFunctions::test_create_calculation_trail 
 tests/test_audit_trail.py::TestConvenienceFunctions::test_create_bim_trail 
-[gw0] [ 32%] PASSED tests/test_audit_trail.py::TestConvenienceFunctions::test_create_bim_trail 
+[gw0] [ 21%] PASSED tests/test_audit_trail.py::TestConvenienceFunctions::test_create_bim_trail 
 tests/test_audit_trail.py::TestRealWorldScenarios::test_compliance_workflow 
-[gw0] [ 33%] PASSED tests/test_audit_trail.py::TestRealWorldScenarios::test_compliance_workflow 
+[gw0] [ 22%] PASSED tests/test_audit_trail.py::TestRealWorldScenarios::test_compliance_workflow 
 tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_data_minimization_principle 
-[gw0] [ 33%] PASSED tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_data_minimization_principle 
+[gw0] [ 22%] PASSED tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_data_minimization_principle 
 tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_data_sanitization 
-[gw0] [ 34%] PASSED tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_data_sanitization 
+[gw0] [ 23%] PASSED tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_data_sanitization 
 tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_right_to_erasure_architecture 
-[gw0] [ 35%] PASSED tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_right_to_erasure_architecture 
-tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_data_retention_limits 
-[gw0] [ 35%] PASSED tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_data_retention_limits 
-tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_records_of_processing_activities 
-[gw0] [ 36%] PASSED tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_records_of_processing_activities 
-tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_pseudonymization 
-[gw0] [ 36%] PASSED tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_pseudonymization 
-tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_qualified_signature_format 
-[gw0] [ 37%] PASSED tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_qualified_signature_format 
-tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_signature_formats 
-[gw0] [ 38%] PASSED tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_signature_formats 
-tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_timestamp_authority 
-[gw0] [ 38%] PASSED tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_timestamp_authority 
-tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_austrian_trust_providers 
-[gw0] [ 39%] PASSED tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_austrian_trust_providers 
-tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_signature_verification 
-[gw0] [ 40%] PASSED tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_signature_verification 
-tests/test_eu_compliance_comprehensive.py::TestEUAIActCompliance::test_ai_act_logging_requirements 
-[gw0] [ 40%] PASSED tests/test_eu_compliance_comprehensive.py::TestEUAIActCompliance::test_ai_act_logging_requirements 
-tests/test_eu_compliance_comprehensive.py::TestEUAIActCompliance::test_ai_act_immutable_audit_trail 
-[gw0] [ 41%] PASSED tests/test_eu_compliance_comprehensive.py::TestEUAIActCompliance::test_ai_act_immutable_audit_trail 
-tests/test_eu_compliance_comprehensive.py::TestEUAIActCompliance::test_ai_act_traceability_requirements 
-[gw0] [ 41%] PASSED tests/test_eu_compliance_comprehensive.py::TestEUAIActCompliance::test_ai_act_traceability_requirements 
-tests/test_eu_compliance_comprehensive.py::TestEUAIActCompliance::test_ai_act_human_oversight_documentation 
-[gw0] [ 42%] PASSED tests/test_eu_compliance_comprehensive.py::TestEUAIActCompliance::test_ai_act_human_oversight_documentation 
-tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_text_alternatives 
-[gw0] [ 43%] PASSED tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_text_alternatives 
-tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_keyboard_accessible 
-[gw1] [ 43%] PASSED tests/test_api_comprehensive.py::TestPerformance::test_concurrent_requests 
-[gw0] [ 44%] PASSED tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_keyboard_accessible 
-tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_predictable_errors 
+[gw1] [ 23%] PASSED tests/test_api_comprehensive.py::TestPerformance::test_concurrent_requests 
+[gw0] [ 24%] PASSED tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_right_to_erasure_architecture 
 tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api1_broken_object_level_authorization 
-[gw0] [ 44%] PASSED tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_predictable_errors 
-tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_parsing_valid_json 
-[gw0] [ 45%] PASSED tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_parsing_valid_json 
-tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_en301549_time_limits 
-[gw0] [ 46%] PASSED tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_en301549_time_limits 
-tests/test_eu_compliance_comprehensive.py::TestPublicProcurementCompliance::test_procurement_directive_electronic_means 
-[gw0] [ 46%] PASSED tests/test_eu_compliance_comprehensive.py::TestPublicProcurementCompliance::test_procurement_directive_electronic_means 
-tests/test_eu_compliance_comprehensive.py::TestPublicProcurementCompliance::test_procurement_directive_equal_treatment 
-[gw0] [ 47%] PASSED tests/test_eu_compliance_comprehensive.py::TestPublicProcurementCompliance::test_procurement_directive_equal_treatment 
-tests/test_eu_compliance_comprehensive.py::TestPublicProcurementCompliance::test_procurement_directive_transparency 
-[gw0] [ 47%] PASSED tests/test_eu_compliance_comprehensive.py::TestPublicProcurementCompliance::test_procurement_directive_transparency 
-tests/test_eu_compliance_comprehensive.py::TestPublicProcurementCompliance::test_oenorm_a2063_compliance 
-[gw0] [ 48%] PASSED tests/test_eu_compliance_comprehensive.py::TestPublicProcurementCompliance::test_oenorm_a2063_compliance 
-tests/test_eu_compliance_comprehensive.py::TestDigitalServicesActCompliance::test_dsa_transparency_reporting 
-[gw1] [ 49%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api1_broken_object_level_authorization 
-[gw0] [ 49%] PASSED tests/test_eu_compliance_comprehensive.py::TestDigitalServicesActCompliance::test_dsa_transparency_reporting 
-tests/test_eu_compliance_comprehensive.py::TestDigitalServicesActCompliance::test_dsa_terms_of_service_availability 
-[gw0] [ 50%] PASSED tests/test_eu_compliance_comprehensive.py::TestDigitalServicesActCompliance::test_dsa_terms_of_service_availability 
+tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_data_retention_limits 
+[gw0] [ 24%] PASSED tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_data_retention_limits 
+tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_records_of_processing_activities 
+[gw0] [ 25%] PASSED tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_records_of_processing_activities 
+tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_pseudonymization 
+[gw0] [ 25%] PASSED tests/test_eu_compliance_comprehensive.py::TestGDPRCompliance::test_gdpr_pseudonymization 
+tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_qualified_signature_format 
+[gw0] [ 26%] PASSED tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_qualified_signature_format 
+tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_signature_formats 
+[gw0] [ 26%] PASSED tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_signature_formats 
+tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_timestamp_authority 
+[gw0] [ 27%] PASSED tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_timestamp_authority 
+tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_austrian_trust_providers 
+[gw0] [ 27%] PASSED tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_austrian_trust_providers 
+tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_signature_verification 
+[gw0] [ 28%] PASSED tests/test_eu_compliance_comprehensive.py::TestEIDASCompliance::test_eidas_signature_verification 
+tests/test_eu_compliance_comprehensive.py::TestEUAIActCompliance::test_ai_act_logging_requirements 
+[gw0] [ 28%] PASSED tests/test_eu_compliance_comprehensive.py::TestEUAIActCompliance::test_ai_act_logging_requirements 
+tests/test_eu_compliance_comprehensive.py::TestEUAIActCompliance::test_ai_act_immutable_audit_trail 
+[gw0] [ 29%] PASSED tests/test_eu_compliance_comprehensive.py::TestEUAIActCompliance::test_ai_act_immutable_audit_trail 
+tests/test_eu_compliance_comprehensive.py::TestEUAIActCompliance::test_ai_act_traceability_requirements 
+[gw1] [ 29%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api1_broken_object_level_authorization 
+[gw0] [ 30%] PASSED tests/test_eu_compliance_comprehensive.py::TestEUAIActCompliance::test_ai_act_traceability_requirements 
+tests/test_eu_compliance_comprehensive.py::TestEUAIActCompliance::test_ai_act_human_oversight_documentation 
 tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api2_broken_authentication_weak_tokens 
+[gw0] [ 30%] PASSED tests/test_eu_compliance_comprehensive.py::TestEUAIActCompliance::test_ai_act_human_oversight_documentation 
+tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_text_alternatives 
+[gw0] [ 31%] PASSED tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_text_alternatives 
+tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_keyboard_accessible 
+[gw0] [ 31%] PASSED tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_keyboard_accessible 
+tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_predictable_errors 
+[gw0] [ 32%] PASSED tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_predictable_errors 
+tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_parsing_valid_json 
+[gw0] [ 32%] PASSED tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_wcag_parsing_valid_json 
+tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_en301549_time_limits 
+[gw0] [ 33%] PASSED tests/test_eu_compliance_comprehensive.py::TestAccessibilityCompliance::test_en301549_time_limits 
+tests/test_eu_compliance_comprehensive.py::TestPublicProcurementCompliance::test_procurement_directive_electronic_means 
+[gw0] [ 33%] PASSED tests/test_eu_compliance_comprehensive.py::TestPublicProcurementCompliance::test_procurement_directive_electronic_means 
+tests/test_eu_compliance_comprehensive.py::TestPublicProcurementCompliance::test_procurement_directive_equal_treatment 
+[gw0] [ 34%] PASSED tests/test_eu_compliance_comprehensive.py::TestPublicProcurementCompliance::test_procurement_directive_equal_treatment 
+tests/test_eu_compliance_comprehensive.py::TestPublicProcurementCompliance::test_procurement_directive_transparency 
+[gw0] [ 34%] PASSED tests/test_eu_compliance_comprehensive.py::TestPublicProcurementCompliance::test_procurement_directive_transparency 
+tests/test_eu_compliance_comprehensive.py::TestPublicProcurementCompliance::test_oenorm_a2063_compliance 
+[gw0] [ 35%] PASSED tests/test_eu_compliance_comprehensive.py::TestPublicProcurementCompliance::test_oenorm_a2063_compliance 
+tests/test_eu_compliance_comprehensive.py::TestDigitalServicesActCompliance::test_dsa_transparency_reporting 
+[gw0] [ 35%] PASSED tests/test_eu_compliance_comprehensive.py::TestDigitalServicesActCompliance::test_dsa_transparency_reporting 
+tests/test_eu_compliance_comprehensive.py::TestDigitalServicesActCompliance::test_dsa_terms_of_service_availability 
+[gw0] [ 36%] PASSED tests/test_eu_compliance_comprehensive.py::TestDigitalServicesActCompliance::test_dsa_terms_of_service_availability 
 tests/test_eu_compliance_comprehensive.py::TestNIS2DirectiveCompliance::test_nis2_incident_handling 
-[gw0] [ 50%] PASSED tests/test_eu_compliance_comprehensive.py::TestNIS2DirectiveCompliance::test_nis2_incident_handling 
+[gw0] [ 36%] PASSED tests/test_eu_compliance_comprehensive.py::TestNIS2DirectiveCompliance::test_nis2_incident_handling 
 tests/test_eu_compliance_comprehensive.py::TestNIS2DirectiveCompliance::test_nis2_supply_chain_security 
-[gw0] [ 51%] PASSED tests/test_eu_compliance_comprehensive.py::TestNIS2DirectiveCompliance::test_nis2_supply_chain_security 
+[gw0] [ 37%] PASSED tests/test_eu_compliance_comprehensive.py::TestNIS2DirectiveCompliance::test_nis2_supply_chain_security 
 tests/test_eurocode_modules.py::test_ec2_betonbau 
-[gw0] [ 52%] PASSED tests/test_eurocode_modules.py::test_ec2_betonbau 
+[gw1] [ 37%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api2_broken_authentication_weak_tokens 
+[gw0] [ 38%] PASSED tests/test_eurocode_modules.py::test_ec2_betonbau 
 tests/test_eurocode_modules.py::test_ec3_stahlbau 
-[gw0] [ 52%] PASSED tests/test_eurocode_modules.py::test_ec3_stahlbau 
-tests/test_eurocode_modules.py::test_ec6_mauerwerksbau 
-[gw0] [ 53%] PASSED tests/test_eurocode_modules.py::test_ec6_mauerwerksbau 
-tests/test_eurocode_modules.py::test_ec7_geotechnik 
-[gw0] [ 53%] PASSED tests/test_eurocode_modules.py::test_ec7_geotechnik 
-tests/test_eurocode_modules.py::test_ec8_erdbeben 
-[gw0] [ 54%] PASSED tests/test_eurocode_modules.py::test_ec8_erdbeben 
-[gw1] [ 55%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api2_broken_authentication_weak_tokens 
-tests/test_kb_validation.py::TestStandardVersions::test_all_standards_exist 
-[gw0] [ 55%] PASSED tests/test_kb_validation.py::TestStandardVersions::test_all_standards_exist 
 tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api2_rate_limiting_login 
+[gw0] [ 38%] PASSED tests/test_eurocode_modules.py::test_ec3_stahlbau 
+tests/test_eurocode_modules.py::test_ec6_mauerwerksbau 
+[gw0] [ 39%] PASSED tests/test_eurocode_modules.py::test_ec6_mauerwerksbau 
+tests/test_eurocode_modules.py::test_ec7_geotechnik 
+[gw0] [ 39%] PASSED tests/test_eurocode_modules.py::test_ec7_geotechnik 
+tests/test_eurocode_modules.py::test_ec8_erdbeben 
+[gw0] [ 40%] PASSED tests/test_eurocode_modules.py::test_ec8_erdbeben 
+tests/test_kb_validation.py::TestStandardVersions::test_all_standards_exist 
+[gw0] [ 40%] PASSED tests/test_kb_validation.py::TestStandardVersions::test_all_standards_exist 
 tests/test_kb_validation.py::TestStandardVersions::test_get_standard_version_valid 
-[gw0] [ 56%] PASSED tests/test_kb_validation.py::TestStandardVersions::test_get_standard_version_valid 
+[gw0] [ 41%] PASSED tests/test_kb_validation.py::TestStandardVersions::test_get_standard_version_valid 
 tests/test_kb_validation.py::TestStandardVersions::test_get_standard_version_invalid 
-[gw0] [ 56%] PASSED tests/test_kb_validation.py::TestStandardVersions::test_get_standard_version_invalid 
+[gw0] [ 41%] PASSED tests/test_kb_validation.py::TestStandardVersions::test_get_standard_version_invalid 
 tests/test_kb_validation.py::TestStandardVersions::test_is_standard_current_oib 
-[gw0] [ 57%] PASSED tests/test_kb_validation.py::TestStandardVersions::test_is_standard_current_oib 
+[gw0] [ 42%] PASSED tests/test_kb_validation.py::TestStandardVersions::test_is_standard_current_oib 
 tests/test_kb_validation.py::TestStandardVersions::test_is_standard_current_oenorm 
-[gw0] [ 58%] PASSED tests/test_kb_validation.py::TestStandardVersions::test_is_standard_current_oenorm 
+[gw0] [ 42%] PASSED tests/test_kb_validation.py::TestStandardVersions::test_is_standard_current_oenorm 
 tests/test_kb_validation.py::TestOIBUpdates::test_check_oib_updates_structure 
-[gw0] [ 58%] PASSED tests/test_kb_validation.py::TestOIBUpdates::test_check_oib_updates_structure 
+[gw0] [ 43%] PASSED tests/test_kb_validation.py::TestOIBUpdates::test_check_oib_updates_structure 
 tests/test_kb_validation.py::TestOIBUpdates::test_check_oib_all_richtlinien 
-[gw0] [ 59%] PASSED tests/test_kb_validation.py::TestOIBUpdates::test_check_oib_all_richtlinien 
+[gw0] [ 43%] PASSED tests/test_kb_validation.py::TestOIBUpdates::test_check_oib_all_richtlinien 
 tests/test_kb_validation.py::TestOENORMUpdates::test_check_oenorm_b1800 
-[gw0] [ 60%] PASSED tests/test_kb_validation.py::TestOENORMUpdates::test_check_oenorm_b1800 
+[gw0] [ 44%] PASSED tests/test_kb_validation.py::TestOENORMUpdates::test_check_oenorm_b1800 
 tests/test_kb_validation.py::TestOENORMUpdates::test_check_oenorm_invalid 
-[gw0] [ 60%] PASSED tests/test_kb_validation.py::TestOENORMUpdates::test_check_oenorm_invalid 
+[gw0] [ 44%] PASSED tests/test_kb_validation.py::TestOENORMUpdates::test_check_oenorm_invalid 
 tests/test_kb_validation.py::TestRISIntegration::test_check_ris_tirol 
-[gw1] [ 61%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api2_rate_limiting_login 
+[gw1] [ 45%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api2_rate_limiting_login 
 tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api3_excessive_data_exposure 
-[gw1] [ 61%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api3_excessive_data_exposure 
+[gw1] [ 45%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api3_excessive_data_exposure 
 tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api4_file_upload_size_limit 
-[gw1] [ 62%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api4_file_upload_size_limit 
+[gw1] [ 46%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api4_file_upload_size_limit 
 tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api4_pagination_limits 
-[gw1] [ 63%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api4_pagination_limits 
+[gw1] [ 46%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api4_pagination_limits 
 tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api5_admin_endpoints_protected 
-[gw1] [ 63%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api5_admin_endpoints_protected 
+[gw1] [ 47%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api5_admin_endpoints_protected 
 tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api6_rate_limiting_critical_operations 
-[gw1] [ 64%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api6_rate_limiting_critical_operations 
+[gw1] [ 47%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api6_rate_limiting_critical_operations 
 tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api7_ssrf_prevention 
-[gw1] [ 64%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api7_ssrf_prevention 
+[gw1] [ 48%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api7_ssrf_prevention 
 tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api8_security_headers 
-[gw1] [ 65%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api8_security_headers 
+[gw1] [ 48%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api8_security_headers 
 tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api8_no_debug_info_in_errors 
-[gw1] [ 66%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api8_no_debug_info_in_errors 
+[gw1] [ 49%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api8_no_debug_info_in_errors 
 tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api9_api_documentation_exists 
-[gw0] [ 66%] PASSED tests/test_kb_validation.py::TestRISIntegration::test_check_ris_tirol 
+[gw0] [ 49%] PASSED tests/test_kb_validation.py::TestRISIntegration::test_check_ris_tirol 
 tests/test_kb_validation.py::TestRISIntegration::test_check_ris_wien 
-[gw0] [ 67%] PASSED tests/test_kb_validation.py::TestRISIntegration::test_check_ris_wien 
+[gw0] [ 50%] PASSED tests/test_kb_validation.py::TestRISIntegration::test_check_ris_wien 
 tests/test_kb_validation.py::TestNaturgefahren::test_check_naturgefahren_basic 
-[gw0] [ 67%] PASSED tests/test_kb_validation.py::TestNaturgefahren::test_check_naturgefahren_basic 
+[gw0] [ 50%] PASSED tests/test_kb_validation.py::TestNaturgefahren::test_check_naturgefahren_basic 
 tests/test_kb_validation.py::TestNaturgefahren::test_check_naturgefahren_with_plz 
-[gw0] [ 68%] PASSED tests/test_kb_validation.py::TestNaturgefahren::test_check_naturgefahren_with_plz 
+[gw0] [ 51%] PASSED tests/test_kb_validation.py::TestNaturgefahren::test_check_naturgefahren_with_plz 
 tests/test_kb_validation.py::TestNaturgefahren::test_check_naturgefahren_with_gemeinde 
-[gw0] [ 69%] PASSED tests/test_kb_validation.py::TestNaturgefahren::test_check_naturgefahren_with_gemeinde 
+[gw0] [ 51%] PASSED tests/test_kb_validation.py::TestNaturgefahren::test_check_naturgefahren_with_gemeinde 
 tests/test_kb_validation.py::TestDataFreshness::test_check_data_freshness_aktuell 
-[gw0] [ 69%] PASSED tests/test_kb_validation.py::TestDataFreshness::test_check_data_freshness_aktuell 
+[gw0] [ 52%] PASSED tests/test_kb_validation.py::TestDataFreshness::test_check_data_freshness_aktuell 
 tests/test_kb_validation.py::TestDataFreshness::test_check_data_freshness_veraltet 
-[gw0] [ 70%] PASSED tests/test_kb_validation.py::TestDataFreshness::test_check_data_freshness_veraltet 
+[gw0] [ 52%] PASSED tests/test_kb_validation.py::TestDataFreshness::test_check_data_freshness_veraltet 
 tests/test_kb_validation.py::TestDataFreshness::test_check_data_freshness_invalid_date 
-[gw0] [ 70%] PASSED tests/test_kb_validation.py::TestDataFreshness::test_check_data_freshness_invalid_date 
+[gw0] [ 53%] PASSED tests/test_kb_validation.py::TestDataFreshness::test_check_data_freshness_invalid_date 
 tests/test_kb_validation.py::TestValidationReport::test_validate_knowledge_base_basic 
-[gw0] [ 71%] PASSED tests/test_kb_validation.py::TestValidationReport::test_validate_knowledge_base_basic 
+[gw0] [ 53%] PASSED tests/test_kb_validation.py::TestValidationReport::test_validate_knowledge_base_basic 
 tests/test_kb_validation.py::TestValidationReport::test_validate_knowledge_base_full 
-[gw0] [ 72%] PASSED tests/test_kb_validation.py::TestValidationReport::test_validate_knowledge_base_full 
+[gw0] [ 54%] PASSED tests/test_kb_validation.py::TestValidationReport::test_validate_knowledge_base_full 
 tests/test_kb_validation.py::TestValidationReport::test_export_validation_report_json 
-[gw0] [ 72%] PASSED tests/test_kb_validation.py::TestValidationReport::test_export_validation_report_json 
+[gw0] [ 54%] PASSED tests/test_kb_validation.py::TestValidationReport::test_export_validation_report_json 
 tests/test_kb_validation.py::TestValidationReport::test_export_validation_report_text 
-[gw0] [ 73%] PASSED tests/test_kb_validation.py::TestValidationReport::test_export_validation_report_text 
+[gw0] [ 55%] PASSED tests/test_kb_validation.py::TestValidationReport::test_export_validation_report_text 
 tests/test_kb_validation.py::TestCheckAllStandards::test_check_all_standards_count 
-[gw0] [ 73%] PASSED tests/test_kb_validation.py::TestCheckAllStandards::test_check_all_standards_count 
+[gw0] [ 55%] PASSED tests/test_kb_validation.py::TestCheckAllStandards::test_check_all_standards_count 
 tests/test_kb_validation.py::TestCheckAllStandards::test_check_all_standards_structure 
-[gw0] [ 74%] PASSED tests/test_kb_validation.py::TestCheckAllStandards::test_check_all_standards_structure 
+[gw0] [ 56%] PASSED tests/test_kb_validation.py::TestCheckAllStandards::test_check_all_standards_structure 
 tests/test_kb_validation.py::TestCaching::test_cache_invalidation 
-[gw0] [ 75%] PASSED tests/test_kb_validation.py::TestCaching::test_cache_invalidation 
+[gw0] [ 56%] PASSED tests/test_kb_validation.py::TestCaching::test_cache_invalidation 
 tests/test_kb_validation.py::TestIntegration::test_complete_validation_workflow 
-[gw0] [ 75%] PASSED tests/test_kb_validation.py::TestIntegration::test_complete_validation_workflow 
+[gw0] [ 57%] PASSED tests/test_kb_validation.py::TestIntegration::test_complete_validation_workflow 
+tests/test_multi_agent_consensus_router.py::TestConsensusEvaluation::test_evaluate_consensus_default 
+[gw0] [ 57%] PASSED tests/test_multi_agent_consensus_router.py::TestConsensusEvaluation::test_evaluate_consensus_default 
+tests/test_multi_agent_consensus_router.py::TestConsensusEvaluation::test_evaluate_consensus_custom 
+[gw0] [ 58%] PASSED tests/test_multi_agent_consensus_router.py::TestConsensusEvaluation::test_evaluate_consensus_custom 
+tests/test_multi_agent_consensus_router.py::TestAgentAssessments::test_all_agents_present 
+[gw0] [ 58%] PASSED tests/test_multi_agent_consensus_router.py::TestAgentAssessments::test_all_agents_present 
+tests/test_multi_agent_consensus_router.py::TestConsensusLevel::test_consensus_green 
+[gw0] [ 59%] PASSED tests/test_multi_agent_consensus_router.py::TestConsensusLevel::test_consensus_green 
+tests/test_multi_agent_consensus_router.py::TestConsensusLevel::test_consensus_yellow 
+[gw0] [ 59%] PASSED tests/test_multi_agent_consensus_router.py::TestConsensusLevel::test_consensus_yellow 
+tests/test_multi_agent_consensus_router.py::TestProductionReadiness::test_production_readiness_high 
+[gw0] [ 60%] PASSED tests/test_multi_agent_consensus_router.py::TestProductionReadiness::test_production_readiness_high 
+tests/test_multi_agent_consensus_router.py::TestConsensusHistory::test_get_last_consensus 
+[gw0] [ 60%] PASSED tests/test_multi_agent_consensus_router.py::TestConsensusHistory::test_get_last_consensus 
+tests/test_multi_agent_consensus_router.py::TestConsensusHistory::test_get_consensus_history 
+[gw0] [ 61%] PASSED tests/test_multi_agent_consensus_router.py::TestConsensusHistory::test_get_consensus_history 
+tests/test_multi_agent_consensus_router.py::TestAgentListing::test_list_agents 
+[gw0] [ 61%] PASSED tests/test_multi_agent_consensus_router.py::TestAgentListing::test_list_agents 
+tests/test_multi_agent_consensus_router.py::TestConsensusSummary::test_get_consensus_summary 
+[gw0] [ 62%] PASSED tests/test_multi_agent_consensus_router.py::TestConsensusSummary::test_get_consensus_summary 
+tests/test_multi_agent_consensus_router.py::TestMetrics::test_get_default_metrics 
+[gw0] [ 62%] PASSED tests/test_multi_agent_consensus_router.py::TestMetrics::test_get_default_metrics 
+tests/test_multi_agent_consensus_router.py::TestReset::test_reset_consensus 
+[gw0] [ 63%] PASSED tests/test_multi_agent_consensus_router.py::TestReset::test_reset_consensus 
 tests/test_orion_architekt_at.py::TestBundeslaender::test_all_bundeslaender_exist 
-[gw0] [ 76%] PASSED tests/test_orion_architekt_at.py::TestBundeslaender::test_all_bundeslaender_exist 
+[gw0] [ 63%] PASSED tests/test_orion_architekt_at.py::TestBundeslaender::test_all_bundeslaender_exist 
 tests/test_orion_architekt_at.py::TestBundeslaender::test_bundesland_structure 
-[gw0] [ 76%] PASSED tests/test_orion_architekt_at.py::TestBundeslaender::test_bundesland_structure 
+[gw0] [ 64%] PASSED tests/test_orion_architekt_at.py::TestBundeslaender::test_bundesland_structure 
 tests/test_orion_architekt_at.py::TestOIBRichtlinien::test_all_oib_rl_exist 
-[gw0] [ 77%] PASSED tests/test_orion_architekt_at.py::TestOIBRichtlinien::test_all_oib_rl_exist 
+[gw0] [ 64%] PASSED tests/test_orion_architekt_at.py::TestOIBRichtlinien::test_all_oib_rl_exist 
 tests/test_orion_architekt_at.py::TestOIBRichtlinien::test_oib_rl_structure 
-[gw0] [ 78%] PASSED tests/test_orion_architekt_at.py::TestOIBRichtlinien::test_oib_rl_structure 
+[gw0] [ 65%] PASSED tests/test_orion_architekt_at.py::TestOIBRichtlinien::test_oib_rl_structure 
 tests/test_orion_architekt_at.py::TestUWertBerechnung::test_uwert_simple_wall 
-[gw0] [ 78%] PASSED tests/test_orion_architekt_at.py::TestUWertBerechnung::test_uwert_simple_wall 
+[gw0] [ 65%] PASSED tests/test_orion_architekt_at.py::TestUWertBerechnung::test_uwert_simple_wall 
 tests/test_orion_architekt_at.py::TestUWertBerechnung::test_uwert_oib_konform 
-[gw0] [ 79%] PASSED tests/test_orion_architekt_at.py::TestUWertBerechnung::test_uwert_oib_konform 
+[gw0] [ 66%] PASSED tests/test_orion_architekt_at.py::TestUWertBerechnung::test_uwert_oib_konform 
 tests/test_orion_architekt_at.py::TestStellplatzberechnung::test_stellplatz_wohnbau_tirol 
-[gw0] [ 80%] PASSED tests/test_orion_architekt_at.py::TestStellplatzberechnung::test_stellplatz_wohnbau_tirol 
-[gw1] [ 80%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api9_api_documentation_exists 
+[gw0] [ 66%] PASSED tests/test_orion_architekt_at.py::TestStellplatzberechnung::test_stellplatz_wohnbau_tirol 
+[gw1] [ 67%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api9_api_documentation_exists 
 tests/test_orion_architekt_at.py::TestStellplatzberechnung::test_stellplatz_wohnbau_wien 
-[gw0] [ 81%] PASSED tests/test_orion_architekt_at.py::TestStellplatzberechnung::test_stellplatz_wohnbau_wien 
+[gw0] [ 67%] PASSED tests/test_orion_architekt_at.py::TestStellplatzberechnung::test_stellplatz_wohnbau_wien 
 tests/test_orion_architekt_at.py::TestStellplatzberechnung::test_stellplatz_buero 
 tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api9_deprecated_endpoints_removed 
-[gw0] [ 81%] PASSED tests/test_orion_architekt_at.py::TestStellplatzberechnung::test_stellplatz_buero 
+[gw0] [ 68%] PASSED tests/test_orion_architekt_at.py::TestStellplatzberechnung::test_stellplatz_buero 
 tests/test_orion_architekt_at.py::TestBarrierefreiheit::test_barrierefreiheit_wien_3og 
-[gw0] [ 82%] PASSED tests/test_orion_architekt_at.py::TestBarrierefreiheit::test_barrierefreiheit_wien_3og 
+[gw0] [ 68%] PASSED tests/test_orion_architekt_at.py::TestBarrierefreiheit::test_barrierefreiheit_wien_3og 
 tests/test_orion_architekt_at.py::TestBarrierefreiheit::test_barrierefreiheit_wien_3og_kein_aufzug 
-[gw0] [ 83%] PASSED tests/test_orion_architekt_at.py::TestBarrierefreiheit::test_barrierefreiheit_wien_3og_kein_aufzug 
+[gw0] [ 69%] PASSED tests/test_orion_architekt_at.py::TestBarrierefreiheit::test_barrierefreiheit_wien_3og_kein_aufzug 
 tests/test_orion_architekt_at.py::TestBarrierefreiheit::test_barrierefreiheit_tuerbreite 
-[gw0] [ 83%] PASSED tests/test_orion_architekt_at.py::TestBarrierefreiheit::test_barrierefreiheit_tuerbreite 
+[gw0] [ 69%] PASSED tests/test_orion_architekt_at.py::TestBarrierefreiheit::test_barrierefreiheit_tuerbreite 
 tests/test_orion_architekt_at.py::TestFluchtwegBerechnung::test_fluchtweg_gk1 
-[gw0] [ 84%] PASSED tests/test_orion_architekt_at.py::TestFluchtwegBerechnung::test_fluchtweg_gk1 
+[gw0] [ 70%] PASSED tests/test_orion_architekt_at.py::TestFluchtwegBerechnung::test_fluchtweg_gk1 
 tests/test_orion_architekt_at.py::TestFluchtwegBerechnung::test_fluchtweg_zu_lang 
-[gw0] [ 84%] PASSED tests/test_orion_architekt_at.py::TestFluchtwegBerechnung::test_fluchtweg_zu_lang 
+[gw0] [ 70%] PASSED tests/test_orion_architekt_at.py::TestFluchtwegBerechnung::test_fluchtweg_zu_lang 
 tests/test_orion_architekt_at.py::TestTageslichtBerechnung::test_tageslicht_ausreichend 
-[gw0] [ 85%] PASSED tests/test_orion_architekt_at.py::TestTageslichtBerechnung::test_tageslicht_ausreichend 
+[gw0] [ 71%] PASSED tests/test_orion_architekt_at.py::TestTageslichtBerechnung::test_tageslicht_ausreichend 
 tests/test_orion_architekt_at.py::TestTageslichtBerechnung::test_tageslicht_zu_wenig 
-[gw0] [ 86%] PASSED tests/test_orion_architekt_at.py::TestTageslichtBerechnung::test_tageslicht_zu_wenig 
+[gw0] [ 71%] PASSED tests/test_orion_architekt_at.py::TestTageslichtBerechnung::test_tageslicht_zu_wenig 
 tests/test_orion_architekt_at.py::TestAbstandsflaechen::test_abstandsflaechen_tirol 
-[gw0] [ 86%] PASSED tests/test_orion_architekt_at.py::TestAbstandsflaechen::test_abstandsflaechen_tirol 
+[gw0] [ 72%] PASSED tests/test_orion_architekt_at.py::TestAbstandsflaechen::test_abstandsflaechen_tirol 
 tests/test_orion_architekt_at.py::TestAbstandsflaechen::test_abstandsflaechen_wien 
-[gw1] [ 87%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api9_deprecated_endpoints_removed 
-[gw0] [ 87%] PASSED tests/test_orion_architekt_at.py::TestAbstandsflaechen::test_abstandsflaechen_wien 
+[gw0] [ 72%] PASSED tests/test_orion_architekt_at.py::TestAbstandsflaechen::test_abstandsflaechen_wien 
 tests/test_orion_architekt_at.py::TestBlitzschutz::test_blitzschutz_wohnhaus 
-tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api10_input_validation_external_data 
-[gw0] [ 88%] PASSED tests/test_orion_architekt_at.py::TestBlitzschutz::test_blitzschutz_wohnhaus 
+[gw0] [ 73%] PASSED tests/test_orion_architekt_at.py::TestBlitzschutz::test_blitzschutz_wohnhaus 
 tests/test_orion_architekt_at.py::TestBlitzschutz::test_blitzschutz_hochhaus 
-[gw0] [ 89%] PASSED tests/test_orion_architekt_at.py::TestBlitzschutz::test_blitzschutz_hochhaus 
+[gw1] [ 73%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api9_deprecated_endpoints_removed 
+[gw0] [ 74%] PASSED tests/test_orion_architekt_at.py::TestBlitzschutz::test_blitzschutz_hochhaus 
 tests/test_orion_architekt_at.py::TestRauchableitung::test_rauchableitung_gk1 
-[gw0] [ 89%] PASSED tests/test_orion_architekt_at.py::TestRauchableitung::test_rauchableitung_gk1 
+[gw0] [ 74%] PASSED tests/test_orion_architekt_at.py::TestRauchableitung::test_rauchableitung_gk1 
+tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api10_input_validation_external_data 
 tests/test_orion_architekt_at.py::TestRauchableitung::test_rauchableitung_gk4 
-[gw0] [ 90%] PASSED tests/test_orion_architekt_at.py::TestRauchableitung::test_rauchableitung_gk4 
+[gw0] [ 75%] PASSED tests/test_orion_architekt_at.py::TestRauchableitung::test_rauchableitung_gk4 
 tests/test_orion_architekt_at.py::TestGefahrenzonen::test_gefahrenzonen_lawinen 
-[gw0] [ 90%] PASSED tests/test_orion_architekt_at.py::TestGefahrenzonen::test_gefahrenzonen_lawinen 
+[gw0] [ 75%] PASSED tests/test_orion_architekt_at.py::TestGefahrenzonen::test_gefahrenzonen_lawinen 
 tests/test_orion_architekt_at.py::TestGefahrenzonen::test_gefahrenzonen_tal 
-[gw0] [ 91%] PASSED tests/test_orion_architekt_at.py::TestGefahrenzonen::test_gefahrenzonen_tal 
+[gw0] [ 76%] PASSED tests/test_orion_architekt_at.py::TestGefahrenzonen::test_gefahrenzonen_tal 
 tests/test_orion_architekt_at.py::TestFlaechenberechnung::test_flaechen_wohnhaus 
-[gw0] [ 92%] PASSED tests/test_orion_architekt_at.py::TestFlaechenberechnung::test_flaechen_wohnhaus 
+[gw0] [ 76%] PASSED tests/test_orion_architekt_at.py::TestFlaechenberechnung::test_flaechen_wohnhaus 
 tests/test_orion_architekt_at.py::TestFlaechenberechnung::test_flaechen_kompaktheit 
-[gw0] [ 92%] PASSED tests/test_orion_architekt_at.py::TestFlaechenberechnung::test_flaechen_kompaktheit 
+[gw0] [ 77%] PASSED tests/test_orion_architekt_at.py::TestFlaechenberechnung::test_flaechen_kompaktheit 
 tests/test_orion_architekt_at.py::TestLeistungsverzeichnis::test_lv_neubau 
-[gw0] [ 93%] PASSED tests/test_orion_architekt_at.py::TestLeistungsverzeichnis::test_lv_neubau 
+[gw0] [ 77%] PASSED tests/test_orion_architekt_at.py::TestLeistungsverzeichnis::test_lv_neubau 
 tests/test_orion_architekt_at.py::TestLeistungsverzeichnis::test_lv_sanierung 
-[gw0] [ 93%] PASSED tests/test_orion_architekt_at.py::TestLeistungsverzeichnis::test_lv_sanierung 
+[gw0] [ 78%] PASSED tests/test_orion_architekt_at.py::TestLeistungsverzeichnis::test_lv_sanierung 
 tests/test_orion_architekt_at.py::TestRaumprogramm::test_raumprogramm_familie 
-[gw0] [ 94%] PASSED tests/test_orion_architekt_at.py::TestRaumprogramm::test_raumprogramm_familie 
+[gw0] [ 78%] PASSED tests/test_orion_architekt_at.py::TestRaumprogramm::test_raumprogramm_familie 
 tests/test_orion_architekt_at.py::TestRaumprogramm::test_raumprogramm_budget_check 
-[gw0] [ 95%] PASSED tests/test_orion_architekt_at.py::TestRaumprogramm::test_raumprogramm_budget_check 
+[gw0] [ 79%] PASSED tests/test_orion_architekt_at.py::TestRaumprogramm::test_raumprogramm_budget_check 
 tests/test_orion_architekt_at.py::TestValidationFunctions::test_pruefe_wissensdatenbank 
-[gw0] [ 95%] PASSED tests/test_orion_architekt_at.py::TestValidationFunctions::test_pruefe_wissensdatenbank 
-[gw1] [ 96%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api10_input_validation_external_data 
+[gw0] [ 79%] PASSED tests/test_orion_architekt_at.py::TestValidationFunctions::test_pruefe_wissensdatenbank 
 tests/test_orion_architekt_at.py::TestValidationFunctions::test_pruefe_oib_richtlinien 
-[gw0] [ 96%] PASSED tests/test_orion_architekt_at.py::TestValidationFunctions::test_pruefe_oib_richtlinien 
-tests/test_api_security_owasp.py::TestOWASPAPITop10::test_cors_configuration 
+[gw0] [ 80%] PASSED tests/test_orion_architekt_at.py::TestValidationFunctions::test_pruefe_oib_richtlinien 
 tests/test_orion_architekt_at.py::TestValidationFunctions::test_pruefe_oenorm 
-[gw0] [ 97%] PASSED tests/test_orion_architekt_at.py::TestValidationFunctions::test_pruefe_oenorm 
+[gw0] [ 80%] PASSED tests/test_orion_architekt_at.py::TestValidationFunctions::test_pruefe_oenorm 
 tests/test_orion_architekt_at.py::TestIntegration::test_complete_building_check_workflow 
-[gw0] [ 98%] PASSED tests/test_orion_architekt_at.py::TestIntegration::test_complete_building_check_workflow 
-[gw1] [ 98%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_cors_configuration 
+[gw0] [ 81%] PASSED tests/test_orion_architekt_at.py::TestIntegration::test_complete_building_check_workflow 
+tests/test_orion_runtime_router.py::TestORIONRuntimeInitialization::test_initialize_runtime 
+[gw1] [ 81%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_api10_input_validation_external_data 
+tests/test_api_security_owasp.py::TestOWASPAPITop10::test_cors_configuration 
+[gw0] [ 82%] PASSED tests/test_orion_runtime_router.py::TestORIONRuntimeInitialization::test_initialize_runtime 
+tests/test_orion_runtime_router.py::TestORIONRuntimeInitialization::test_health_check 
+[gw1] [ 82%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_cors_configuration 
 tests/test_api_security_owasp.py::TestOWASPAPITop10::test_content_type_validation 
-[gw1] [ 99%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_content_type_validation 
+[gw0] [ 83%] PASSED tests/test_orion_runtime_router.py::TestORIONRuntimeInitialization::test_health_check 
+tests/test_orion_runtime_router.py::TestAuditChain::test_verify_audit_chain 
+[gw1] [ 83%] PASSED tests/test_api_security_owasp.py::TestOWASPAPITop10::test_content_type_validation 
 tests/test_audit_trail.py::TestAuditEntry::test_create_entry 
-[gw1] [100%] PASSED tests/test_audit_trail.py::TestAuditEntry::test_create_entry 
+[gw1] [ 84%] PASSED tests/test_audit_trail.py::TestAuditEntry::test_create_entry 
+tests/test_audit_trail.py::TestAuditEntry::test_entry_verification 
+[gw1] [ 84%] PASSED tests/test_audit_trail.py::TestAuditEntry::test_entry_verification 
+tests/test_audit_trail.py::TestAuditEntry::test_entry_hash_calculation 
+[gw1] [ 85%] PASSED tests/test_audit_trail.py::TestAuditEntry::test_entry_hash_calculation 
+tests/test_audit_trail.py::TestAuditTrail::test_create_trail 
+[gw1] [ 85%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_create_trail 
+tests/test_audit_trail.py::TestAuditTrail::test_add_entry 
+[gw0] [ 86%] PASSED tests/test_orion_runtime_router.py::TestAuditChain::test_verify_audit_chain 
+[gw1] [ 86%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_add_entry 
+tests/test_orion_runtime_router.py::TestAuditChain::test_get_audit_entries 
+tests/test_audit_trail.py::TestAuditTrail::test_chain_linkage 
+[gw1] [ 87%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_chain_linkage 
+tests/test_audit_trail.py::TestAuditTrail::test_chain_tampering_detection 
+[gw1] [ 87%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_chain_tampering_detection 
+tests/test_audit_trail.py::TestAuditTrail::test_persistence 
+[gw1] [ 88%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_persistence 
+tests/test_audit_trail.py::TestAuditTrail::test_get_entries_by_type 
+[gw1] [ 88%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_get_entries_by_type 
+tests/test_audit_trail.py::TestAuditTrail::test_get_entries_by_actor 
+[gw0] [ 89%] PASSED tests/test_orion_runtime_router.py::TestAuditChain::test_get_audit_entries 
+tests/test_orion_runtime_router.py::TestAuditChain::test_add_audit_entry 
+[gw1] [ 89%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_get_entries_by_actor 
+tests/test_audit_trail.py::TestAuditTrail::test_export_json 
+[gw1] [ 90%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_export_json 
+tests/test_audit_trail.py::TestAuditTrail::test_export_csv 
+[gw1] [ 90%] PASSED tests/test_audit_trail.py::TestAuditTrail::test_export_csv 
+tests/test_orion_runtime_router.py::TestComponentStatus::test_get_runtime_state 
+[gw0] [ 91%] PASSED tests/test_orion_runtime_router.py::TestAuditChain::test_add_audit_entry 
+tests/test_orion_runtime_router.py::TestComponentStatus::test_get_components_status 
+[gw1] [ 91%] PASSED tests/test_orion_runtime_router.py::TestComponentStatus::test_get_runtime_state 
+tests/test_orion_runtime_router.py::TestValidation::test_validate_fpga_targets 
+[gw0] [ 92%] PASSED tests/test_orion_runtime_router.py::TestComponentStatus::test_get_components_status 
+tests/test_orion_runtime_router.py::TestReporting::test_get_runtime_report 
+[gw1] [ 92%] PASSED tests/test_orion_runtime_router.py::TestValidation::test_validate_fpga_targets 
+tests/test_orion_runtime_router.py::TestValidation::test_validate_formal_proofs 
+[gw0] [ 93%] PASSED tests/test_orion_runtime_router.py::TestReporting::test_get_runtime_report 
+tests/test_orion_runtime_router.py::TestReporting::test_reset_runtime 
+[gw1] [ 93%] PASSED tests/test_orion_runtime_router.py::TestValidation::test_validate_formal_proofs 
+tests/test_ros2_bridge_router.py::TestROS2BridgeInitialization::test_initialize_bridge 
+[gw0] [ 94%] PASSED tests/test_orion_runtime_router.py::TestReporting::test_reset_runtime 
+tests/test_ros2_bridge_router.py::TestROS2BridgeInitialization::test_bridge_status 
+[gw1] [ 94%] PASSED tests/test_ros2_bridge_router.py::TestROS2BridgeInitialization::test_initialize_bridge 
+tests/test_ros2_bridge_router.py::TestSensorDataIntegration::test_update_sensor_data 
+[gw0] [ 95%] PASSED tests/test_ros2_bridge_router.py::TestROS2BridgeInitialization::test_bridge_status 
+tests/test_ros2_bridge_router.py::TestSensorDataIntegration::test_update_joint_states 
+[gw1] [ 95%] PASSED tests/test_ros2_bridge_router.py::TestSensorDataIntegration::test_update_sensor_data 
+tests/test_ros2_bridge_router.py::TestConsciousnessMonitoring::test_get_consciousness_level 
+[gw0] [ 96%] PASSED tests/test_ros2_bridge_router.py::TestSensorDataIntegration::test_update_joint_states 
+tests/test_ros2_bridge_router.py::TestAutonomousDecisions::test_make_autonomous_decision 
+[gw1] [ 96%] PASSED tests/test_ros2_bridge_router.py::TestConsciousnessMonitoring::test_get_consciousness_level 
+tests/test_ros2_bridge_router.py::TestAutonomousDecisions::test_execute_autonomous_loop 
+[gw0] [ 97%] PASSED tests/test_ros2_bridge_router.py::TestAutonomousDecisions::test_make_autonomous_decision 
+tests/test_ros2_bridge_router.py::TestDecisionHistory::test_get_decision_history 
+[gw1] [ 97%] PASSED tests/test_ros2_bridge_router.py::TestAutonomousDecisions::test_execute_autonomous_loop 
+tests/test_ros2_bridge_router.py::TestStatistics::test_get_statistics 
+[gw1] [ 98%] PASSED tests/test_ros2_bridge_router.py::TestStatistics::test_get_statistics 
+tests/test_ros2_bridge_router.py::TestBridgeControl::test_shutdown_bridge 
+[gw0] [ 98%] PASSED tests/test_ros2_bridge_router.py::TestDecisionHistory::test_get_decision_history 
+tests/test_ros2_bridge_router.py::TestBridgeControl::test_reset_bridge 
+[gw0] [ 99%] PASSED tests/test_ros2_bridge_router.py::TestBridgeControl::test_reset_bridge 
+[gw1] [100%] FAILED tests/test_ros2_bridge_router.py::TestBridgeControl::test_shutdown_bridge 
 
+=================================== FAILURES ===================================
+____________________ TestBridgeControl.test_shutdown_bridge ____________________
+[gw1] linux -- Python 3.12.3 /usr/bin/python3
+  + Exception Group Traceback (most recent call last):
+  |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/_utils.py", line 81, in collapse_excgroups
+  |     yield
+  |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 192, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |   File "/home/runner/.local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 799, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/home/runner/.local/lib/python3.12/site-packages/_pytest/runner.py", line 353, in from_call
+    |     result: TResult | None = func()
+    |                              ^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/_pytest/runner.py", line 245, in <lambda>
+    |     lambda: runtest_hook(item=item, **kwds),
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    |     return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    |     return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    |     raise exception
+    |   File "/home/runner/.local/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    |     teardown.throw(exception)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/_pytest/logging.py", line 850, in pytest_runtest_call
+    |     yield
+    |   File "/home/runner/.local/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    |     teardown.throw(exception)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/pluggy/_callers.py", line 53, in run_old_style_hookwrapper
+    |     return result.get_result()
+    |            ^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/pluggy/_result.py", line 103, in get_result
+    |     raise exc.with_traceback(tb)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/pluggy/_callers.py", line 38, in run_old_style_hookwrapper
+    |     res = yield
+    |           ^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    |     teardown.throw(exception)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/_pytest/capture.py", line 900, in pytest_runtest_call
+    |     return (yield)
+    |             ^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    |     teardown.throw(exception)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/_pytest/skipping.py", line 268, in pytest_runtest_call
+    |     return (yield)
+    |             ^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    |     res = hook_impl.function(*args)
+    |           ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/_pytest/runner.py", line 179, in pytest_runtest_call
+    |     item.runtest()
+    |   File "/home/runner/.local/lib/python3.12/site-packages/_pytest/python.py", line 1720, in runtest
+    |     self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    |     return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    |     return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    |     raise exception
+    |   File "/home/runner/.local/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    |     teardown.throw(exception)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/pluggy/_callers.py", line 53, in run_old_style_hookwrapper
+    |     return result.get_result()
+    |            ^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/pluggy/_result.py", line 103, in get_result
+    |     raise exc.with_traceback(tb)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/pluggy/_callers.py", line 38, in run_old_style_hookwrapper
+    |     res = yield
+    |           ^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    |     res = hook_impl.function(*args)
+    |           ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/_pytest/python.py", line 166, in pytest_pyfunc_call
+    |     result = testfunction(**testargs)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/tests/test_ros2_bridge_router.py", line 168, in test_shutdown_bridge
+    |     response = client.post("/api/v1/ros2-bridge/shutdown")
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/testclient.py", line 546, in post
+    |     return super().post(
+    |            ^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/httpx/_client.py", line 1144, in post
+    |     return self.request(
+    |            ^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/testclient.py", line 445, in request
+    |     return super().request(
+    |            ^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/httpx/_client.py", line 825, in request
+    |     return self.send(request, auth=auth, follow_redirects=follow_redirects)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/httpx/_client.py", line 914, in send
+    |     response = self._send_handling_auth(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    |     response = self._send_handling_redirects(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    |     response = self._send_single_request(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    |     response = transport.handle_request(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/testclient.py", line 348, in handle_request
+    |     raise exc
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/testclient.py", line 345, in handle_request
+    |     portal.call(self.app, scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/anyio/from_thread.py", line 334, in call
+    |     return cast(T_Retval, self.start_task_soon(func, *args).result())
+    |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    |     return self.__get_result()
+    |            ^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    |     raise self._exception
+    |   File "/home/runner/.local/lib/python3.12/site-packages/anyio/from_thread.py", line 259, in _call_func
+    |     retval = await retval_or_awaitable
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/fastapi/applications.py", line 1159, in __call__
+    |     await super().__call__(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/applications.py", line 107, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    |     raise exc
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/prometheus_fastapi_instrumentator/middleware.py", line 177, in __call__
+    |     raise exc
+    |   File "/home/runner/.local/lib/python3.12/site-packages/prometheus_fastapi_instrumentator/middleware.py", line 175, in __call__
+    |     await self.app(scope, receive, send_wrapper)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |   File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+    |     raise exc
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/middleware/security_advanced.py", line 38, in dispatch
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+    |     raise app_exc from app_exc.__cause__ or app_exc.__context__
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |   File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+    |     raise exc
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/middleware/rate_limit.py", line 63, in dispatch
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+    |     raise app_exc from app_exc.__cause__ or app_exc.__context__
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |   File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+    |     raise exc
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/middleware/logging_middleware.py", line 36, in dispatch
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+    |     raise app_exc from app_exc.__cause__ or app_exc.__context__
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/gzip.py", line 29, in __call__
+    |     await responder(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/gzip.py", line 130, in __call__
+    |     await super().__call__(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/gzip.py", line 46, in __call__
+    |     await self.app(scope, receive, self.send_with_compression)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/cors.py", line 87, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 134, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 120, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 695, in app
+    |     content = await serialize_response(
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 300, in serialize_response
+    |     raise ResponseValidationError(
+    | fastapi.exceptions.ResponseValidationError: 2 validation errors:
+    |   {'type': 'string_type', 'loc': ('response', 'final_consciousness'), 'msg': 'Input should be a valid string', 'input': 0.5}
+    |   {'type': 'string_type', 'loc': ('response', 'total_decisions'), 'msg': 'Input should be a valid string', 'input': 0}
+    | 
+    |   File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py", line 307, in shutdown_bridge
+    |     POST /api/v1/ros2-bridge/shutdown
+    +------------------------------------
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/tests/test_ros2_bridge_router.py", line 168, in test_shutdown_bridge
+    response = client.post("/api/v1/ros2-bridge/shutdown")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/testclient.py", line 546, in post
+    return super().post(
+           ^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/httpx/_client.py", line 1144, in post
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/testclient.py", line 445, in request
+    return super().request(
+           ^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/testclient.py", line 348, in handle_request
+    raise exc
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/testclient.py", line 345, in handle_request
+    portal.call(self.app, scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/anyio/from_thread.py", line 334, in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/runner/.local/lib/python3.12/site-packages/anyio/from_thread.py", line 259, in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/fastapi/applications.py", line 1159, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/runner/.local/lib/python3.12/site-packages/prometheus_fastapi_instrumentator/middleware.py", line 177, in __call__
+    raise exc
+  File "/home/runner/.local/lib/python3.12/site-packages/prometheus_fastapi_instrumentator/middleware.py", line 175, in __call__
+    await self.app(scope, receive, send_wrapper)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+    raise exc
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/middleware/security_advanced.py", line 38, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+    raise exc
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/middleware/rate_limit.py", line 63, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+    raise exc
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/middleware/logging_middleware.py", line 36, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/gzip.py", line 29, in __call__
+    await responder(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/gzip.py", line 130, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/gzip.py", line 46, in __call__
+    await self.app(scope, receive, self.send_with_compression)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/runner/.local/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 695, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 300, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 2 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'final_consciousness'), 'msg': 'Input should be a valid string', 'input': 0.5}
+  {'type': 'string_type', 'loc': ('response', 'total_decisions'), 'msg': 'Input should be a valid string', 'input': 0}
+
+  File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py", line 307, in shutdown_bridge
+    POST /api/v1/ros2-bridge/shutdown
+
+The above exception was the direct cause of the following exception:
+tests/test_ros2_bridge_router.py:168: in test_shutdown_bridge
+    response = client.post("/api/v1/ros2-bridge/shutdown")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/lib/python3.12/site-packages/starlette/testclient.py:546: in post
+    return super().post(
+../../../.local/lib/python3.12/site-packages/httpx/_client.py:1144: in post
+    return self.request(
+../../../.local/lib/python3.12/site-packages/starlette/testclient.py:445: in request
+    return super().request(
+../../../.local/lib/python3.12/site-packages/httpx/_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/lib/python3.12/site-packages/httpx/_client.py:914: in send
+    response = self._send_handling_auth(
+../../../.local/lib/python3.12/site-packages/httpx/_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+../../../.local/lib/python3.12/site-packages/httpx/_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/lib/python3.12/site-packages/httpx/_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/lib/python3.12/site-packages/starlette/testclient.py:348: in handle_request
+    raise exc
+../../../.local/lib/python3.12/site-packages/starlette/testclient.py:345: in handle_request
+    portal.call(self.app, scope, receive, send)
+../../../.local/lib/python3.12/site-packages/anyio/from_thread.py:334: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.12/concurrent/futures/_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.12/concurrent/futures/_base.py:401: in __get_result
+    raise self._exception
+../../../.local/lib/python3.12/site-packages/anyio/from_thread.py:259: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/lib/python3.12/site-packages/fastapi/applications.py:1159: in __call__
+    await super().__call__(scope, receive, send)
+../../../.local/lib/python3.12/site-packages/starlette/applications.py:107: in __call__
+    await self.middleware_stack(scope, receive, send)
+../../../.local/lib/python3.12/site-packages/starlette/middleware/errors.py:186: in __call__
+    raise exc
+../../../.local/lib/python3.12/site-packages/starlette/middleware/errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+../../../.local/lib/python3.12/site-packages/prometheus_fastapi_instrumentator/middleware.py:177: in __call__
+    raise exc
+../../../.local/lib/python3.12/site-packages/prometheus_fastapi_instrumentator/middleware.py:175: in __call__
+    await self.app(scope, receive, send_wrapper)
+../../../.local/lib/python3.12/site-packages/starlette/middleware/base.py:191: in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+/usr/lib/python3.12/contextlib.py:158: in __exit__
+    self.gen.throw(value)
+../../../.local/lib/python3.12/site-packages/starlette/_utils.py:87: in collapse_excgroups
+    raise exc
+../../../.local/lib/python3.12/site-packages/starlette/middleware/base.py:193: in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+api/middleware/security_advanced.py:38: in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/lib/python3.12/site-packages/starlette/middleware/base.py:168: in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+../../../.local/lib/python3.12/site-packages/starlette/middleware/base.py:144: in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+../../../.local/lib/python3.12/site-packages/starlette/middleware/base.py:191: in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+/usr/lib/python3.12/contextlib.py:158: in __exit__
+    self.gen.throw(value)
+../../../.local/lib/python3.12/site-packages/starlette/_utils.py:87: in collapse_excgroups
+    raise exc
+../../../.local/lib/python3.12/site-packages/starlette/middleware/base.py:193: in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+api/middleware/rate_limit.py:63: in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/lib/python3.12/site-packages/starlette/middleware/base.py:168: in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+../../../.local/lib/python3.12/site-packages/starlette/middleware/base.py:144: in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+../../../.local/lib/python3.12/site-packages/starlette/middleware/base.py:191: in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+/usr/lib/python3.12/contextlib.py:158: in __exit__
+    self.gen.throw(value)
+../../../.local/lib/python3.12/site-packages/starlette/_utils.py:87: in collapse_excgroups
+    raise exc
+../../../.local/lib/python3.12/site-packages/starlette/middleware/base.py:193: in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+api/middleware/logging_middleware.py:36: in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/lib/python3.12/site-packages/starlette/middleware/base.py:168: in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+../../../.local/lib/python3.12/site-packages/starlette/middleware/base.py:144: in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+../../../.local/lib/python3.12/site-packages/starlette/middleware/gzip.py:29: in __call__
+    await responder(scope, receive, send)
+../../../.local/lib/python3.12/site-packages/starlette/middleware/gzip.py:130: in __call__
+    await super().__call__(scope, receive, send)
+../../../.local/lib/python3.12/site-packages/starlette/middleware/gzip.py:46: in __call__
+    await self.app(scope, receive, self.send_with_compression)
+../../../.local/lib/python3.12/site-packages/starlette/middleware/cors.py:87: in __call__
+    await self.app(scope, receive, send)
+../../../.local/lib/python3.12/site-packages/starlette/middleware/exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+../../../.local/lib/python3.12/site-packages/starlette/_exception_handler.py:53: in wrapped_app
+    raise exc
+../../../.local/lib/python3.12/site-packages/starlette/_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+../../../.local/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+../../../.local/lib/python3.12/site-packages/starlette/routing.py:716: in __call__
+    await self.middleware_stack(scope, receive, send)
+../../../.local/lib/python3.12/site-packages/starlette/routing.py:736: in app
+    await route.handle(scope, receive, send)
+../../../.local/lib/python3.12/site-packages/starlette/routing.py:290: in handle
+    await self.app(scope, receive, send)
+../../../.local/lib/python3.12/site-packages/fastapi/routing.py:134: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+../../../.local/lib/python3.12/site-packages/starlette/_exception_handler.py:53: in wrapped_app
+    raise exc
+../../../.local/lib/python3.12/site-packages/starlette/_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+../../../.local/lib/python3.12/site-packages/fastapi/routing.py:120: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+../../../.local/lib/python3.12/site-packages/fastapi/routing.py:695: in app
+    content = await serialize_response(
+../../../.local/lib/python3.12/site-packages/fastapi/routing.py:300: in serialize_response
+    raise ResponseValidationError(
+E   fastapi.exceptions.ResponseValidationError: 2 validation errors:
+E     {'type': 'string_type', 'loc': ('response', 'final_consciousness'), 'msg': 'Input should be a valid string', 'input': 0.5}
+E     {'type': 'string_type', 'loc': ('response', 'total_decisions'), 'msg': 'Input should be a valid string', 'input': 0}
+E   
+E     File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py", line 307, in shutdown_bridge
+E       POST /api/v1/ros2-bridge/shutdown
+----------------------------- Captured stdout call -----------------------------
+2026-05-18 19:10:34 - api.middleware.logging_middleware - INFO - Request: POST /api/v1/ros2-bridge/initialize
+2026-05-18 19:10:34 - api.middleware.logging_middleware - INFO - Response: POST /api/v1/ros2-bridge/initialize - 200
+2026-05-18 19:10:34 - root - WARNING - Redis query failed in rate limit check: Error 111 connecting to localhost:6379. Connection refused.
+2026-05-18 19:10:34 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/ros2-bridge/initialize "HTTP/1.1 200 OK"
+2026-05-18 19:10:34 - api.middleware.logging_middleware - INFO - Request: POST /api/v1/ros2-bridge/shutdown
+2026-05-18 19:10:34 - api.middleware.logging_middleware - ERROR - Error: POST /api/v1/ros2-bridge/shutdown - 2 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'final_consciousness'), 'msg': 'Input should be a valid string', 'input': 0.5}
+  {'type': 'string_type', 'loc': ('response', 'total_decisions'), 'msg': 'Input should be a valid string', 'input': 0}
+
+  File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py", line 307, in shutdown_bridge
+    POST /api/v1/ros2-bridge/shutdown
+Traceback (most recent call last):
+  File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/middleware/logging_middleware.py", line 36, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/gzip.py", line 29, in __call__
+    await responder(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/gzip.py", line 130, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/gzip.py", line 46, in __call__
+    await self.app(scope, receive, self.send_with_compression)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/runner/.local/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 695, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 300, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 2 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'final_consciousness'), 'msg': 'Input should be a valid string', 'input': 0.5}
+  {'type': 'string_type', 'loc': ('response', 'total_decisions'), 'msg': 'Input should be a valid string', 'input': 0}
+
+  File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py", line 307, in shutdown_bridge
+    POST /api/v1/ros2-bridge/shutdown
+2026-05-18 19:10:34 - api.main - ERROR - Unhandled exception: 2 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'final_consciousness'), 'msg': 'Input should be a valid string', 'input': 0.5}
+  {'type': 'string_type', 'loc': ('response', 'total_decisions'), 'msg': 'Input should be a valid string', 'input': 0}
+
+  File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py", line 307, in shutdown_bridge
+    POST /api/v1/ros2-bridge/shutdown
+  + Exception Group Traceback (most recent call last):
+  |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/_utils.py", line 81, in collapse_excgroups
+  |     yield
+  |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 192, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |   File "/home/runner/.local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 799, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/prometheus_fastapi_instrumentator/middleware.py", line 177, in __call__
+    |     raise exc
+    |   File "/home/runner/.local/lib/python3.12/site-packages/prometheus_fastapi_instrumentator/middleware.py", line 175, in __call__
+    |     await self.app(scope, receive, send_wrapper)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |   File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+    |     raise exc
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/middleware/security_advanced.py", line 38, in dispatch
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+    |     raise app_exc from app_exc.__cause__ or app_exc.__context__
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |   File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+    |     raise exc
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/middleware/rate_limit.py", line 63, in dispatch
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+    |     raise app_exc from app_exc.__cause__ or app_exc.__context__
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |   File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+    |     raise exc
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/middleware/logging_middleware.py", line 36, in dispatch
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+    |     raise app_exc from app_exc.__cause__ or app_exc.__context__
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/gzip.py", line 29, in __call__
+    |     await responder(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/gzip.py", line 130, in __call__
+    |     await super().__call__(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/gzip.py", line 46, in __call__
+    |     await self.app(scope, receive, self.send_with_compression)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/cors.py", line 87, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 134, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 120, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 695, in app
+    |     content = await serialize_response(
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 300, in serialize_response
+    |     raise ResponseValidationError(
+    | fastapi.exceptions.ResponseValidationError: 2 validation errors:
+    |   {'type': 'string_type', 'loc': ('response', 'final_consciousness'), 'msg': 'Input should be a valid string', 'input': 0.5}
+    |   {'type': 'string_type', 'loc': ('response', 'total_decisions'), 'msg': 'Input should be a valid string', 'input': 0}
+    | 
+    |   File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py", line 307, in shutdown_bridge
+    |     POST /api/v1/ros2-bridge/shutdown
+    +------------------------------------
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/runner/.local/lib/python3.12/site-packages/prometheus_fastapi_instrumentator/middleware.py", line 177, in __call__
+    raise exc
+  File "/home/runner/.local/lib/python3.12/site-packages/prometheus_fastapi_instrumentator/middleware.py", line 175, in __call__
+    await self.app(scope, receive, send_wrapper)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+    raise exc
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/middleware/security_advanced.py", line 38, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+    raise exc
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/middleware/rate_limit.py", line 63, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+    raise exc
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/middleware/logging_middleware.py", line 36, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/gzip.py", line 29, in __call__
+    await responder(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/gzip.py", line 130, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/gzip.py", line 46, in __call__
+    await self.app(scope, receive, self.send_with_compression)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/runner/.local/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 695, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 300, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 2 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'final_consciousness'), 'msg': 'Input should be a valid string', 'input': 0.5}
+  {'type': 'string_type', 'loc': ('response', 'total_decisions'), 'msg': 'Input should be a valid string', 'input': 0}
+
+  File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py", line 307, in shutdown_bridge
+    POST /api/v1/ros2-bridge/shutdown
+------------------------------ Captured log call -------------------------------
+INFO     api.middleware.logging_middleware:logging_middleware.py:71 Request: POST /api/v1/ros2-bridge/initialize
+INFO     api.middleware.logging_middleware:logging_middleware.py:88 Response: POST /api/v1/ros2-bridge/initialize - 200
+WARNING  root:rate_limit.py:187 Redis query failed in rate limit check: Error 111 connecting to localhost:6379. Connection refused.
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/v1/ros2-bridge/initialize "HTTP/1.1 200 OK"
+INFO     api.middleware.logging_middleware:logging_middleware.py:71 Request: POST /api/v1/ros2-bridge/shutdown
+ERROR    api.middleware.logging_middleware:logging_middleware.py:117 Error: POST /api/v1/ros2-bridge/shutdown - 2 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'final_consciousness'), 'msg': 'Input should be a valid string', 'input': 0.5}
+  {'type': 'string_type', 'loc': ('response', 'total_decisions'), 'msg': 'Input should be a valid string', 'input': 0}
+
+  File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py", line 307, in shutdown_bridge
+    POST /api/v1/ros2-bridge/shutdown
+Traceback (most recent call last):
+  File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/middleware/logging_middleware.py", line 36, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/gzip.py", line 29, in __call__
+    await responder(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/gzip.py", line 130, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/gzip.py", line 46, in __call__
+    await self.app(scope, receive, self.send_with_compression)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/runner/.local/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 695, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 300, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 2 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'final_consciousness'), 'msg': 'Input should be a valid string', 'input': 0.5}
+  {'type': 'string_type', 'loc': ('response', 'total_decisions'), 'msg': 'Input should be a valid string', 'input': 0}
+
+  File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py", line 307, in shutdown_bridge
+    POST /api/v1/ros2-bridge/shutdown
+ERROR    api.main:main.py:247 Unhandled exception: 2 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'final_consciousness'), 'msg': 'Input should be a valid string', 'input': 0.5}
+  {'type': 'string_type', 'loc': ('response', 'total_decisions'), 'msg': 'Input should be a valid string', 'input': 0}
+
+  File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py", line 307, in shutdown_bridge
+    POST /api/v1/ros2-bridge/shutdown
+  + Exception Group Traceback (most recent call last):
+  |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/_utils.py", line 81, in collapse_excgroups
+  |     yield
+  |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 192, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |   File "/home/runner/.local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 799, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/prometheus_fastapi_instrumentator/middleware.py", line 177, in __call__
+    |     raise exc
+    |   File "/home/runner/.local/lib/python3.12/site-packages/prometheus_fastapi_instrumentator/middleware.py", line 175, in __call__
+    |     await self.app(scope, receive, send_wrapper)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |   File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+    |     raise exc
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/middleware/security_advanced.py", line 38, in dispatch
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+    |     raise app_exc from app_exc.__cause__ or app_exc.__context__
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |   File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+    |     raise exc
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/middleware/rate_limit.py", line 63, in dispatch
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+    |     raise app_exc from app_exc.__cause__ or app_exc.__context__
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |   File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+    |     raise exc
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/middleware/logging_middleware.py", line 36, in dispatch
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+    |     raise app_exc from app_exc.__cause__ or app_exc.__context__
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/gzip.py", line 29, in __call__
+    |     await responder(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/gzip.py", line 130, in __call__
+    |     await super().__call__(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/gzip.py", line 46, in __call__
+    |     await self.app(scope, receive, self.send_with_compression)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/cors.py", line 87, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 134, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 120, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 695, in app
+    |     content = await serialize_response(
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 300, in serialize_response
+    |     raise ResponseValidationError(
+    | fastapi.exceptions.ResponseValidationError: 2 validation errors:
+    |   {'type': 'string_type', 'loc': ('response', 'final_consciousness'), 'msg': 'Input should be a valid string', 'input': 0.5}
+    |   {'type': 'string_type', 'loc': ('response', 'total_decisions'), 'msg': 'Input should be a valid string', 'input': 0}
+    | 
+    |   File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py", line 307, in shutdown_bridge
+    |     POST /api/v1/ros2-bridge/shutdown
+    +------------------------------------
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/runner/.local/lib/python3.12/site-packages/prometheus_fastapi_instrumentator/middleware.py", line 177, in __call__
+    raise exc
+  File "/home/runner/.local/lib/python3.12/site-packages/prometheus_fastapi_instrumentator/middleware.py", line 175, in __call__
+    await self.app(scope, receive, send_wrapper)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+    raise exc
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/middleware/security_advanced.py", line 38, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+    raise exc
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/middleware/rate_limit.py", line 63, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+    raise exc
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/middleware/logging_middleware.py", line 36, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/gzip.py", line 29, in __call__
+    await responder(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/gzip.py", line 130, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/gzip.py", line 46, in __call__
+    await self.app(scope, receive, self.send_with_compression)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/runner/.local/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/runner/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 695, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py", line 300, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 2 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'final_consciousness'), 'msg': 'Input should be a valid string', 'input': 0.5}
+  {'type': 'string_type', 'loc': ('response', 'total_decisions'), 'msg': 'Input should be a valid string', 'input': 0}
+
+  File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py", line 307, in shutdown_bridge
+    POST /api/v1/ros2-bridge/shutdown
 =============================== warnings summary ===============================
+api/routers/orion_runtime.py:141
+api/routers/orion_runtime.py:141
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/orion_runtime.py:141: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    _runtime_start_time = datetime.utcnow()
+
+api/routers/ros2_bridge.py:79: 2 warnings
+tests/test_ros2_bridge_router.py: 12 warnings
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py:79: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    self.start_time = datetime.utcnow()
+
 tests/test_api_comprehensive.py::TestErrorHandling::test_invalid_json_body
   /home/runner/.local/lib/python3.12/site-packages/httpx/_models.py:408: DeprecationWarning: Use 'content=<...>' to upload raw bytes/text content.
     headers, stream = encode_request(
+
+tests/test_multi_agent_consensus_router.py: 12 warnings
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/multi_agent_consensus.py:206: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    timestamp=datetime.utcnow().isoformat(),
+
+tests/test_multi_agent_consensus_router.py: 12 warnings
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/multi_agent_consensus.py:211: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    runtime_metrics=metrics.dict(),
+
+tests/test_multi_agent_consensus_router.py: 12 warnings
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/multi_agent_consensus.py:216: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    _last_consensus = result.dict()
+
+tests/test_multi_agent_consensus_router.py::TestReset::test_reset_consensus
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/multi_agent_consensus.py:299: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "timestamp": datetime.utcnow().isoformat(),
+
+tests/test_orion_runtime_router.py: 11 warnings
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/orion_runtime.py:149: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    _runtime_start_time = datetime.utcnow()
+
+tests/test_orion_runtime_router.py: 18 warnings
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/orion_runtime.py:95: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "timestamp": datetime.utcnow().isoformat(),
+
+tests/test_orion_runtime_router.py::TestORIONRuntimeInitialization::test_health_check
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/orion_runtime.py:161: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    uptime = (datetime.utcnow() - _runtime_start_time).total_seconds()
+
+tests/test_orion_runtime_router.py::TestORIONRuntimeInitialization::test_health_check
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/orion_runtime.py:173: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    timestamp=datetime.utcnow().isoformat(),
+
+tests/test_orion_runtime_router.py::TestComponentStatus::test_get_runtime_state
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/orion_runtime.py:255: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "timestamp": datetime.utcnow().isoformat(),
+
+tests/test_orion_runtime_router.py::TestReporting::test_get_runtime_report
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/orion_runtime.py:347: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    timestamp=datetime.utcnow().isoformat(),
+
+tests/test_orion_runtime_router.py::TestReporting::test_reset_runtime
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/orion_runtime.py:371: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    _runtime_start_time = datetime.utcnow()
+
+tests/test_ros2_bridge_router.py: 11 warnings
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py:122: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "timestamp": datetime.utcnow().isoformat(),
+
+tests/test_ros2_bridge_router.py::TestROS2BridgeInitialization::test_bridge_status
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py:174: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "uptime_seconds": (datetime.utcnow() - _bridge_state.start_time).total_seconds(),
+
+tests/test_ros2_bridge_router.py::TestROS2BridgeInitialization::test_bridge_status
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py:175: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "timestamp": datetime.utcnow().isoformat(),
+
+tests/test_ros2_bridge_router.py::TestSensorDataIntegration::test_update_sensor_data
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py:129: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    _bridge_state.robot_state["sensors"] = data.dict()
+
+tests/test_ros2_bridge_router.py::TestSensorDataIntegration::test_update_sensor_data
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py:133: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    "sensors": data.dict(),
+
+tests/test_ros2_bridge_router.py::TestSensorDataIntegration::test_update_sensor_data
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py:134: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "timestamp": datetime.utcnow().isoformat(),
+
+tests/test_ros2_bridge_router.py::TestSensorDataIntegration::test_update_joint_states
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py:141: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    _bridge_state.robot_state["joints"] = joints.dict()
+
+tests/test_ros2_bridge_router.py::TestSensorDataIntegration::test_update_joint_states
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py:145: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    "joints": joints.dict(),
+
+tests/test_ros2_bridge_router.py::TestSensorDataIntegration::test_update_joint_states
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py:146: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "timestamp": datetime.utcnow().isoformat(),
+
+tests/test_ros2_bridge_router.py::TestConsciousnessMonitoring::test_get_consciousness_level
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py:158: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "uptime_seconds": (datetime.utcnow() - _bridge_state.start_time).total_seconds(),
+
+tests/test_ros2_bridge_router.py::TestConsciousnessMonitoring::test_get_consciousness_level
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py:159: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "timestamp": datetime.utcnow().isoformat(),
+
+tests/test_ros2_bridge_router.py: 14 warnings
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py:94: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    "command": command.dict(),
+
+tests/test_ros2_bridge_router.py: 14 warnings
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py:95: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "timestamp": datetime.utcnow().isoformat(),
+
+tests/test_ros2_bridge_router.py::TestAutonomousDecisions::test_execute_autonomous_loop
+tests/test_ros2_bridge_router.py::TestStatistics::test_get_statistics
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py:264: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "timestamp": datetime.utcnow().isoformat(),
+
+tests/test_ros2_bridge_router.py::TestStatistics::test_get_statistics
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py:288: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "uptime_seconds": (datetime.utcnow() - _bridge_state.start_time).total_seconds(),
+
+tests/test_ros2_bridge_router.py::TestStatistics::test_get_statistics
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py:290: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "timestamp": datetime.utcnow().isoformat(),
+
+tests/test_ros2_bridge_router.py::TestBridgeControl::test_reset_bridge
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py:303: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "timestamp": datetime.utcnow().isoformat(),
+
+tests/test_ros2_bridge_router.py::TestBridgeControl::test_shutdown_bridge
+  /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py:317: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "timestamp": datetime.utcnow().isoformat(),
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
 ================================ tests coverage ================================
@@ -357,10 +1617,10 @@ ai_tender_evaluation.py                      187    187     0%
 api/__init__.py                                1      0   100%
 api/database.py                               17      6    65%
 api/graphql_schema.py                        269    269     0%
-api/main.py                                   88     17    81%
+api/main.py                                   91     15    84%
 api/middleware/__init__.py                     5      0   100%
 api/middleware/auth.py                        46     19    59%
-api/middleware/logging_middleware.py          96     42    56%
+api/middleware/logging_middleware.py          96     37    61%
 api/middleware/rate_limit.py                 130     56    57%
 api/middleware/security_advanced.py          101     61    40%
 api/models.py                                116      2    98%
@@ -373,7 +1633,10 @@ api/routers/calculations.py                  186     12    94%
 api/routers/collaboration.py                 156     74    53%
 api/routers/compliance.py                    107     77    28%
 api/routers/monitoring.py                    115    115     0%
+api/routers/multi_agent_consensus.py         103      3    97%
+api/routers/orion_runtime.py                 164     10    94%
 api/routers/reports.py                        24      6    75%
+api/routers/ros2_bridge.py                   116      1    99%
 api/routers/tendering.py                     170     63    63%
 api/routers/validation.py                     20      3    85%
 api/safety/__init__.py                         3      0   100%
@@ -425,7 +1688,14 @@ test_genesis_integration.py                  128    128     0%
 test_multi_agent_integration.py              140    140     0%
 test_orion_oenorm_a2063.py                   141    141     0%
 --------------------------------------------------------------
-TOTAL                                      12192   9614    21%
+TOTAL                                      12578   9621    24%
 Coverage HTML written to dir htmlcov
 Coverage XML written to file coverage.xml
-======================= 165 passed, 1 warning in 12.80s ========================
+=========================== short test summary info ============================
+FAILED tests/test_ros2_bridge_router.py::TestBridgeControl::test_shutdown_bridge - fastapi.exceptions.ResponseValidationError: 2 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'final_consciousness'), 'msg': 'Input should be a valid string', 'input': 0.5}
+  {'type': 'string_type', 'loc': ('response', 'total_decisions'), 'msg': 'Input should be a valid string', 'input': 0}
+
+  File "/home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria/api/routers/ros2_bridge.py", line 307, in shutdown_bridge
+    POST /api/v1/ros2-bridge/shutdown
+================= 1 failed, 198 passed, 143 warnings in 16.16s =================
