@@ -30,6 +30,7 @@ from api.routers import (
     calculations,
     collaboration,
     compliance,
+    orion_runtime,
     reports,
     tendering,
     validation,
@@ -137,6 +138,7 @@ app.include_router(tendering.router, tags=["tendering"])  # Uses own prefix
 app.include_router(ai_recommendations.router, prefix="/api/v1/ai", tags=["ai"])
 app.include_router(bim_integration.router, prefix="/api/v1/bim", tags=["bim"])
 app.include_router(collaboration.router, prefix="/api/v1/collaboration", tags=["collaboration"])
+app.include_router(orion_runtime.router, prefix="/api/v1/orion-runtime", tags=["orion-runtime"])
 app.include_router(auth_router, prefix="/auth", tags=["auth"])
 
 
