@@ -115,7 +115,7 @@ jobs:
           REDIS_URL: redis://localhost:6379/0
           SECRET_KEY: test_secret_key_for_testing_only
           JWT_SECRET_KEY: test_jwt_secret_key_for_testing_only
-          # Parallel xdist collection causes nondeterministic DB setup conflicts in CI containers.
+          # Parallel xdist execution causes nondeterministic DB setup conflicts in CI containers.
           PYTEST_ADDOPTS: -n 0
         run: |
           pytest tests/ \
@@ -124,7 +124,7 @@ jobs:
             --cov-report=html \
             --cov-report=term-missing \
             # Temporary non-regression floor; current measured baseline is ~23% for this scope.
-            --cov-fail-under=20 \
+            --cov-fail-under=22 \
             -v
 
       - name: Upload coverage to Codecov
