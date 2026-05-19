@@ -30,7 +30,10 @@ from api.routers import (
     calculations,
     collaboration,
     compliance,
+    multi_agent_consensus,
+    orion_runtime,
     reports,
+    ros2_bridge,
     tendering,
     validation,
 )
@@ -108,6 +111,9 @@ app = FastAPI(
         {"name": "collaboration", "description": "👥 Real-time collaboration (UNIQUE)"},
         {"name": "auth", "description": "Authentication & authorization"},
         {"name": "health", "description": "Health & monitoring"},
+        {"name": "orion-runtime", "description": "🤖 ORION Temporal Edge Runtime - Deterministic decision engine with audit-chain verification"},
+        {"name": "ros2-bridge", "description": "🔗 ROS2 Bridge - Bidirectional ORION ↔ ROS2 communication"},
+        {"name": "multi-agent-consensus", "description": "🧠 Multi-Agent Consensus - 8-agent decision aggregation"},
     ],
 )
 
@@ -138,6 +144,11 @@ app.include_router(ai_recommendations.router, prefix="/api/v1/ai", tags=["ai"])
 app.include_router(bim_integration.router, prefix="/api/v1/bim", tags=["bim"])
 app.include_router(collaboration.router, prefix="/api/v1/collaboration", tags=["collaboration"])
 app.include_router(auth_router, prefix="/auth", tags=["auth"])
+
+# STEURER-ROS2-Node Integration - Deterministic Decision Logic Routers
+app.include_router(orion_runtime.router, tags=["orion-runtime"])
+app.include_router(ros2_bridge.router, tags=["ros2-bridge"])
+app.include_router(multi_agent_consensus.router, tags=["multi-agent-consensus"])
 
 
 # Health check endpoints
