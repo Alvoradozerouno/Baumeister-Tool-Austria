@@ -8,15 +8,12 @@ Deckt ab:
 3. generate_compliance_report — Gesamt-Aggregation
 4. Determinismus-Invariante: gleiche Eingaben → gleiche Ausgaben
 
-Alle Tests sind vom filesystem isoliert (isolated_tmpdir Fixture
-aus test_orion_kernel.py wird hier neu definiert).
+Die isolated_tmpdir Fixture wird via tests/conftest.py bereitgestellt.
 """
 
-import hashlib
 import json
 import os
 import sys
-from pathlib import Path
 
 import pytest
 
@@ -29,20 +26,6 @@ from orion_kernel import (
     _compute_item_deviation,
     evaluate_plan_deviation,
 )
-
-# ---------------------------------------------------------------------------
-# Fixture: I/O-isoliertes Verzeichnis
-# ---------------------------------------------------------------------------
-
-
-@pytest.fixture(autouse=True)
-def isolated_tmpdir(tmp_path, monkeypatch):
-    monkeypatch.setattr(orion_kernel, "ROOT", tmp_path)
-    monkeypatch.setattr(orion_kernel, "STATE", tmp_path / "ORION_STATE.json")
-    monkeypatch.setattr(orion_kernel, "PROOFS", tmp_path / "PROOFS.jsonl")
-    monkeypatch.setattr(orion_kernel, "MANIFEST", tmp_path / "PROOF_MANIFEST.json")
-    yield tmp_path
-
 
 # ===========================================================================
 # _compute_item_deviation — Elementare Abweichungsberechnung

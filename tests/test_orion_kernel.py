@@ -11,10 +11,7 @@ import hashlib
 import json
 import os
 import sys
-import tempfile
 import time
-from pathlib import Path
-from unittest.mock import patch
 
 import pytest
 
@@ -22,19 +19,7 @@ import pytest
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import orion_kernel
 
-# ---------------------------------------------------------------------------
-# Hilfsmittel: temporäres Arbeitsverzeichnis isoliert jeden Test
-# ---------------------------------------------------------------------------
-
-
-@pytest.fixture(autouse=True)
-def isolated_tmpdir(tmp_path, monkeypatch):
-    """Jeder Test bekommt ein leeres tmp-Verzeichnis als ROOT."""
-    monkeypatch.setattr(orion_kernel, "ROOT", tmp_path)
-    monkeypatch.setattr(orion_kernel, "STATE", tmp_path / "ORION_STATE.json")
-    monkeypatch.setattr(orion_kernel, "PROOFS", tmp_path / "PROOFS.jsonl")
-    monkeypatch.setattr(orion_kernel, "MANIFEST", tmp_path / "PROOF_MANIFEST.json")
-    yield tmp_path
+# isolated_tmpdir Fixture wird via conftest.py bereitgestellt
 
 
 # ===========================================================================
