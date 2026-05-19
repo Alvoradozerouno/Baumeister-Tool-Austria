@@ -10,6 +10,7 @@ from dataclasses import dataclass
 from datetime import datetime
 import hashlib
 import json
+import time
 from typing import Any, Dict, List, Optional
 
 from fastapi import APIRouter, Depends, File, HTTPException, UploadFile
@@ -24,6 +25,7 @@ from api.routers.calculations import (
 )
 from api.routers.compliance import ComplianceCheckRequest, check_oib_rl_compliance
 from api.routers.reports import ReportRequest, generate_comprehensive_report
+from orion_kernel import supervise_work_step
 
 router = APIRouter()
 
@@ -40,6 +42,14 @@ RESIDENTIAL_BUILDING_TYPES = {"wohngebaeude", "mehrfamilienhaus", "einfamilienha
 POLICY_CONFIDENCE_THRESHOLD = 0.55
 MEHRFAMILIENHAUS_AREA_PER_UNIT_M2 = 85
 WOHNGEBAEUDE_AREA_PER_UNIT_M2 = 95
+KERNEL_STEP_TIME_BUDGETS = {
+    "ifc_extract": 1.5,
+    "document_extract": 0.5,
+    "document_parse": 0.25,
+    "derive_metrics": 0.75,
+    "downstream_checks": 1.0,
+    "report_generation": 0.5,
+}
 FIELD_AUTHORITY_REGISTRY = {
     "bundesland": {
         "standards": ["Landesbauordnung"],
@@ -184,6 +194,7 @@ class PlanImportResult(BaseModel):
     field_source_metadata: Dict[str, Dict[str, Any]]
     information_sources: List[Dict[str, Any]]
     epistemic_trace: Dict[str, Any]
+    kernel_supervision: List[Dict[str, Any]]
     derived_metrics: Dict[str, Any]
     downstream_results: Dict[str, Any]
     warnings: List[str]
@@ -874,20 +885,61 @@ async def _import_plan_file(
     extension = os.path.splitext(filename)[1].lower()
     source_type = extension.lstrip(".").upper()
     warnings: List[str] = []
+    kernel_supervision: List[Dict[str, Any]] = []
 
     if extension == ".ifc":
+        step_started_at = time.perf_counter()
         extracted_plan = _extract_ifc_plan_data(file_path, bundesland, building_type)
+        kernel_supervision.append(
+            _monitor_kernel_step(
+                "ifc_extract",
+                step_started_at,
+                KERNEL_STEP_TIME_BUDGETS["ifc_extract"],
+                0.05,
+                {"source_type": source_type, "file_name": filename},
+            )
+        )
         extracted_fields = [key for key, value in extracted_plan.items() if value is not None]
         defaulted_fields: List[str] = []
         missing_fields = [field for field in PLAN_REQUIRED_FIELDS if extracted_plan.get(field) is None]
+        step_started_at = time.perf_counter()
         derived_metrics = _derive_ifc_plan_metrics(extracted_plan)
+        kernel_supervision.append(
+            _monitor_kernel_step(
+                "derive_metrics",
+                step_started_at,
+                KERNEL_STEP_TIME_BUDGETS["derive_metrics"],
+                0.05,
+                {"source_type": source_type, "field_count": len(extracted_fields)},
+            )
+        )
         confidence_score = 0.95
         epistemic_state = "VERIFIED"
         ingestion_mode = "native_ifc"
         field_source_metadata = _build_ifc_field_source_metadata(extracted_plan)
     else:
+        step_started_at = time.perf_counter()
         plan_text = _extract_text_from_plan_file(file_path)
+        kernel_supervision.append(
+            _monitor_kernel_step(
+                "document_extract",
+                step_started_at,
+                KERNEL_STEP_TIME_BUDGETS["document_extract"],
+                0.25,
+                {"source_type": source_type, "file_name": filename},
+            )
+        )
+        step_started_at = time.perf_counter()
         parsed_fields = _parse_plan_text(plan_text)
+        kernel_supervision.append(
+            _monitor_kernel_step(
+                "document_parse",
+                step_started_at,
+                KERNEL_STEP_TIME_BUDGETS["document_parse"],
+                0.4,
+                {"source_type": source_type, "parsed_fields": sorted(parsed_fields.keys())},
+            )
+        )
         finalized_fields = _finalize_plan_fields(
             parsed_fields, bundesland, building_type
         )
@@ -895,8 +947,22 @@ async def _import_plan_file(
         extracted_fields = finalized_fields.extracted_fields
         defaulted_fields = finalized_fields.defaulted_fields
         missing_fields = finalized_fields.missing_fields
+        step_started_at = time.perf_counter()
         derived_metrics = await _derive_document_plan_metrics(plan_text, extracted_plan)
         ingestion_mode = "heuristic_text_scan"
+        kernel_supervision.append(
+            _monitor_kernel_step(
+                "derive_metrics",
+                step_started_at,
+                KERNEL_STEP_TIME_BUDGETS["derive_metrics"],
+                0.45 if extracted_fields else 0.75,
+                {
+                    "source_type": source_type,
+                    "extracted_fields": extracted_fields,
+                    "missing_fields": missing_fields,
+                },
+            )
+        )
         try:
             confidence_score = _calculate_document_confidence(source_type, extracted_fields)
         except ValueError as exc:
@@ -917,7 +983,21 @@ async def _import_plan_file(
                 f"Missing structured plan fields for full downstream validation: {', '.join(missing_fields)}"
             )
 
+    step_started_at = time.perf_counter()
     downstream_results = await _run_plan_downstream_checks(extracted_plan, field_source_metadata)
+    kernel_supervision.append(
+        _monitor_kernel_step(
+            "downstream_checks",
+            step_started_at,
+            KERNEL_STEP_TIME_BUDGETS["downstream_checks"],
+            0.1 if source_type == "IFC" else round(max(0.15, 1.0 - confidence_score), 2),
+            {
+                "source_type": source_type,
+                "compliance_checked": downstream_results["compliance"]["checked"],
+                "parking_checked": downstream_results["parking"]["checked"],
+            },
+        )
+    )
     if downstream_results.get("estimated_fields"):
         warnings.append("Deterministic fallback estimation used for missing plan fields.")
 
@@ -950,6 +1030,7 @@ async def _import_plan_file(
         field_source_metadata=field_source_metadata,
         information_sources=information_sources,
         epistemic_trace=epistemic_trace,
+        kernel_supervision=kernel_supervision,
         derived_metrics=derived_metrics,
         downstream_results=downstream_results,
         warnings=warnings,
@@ -1375,6 +1456,23 @@ def _estimate_wohnungen_from_plan(extracted_plan: Dict[str, Any]) -> Optional[in
     return max(1, round(float(bgf_m2) / area_per_unit))
 
 
+def _monitor_kernel_step(
+    step_name: str,
+    started_at: float,
+    time_budget_seconds: float,
+    uncertainty_score: float,
+    metadata: Dict[str, Any],
+) -> Dict[str, Any]:
+    """Send a work-step snapshot through the ORION kernel."""
+    return supervise_work_step(
+        step_name=step_name,
+        elapsed_seconds=max(time.perf_counter() - started_at, 0.0),
+        time_budget_seconds=time_budget_seconds,
+        uncertainty_score=uncertainty_score,
+        metadata=metadata,
+    )
+
+
 def _build_information_sources(
     source_type: str,
     field_source_metadata: Dict[str, Dict[str, Any]],
@@ -1406,6 +1504,11 @@ def _build_information_sources(
             "source": "genesis.framework",
             "role": "epistemic_policy",
             "description": "GENESIS epistemic states and decision policy assessment for deterministic vs heuristic processing.",
+        },
+        {
+            "source": "orion_kernel",
+            "role": "work_step_supervision",
+            "description": "Kernel supervision records every major work step and makes a time-based decision under uncertainty.",
         },
     ]
     if downstream_results.get("estimated_fields"):
@@ -1537,6 +1640,7 @@ async def _generate_plan_report(ingestion: PlanImportResult) -> Dict[str, Any]:
             detail="Plan report requires normalized plan fields for compliance generation.",
         )
 
+    step_started_at = time.perf_counter()
     report_request = ReportRequest(
         project_name=ingestion.derived_metrics.get("project_name") or "Planimport",
         bundesland=ingestion.extracted_plan["bundesland"],
@@ -1546,11 +1650,22 @@ async def _generate_plan_report(ingestion: PlanImportResult) -> Dict[str, Any]:
         wohnungen=ingestion.extracted_plan.get("wohnungen"),
     )
     report = await generate_comprehensive_report(report_request)
+    report_kernel_supervision = list(ingestion.kernel_supervision)
+    report_kernel_supervision.append(
+        _monitor_kernel_step(
+            "report_generation",
+            step_started_at,
+            KERNEL_STEP_TIME_BUDGETS["report_generation"],
+            0.1 if ingestion.source_type == "IFC" else round(max(0.15, 1.0 - ingestion.confidence_score), 2),
+            {"source_type": ingestion.source_type, "file_name": ingestion.file_name},
+        )
+    )
     report["source_file"] = ingestion.file_name
     report["epistemic_state"] = ingestion.epistemic_state
     report["epistemic_trace"] = ingestion.epistemic_trace
     report["field_source_metadata"] = ingestion.field_source_metadata
     report["information_sources"] = ingestion.information_sources
+    report["kernel_supervision"] = report_kernel_supervision
     report["plan_metrics"] = ingestion.derived_metrics
     report["downstream_results"] = ingestion.downstream_results
 
@@ -1568,6 +1683,7 @@ async def _generate_plan_report(ingestion: PlanImportResult) -> Dict[str, Any]:
     report["executive_summary"]["critical_issues"] = _count_plan_critical_issues(ingestion)
     report["executive_summary"]["decision_mode"] = ingestion.epistemic_trace["policy_assessment"]["mode"]
     report["executive_summary"]["information_sources"] = len(ingestion.information_sources)
+    report["executive_summary"]["kernel_steps"] = len(report_kernel_supervision)
     report["governance"] = _build_report_governance(ingestion)
     return report
 

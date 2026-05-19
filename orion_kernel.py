@@ -279,6 +279,16 @@ _SEVERITY_TO_STATE = {
     "OK": "VERIFIED",
 }
 
+_WORK_STEP_UNCERTAINTY_THRESHOLDS = {
+    "warning": 0.35,
+    "critical": 0.65,
+}
+
+_WORK_STEP_TIME_THRESHOLDS = {
+    "warning_ratio": 0.75,
+    "critical_ratio": 1.0,
+}
+
 
 def _compute_item_deviation(plan_val, actual_val):
     """
@@ -414,6 +424,97 @@ def evaluate_plan_deviation(plan: dict, actual: dict) -> dict:
             )
         except Exception:
             pass  # Proof-Trail ist optional — kein Absturz bei I/O-Fehler
+
+    return result
+
+
+def _classify_work_step_time_decision(uncertainty_score: float, elapsed_ratio: float):
+    """Klassifiziert einen Arbeitsschritt nach Zeitdruck und Unsicherheit."""
+    if elapsed_ratio >= _WORK_STEP_TIME_THRESHOLDS["critical_ratio"]:
+        if uncertainty_score >= _WORK_STEP_UNCERTAINTY_THRESHOLDS["warning"]:
+            return ("CRITICAL", "INSTABIL", "FORCE_REVIEW")
+        return ("OK", "VERIFIED", "COMPLETE")
+
+    if uncertainty_score >= _WORK_STEP_UNCERTAINTY_THRESHOLDS["critical"]:
+        if elapsed_ratio >= 0.5:
+            return ("CRITICAL", "INSTABIL", "ESCALATE_NOW")
+        return ("WARNING", "TRANSITION", "TIMEBOX")
+
+    if (
+        uncertainty_score >= _WORK_STEP_UNCERTAINTY_THRESHOLDS["warning"]
+        or elapsed_ratio >= _WORK_STEP_TIME_THRESHOLDS["warning_ratio"]
+    ):
+        return ("WARNING", "TRANSITION", "TIMEBOX")
+
+    return ("OK", "VERIFIED", "CONTINUE")
+
+
+def supervise_work_step(
+    step_name: str,
+    elapsed_seconds: float,
+    time_budget_seconds: float,
+    uncertainty_score: float,
+    metadata: dict | None = None,
+) -> dict:
+    """
+    Überwacht einen Arbeitsschritt deterministisch.
+
+    Jeder Schritt erhält eine zeitbasierte Entscheidung unter Unsicherheit:
+    - CONTINUE: geringe Unsicherheit und genügend Zeit
+    - TIMEBOX: erhöhte Unsicherheit oder knappe Zeit
+    - ESCALATE_NOW: hohe Unsicherheit bei fortgeschrittener Laufzeit
+    - FORCE_REVIEW: Zeitbudget überschritten bei verbleibender Unsicherheit
+    - COMPLETE: Zeitbudget erreicht, aber Unsicherheit beherrscht
+    """
+    if not step_name:
+        raise ValueError("step_name must not be empty")
+    if time_budget_seconds <= 0:
+        raise ValueError("time_budget_seconds must be greater than 0")
+
+    elapsed = max(float(elapsed_seconds), 0.0)
+    budget = float(time_budget_seconds)
+    uncertainty = clamp(float(uncertainty_score), 0.0, 1.0)
+    elapsed_ratio = round(elapsed / budget, 6)
+    remaining_seconds = round(max(budget - elapsed, 0.0), 6)
+
+    severity, orion_state, time_decision = _classify_work_step_time_decision(
+        uncertainty, elapsed_ratio
+    )
+    audit_payload = {
+        "step_name": step_name,
+        "elapsed_seconds": round(elapsed, 6),
+        "time_budget_seconds": round(budget, 6),
+        "elapsed_ratio": elapsed_ratio,
+        "remaining_seconds": remaining_seconds,
+        "uncertainty_score": round(uncertainty, 6),
+        "severity": severity,
+        "orion_state": orion_state,
+        "time_decision": time_decision,
+        "metadata": metadata or {},
+    }
+    audit_hash = hashlib.sha256(
+        json.dumps(audit_payload, sort_keys=True, ensure_ascii=False).encode("utf-8")
+    ).hexdigest()
+
+    result = {
+        **audit_payload,
+        "audit_hash": audit_hash,
+        "evaluated_at": now(),
+    }
+
+    try:
+        append_proof(
+            "WORK_STEP_SUPERVISION",
+            {
+                "step_name": step_name,
+                "severity": severity,
+                "orion_state": orion_state,
+                "time_decision": time_decision,
+                "audit_hash": audit_hash,
+            },
+        )
+    except Exception:
+        pass
 
     return result
 

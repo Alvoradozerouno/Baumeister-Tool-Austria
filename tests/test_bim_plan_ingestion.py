@@ -57,6 +57,9 @@ U-Wert Fenster: 0.85
         assert data["epistemic_trace"]["policy_assessment"]["mode"] == "probabilistic"
         assert data["epistemic_trace"]["input_states"]["bgf_m2"]["knowledge_type"] == "estimated"
         assert any(source["source"] == "genesis.framework" for source in data["information_sources"])
+        assert any(source["source"] == "orion_kernel" for source in data["information_sources"])
+        assert len(data["kernel_supervision"]) >= 4
+        assert data["kernel_supervision"][0]["time_decision"] in {"CONTINUE", "TIMEBOX"}
 
     def test_upload_dwg_plan_uses_defaults_and_runs_compliance(self):
         dwg_content = b"""AC1027
@@ -106,6 +109,7 @@ Geschosse: 3
         assert data["downstream_results"]["parking"]["checked"] is True
         assert data["field_source_metadata"]["wohnungen"]["status"] == "estimated"
         assert data["field_source_metadata"]["wohnungen"]["source_layer"] == "deterministic_area_ratio_bridge"
+        assert any(step["step_name"] == "downstream_checks" for step in data["kernel_supervision"])
 
     def test_upload_plan_report_returns_report_and_heating_load(self):
         pdf_content = """%PDF-1.4
@@ -138,6 +142,8 @@ OCR scan layer
         assert data["report"]["governance"]["human_review_required"] is True
         assert data["report"]["governance"]["policy_decision"]["mode"] == "fallback"
         assert data["report"]["field_source_metadata"]["bgf_m2"]["standards"] == ["ÖNORM B 1800", "OIB-RL 6"]
+        assert data["report"]["executive_summary"]["kernel_steps"] >= 4
+        assert any(step["step_name"] == "report_generation" for step in data["report"]["kernel_supervision"])
 
     def test_upload_plan_rejects_unsupported_extension(self):
         response = client.post(

@@ -597,3 +597,58 @@ class TestFullLifecycle:
         assert isinstance(k, orion_kernel.OrionKernel)
         # Beim Modulstart ist der Zustand sleep
         assert k.state in ("sleep", "awake")
+
+
+class TestWorkStepSupervision:
+    """Tests für Kernel-Überwachung einzelner Arbeitsschritte."""
+
+    def test_supervise_work_step_continue_for_low_uncertainty(self):
+        result = orion_kernel.supervise_work_step(
+            step_name="extract",
+            elapsed_seconds=0.2,
+            time_budget_seconds=1.0,
+            uncertainty_score=0.1,
+            metadata={"phase": "parse"},
+        )
+
+        assert result["severity"] == "OK"
+        assert result["orion_state"] == "VERIFIED"
+        assert result["time_decision"] == "CONTINUE"
+        assert result["remaining_seconds"] == 0.8
+        assert len(result["audit_hash"]) == 64
+
+    def test_supervise_work_step_timeboxes_uncertainty(self):
+        result = orion_kernel.supervise_work_step(
+            step_name="normalize",
+            elapsed_seconds=0.4,
+            time_budget_seconds=1.0,
+            uncertainty_score=0.5,
+        )
+
+        assert result["severity"] == "WARNING"
+        assert result["orion_state"] == "TRANSITION"
+        assert result["time_decision"] == "TIMEBOX"
+
+    def test_supervise_work_step_forces_review_after_budget(self):
+        result = orion_kernel.supervise_work_step(
+            step_name="decision",
+            elapsed_seconds=1.1,
+            time_budget_seconds=1.0,
+            uncertainty_score=0.4,
+        )
+
+        assert result["severity"] == "CRITICAL"
+        assert result["orion_state"] == "INSTABIL"
+        assert result["time_decision"] == "FORCE_REVIEW"
+
+    def test_supervise_work_step_appends_proof(self):
+        orion_kernel.supervise_work_step(
+            step_name="report",
+            elapsed_seconds=0.1,
+            time_budget_seconds=1.0,
+            uncertainty_score=0.2,
+        )
+
+        line = orion_kernel.PROOFS.read_text(encoding="utf-8").strip()
+        data = json.loads(line)
+        assert data["kind"] == "WORK_STEP_SUPERVISION"
