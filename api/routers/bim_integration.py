@@ -6,12 +6,16 @@ Processes IFC files and integrates with Austrian building regulations
 import os
 import re
 import tempfile
+from dataclasses import dataclass
 from datetime import datetime
+import hashlib
+import json
 from typing import Any, Dict, List, Optional
 
 from fastapi import APIRouter, Depends, File, HTTPException, UploadFile
 from pydantic import BaseModel, Field
 
+from genesis.framework import DecisionMode, DecisionPolicyEngine, EpistemicState, KnowledgeType, VerificationLevel
 from api.routers.calculations import (
     HeizlastRequest,
     StellplatzRequest,
@@ -23,12 +27,36 @@ from api.routers.reports import ReportRequest, generate_comprehensive_report
 
 router = APIRouter()
 
-TEXT_EXTRACTION_MAX_BYTES = 512 * 1024
+MAX_TEXT_EXTRACTION_BYTES = 512 * 1024
 MIN_UTF8_TEXT_CHARS = 20
 DOCUMENT_CONFIDENCE_BASE_SCORES = {"PDF": 0.45, "DWG": 0.5, "DXF": 0.55}
 DOCUMENT_CONFIDENCE_PER_FIELD = 0.08
 PLAN_REQUIRED_FIELDS = ("bgf_m2", "geschosse", "wohnungen")
 PLAN_API_READY_FIELDS = ("bundesland", "building_type", "bgf_m2", "geschosse")
+PLAN_POLICY_FIELDS = ("bundesland", "building_type", "bgf_m2", "geschosse", "wohnungen")
+RESIDENTIAL_BUILDING_TYPES = {"wohngebaeude", "mehrfamilienhaus", "einfamilienhaus"}
+FIELD_AUTHORITY_REGISTRY = {
+    "bundesland": {
+        "standards": ["Landesbauordnung"],
+        "source_weights": {"IFC": 1.0, "DXF": 0.8, "DWG": 0.78, "PDF": 0.7, "default": 0.55, "estimated": 0.6},
+    },
+    "building_type": {
+        "standards": ["OIB-Richtlinien Gebäudekategorie"],
+        "source_weights": {"IFC": 1.0, "DXF": 0.82, "DWG": 0.8, "PDF": 0.72, "default": 0.55, "estimated": 0.6},
+    },
+    "bgf_m2": {
+        "standards": ["ÖNORM B 1800", "OIB-RL 6"],
+        "source_weights": {"IFC": 1.0, "DXF": 0.85, "DWG": 0.82, "PDF": 0.72, "default": 0.0, "estimated": 0.62},
+    },
+    "geschosse": {
+        "standards": ["OIB-RL 4", "Landesbauordnung"],
+        "source_weights": {"IFC": 1.0, "DXF": 0.85, "DWG": 0.82, "PDF": 0.74, "default": 0.0, "estimated": 0.62},
+    },
+    "wohnungen": {
+        "standards": ["Stellplatzverordnung", "OIB-RL 4"],
+        "source_weights": {"IFC": 0.92, "DXF": 0.78, "DWG": 0.75, "PDF": 0.68, "default": 0.0, "estimated": 0.58},
+    },
+}
 PLAN_PROJECT_PATTERNS = [
     re.compile(r"projekt(?:name)?\s*[:=]\s*([^\n\r]+)", re.IGNORECASE),
     re.compile(r"project(?:name)?\s*[:=]\s*([^\n\r]+)", re.IGNORECASE),
@@ -148,6 +176,9 @@ class PlanImportResult(BaseModel):
     plan_ready_for_api: bool
     confidence_score: float
     epistemic_state: str
+    field_source_metadata: Dict[str, Dict[str, Any]]
+    information_sources: List[Dict[str, Any]]
+    epistemic_trace: Dict[str, Any]
     derived_metrics: Dict[str, Any]
     downstream_results: Dict[str, Any]
     warnings: List[str]
@@ -158,6 +189,14 @@ class PlanReportResult(BaseModel):
 
     ingestion: PlanImportResult
     report: Dict[str, Any]
+
+
+@dataclass
+class FinalizedPlanFields:
+    finalized: Dict[str, Any]
+    extracted_fields: List[str]
+    defaulted_fields: List[str]
+    missing_fields: List[str]
 
 
 @router.post("/upload-ifc", response_model=IFCAnalysisResult)
@@ -840,12 +879,17 @@ async def _import_plan_file(
         confidence_score = 0.95
         epistemic_state = "VERIFIED"
         ingestion_mode = "native_ifc"
+        field_source_metadata = _build_ifc_field_source_metadata(extracted_plan)
     else:
         plan_text = _extract_text_from_plan_file(file_path)
         parsed_fields = _parse_plan_text(plan_text)
-        extracted_plan, extracted_fields, defaulted_fields, missing_fields = _finalize_plan_fields(
+        finalized_fields = _finalize_plan_fields(
             parsed_fields, bundesland, building_type
         )
+        extracted_plan = finalized_fields.finalized
+        extracted_fields = finalized_fields.extracted_fields
+        defaulted_fields = finalized_fields.defaulted_fields
+        missing_fields = finalized_fields.missing_fields
         derived_metrics = await _derive_document_plan_metrics(plan_text, extracted_plan)
         ingestion_mode = "heuristic_text_scan"
         try:
@@ -853,6 +897,14 @@ async def _import_plan_file(
         except ValueError as exc:
             raise HTTPException(status_code=400, detail=str(exc)) from exc
         epistemic_state = "ESTIMATED" if extracted_fields else "UNKNOWN"
+        field_source_metadata = _build_document_field_source_metadata(
+            source_type=source_type,
+            extracted_plan=extracted_plan,
+            extracted_fields=extracted_fields,
+            defaulted_fields=defaulted_fields,
+            missing_fields=missing_fields,
+            confidence_score=confidence_score,
+        )
         if not extracted_fields:
             warnings.append("No structured plan attributes detected in uploaded document.")
         if missing_fields:
@@ -860,12 +912,24 @@ async def _import_plan_file(
                 f"Missing structured plan fields for full downstream validation: {', '.join(missing_fields)}"
             )
 
-    downstream_results = await _run_plan_downstream_checks(extracted_plan)
+    downstream_results = await _run_plan_downstream_checks(extracted_plan, field_source_metadata)
+    if downstream_results.get("estimated_fields"):
+        warnings.append("Deterministic fallback estimation used for missing plan fields.")
 
     if not downstream_results["compliance"]["checked"]:
         warnings.append(downstream_results["compliance"]["reason"])
     if not downstream_results["parking"]["checked"]:
         warnings.append(downstream_results["parking"]["reason"])
+
+    information_sources = _build_information_sources(source_type, field_source_metadata, downstream_results)
+    epistemic_trace = _build_epistemic_trace(
+        source_type=source_type,
+        extracted_plan=extracted_plan,
+        field_source_metadata=field_source_metadata,
+        confidence_score=confidence_score,
+        epistemic_state=epistemic_state,
+        downstream_results=downstream_results,
+    )
 
     return PlanImportResult(
         file_name=filename,
@@ -878,6 +942,9 @@ async def _import_plan_file(
         plan_ready_for_api=downstream_results["compliance"]["checked"],
         confidence_score=confidence_score,
         epistemic_state=epistemic_state,
+        field_source_metadata=field_source_metadata,
+        information_sources=information_sources,
+        epistemic_trace=epistemic_trace,
         derived_metrics=derived_metrics,
         downstream_results=downstream_results,
         warnings=warnings,
@@ -918,10 +985,110 @@ def _derive_ifc_plan_metrics(extracted_plan: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
+def _build_ifc_field_source_metadata(extracted_plan: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
+    """Describe where IFC-derived plan fields come from."""
+    metadata: Dict[str, Dict[str, Any]] = {}
+    for field in PLAN_POLICY_FIELDS:
+        value = extracted_plan.get(field)
+        standards = FIELD_AUTHORITY_REGISTRY.get(field, {}).get("standards", [])
+        if value is None:
+            metadata[field] = {
+                "status": "missing",
+                "source_layer": "ifc_native_geometry",
+                "source_type": "IFC",
+                "knowledge_type": "unknown",
+                "verification_level": VerificationLevel.UNAVAILABLE.value,
+                "confidence": 0.0,
+                "authority_weight": 0.0,
+                "standards": standards,
+                "reason": "No IFC-native value available for this field.",
+            }
+            continue
+
+        metadata[field] = {
+            "status": "verified",
+            "source_layer": "ifc_native_geometry",
+            "source_type": "IFC",
+            "knowledge_type": "verified",
+            "verification_level": VerificationLevel.CALCULATED.value,
+            "confidence": 1.0,
+            "authority_weight": 1.0,
+            "standards": standards,
+            "reason": "Derived deterministically from IFC-native structured geometry/metadata.",
+        }
+    return metadata
+
+
+def _build_document_field_source_metadata(
+    source_type: str,
+    extracted_plan: Dict[str, Any],
+    extracted_fields: List[str],
+    defaulted_fields: List[str],
+    missing_fields: List[str],
+    confidence_score: float,
+) -> Dict[str, Dict[str, Any]]:
+    """Describe provenance for heuristic PDF/DWG/DXF-derived fields."""
+    metadata: Dict[str, Dict[str, Any]] = {}
+    for field in PLAN_POLICY_FIELDS:
+        standards = FIELD_AUTHORITY_REGISTRY.get(field, {}).get("standards", [])
+        authority_weight = _get_authority_weight(field, source_type)
+
+        if field in extracted_fields:
+            metadata[field] = {
+                "status": "extracted",
+                "source_layer": f"{source_type.lower()}_heuristic_text",
+                "source_type": source_type,
+                "knowledge_type": "estimated",
+                "verification_level": VerificationLevel.PREDICTED.value,
+                "confidence": round(min(confidence_score * authority_weight, 0.95), 2),
+                "authority_weight": authority_weight,
+                "standards": standards,
+                "reason": "Extracted deterministically via text/metadata pattern matching without external parser.",
+            }
+        elif field in defaulted_fields:
+            metadata[field] = {
+                "status": "defaulted",
+                "source_layer": "request_defaults",
+                "source_type": "DEFAULT",
+                "knowledge_type": "estimated",
+                "verification_level": VerificationLevel.ASSUMED.value,
+                "confidence": 0.55,
+                "authority_weight": _get_authority_weight(field, "default"),
+                "standards": standards,
+                "reason": "Filled from explicit request defaults because document did not contain a structured value.",
+            }
+        elif field in missing_fields:
+            metadata[field] = {
+                "status": "missing",
+                "source_layer": f"{source_type.lower()}_heuristic_text",
+                "source_type": source_type,
+                "knowledge_type": "unknown",
+                "verification_level": VerificationLevel.UNAVAILABLE.value,
+                "confidence": 0.0,
+                "authority_weight": 0.0,
+                "standards": standards,
+                "reason": "Required field could not be extracted from the uploaded heuristic document.",
+            }
+        else:
+            metadata[field] = {
+                "status": "available",
+                "source_layer": f"{source_type.lower()}_heuristic_text",
+                "source_type": source_type,
+                "knowledge_type": "estimated",
+                "verification_level": VerificationLevel.PREDICTED.value,
+                "confidence": round(min(confidence_score * authority_weight, 0.95), 2),
+                "authority_weight": authority_weight,
+                "standards": standards,
+                "reason": "Value available through the heuristic document pipeline.",
+            }
+        metadata[field]["value"] = extracted_plan.get(field)
+    return metadata
+
+
 def _extract_text_from_plan_file(file_path: str) -> str:
     """Extract searchable text from PDF/DWG/DXF files without external dependencies."""
     with open(file_path, "rb") as uploaded_file:
-        raw = uploaded_file.read(TEXT_EXTRACTION_MAX_BYTES)
+        raw = uploaded_file.read(MAX_TEXT_EXTRACTION_BYTES)
 
     utf8_decoded = raw.decode("utf-8", errors="ignore")
     latin1_decoded = raw.decode("latin1", errors="ignore")
@@ -1011,7 +1178,7 @@ async def _derive_document_plan_metrics(
 
 def _finalize_plan_fields(
     parsed_fields: Dict[str, Any], bundesland: str, building_type: str
-) -> tuple[Dict[str, Any], List[str], List[str], List[str]]:
+) -> FinalizedPlanFields:
     """Apply safe defaults for routing while tracking which values were extracted."""
     extracted_fields = [key for key, value in parsed_fields.items() if value is not None]
     defaulted_fields: List[str] = []
@@ -1029,7 +1196,12 @@ def _finalize_plan_fields(
         for field in ("bundesland", "building_type", *PLAN_REQUIRED_FIELDS)
         if finalized.get(field) is None
     ]
-    return finalized, extracted_fields, defaulted_fields, missing_fields
+    return FinalizedPlanFields(
+        finalized=finalized,
+        extracted_fields=extracted_fields,
+        defaulted_fields=defaulted_fields,
+        missing_fields=missing_fields,
+    )
 
 
 def _extract_project_name(plan_text: str) -> str:
@@ -1092,17 +1264,27 @@ def _calculate_document_confidence(source_type: str, extracted_fields: List[str]
     return round(min(confidence, 0.85), 2)
 
 
+def _get_authority_weight(field: str, source_type: str) -> float:
+    """Return the authority weighting for a field/source combination."""
+    registry = FIELD_AUTHORITY_REGISTRY.get(field, {})
+    source_weights = registry.get("source_weights", {})
+    return source_weights.get(source_type, source_weights.get(source_type.upper(), 0.6))
+
+
 def _cleanup_temp_file(file_path: str) -> None:
     """Remove a temporary upload file if it still exists."""
     if os.path.exists(file_path):
         os.unlink(file_path)
 
 
-async def _run_plan_downstream_checks(extracted_plan: Dict[str, Any]) -> Dict[str, Any]:
+async def _run_plan_downstream_checks(
+    extracted_plan: Dict[str, Any], field_source_metadata: Dict[str, Dict[str, Any]]
+) -> Dict[str, Any]:
     """Run existing downstream validation routes when enough structured data is present."""
     downstream_results: Dict[str, Any] = {
         "compliance": {"checked": False, "reason": "Missing fields for compliance check."},
         "parking": {"checked": False, "reason": "Missing fields for parking calculation."},
+        "estimated_fields": {},
     }
 
     compliance_ready = all(extracted_plan.get(field) is not None for field in PLAN_API_READY_FIELDS)
@@ -1122,6 +1304,8 @@ async def _run_plan_downstream_checks(extracted_plan: Dict[str, Any]) -> Dict[st
             "results": [result.model_dump() for result in compliance_results],
         }
 
+    _bridge_missing_plan_inputs(extracted_plan, field_source_metadata, downstream_results)
+
     parking_ready = extracted_plan.get("bundesland") is not None and extracted_plan.get("wohnungen") is not None
     if parking_ready:
         parking_request = StellplatzRequest(
@@ -1136,6 +1320,204 @@ async def _run_plan_downstream_checks(extracted_plan: Dict[str, Any]) -> Dict[st
         }
 
     return downstream_results
+
+
+def _bridge_missing_plan_inputs(
+    extracted_plan: Dict[str, Any],
+    field_source_metadata: Dict[str, Dict[str, Any]],
+    downstream_results: Dict[str, Any],
+) -> None:
+    """Create deterministic low-confidence bridges for missing downstream inputs."""
+    if extracted_plan.get("wohnungen") is None:
+        estimated_wohnungen = _estimate_wohnungen_from_plan(extracted_plan)
+        if estimated_wohnungen is not None:
+            extracted_plan["wohnungen"] = estimated_wohnungen
+            field_source_metadata["wohnungen"] = {
+                "status": "estimated",
+                "source_layer": "deterministic_area_ratio_bridge",
+                "source_type": "ESTIMATED",
+                "knowledge_type": "estimated",
+                "verification_level": VerificationLevel.PREDICTED.value,
+                "confidence": 0.58,
+                "authority_weight": _get_authority_weight("wohnungen", "estimated"),
+                "standards": FIELD_AUTHORITY_REGISTRY["wohnungen"]["standards"],
+                "value": estimated_wohnungen,
+                "reason": "Estimated deterministically from BGF and building type to bridge missing residential unit count.",
+            }
+            downstream_results["estimated_fields"]["wohnungen"] = {
+                "value": estimated_wohnungen,
+                "reason": "Derived from BGF/building_type bridge",
+                "confidence": 0.58,
+            }
+
+
+def _estimate_wohnungen_from_plan(extracted_plan: Dict[str, Any]) -> Optional[int]:
+    """Estimate apartment count when residential inputs are sufficient."""
+    bgf_m2 = extracted_plan.get("bgf_m2")
+    building_type = extracted_plan.get("building_type")
+
+    if bgf_m2 is None or building_type not in RESIDENTIAL_BUILDING_TYPES:
+        return None
+
+    if building_type == "einfamilienhaus":
+        return 1
+
+    area_per_unit = 85 if building_type == "mehrfamilienhaus" else 95
+    return max(1, round(float(bgf_m2) / area_per_unit))
+
+
+def _build_information_sources(
+    source_type: str,
+    field_source_metadata: Dict[str, Dict[str, Any]],
+    downstream_results: Dict[str, Any],
+) -> List[Dict[str, Any]]:
+    """Summarize where the program obtained its plan information."""
+    sources: List[Dict[str, Any]] = [
+        {
+            "source": source_type,
+            "role": "uploaded_plan_file",
+            "description": "Primary upload source for geometry/text/metadata extraction.",
+        },
+        {
+            "source": "regex_pattern_registry",
+            "role": "deterministic_extraction",
+            "description": "Repository-owned deterministic pattern matching for plan fields and OCR/CAD text.",
+        },
+        {
+            "source": "api.routers.compliance",
+            "role": "regulatory_validation",
+            "description": "Existing OIB/ÖNORM compliance routing over normalized plan fields.",
+        },
+        {
+            "source": "api.routers.calculations",
+            "role": "derived_calculation",
+            "description": "Existing parking and heating-load calculations over normalized/bridged inputs.",
+        },
+        {
+            "source": "genesis.framework",
+            "role": "epistemic_policy",
+            "description": "GENESIS epistemic states and decision policy assessment for deterministic vs heuristic processing.",
+        },
+    ]
+    if downstream_results.get("estimated_fields"):
+        sources.append(
+            {
+                "source": "deterministic_area_ratio_bridge",
+                "role": "missing_input_bridge",
+                "description": "Builds low-confidence derived inputs when the source document lacks required residential metadata.",
+            }
+        )
+
+    for field, metadata in field_source_metadata.items():
+        standards = metadata.get("standards")
+        if standards:
+            sources.append(
+                {
+                    "source": metadata.get("source_layer"),
+                    "role": f"{field}_authority",
+                    "description": f"Field '{field}' is evaluated against {', '.join(standards)}.",
+                }
+            )
+
+    seen = set()
+    unique_sources: List[Dict[str, Any]] = []
+    for source in sources:
+        key = (source["source"], source["role"])
+        if key not in seen:
+            seen.add(key)
+            unique_sources.append(source)
+    return unique_sources
+
+
+def _build_epistemic_trace(
+    source_type: str,
+    extracted_plan: Dict[str, Any],
+    field_source_metadata: Dict[str, Dict[str, Any]],
+    confidence_score: float,
+    epistemic_state: str,
+    downstream_results: Dict[str, Any],
+) -> Dict[str, Any]:
+    """Build explicit epistemic/policy trace for plan ingestion."""
+    input_states = {
+        field: _field_metadata_to_epistemic_state(field, metadata).to_dict()
+        for field, metadata in field_source_metadata.items()
+        if field in PLAN_POLICY_FIELDS
+    }
+    policy_engine = DecisionPolicyEngine(confidence_threshold=0.55)
+    requested_mode = DecisionMode.DETERMINISTIC if source_type == "IFC" else DecisionMode.PROBABILISTIC
+    policy_result = policy_engine.check_decision_allowed(
+        decision_mode=requested_mode,
+        inputs={
+            field: _field_metadata_to_epistemic_state(field, metadata)
+            for field, metadata in field_source_metadata.items()
+            if field in PLAN_POLICY_FIELDS
+        },
+        decision_type="Planimport",
+        metadata={"source_type": source_type, "epistemic_state": epistemic_state},
+    )
+
+    audit_hash = hashlib.sha256(
+        json.dumps(
+            {
+                "source_type": source_type,
+                "plan": extracted_plan,
+                "field_source_metadata": field_source_metadata,
+                "estimated_fields": downstream_results.get("estimated_fields", {}),
+            },
+            sort_keys=True,
+            ensure_ascii=False,
+        ).encode("utf-8")
+    ).hexdigest()
+
+    return {
+        "knowledge_type": "verified" if source_type == "IFC" else ("estimated" if confidence_score > 0 else "unknown"),
+        "verification_level": (
+            VerificationLevel.CALCULATED.value
+            if source_type == "IFC"
+            else (
+                VerificationLevel.PREDICTED.value
+                if confidence_score > 0
+                else VerificationLevel.UNAVAILABLE.value
+            )
+        ),
+        "confidence_score": confidence_score,
+        "requested_mode": requested_mode.value,
+        "policy_assessment": {
+            "allowed": policy_result["allowed"],
+            "mode": policy_result["mode"],
+            "reason": policy_result["reason"],
+            "violations": policy_result["violations"],
+        },
+        "input_states": input_states,
+        "estimated_fields": downstream_results.get("estimated_fields", {}),
+        "audit_hash": audit_hash,
+    }
+
+
+def _field_metadata_to_epistemic_state(field: str, metadata: Dict[str, Any]) -> EpistemicState:
+    """Convert field provenance metadata into a GENESIS epistemic state."""
+    knowledge_type = metadata.get("knowledge_type")
+    if knowledge_type == "verified":
+        return EpistemicState(
+            value=metadata.get("value"),
+            knowledge_type=KnowledgeType.VERIFIED,
+            verification_level=VerificationLevel(metadata["verification_level"]),
+            confidence=1.0,
+            source=metadata.get("source_layer", field),
+            metadata={"field": field, "reason": metadata.get("reason"), "standards": metadata.get("standards", [])},
+        )
+
+    if knowledge_type == "estimated":
+        return EpistemicState(
+            value=metadata.get("value"),
+            knowledge_type=KnowledgeType.ESTIMATED,
+            verification_level=VerificationLevel(metadata["verification_level"]),
+            confidence=float(metadata.get("confidence", 0.5)),
+            source=metadata.get("source_layer", field),
+            metadata={"field": field, "reason": metadata.get("reason"), "standards": metadata.get("standards", [])},
+        )
+
+    return EpistemicState.from_unknown(metadata.get("reason", f"Missing field {field}"))
 
 
 async def _generate_plan_report(ingestion: PlanImportResult) -> Dict[str, Any]:
@@ -1157,6 +1539,9 @@ async def _generate_plan_report(ingestion: PlanImportResult) -> Dict[str, Any]:
     report = await generate_comprehensive_report(report_request)
     report["source_file"] = ingestion.file_name
     report["epistemic_state"] = ingestion.epistemic_state
+    report["epistemic_trace"] = ingestion.epistemic_trace
+    report["field_source_metadata"] = ingestion.field_source_metadata
+    report["information_sources"] = ingestion.information_sources
     report["plan_metrics"] = ingestion.derived_metrics
     report["downstream_results"] = ingestion.downstream_results
 
@@ -1172,6 +1557,9 @@ async def _generate_plan_report(ingestion: PlanImportResult) -> Dict[str, Any]:
 
     report["executive_summary"]["warnings"] = len(ingestion.warnings)
     report["executive_summary"]["critical_issues"] = _count_plan_critical_issues(ingestion)
+    report["executive_summary"]["decision_mode"] = ingestion.epistemic_trace["policy_assessment"]["mode"]
+    report["executive_summary"]["information_sources"] = len(ingestion.information_sources)
+    report["governance"] = _build_report_governance(ingestion)
     return report
 
 
@@ -1202,3 +1590,28 @@ def _count_plan_critical_issues(ingestion: PlanImportResult) -> int:
             if check.get("status") == "fail":
                 critical_issues += 1
     return critical_issues
+
+
+def _build_report_governance(ingestion: PlanImportResult) -> Dict[str, Any]:
+    """Add explicit governance signals for automated reports."""
+    policy_engine = DecisionPolicyEngine(confidence_threshold=0.55)
+    decision_result = policy_engine.check_decision_allowed(
+        decision_mode=DecisionMode.PROBABILISTIC if ingestion.source_type != "IFC" else DecisionMode.DETERMINISTIC,
+        inputs={
+            field: _field_metadata_to_epistemic_state(field, metadata)
+            for field, metadata in ingestion.field_source_metadata.items()
+            if field in PLAN_POLICY_FIELDS
+        },
+        decision_type="Compliance-Papier",
+        metadata={"report_id": "pending", "source_file": ingestion.file_name},
+    )
+    return {
+        "policy_decision": {
+            "allowed": decision_result["allowed"],
+            "mode": decision_result["mode"],
+            "reason": decision_result["reason"],
+            "violations": decision_result["violations"],
+        },
+        "audit_hash": ingestion.epistemic_trace["audit_hash"],
+        "human_review_required": decision_result["mode"] == DecisionMode.FALLBACK.value,
+    }
