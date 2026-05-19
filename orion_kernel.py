@@ -262,6 +262,162 @@ def cmd_reset(kind="soft"):
     print(f"[ORION] Reset({kind}) · resets={s['resets']} · root={m['root_sha256'][:16]}…")
 
 
+# ---------------------------------------------------------------------------
+# Deterministischer Plan-Abweichungs-Evaluator
+# ---------------------------------------------------------------------------
+
+# Schwellenwerte für Abweichungsschwere
+_DEVIATION_THRESHOLDS = {
+    "critical": 0.20,  # > 20 % Abweichung → CRITICAL
+    "warning": 0.05,  # > 5 % Abweichung → WARNING
+}
+
+# Mapping: Severity → ORION-Zustand
+_SEVERITY_TO_STATE = {
+    "CRITICAL": "INSTABIL",
+    "WARNING": "TRANSITION",
+    "OK": "VERIFIED",
+}
+
+
+def _compute_item_deviation(plan_val, actual_val):
+    """
+    Berechnet die relative Abweichung eines Planwerts zum Istwert.
+
+    Gibt ``(relative_deviation, absolute_deviation)`` zurück.
+    Numerische Werte: Prozentabweichung.
+    Nicht-numerische Werte (str, bool, …): 0.0 bei Übereinstimmung, 1.0 bei Abweichung.
+    """
+    if isinstance(plan_val, bool) or isinstance(actual_val, bool):
+        # Boolesche Vergleiche — kein Prozentsatz sinnvoll
+        match = plan_val == actual_val
+        return (0.0, 0.0) if match else (1.0, 1.0)
+
+    if isinstance(plan_val, (int, float)) and isinstance(actual_val, (int, float)):
+        abs_dev = abs(float(actual_val) - float(plan_val))
+        if plan_val == 0:
+            rel_dev = 0.0 if actual_val == 0 else 1.0
+        else:
+            rel_dev = abs_dev / abs(float(plan_val))
+        return (rel_dev, abs_dev)
+
+    # String / sonstige: exakter Vergleich
+    match = str(plan_val).strip().lower() == str(actual_val).strip().lower()
+    return (0.0, 0.0) if match else (1.0, 1.0)
+
+
+def _classify_severity(rel_dev: float) -> str:
+    """Klassifiziert die Abweichungsschwere deterministisch."""
+    if rel_dev > _DEVIATION_THRESHOLDS["critical"]:
+        return "CRITICAL"
+    if rel_dev > _DEVIATION_THRESHOLDS["warning"]:
+        return "WARNING"
+    return "OK"
+
+
+def evaluate_plan_deviation(plan: dict, actual: dict) -> dict:
+    """
+    Deterministischer Plan-Abweichungs-Evaluator.
+
+    Vergleicht Planwerte (``plan``) mit Istwerten (``actual``).
+    Jeder Schlüssel in ``plan`` wird geprüft; fehlende Istwerte
+    werden als kritische Abweichung gewertet.
+
+    Rückgabe-Dict:
+    - ``deviations``: Liste aller Abweichungs-Einträge
+    - ``overall_severity``: "OK" | "WARNING" | "CRITICAL"
+    - ``orion_state``: "VERIFIED" | "TRANSITION" | "INSTABIL"
+    - ``compliance_score``: 0.0–1.0 (1.0 = vollständig plankonform)
+    - ``violated_items``: Nur die Einträge mit Abweichung
+    - ``audit_hash``: SHA256-Fingerabdruck des Vergleichs (Audit-Trail)
+    """
+    deviations = []
+    severity_counts = {"OK": 0, "WARNING": 0, "CRITICAL": 0}
+
+    for key, plan_val in plan.items():
+        actual_val = actual.get(key)
+
+        if actual_val is None:
+            # Planwert nicht im Ist vorhanden → kritisch
+            entry = {
+                "item": key,
+                "plan": plan_val,
+                "actual": None,
+                "relative_deviation": 1.0,
+                "absolute_deviation": None,
+                "severity": "CRITICAL",
+                "message": f"Planwert '{key}' fehlt im Istzustand",
+            }
+        else:
+            rel_dev, abs_dev = _compute_item_deviation(plan_val, actual_val)
+            severity = _classify_severity(rel_dev)
+            message = (
+                f"'{key}': Plan={plan_val}, Ist={actual_val}, "
+                f"Abweichung={rel_dev * 100:.1f}% → {severity}"
+            )
+            entry = {
+                "item": key,
+                "plan": plan_val,
+                "actual": actual_val,
+                "relative_deviation": round(rel_dev, 6),
+                "absolute_deviation": round(abs_dev, 6) if isinstance(abs_dev, float) else abs_dev,
+                "severity": severity,
+                "message": message,
+            }
+
+        severity_counts[entry["severity"]] += 1
+        deviations.append(entry)
+
+    total = len(deviations)
+    ok_count = severity_counts["OK"]
+    compliance_score = round(ok_count / total, 4) if total > 0 else 1.0
+
+    # Gesamt-Severity: schlechtester Einzelwert gewinnt
+    if severity_counts["CRITICAL"] > 0:
+        overall_severity = "CRITICAL"
+    elif severity_counts["WARNING"] > 0:
+        overall_severity = "WARNING"
+    else:
+        overall_severity = "OK"
+
+    orion_state = _SEVERITY_TO_STATE[overall_severity]
+
+    violated_items = [d for d in deviations if d["severity"] != "OK"]
+
+    # Deterministischer Audit-Hash über Eingabedaten
+    fingerprint = json.dumps({"plan": plan, "actual": actual}, sort_keys=True, ensure_ascii=False)
+    audit_hash = hashlib.sha256(fingerprint.encode("utf-8")).hexdigest()
+
+    result = {
+        "deviations": deviations,
+        "overall_severity": overall_severity,
+        "orion_state": orion_state,
+        "compliance_score": compliance_score,
+        "violated_items": violated_items,
+        "severity_counts": severity_counts,
+        "total_items": total,
+        "audit_hash": audit_hash,
+        "evaluated_at": now(),
+    }
+
+    # Abweichung im Proof-Trail vermerken (nur wenn Abweichungen existieren)
+    if violated_items:
+        try:
+            append_proof(
+                "PLAN_DEVIATION",
+                {
+                    "overall_severity": overall_severity,
+                    "orion_state": orion_state,
+                    "violated_count": len(violated_items),
+                    "audit_hash": audit_hash,
+                },
+            )
+        except Exception:
+            pass  # Proof-Trail ist optional — kein Absturz bei I/O-Fehler
+
+    return result
+
+
 if __name__ == "__main__":
     args = sys.argv[1:]
     if not args:

@@ -549,11 +549,13 @@ async def generate_compliance_report(
     """
     # Run all compliance checks
     oib_results = await check_oib_rl_compliance(
-        bundesland=bundesland,
-        building_type=building_type,
-        bgf_m2=bgf_m2,
-        geschosse=geschosse,
-        wohnungen=wohnungen,
+        ComplianceCheckRequest(
+            bundesland=bundesland,
+            building_type=building_type,
+            bgf_m2=bgf_m2,
+            geschosse=geschosse,
+            wohnungen=wohnungen,
+        )
     )
 
     # Summary statistics
