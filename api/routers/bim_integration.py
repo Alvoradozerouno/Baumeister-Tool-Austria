@@ -36,7 +36,7 @@ PLAN_PROJECT_PATTERNS = [
 BUILDING_TYPE_PATTERNS = {
     "mehrfamilienhaus": re.compile(r"mehrfamilienhaus|mfh", re.IGNORECASE),
     "wohngebaeude": re.compile(
-        r"wohngebaeude|wohngebaude|wohngebaeude|wohnhaus|wohnbau", re.IGNORECASE
+        r"wohngebaeude|wohngebaude|wohnhaus|wohnbau", re.IGNORECASE
     ),
     "einfamilienhaus": re.compile(r"einfamilienhaus|efh", re.IGNORECASE),
     "buerogebaeude": re.compile(r"buerogebaeude|buerobau|buerohaus|office", re.IGNORECASE),

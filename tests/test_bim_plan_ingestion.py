@@ -12,21 +12,21 @@ client = TestClient(app)
 
 class TestPlanIngestion:
     def test_upload_pdf_plan_runs_downstream_checks(self):
-        pdf_content = b"""%PDF-1.4
+        pdf_content = """%PDF-1.4
 Projekt: Wohnpark Donaustadt
 Bundesland: Wien
-Gebaeudetyp: Wohngebaeude
+Gebäudetyp: Wohngebäude
 BGF: 1280 m2
 Geschosse: 4
 Wohnungen: 12
 Fenster: 24
-Tueren: 18
-Raeume: 16
+Türen: 18
+Räume: 16
 U-Wert Wand: 0.22
 U-Wert Dach: 0.14
 U-Wert Fenster: 0.85
 %%EOF
-"""
+""".encode("utf-8")
         response = client.post(
             "/api/v1/bim/upload-plan",
             files={"file": ("musterplan.pdf", pdf_content, "application/pdf")},
@@ -82,10 +82,10 @@ Windows 30
         assert data["derived_metrics"]["cad_layers_detected"] == ["cad_layer_metadata"]
 
     def test_upload_plan_report_returns_report_and_heating_load(self):
-        pdf_content = b"""%PDF-1.4
+        pdf_content = """%PDF-1.4
 Projekt: Bauvorhaben Graz
 Bundesland: Steiermark
-Gebaeudetyp: Wohngebaeude
+Gebäudetyp: Wohngebäude
 BGF: 980 m2
 Geschosse: 3
 Wohnungen: 8
@@ -95,7 +95,7 @@ U-Wert Dach: 0.16
 U-Wert Fenster: 0.35
 OCR scan layer
 %%EOF
-"""
+""".encode("utf-8")
         response = client.post(
             "/api/v1/bim/upload-plan-report",
             files={"file": ("bauvorhaben.pdf", pdf_content, "application/pdf")},
