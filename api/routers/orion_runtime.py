@@ -120,6 +120,9 @@ router = APIRouter(prefix="/api/v1/orion-runtime", tags=["ORION Runtime"])
 _WORKFLOW_STATES: Dict[str, WorkflowState] = {}
 _COMPONENT_STATUS = "GREEN"  # Track overall component status
 
+# Configuration
+_CONFIDENCE_THRESHOLD = 0.5  # Minimum confidence for ESTIMATED inputs in probabilistic mode
+
 
 # =========================================================================
 # HELPER FUNCTIONS
@@ -196,7 +199,7 @@ def _evaluate_decision_policy(
     try:
         from genesis.framework.policy import DecisionPolicyEngine
 
-        engine = DecisionPolicyEngine(confidence_threshold=0.5)
+        engine = DecisionPolicyEngine(confidence_threshold=_CONFIDENCE_THRESHOLD)
 
         # Simulate decision evaluation
         if mode == "deterministic":
@@ -260,16 +263,18 @@ async def evaluate_decision(request: DecisionRequest) -> DecisionResponse:
     if not decision_allowed:
         fallback_reason = policy_reason
 
+    # Determine state based on decision outcome
     knowledge_type = "verified" if decision_allowed else "unknown"
-    state = (
-        "VERIFIED" if decision_allowed and request.mode == "deterministic" 
-        else "ESTIMATED" if decision_allowed 
-        else "UNKNOWN"
-    )
-
-    # If fallback needed, state = ABSTAIN (decision abstained per policy)
+    
+    # Set state with explicit if-elif-else for clarity
     if not decision_allowed:
-        state = "ABSTAIN"
+        state = "ABSTAIN"  # Decision abstained per policy
+    elif decision_allowed and request.mode == "deterministic":
+        state = "VERIFIED"
+    elif decision_allowed:
+        state = "ESTIMATED"
+    else:
+        state = "UNKNOWN"
 
     work_step = _create_work_step_state(
         step_id=request.work_step,
