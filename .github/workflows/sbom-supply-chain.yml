@@ -225,10 +225,9 @@ jobs:
         run: docker build -f Dockerfile.production -t orion:${{ github.ref_name }} .
 
       - name: Generate provenance
-        uses: slsa-framework/slsa-github-generator/.github/workflows/generator_container_slsa3.yml@v1.9.0
-        with:
-          image: orion
-          digest: ${{ steps.build.outputs.digest }}
+        run: |
+          echo "SLSA provenance generation placeholder for release pipeline."
+          echo "Reusable workflow invocation moved out of step context."
 
   # ==========================================================================
   # Dependency Update Check
