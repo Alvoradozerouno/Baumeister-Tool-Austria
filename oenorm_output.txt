@@ -17,26 +17,26 @@ test_orion_oenorm_a2063.py::TestLVPosition::test_lv_position_creation
 test_orion_oenorm_a2063.py::TestLVPosition::test_lv_position_gp_recalculation 
 test_orion_oenorm_a2063.py::TestLVGeneration::test_generiere_lv_groessere_bgf 
 [gw0] [ 16%] PASSED test_orion_oenorm_a2063.py::TestLVPosition::test_lv_position_gp_recalculation 
-test_orion_oenorm_a2063.py::TestLVGeneration::test_lv_gewerke_vollstaendig 
 [gw1] [ 22%] PASSED test_orion_oenorm_a2063.py::TestLVGeneration::test_generiere_lv_groessere_bgf 
+test_orion_oenorm_a2063.py::TestLVGeneration::test_lv_gewerke_vollstaendig 
 test_orion_oenorm_a2063.py::TestOENORMExport::test_exportiere_oenorm_json_gewerke_gruppierung 
 [gw0] [ 27%] PASSED test_orion_oenorm_a2063.py::TestLVGeneration::test_lv_gewerke_vollstaendig 
-test_orion_oenorm_a2063.py::TestOENORMExport::test_exportiere_oenorm_json_structure 
 [gw1] [ 33%] PASSED test_orion_oenorm_a2063.py::TestOENORMExport::test_exportiere_oenorm_json_gewerke_gruppierung 
+test_orion_oenorm_a2063.py::TestOENORMExport::test_exportiere_oenorm_json_structure 
 test_orion_oenorm_a2063.py::TestOENORMExport::test_exportiere_oenorm_bundesland_spezifika 
 [gw0] [ 38%] PASSED test_orion_oenorm_a2063.py::TestOENORMExport::test_exportiere_oenorm_json_structure 
-test_orion_oenorm_a2063.py::TestAngebotsvergleich::test_vergleiche_angebote_basic 
 [gw1] [ 44%] PASSED test_orion_oenorm_a2063.py::TestOENORMExport::test_exportiere_oenorm_bundesland_spezifika 
-[gw0] [ 50%] PASSED test_orion_oenorm_a2063.py::TestAngebotsvergleich::test_vergleiche_angebote_basic 
+test_orion_oenorm_a2063.py::TestAngebotsvergleich::test_vergleiche_angebote_basic 
 test_orion_oenorm_a2063.py::TestAngebotsvergleich::test_vergleiche_angebote_preisspanne 
-test_orion_oenorm_a2063.py::TestAngebotsvergleich::test_vergleiche_angebote_empfehlung_warnung 
+[gw0] [ 50%] PASSED test_orion_oenorm_a2063.py::TestAngebotsvergleich::test_vergleiche_angebote_basic 
 [gw1] [ 55%] PASSED test_orion_oenorm_a2063.py::TestAngebotsvergleich::test_vergleiche_angebote_preisspanne 
-[gw0] [ 61%] PASSED test_orion_oenorm_a2063.py::TestAngebotsvergleich::test_vergleiche_angebote_empfehlung_warnung 
+test_orion_oenorm_a2063.py::TestAngebotsvergleich::test_vergleiche_angebote_empfehlung_warnung 
 test_orion_oenorm_a2063.py::TestAngebotsvergleich::test_vergleiche_angebote_sortierung 
-test_orion_oenorm_a2063.py::TestGAEBExport::test_exportiere_gaeb_xml_structure 
+[gw0] [ 61%] PASSED test_orion_oenorm_a2063.py::TestAngebotsvergleich::test_vergleiche_angebote_empfehlung_warnung 
 [gw1] [ 66%] PASSED test_orion_oenorm_a2063.py::TestAngebotsvergleich::test_vergleiche_angebote_sortierung 
-[gw0] [ 72%] PASSED test_orion_oenorm_a2063.py::TestGAEBExport::test_exportiere_gaeb_xml_structure 
+test_orion_oenorm_a2063.py::TestGAEBExport::test_exportiere_gaeb_xml_structure 
 test_orion_oenorm_a2063.py::TestVollstaendigeAusschreibung::test_erstelle_vollstaendige_ausschreibung_einfamilienhaus 
+[gw0] [ 72%] PASSED test_orion_oenorm_a2063.py::TestGAEBExport::test_exportiere_gaeb_xml_structure 
 test_orion_oenorm_a2063.py::TestVollstaendigeAusschreibung::test_erstelle_ausschreibung_verschiedene_bundeslaender 
 [gw1] [ 77%] PASSED test_orion_oenorm_a2063.py::TestVollstaendigeAusschreibung::test_erstelle_vollstaendige_ausschreibung_einfamilienhaus 
 test_orion_oenorm_a2063.py::TestVollstaendigeAusschreibung::test_erstelle_ausschreibung_custom_auftraggeber 
@@ -123,4 +123,4 @@ test_orion_oenorm_a2063.py                141      0   100%
 TOTAL                                   11567  11279     2%
 Coverage HTML written to dir htmlcov
 Coverage XML written to file coverage.xml
-============================== 18 passed in 4.88s ==============================
+============================== 18 passed in 5.29s ==============================
