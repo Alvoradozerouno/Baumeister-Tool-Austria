@@ -4,12 +4,16 @@ Processes IFC files and integrates with Austrian building regulations
 """
 
 import os
+import re
 import tempfile
 from datetime import datetime
 from typing import Any, Dict, List, Optional
 
 from fastapi import APIRouter, Depends, File, HTTPException, UploadFile
 from pydantic import BaseModel, Field
+
+from api.routers.calculations import StellplatzRequest, berechne_stellplaetze
+from api.routers.compliance import ComplianceCheckRequest, check_oib_rl_compliance
 
 router = APIRouter()
 
@@ -51,6 +55,23 @@ class BIMValidationRequest(BaseModel):
     check_stellplaetze: bool = True
 
 
+class PlanImportResult(BaseModel):
+    """Normalized plan import result for IFC/PDF/DWG files"""
+
+    file_name: str
+    source_type: str
+    ingestion_mode: str
+    extracted_plan: Dict[str, Any]
+    extracted_fields: List[str]
+    defaulted_fields: List[str]
+    missing_fields: List[str]
+    plan_ready_for_api: bool
+    confidence_score: float
+    epistemic_state: str
+    downstream_results: Dict[str, Any]
+    warnings: List[str]
+
+
 @router.post("/upload-ifc", response_model=IFCAnalysisResult)
 async def upload_ifc_file(
     file: UploadFile = File(...), bundesland: str = "wien", building_type: str = "mehrfamilienhaus"
@@ -85,6 +106,42 @@ async def upload_ifc_file(
         raise HTTPException(status_code=500, detail=f"IFC parsing failed: {str(e)}")
     finally:
         # Clean up temporary file
+        if os.path.exists(tmp_file_path):
+            os.unlink(tmp_file_path)
+
+
+@router.post("/upload-plan", response_model=PlanImportResult)
+async def upload_plan_file(
+    file: UploadFile = File(...), bundesland: str = "wien", building_type: str = "mehrfamilienhaus"
+):
+    """
+    📄 **General Plan Upload**
+
+    Imports IFC, PDF, DWG and DXF plan files and normalizes detectable plan data
+    for downstream compliance and calculation checks.
+    """
+    filename = os.path.basename(file.filename or "")
+    extension = os.path.splitext(filename)[1].lower()
+    supported_extensions = {".ifc", ".pdf", ".dwg", ".dxf"}
+
+    if extension not in supported_extensions:
+        raise HTTPException(
+            status_code=400,
+            detail="Supported plan formats: IFC, PDF, DWG, DXF",
+        )
+
+    with tempfile.NamedTemporaryFile(delete=False, suffix=extension) as tmp_file:
+        content = await file.read()
+        tmp_file.write(content)
+        tmp_file_path = tmp_file.name
+
+    try:
+        return await _import_plan_file(tmp_file_path, filename, bundesland, building_type)
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Plan import failed: {str(e)}")
+    finally:
         if os.path.exists(tmp_file_path):
             os.unlink(tmp_file_path)
 
@@ -642,3 +699,252 @@ def _calculate_stellplaetze(bundesland: str, wohnungen: int) -> int:
     }
     factor = stellplatz_factors.get(bundesland, 1.0)
     return int(wohnungen * factor)
+
+
+async def _import_plan_file(
+    file_path: str, filename: str, bundesland: str, building_type: str
+) -> PlanImportResult:
+    """Import a supported plan file and normalize downstream-ready fields."""
+    extension = os.path.splitext(filename)[1].lower()
+    source_type = extension.lstrip(".").upper()
+    warnings: List[str] = []
+
+    if extension == ".ifc":
+        extracted_plan = _extract_ifc_plan_data(file_path, bundesland, building_type)
+        extracted_fields = [key for key, value in extracted_plan.items() if value is not None]
+        defaulted_fields: List[str] = []
+        missing_fields = [field for field in ("bgf_m2", "geschosse", "wohnungen") if extracted_plan.get(field) is None]
+        confidence_score = 0.95
+        epistemic_state = "VERIFIED"
+        ingestion_mode = "native_ifc"
+    else:
+        plan_text = _extract_text_from_plan_file(file_path)
+        parsed_fields = _parse_plan_text(plan_text)
+        extracted_plan, extracted_fields, defaulted_fields, missing_fields = _finalize_plan_fields(
+            parsed_fields, bundesland, building_type
+        )
+        ingestion_mode = "heuristic_text_scan"
+        confidence_score = _calculate_document_confidence(source_type, extracted_fields)
+        epistemic_state = "ESTIMATED" if extracted_fields else "UNKNOWN"
+        if not extracted_fields:
+            warnings.append("No structured plan attributes detected in uploaded document.")
+        if missing_fields:
+            warnings.append(
+                f"Missing structured plan fields for full downstream validation: {', '.join(missing_fields)}"
+            )
+
+    downstream_results = await _run_plan_downstream_checks(extracted_plan)
+
+    if not downstream_results["compliance"]["checked"]:
+        warnings.append(downstream_results["compliance"]["reason"])
+    if not downstream_results["parking"]["checked"]:
+        warnings.append(downstream_results["parking"]["reason"])
+
+    return PlanImportResult(
+        file_name=filename,
+        source_type=source_type,
+        ingestion_mode=ingestion_mode,
+        extracted_plan=extracted_plan,
+        extracted_fields=extracted_fields,
+        defaulted_fields=defaulted_fields,
+        missing_fields=missing_fields,
+        plan_ready_for_api=downstream_results["compliance"]["checked"],
+        confidence_score=confidence_score,
+        epistemic_state=epistemic_state,
+        downstream_results=downstream_results,
+        warnings=warnings,
+    )
+
+
+def _extract_ifc_plan_data(file_path: str, bundesland: str, building_type: str) -> Dict[str, Any]:
+    """Map native IFC analysis output to the normalized plan schema."""
+    ifc_data = _parse_ifc_file(file_path, bundesland, building_type)
+    return {
+        "bundesland": bundesland,
+        "building_type": building_type,
+        "bgf_m2": round(ifc_data.total_area_m2, 2) if ifc_data.total_area_m2 is not None else None,
+        "geschosse": ifc_data.stories,
+        "wohnungen": None,
+        "source_metrics": {
+            "ifc_version": ifc_data.ifc_version,
+            "geometry_valid": ifc_data.geometry_valid,
+            "building_elements": ifc_data.building_elements,
+        },
+    }
+
+
+def _extract_text_from_plan_file(file_path: str) -> str:
+    """Extract searchable text from PDF/DWG/DXF files without external dependencies."""
+    with open(file_path, "rb") as uploaded_file:
+        raw = uploaded_file.read(5 * 1024 * 1024)
+
+    decoded = raw.decode("utf-8", errors="ignore")
+    if len(decoded.strip()) < 20:
+        decoded = raw.decode("latin1", errors="ignore")
+
+    return decoded.replace("\x00", " ")
+
+
+def _parse_plan_text(plan_text: str) -> Dict[str, Any]:
+    """Parse deterministic key plan attributes from text-like plan content."""
+    normalized_text = _normalize_plan_text(plan_text)
+
+    bundeslaender = (
+        "wien",
+        "tirol",
+        "salzburg",
+        "vorarlberg",
+        "burgenland",
+        "kaernten",
+        "steiermark",
+        "oberoesterreich",
+        "niederoesterreich",
+    )
+    building_type_patterns = {
+        "mehrfamilienhaus": r"mehrfamilienhaus|mfh",
+        "wohngebaeude": r"wohngebaeude|wohngebaude|wohngebaeude|wohnhaus|wohnbau",
+        "einfamilienhaus": r"einfamilienhaus|efh",
+        "buerogebaeude": r"buerogebaeude|buerobau|buerohaus|office",
+    }
+
+    parsed: Dict[str, Any] = {
+        "bundesland": next((name for name in bundeslaender if re.search(rf"\b{name}\b", normalized_text)), None),
+        "building_type": None,
+        "bgf_m2": _extract_number(
+            normalized_text,
+            [
+                r"bgf[^0-9]{0,20}(\d+(?:[.,]\d+)?)",
+                r"brutto ?grundflaeche[^0-9]{0,20}(\d+(?:[.,]\d+)?)",
+                r"gross floor area[^0-9]{0,20}(\d+(?:[.,]\d+)?)",
+            ],
+        ),
+        "geschosse": _extract_int(
+            normalized_text,
+            [
+                r"geschosse?[^0-9]{0,20}(\d+)",
+                r"stockwerke?[^0-9]{0,20}(\d+)",
+                r"etagen?[^0-9]{0,20}(\d+)",
+            ],
+        ),
+        "wohnungen": _extract_int(
+            normalized_text,
+            [
+                r"wohnungen?[^0-9]{0,20}(\d+)",
+                r"wohneinheiten?[^0-9]{0,20}(\d+)",
+                r"units?[^0-9]{0,20}(\d+)",
+            ],
+        ),
+    }
+
+    for normalized_type, pattern in building_type_patterns.items():
+        if re.search(pattern, normalized_text):
+            parsed["building_type"] = normalized_type
+            break
+
+    return parsed
+
+
+def _finalize_plan_fields(
+    parsed_fields: Dict[str, Any], bundesland: str, building_type: str
+) -> tuple[Dict[str, Any], List[str], List[str], List[str]]:
+    """Apply safe defaults for routing while tracking which values were extracted."""
+    extracted_fields = [key for key, value in parsed_fields.items() if value is not None]
+    defaulted_fields: List[str] = []
+
+    finalized = dict(parsed_fields)
+    if finalized["bundesland"] is None:
+        finalized["bundesland"] = bundesland
+        defaulted_fields.append("bundesland")
+    if finalized["building_type"] is None:
+        finalized["building_type"] = building_type
+        defaulted_fields.append("building_type")
+
+    missing_fields = [
+        field
+        for field in ("bundesland", "building_type", "bgf_m2", "geschosse", "wohnungen")
+        if finalized.get(field) is None
+    ]
+    return finalized, extracted_fields, defaulted_fields, missing_fields
+
+
+def _normalize_plan_text(plan_text: str) -> str:
+    """Normalize common German plan vocabulary for regex extraction."""
+    normalized = plan_text.lower()
+    replacements = {
+        "ä": "ae",
+        "ö": "oe",
+        "ü": "ue",
+        "ß": "ss",
+        "é": "e",
+    }
+    for source, target in replacements.items():
+        normalized = normalized.replace(source, target)
+    return normalized
+
+
+def _extract_number(text: str, patterns: List[str]) -> Optional[float]:
+    """Extract a decimal number from text using the first matching pattern."""
+    for pattern in patterns:
+        match = re.search(pattern, text, re.IGNORECASE)
+        if match:
+            return float(match.group(1).replace(",", "."))
+    return None
+
+
+def _extract_int(text: str, patterns: List[str]) -> Optional[int]:
+    """Extract an integer from text using the first matching pattern."""
+    for pattern in patterns:
+        match = re.search(pattern, text, re.IGNORECASE)
+        if match:
+            return int(match.group(1))
+    return None
+
+
+def _calculate_document_confidence(source_type: str, extracted_fields: List[str]) -> float:
+    """Deterministic confidence score for heuristic document import."""
+    base_scores = {"PDF": 0.45, "DWG": 0.5, "DXF": 0.55}
+    confidence = base_scores.get(source_type, 0.4) + (0.08 * len(extracted_fields))
+    return round(min(confidence, 0.85), 2)
+
+
+async def _run_plan_downstream_checks(extracted_plan: Dict[str, Any]) -> Dict[str, Any]:
+    """Run existing downstream validation routes when enough structured data is present."""
+    downstream_results: Dict[str, Any] = {
+        "compliance": {"checked": False, "reason": "Missing fields for compliance check."},
+        "parking": {"checked": False, "reason": "Missing fields for parking calculation."},
+    }
+
+    compliance_ready = all(
+        extracted_plan.get(field) is not None
+        for field in ("bundesland", "building_type", "bgf_m2", "geschosse")
+    )
+    if compliance_ready:
+        compliance_request = ComplianceCheckRequest(
+            bundesland=extracted_plan["bundesland"],
+            building_type=extracted_plan["building_type"],
+            bgf_m2=extracted_plan["bgf_m2"],
+            geschosse=extracted_plan["geschosse"],
+            wohnungen=extracted_plan.get("wohnungen"),
+            richtlinien=[1, 2, 3, 4, 5, 6, 7],
+        )
+        compliance_results = await check_oib_rl_compliance(compliance_request)
+        downstream_results["compliance"] = {
+            "checked": True,
+            "result_count": len(compliance_results),
+            "results": [result.model_dump() for result in compliance_results],
+        }
+
+    parking_ready = extracted_plan.get("bundesland") is not None and extracted_plan.get("wohnungen") is not None
+    if parking_ready:
+        parking_request = StellplatzRequest(
+            bundesland=extracted_plan["bundesland"],
+            wohnungen=extracted_plan["wohnungen"],
+            building_type=extracted_plan["building_type"] or "mehrfamilienhaus",
+        )
+        parking_result = await berechne_stellplaetze(parking_request)
+        downstream_results["parking"] = {
+            "checked": True,
+            "result": parking_result.model_dump(),
+        }
+
+    return downstream_results
