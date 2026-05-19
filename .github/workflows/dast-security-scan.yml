@@ -57,7 +57,7 @@ jobs:
           JWT_SECRET_KEY: test_jwt_secret_key_for_ci_testing_only_not_production
           GRAFANA_ADMIN_PASSWORD: test_grafana_password
         run: |
-          docker compose -f docker-compose.production.yml up -d
+          docker compose -f docker-compose.production.yml up -d postgres redis api
           sleep 45  # Wait for services to be fully ready
 
       - name: Verify application is running
@@ -68,12 +68,12 @@ jobs:
           JWT_SECRET_KEY: test_jwt_secret_key_for_ci_testing_only_not_production
           GRAFANA_ADMIN_PASSWORD: test_grafana_password
         run: |
-          curl -f http://localhost/health || (docker compose -f docker-compose.production.yml logs && exit 1)
+          curl -f http://localhost:8000/health || (docker compose -f docker-compose.production.yml logs && exit 1)
 
       - name: ZAP Baseline Scan
         uses: zaproxy/action-baseline@v0.10.0
         with:
-          target: 'http://localhost'
+          target: 'http://localhost:8000'
           rules_file_name: '.zap/rules.tsv'
           cmd_options: '-a -j -l WARN -T 60'
           fail_action: false  # Don't fail build, just report
@@ -133,13 +133,13 @@ jobs:
           JWT_SECRET_KEY: test_jwt_secret_key_for_ci_testing_only_not_production
           GRAFANA_ADMIN_PASSWORD: test_grafana_password
         run: |
-          docker compose -f docker-compose.production.yml up -d
+          docker compose -f docker-compose.production.yml up -d postgres redis api
           sleep 45
 
       - name: ZAP Full Scan
         uses: zaproxy/action-full-scan@v0.10.0
         with:
-          target: 'http://localhost'
+          target: 'http://localhost:8000'
           rules_file_name: '.zap/rules.tsv'
           cmd_options: '-a -j -l WARN'
           fail_action: false
@@ -196,12 +196,12 @@ jobs:
           JWT_SECRET_KEY: test_jwt_secret_key_for_ci_testing_only_not_production
           GRAFANA_ADMIN_PASSWORD: test_grafana_password
         run: |
-          docker compose -f docker-compose.production.yml up -d
+          docker compose -f docker-compose.production.yml up -d postgres redis api
           sleep 45
 
       - name: Run API Security Tests
         env:
-          TEST_API_URL: http://localhost
+          TEST_API_URL: http://localhost:8000
         run: |
           pytest tests/test_api_security_owasp.py -v --tb=short || true
 

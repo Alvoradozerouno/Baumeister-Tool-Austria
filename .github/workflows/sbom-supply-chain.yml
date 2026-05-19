@@ -62,7 +62,7 @@ jobs:
         uses: anchore/sbom-action@v0.15.0
         with:
           path: .
-          artifact-name: sbom-syft.spdx.json
+          artifact-name: sbom-syft-spdx-json
           output-file: sbom-syft.spdx.json
           format: spdx-json
 
@@ -74,7 +74,7 @@ jobs:
         uses: anchore/sbom-action@v0.15.0
         with:
           image: orion-test:latest
-          artifact-name: sbom-docker.spdx.json
+          artifact-name: sbom-docker-spdx-json
           output-file: sbom-docker.spdx.json
           format: spdx-json
 
