@@ -37,7 +37,7 @@ def _normalize_umlaut(text: str) -> str:
     # First apply explicit replacements
     for umlaut, replacement in replacements.items():
         text = text.replace(umlaut, replacement)
-    # NFD decomposition splits precomposed characters like é into base letter + combining accent.
+    # NFD decomposition splits precomposed characters like 'ä' into base letter 'a' + combining diaeresis.
     # After the explicit replacements above, no precomposed umlauts remain, but text from certain
     # clipboard sources or HTTP clients may already arrive in NFD form (base + combining mark).
     # Stripping category "Mn" (non-spacing marks) removes those combining accents safely.

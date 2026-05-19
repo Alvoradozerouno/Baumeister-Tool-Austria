@@ -131,7 +131,7 @@ class TestHelperFunctions:
     def test_now_returns_iso_string(self):
         ts = orion_kernel.now()
         assert "T" in ts  # ISO 8601 Format
-        assert ts.endswith("+00:00") or ts.endswith("Z") or "+" in ts
+        assert ts.endswith("Z") or "+" in ts
 
     def test_file_sha256_nonexistent(self, tmp_path):
         p = tmp_path / "ghost.txt"
