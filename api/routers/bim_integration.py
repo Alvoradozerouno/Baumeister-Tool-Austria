@@ -27,7 +27,9 @@ from api.routers.reports import ReportRequest, generate_comprehensive_report
 
 router = APIRouter()
 
+# Keep extraction bounded so heuristic scans stay deterministic and cheap even for large uploads.
 MAX_TEXT_EXTRACTION_BYTES = 512 * 1024
+# Require a minimum UTF-8 text payload before preferring that decode path over Latin-1 fallback noise.
 MIN_UTF8_TEXT_CHARS = 20
 DOCUMENT_CONFIDENCE_BASE_SCORES = {"PDF": 0.45, "DWG": 0.5, "DXF": 0.55}
 DOCUMENT_CONFIDENCE_PER_FIELD = 0.08
@@ -35,6 +37,9 @@ PLAN_REQUIRED_FIELDS = ("bgf_m2", "geschosse", "wohnungen")
 PLAN_API_READY_FIELDS = ("bundesland", "building_type", "bgf_m2", "geschosse")
 PLAN_POLICY_FIELDS = ("bundesland", "building_type", "bgf_m2", "geschosse", "wohnungen")
 RESIDENTIAL_BUILDING_TYPES = {"wohngebaeude", "mehrfamilienhaus", "einfamilienhaus"}
+POLICY_CONFIDENCE_THRESHOLD = 0.55
+MEHRFAMILIENHAUS_AREA_PER_UNIT_M2 = 85
+WOHNGEBAEUDE_AREA_PER_UNIT_M2 = 95
 FIELD_AUTHORITY_REGISTRY = {
     "bundesland": {
         "standards": ["Landesbauordnung"],
@@ -1362,7 +1367,11 @@ def _estimate_wohnungen_from_plan(extracted_plan: Dict[str, Any]) -> Optional[in
     if building_type == "einfamilienhaus":
         return 1
 
-    area_per_unit = 85 if building_type == "mehrfamilienhaus" else 95
+    area_per_unit = (
+        MEHRFAMILIENHAUS_AREA_PER_UNIT_M2
+        if building_type == "mehrfamilienhaus"
+        else WOHNGEBAEUDE_AREA_PER_UNIT_M2
+    )
     return max(1, round(float(bgf_m2) / area_per_unit))
 
 
@@ -1443,7 +1452,7 @@ def _build_epistemic_trace(
         for field, metadata in field_source_metadata.items()
         if field in PLAN_POLICY_FIELDS
     }
-    policy_engine = DecisionPolicyEngine(confidence_threshold=0.55)
+    policy_engine = DecisionPolicyEngine(confidence_threshold=POLICY_CONFIDENCE_THRESHOLD)
     requested_mode = DecisionMode.DETERMINISTIC if source_type == "IFC" else DecisionMode.PROBABILISTIC
     policy_result = policy_engine.check_decision_allowed(
         decision_mode=requested_mode,
@@ -1594,7 +1603,7 @@ def _count_plan_critical_issues(ingestion: PlanImportResult) -> int:
 
 def _build_report_governance(ingestion: PlanImportResult) -> Dict[str, Any]:
     """Add explicit governance signals for automated reports."""
-    policy_engine = DecisionPolicyEngine(confidence_threshold=0.55)
+    policy_engine = DecisionPolicyEngine(confidence_threshold=POLICY_CONFIDENCE_THRESHOLD)
     decision_result = policy_engine.check_decision_allowed(
         decision_mode=DecisionMode.PROBABILISTIC if ingestion.source_type != "IFC" else DecisionMode.DETERMINISTIC,
         inputs={
