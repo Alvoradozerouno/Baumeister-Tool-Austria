@@ -233,14 +233,14 @@ class TestOrionRuntimeRouter:
             "/api/v1/orion-runtime/process-decision",
             params={"confidence": -0.1, "timeout_ms": 100}
         )
-        assert response.status_code in [422, 400]  # FastAPI validation error
+        assert response.status_code == 422  # FastAPI validation error
         
         # Confidence > 1.0
         response = client.post(
             "/api/v1/orion-runtime/process-decision",
             params={"confidence": 1.5, "timeout_ms": 100}
         )
-        assert response.status_code in [422, 400]
+        assert response.status_code == 422  # FastAPI validation error
 
     def test_decision_id_uniqueness(self):
         """Test that each decision gets a unique ID."""

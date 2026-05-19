@@ -53,6 +53,9 @@ async def process_decision(
     - processing_time_ms: Time to process decision
     - fpga_latency_ns: FPGA decision FSM latency in nanoseconds
     """
+    import logging
+    logger = logging.getLogger(__name__)
+    
     try:
         runtime = get_runtime()
         
@@ -66,24 +69,21 @@ async def process_decision(
         
         # Ensure no error details are exposed
         if "error" in result:
+            logger.warning("Decision processing returned error state")
             return {
                 "decision_id": result.get("decision_id", "unknown"),
                 "state": "FAILED",
-                "error": "Decision processing failed",
                 "safe_to_execute": False
             }
         
         return result
     except Exception as e:
         # Log error internally but don't expose details to client
-        from orion_logging import get_logger
-        logger = get_logger(__name__)
-        logger.error(f"Decision processing error: {e}", exc_info=True)
+        logger.error(f"Decision processing error occurred", exc_info=True)
         
         return {
             "decision_id": "error-unknown",
             "state": "FAILED",
-            "error": "Decision processing failed",
             "safe_to_execute": False
         }
 

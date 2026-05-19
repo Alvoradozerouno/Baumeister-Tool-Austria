@@ -115,7 +115,7 @@ class TestMultiAgentConsensusRouter:
                 "confidence": -0.1
             }
         )
-        assert response.status_code in [422, 400]
+        assert response.status_code == 422  # FastAPI validation error
         
         # Confidence > 1.0
         response = client.post(
@@ -125,7 +125,7 @@ class TestMultiAgentConsensusRouter:
                 "confidence": 1.5
             }
         )
-        assert response.status_code in [422, 400]
+        assert response.status_code == 422  # FastAPI validation error
 
     def test_get_consensus_score(self):
         """Test getting current consensus score."""

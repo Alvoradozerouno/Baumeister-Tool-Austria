@@ -58,6 +58,9 @@ async def publish_decision(
     - ros2_status: ROS2 node status
     - safe_to_execute: Whether command is safe to execute
     """
+    import logging
+    logger = logging.getLogger(__name__)
+    
     try:
         if state not in [s.value for s in RuntimeState]:
             raise HTTPException(status_code=400, detail="Invalid runtime state")
@@ -91,9 +94,7 @@ async def publish_decision(
     except HTTPException:
         raise
     except Exception as e:
-        from orion_logging import get_logger
-        logger = get_logger(__name__)
-        logger.error(f"Publish decision error: {e}", exc_info=True)
+        logger.error("Publish decision error occurred", exc_info=True)
         raise HTTPException(status_code=500, detail="Failed to publish decision")
 
 

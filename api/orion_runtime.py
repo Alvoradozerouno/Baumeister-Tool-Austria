@@ -481,7 +481,14 @@ class ORIONRuntime:
         
         try:
             fpga_state = self.fpga.read_decision_state()
-            self.state = RuntimeState[fpga_state.get("fsm_state", "UNKNOWN")]
+            
+            # Safely get runtime state with validation
+            state_name = fpga_state.get("fsm_state", "UNKNOWN")
+            try:
+                self.state = RuntimeState[state_name]
+            except (KeyError, ValueError):
+                self.logger.warning(f"Invalid FPGA state '{state_name}', defaulting to UNKNOWN")
+                self.state = RuntimeState.UNKNOWN
             
             self.hardware_status = self._collect_hardware_metrics()
             
@@ -544,14 +551,14 @@ class ORIONRuntime:
             
         except Exception as e:
             self.failed_count += 1
-            self.logger.error(f"Decision processing failed: {e}")
+            self.logger.error(f"Decision processing error occurred", exc_info=True)
             self.audit_chain.add_entry(
                 component="RuntimeError",
                 event_type="decision_failed",
                 state=RuntimeState.FAILED.value,
-                data={"error": str(e)}
+                data={"error_type": type(e).__name__}
             )
-            return {"state": RuntimeState.FAILED.value, "error": str(e)}
+            return {"state": RuntimeState.FAILED.value}
     
     def _collect_hardware_metrics(self) -> HardwareStatus:
         """Collect real-time hardware metrics."""
