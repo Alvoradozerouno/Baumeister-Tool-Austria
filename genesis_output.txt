@@ -1,7 +1,7 @@
 ============================= test session starts ==============================
 platform linux -- Python 3.12.3, pytest-9.0.3, pluggy-1.6.0 -- /usr/bin/python3
 cachedir: .pytest_cache
-rootdir: /home/runner/work/Baumaster.at/Baumaster.at
+rootdir: /home/runner/work/Baumeister-Tool-Austria/Baumeister-Tool-Austria
 configfile: pyproject.toml
 plugins: asyncio-1.3.0, cov-7.1.0, xdist-3.8.0, anyio-4.13.0, locust-2.44.0
 asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
@@ -12,40 +12,40 @@ scheduling tests via LoadScheduling
 
 test_genesis_integration.py::TestEpistemicStates::test_create_unknown_state 
 test_genesis_integration.py::TestEpistemicStates::test_create_verified_state_from_eurocode 
-[gw0] [  5%] PASSED test_genesis_integration.py::TestEpistemicStates::test_create_verified_state_from_eurocode 
-[gw1] [ 11%] PASSED test_genesis_integration.py::TestEpistemicStates::test_create_unknown_state 
-test_genesis_integration.py::TestEpistemicStates::test_low_confidence_requires_fallback 
+[gw1] [  5%] PASSED test_genesis_integration.py::TestEpistemicStates::test_create_unknown_state 
+[gw0] [ 11%] PASSED test_genesis_integration.py::TestEpistemicStates::test_create_verified_state_from_eurocode 
 test_genesis_integration.py::TestEpistemicStates::test_create_estimated_state_from_monte_carlo 
-[gw1] [ 16%] PASSED test_genesis_integration.py::TestEpistemicStates::test_low_confidence_requires_fallback 
-[gw0] [ 22%] PASSED test_genesis_integration.py::TestEpistemicStates::test_create_estimated_state_from_monte_carlo 
+test_genesis_integration.py::TestEpistemicStates::test_low_confidence_requires_fallback 
+[gw0] [ 16%] PASSED test_genesis_integration.py::TestEpistemicStates::test_create_estimated_state_from_monte_carlo 
+[gw1] [ 22%] PASSED test_genesis_integration.py::TestEpistemicStates::test_low_confidence_requires_fallback 
 test_genesis_integration.py::TestEpistemicStates::test_verified_state_validation 
 test_genesis_integration.py::TestDecisionPolicyEngine::test_deterministic_mode_requires_verified_inputs 
-[gw0] [ 27%] PASSED test_genesis_integration.py::TestDecisionPolicyEngine::test_deterministic_mode_requires_verified_inputs 
+[gw1] [ 27%] PASSED test_genesis_integration.py::TestDecisionPolicyEngine::test_deterministic_mode_requires_verified_inputs 
 test_genesis_integration.py::TestDecisionPolicyEngine::test_deterministic_mode_rejects_estimated_inputs 
-[gw1] [ 33%] PASSED test_genesis_integration.py::TestEpistemicStates::test_verified_state_validation 
+[gw0] [ 33%] PASSED test_genesis_integration.py::TestEpistemicStates::test_verified_state_validation 
 test_genesis_integration.py::TestEpistemicStates::test_estimated_state_validation 
-[gw0] [ 38%] PASSED test_genesis_integration.py::TestDecisionPolicyEngine::test_deterministic_mode_rejects_estimated_inputs 
-[gw1] [ 44%] PASSED test_genesis_integration.py::TestEpistemicStates::test_estimated_state_validation 
+[gw1] [ 38%] PASSED test_genesis_integration.py::TestDecisionPolicyEngine::test_deterministic_mode_rejects_estimated_inputs 
 test_genesis_integration.py::TestDecisionPolicyEngine::test_unknown_inputs_trigger_fallback 
-[gw0] [ 50%] PASSED test_genesis_integration.py::TestDecisionPolicyEngine::test_unknown_inputs_trigger_fallback 
-test_genesis_integration.py::TestDecisionPolicyEngine::test_low_confidence_triggers_fallback 
+[gw0] [ 44%] PASSED test_genesis_integration.py::TestEpistemicStates::test_estimated_state_validation 
+[gw1] [ 50%] PASSED test_genesis_integration.py::TestDecisionPolicyEngine::test_unknown_inputs_trigger_fallback 
 test_genesis_integration.py::TestDecisionPolicyEngine::test_legal_documents_require_fallback 
-[gw1] [ 55%] PASSED test_genesis_integration.py::TestDecisionPolicyEngine::test_legal_documents_require_fallback 
-[gw0] [ 61%] PASSED test_genesis_integration.py::TestDecisionPolicyEngine::test_low_confidence_triggers_fallback 
+test_genesis_integration.py::TestDecisionPolicyEngine::test_low_confidence_triggers_fallback 
+[gw0] [ 55%] PASSED test_genesis_integration.py::TestDecisionPolicyEngine::test_legal_documents_require_fallback 
+[gw1] [ 61%] PASSED test_genesis_integration.py::TestDecisionPolicyEngine::test_low_confidence_triggers_fallback 
 test_genesis_integration.py::TestDecisionPolicyEngine::test_policy_engine_statistics 
 test_genesis_integration.py::TestTheArchitektIntegration::test_architekt_has_policy_engine 
-[gw1] [ 66%] PASSED test_genesis_integration.py::TestDecisionPolicyEngine::test_policy_engine_statistics 
-[gw0] [ 72%] PASSED test_genesis_integration.py::TestTheArchitektIntegration::test_architekt_has_policy_engine 
+[gw0] [ 66%] PASSED test_genesis_integration.py::TestDecisionPolicyEngine::test_policy_engine_statistics 
 test_genesis_integration.py::TestTheArchitektIntegration::test_create_epistemic_state_from_deterministic_result 
+[gw1] [ 72%] PASSED test_genesis_integration.py::TestTheArchitektIntegration::test_architekt_has_policy_engine 
+[gw0] [ 77%] PASSED test_genesis_integration.py::TestTheArchitektIntegration::test_create_epistemic_state_from_deterministic_result 
 test_genesis_integration.py::TestTheArchitektIntegration::test_create_epistemic_state_from_probabilistic_result 
-[gw1] [ 77%] PASSED test_genesis_integration.py::TestTheArchitektIntegration::test_create_epistemic_state_from_deterministic_result 
-[gw0] [ 83%] PASSED test_genesis_integration.py::TestTheArchitektIntegration::test_create_epistemic_state_from_probabilistic_result 
+[gw1] [ 83%] PASSED test_genesis_integration.py::TestTheArchitektIntegration::test_create_epistemic_state_from_probabilistic_result 
 test_genesis_integration.py::TestTheArchitektIntegration::test_check_decision_policy 
-[gw1] [ 88%] PASSED test_genesis_integration.py::TestTheArchitektIntegration::test_check_decision_policy 
+[gw0] [ 88%] PASSED test_genesis_integration.py::TestTheArchitektIntegration::test_check_decision_policy 
 test_genesis_integration.py::TestORIONMultiAgentSystem::test_system_reports_genesis_framework 
 test_genesis_integration.py::TestORIONMultiAgentSystem::test_system_has_policy_statistics 
-[gw0] [ 94%] PASSED test_genesis_integration.py::TestORIONMultiAgentSystem::test_system_reports_genesis_framework 
-[gw1] [100%] PASSED test_genesis_integration.py::TestORIONMultiAgentSystem::test_system_has_policy_statistics 
+[gw1] [ 94%] PASSED test_genesis_integration.py::TestORIONMultiAgentSystem::test_system_reports_genesis_framework 
+[gw0] [100%] PASSED test_genesis_integration.py::TestORIONMultiAgentSystem::test_system_has_policy_statistics 
 
 ================================ tests coverage ================================
 _______________ coverage: platform linux, python 3.12.3-final-0 ________________
@@ -57,13 +57,14 @@ ai_tender_evaluation.py                              187    187     0%
 api/__init__.py                                        1      1     0%
 api/database.py                                       17     17     0%
 api/graphql_schema.py                                269    269     0%
-api/main.py                                           88     88     0%
+api/main.py                                           91     91     0%
 api/middleware/__init__.py                             5      5     0%
 api/middleware/auth.py                                46     46     0%
 api/middleware/logging_middleware.py                  96     96     0%
 api/middleware/rate_limit.py                         130    130     0%
 api/middleware/security_advanced.py                  101    101     0%
 api/models.py                                        116    116     0%
+api/orion_runtime.py                                 295    295     0%
 api/routers/__init__.py                                0      0   100%
 api/routers/advanced_ai.py                           128    128     0%
 api/routers/ai_recommendations.py                     68     68     0%
@@ -73,7 +74,10 @@ api/routers/calculations.py                          186    186     0%
 api/routers/collaboration.py                         156    156     0%
 api/routers/compliance.py                            107    107     0%
 api/routers/monitoring.py                            115    115     0%
+api/routers/multi_agent_consensus.py                  58     58     0%
+api/routers/orion_runtime.py                          50     50     0%
 api/routers/reports.py                                24     24     0%
+api/routers/ros2_bridge.py                            58     58     0%
 api/routers/tendering.py                             170    170     0%
 api/routers/validation.py                             20     20     0%
 api/safety/__init__.py                                 3      3     0%
@@ -131,7 +135,7 @@ test_genesis_integration.py                          128      0   100%
 test_multi_agent_integration.py                      140    140     0%
 test_orion_oenorm_a2063.py                           141    141     0%
 ----------------------------------------------------------------------
-TOTAL                                              12595  11366    10%
+TOTAL                                              13059  11830     9%
 Coverage HTML written to dir htmlcov
 Coverage XML written to file coverage.xml
-============================== 18 passed in 7.61s ==============================
+============================== 18 passed in 8.32s ==============================
