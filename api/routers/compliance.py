@@ -13,11 +13,17 @@ router = APIRouter()
 
 
 class ComplianceCheckRequest(BaseModel):
-    """Compliance check request"""
+    """OIB-RL Compliance check request (JSON body)"""
 
-    bundesland: str
-    building_type: str
-    richtlinien: List[int] = Field(default=[1, 2, 3, 4, 5, 6])
+    bundesland: str = Field(..., description="Bundesland (z.B. 'wien', 'salzburg')")
+    building_type: str = Field(..., description="Gebäudetyp (z.B. 'wohngebaeude', 'buerogebaeude')")
+    bgf_m2: float = Field(..., gt=0, description="Brutto-Grundfläche in m²")
+    geschosse: int = Field(..., ge=1, description="Anzahl der Geschosse")
+    wohnungen: Optional[int] = Field(None, ge=1, description="Anzahl der Wohneinheiten (optional)")
+    richtlinien: List[int] = Field(
+        default=[1, 2, 3, 4, 5, 6, 7],
+        description="OIB-RL Nummern die geprüft werden sollen (1–7)",
+    )
 
 
 class ComplianceResult(BaseModel):
@@ -30,14 +36,7 @@ class ComplianceResult(BaseModel):
 
 
 @router.post("/oib-rl-check", response_model=List[ComplianceResult])
-async def check_oib_rl_compliance(
-    bundesland: str,
-    building_type: str,
-    bgf_m2: float,
-    geschosse: int,
-    wohnungen: Optional[int] = None,
-    richtlinien: List[int] = [1, 2, 3, 4, 5, 6, 7],
-):
+async def check_oib_rl_compliance(request: ComplianceCheckRequest):
     """
     ✅ **OIB-RL Compliance Check (OIB-RL 2023)**
 
@@ -57,30 +56,30 @@ async def check_oib_rl_compliance(
     """
     results = []
 
-    if 1 in richtlinien:
-        results.append(_check_oib_rl_1(building_type, geschosse))
+    if 1 in request.richtlinien:
+        results.append(_check_oib_rl_1(request.building_type, request.geschosse))
 
-    if 2 in richtlinien:
-        results.append(_check_oib_rl_2(building_type, geschosse, bgf_m2))
+    if 2 in request.richtlinien:
+        results.append(_check_oib_rl_2(request.building_type, request.geschosse, request.bgf_m2))
 
-    if 3 in richtlinien:
-        results.append(_check_oib_rl_3(building_type, wohnungen))
+    if 3 in request.richtlinien:
+        results.append(_check_oib_rl_3(request.building_type, request.wohnungen))
 
-    if 4 in richtlinien:
-        results.append(_check_oib_rl_4(building_type, geschosse, bgf_m2))
+    if 4 in request.richtlinien:
+        results.append(_check_oib_rl_4(request.building_type, request.geschosse, request.bgf_m2))
 
-    if 5 in richtlinien:
-        results.append(_check_oib_rl_5(building_type, wohnungen))
+    if 5 in request.richtlinien:
+        results.append(_check_oib_rl_5(request.building_type, request.wohnungen))
 
-    if 6 in richtlinien:
-        results.append(_check_oib_rl_6(bundesland, bgf_m2))
+    if 6 in request.richtlinien:
+        results.append(_check_oib_rl_6(request.bundesland, request.bgf_m2))
 
     # OIB-RL 7: Nachhaltigkeit (Grundlagendokument 2023)
-    if 7 in richtlinien:
-        results.append(_check_oib_rl_7(building_type))
+    if 7 in request.richtlinien:
+        results.append(_check_oib_rl_7(request.building_type))
 
     # Radonschutz: bundeslandspezifisch (ÖNORM S 5280)
-    radon_result = _check_radon(bundesland)
+    radon_result = _check_radon(request.bundesland)
     if radon_result is not None:
         results.append(radon_result)
 
@@ -550,11 +549,13 @@ async def generate_compliance_report(
     """
     # Run all compliance checks
     oib_results = await check_oib_rl_compliance(
-        bundesland=bundesland,
-        building_type=building_type,
-        bgf_m2=bgf_m2,
-        geschosse=geschosse,
-        wohnungen=wohnungen,
+        ComplianceCheckRequest(
+            bundesland=bundesland,
+            building_type=building_type,
+            bgf_m2=bgf_m2,
+            geschosse=geschosse,
+            wohnungen=wohnungen,
+        )
     )
 
     # Summary statistics

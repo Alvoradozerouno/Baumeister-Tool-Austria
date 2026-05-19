@@ -527,6 +527,172 @@ class TestPerformance:
 # ============================================================================
 
 
+# ============================================================================
+# BUG-FIX REGRESSION TESTS
+# ============================================================================
+
+
+class TestOIBRLCheckJsonBody:
+    """Fix 1: OIB-RL POST endpoint now takes JSON body instead of query params"""
+
+    def test_oib_rl_check_json_body(self):
+        """POST /oib-rl-check must accept JSON body (not query params)"""
+        payload = {
+            "bundesland": "wien",
+            "building_type": "wohngebaeude",
+            "bgf_m2": 1200.0,
+            "geschosse": 5,
+            "wohnungen": 20,
+            "richtlinien": [1, 2, 3, 4, 5, 6],
+        }
+        response = client.post("/api/v1/compliance/oib-rl-check", json=payload)
+        assert response.status_code == 200
+        data = response.json()
+        assert isinstance(data, list)
+        assert len(data) >= 6
+        for result in data:
+            assert "richtlinie" in result
+            assert "status" in result
+            assert "checks" in result
+            assert "summary" in result
+
+    def test_oib_rl_check_salzburg_sonderweg(self):
+        """Salzburg uses WSchVO instead of OIB-RL 6 — must return warning"""
+        payload = {
+            "bundesland": "salzburg",
+            "building_type": "wohngebaeude",
+            "bgf_m2": 800.0,
+            "geschosse": 3,
+            "richtlinien": [6],
+        }
+        response = client.post("/api/v1/compliance/oib-rl-check", json=payload)
+        assert response.status_code == 200
+        data = response.json()
+        rl6 = next(r for r in data if "OIB-RL 6" in r["richtlinie"])
+        assert rl6["status"] == "warning"
+        assert "WSchVO" in rl6["summary"] or "Sonderregelung" in rl6["checks"][0]["details"]
+
+    def test_oib_rl_check_invalid_geschosse(self):
+        """geschosse must be >= 1"""
+        payload = {
+            "bundesland": "wien",
+            "building_type": "wohngebaeude",
+            "bgf_m2": 500.0,
+            "geschosse": 0,
+        }
+        response = client.post("/api/v1/compliance/oib-rl-check", json=payload)
+        assert response.status_code == 422
+
+    def test_oib_rl_check_negative_bgf(self):
+        """bgf_m2 must be > 0"""
+        payload = {
+            "bundesland": "wien",
+            "building_type": "wohngebaeude",
+            "bgf_m2": -100.0,
+            "geschosse": 3,
+        }
+        response = client.post("/api/v1/compliance/oib-rl-check", json=payload)
+        assert response.status_code == 422
+
+    def test_oib_rl_check_radon_tirol(self):
+        """Tirol is a radon risk area — additional result expected"""
+        payload = {
+            "bundesland": "tirol",
+            "building_type": "wohngebaeude",
+            "bgf_m2": 600.0,
+            "geschosse": 2,
+            "richtlinien": [1, 2, 3],
+        }
+        response = client.post("/api/v1/compliance/oib-rl-check", json=payload)
+        assert response.status_code == 200
+        data = response.json()
+        summaries = [r["richtlinie"] for r in data]
+        assert any("Radon" in s for s in summaries)
+
+    def test_oib_rl_check_query_params_rejected(self):
+        """Sending data as query string instead of body must be rejected (missing required fields)"""
+        response = client.post(
+            "/api/v1/compliance/oib-rl-check"
+            "?bundesland=wien&building_type=wohngebaeude&bgf_m2=800&geschosse=3"
+        )
+        # Without JSON body the required fields are missing → 422
+        assert response.status_code == 422
+
+
+class TestMaterialdatenbankUmlaut:
+    """Fix 2: Materialdatenbank filter normalises German umlauts"""
+
+    def test_filter_with_umlaut(self):
+        """Filter with exact umlaut 'Dämmung' returns 2 materials"""
+        response = client.get("/api/v1/calculations/materialdatenbank?material_typ=Dämmung")
+        assert response.status_code == 200
+        data = response.json()
+        assert data["total"] == 2
+        for mat in data["materials"]:
+            assert mat["kategorie"] == "Dämmung"
+
+    def test_filter_without_umlaut(self):
+        """Filter 'daemmung' (no umlaut) must return same results as 'Dämmung'"""
+        response = client.get("/api/v1/calculations/materialdatenbank?material_typ=daemmung")
+        assert response.status_code == 200
+        data = response.json()
+        assert data["total"] == 2
+        for mat in data["materials"]:
+            assert mat["kategorie"] == "Dämmung"
+
+    def test_filter_case_insensitive(self):
+        """Filter must be case-insensitive"""
+        response = client.get("/api/v1/calculations/materialdatenbank?material_typ=DAEMMUNG")
+        assert response.status_code == 200
+        data = response.json()
+        assert data["total"] == 2
+
+    def test_filter_tragkonstruktion(self):
+        """Filter 'Tragkonstruktion' returns Beton and Holz"""
+        response = client.get(
+            "/api/v1/calculations/materialdatenbank?material_typ=Tragkonstruktion"
+        )
+        assert response.status_code == 200
+        data = response.json()
+        assert data["total"] == 2
+
+    def test_filter_unknown_category(self):
+        """Unknown category returns empty list"""
+        response = client.get("/api/v1/calculations/materialdatenbank?material_typ=NichtVorhanden")
+        assert response.status_code == 200
+        data = response.json()
+        assert data["total"] == 0
+        assert data["materials"] == []
+
+    def test_no_filter_returns_all(self):
+        """Without filter all 8 materials are returned"""
+        response = client.get("/api/v1/calculations/materialdatenbank")
+        assert response.status_code == 200
+        data = response.json()
+        assert data["total"] == 8
+
+
+class TestRateLimitMiddleware:
+    """Fix 3: Rate-limit middleware returns proper 429 JSONResponse (not HTTPException)"""
+
+    def test_normal_request_succeeds(self):
+        """Regular requests below rate limit succeed with rate-limit headers"""
+        response = client.get("/health")
+        assert response.status_code == 200
+        assert "X-RateLimit-Limit" in response.headers
+        assert "X-RateLimit-Remaining" in response.headers
+        assert "X-RateLimit-Reset" in response.headers
+
+    def test_rate_limit_headers_present(self):
+        """API endpoints return rate-limit headers"""
+        response = client.get("/api/v1/calculations/materialdatenbank")
+        assert response.status_code == 200
+        assert "X-RateLimit-Limit" in response.headers
+        remaining = int(response.headers["X-RateLimit-Remaining"])
+        limit = int(response.headers["X-RateLimit-Limit"])
+        assert remaining <= limit
+
+
 @pytest.fixture(scope="session", autouse=True)
 def setup_test_environment():
     """Setup test environment before running tests"""

@@ -7,6 +7,7 @@ import math
 import os
 import re
 import sys
+import unicodedata
 from typing import Dict, List, Optional
 
 from fastapi import APIRouter, HTTPException
@@ -16,6 +17,32 @@ from pydantic import BaseModel, Field, field_validator
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 router = APIRouter()
+
+
+def _normalize_umlaut(text: str) -> str:
+    """Normalize German umlauts and ß for case-insensitive comparison.
+
+    Converts ä→ae, ö→oe, ü→ue, ß→ss so that e.g. 'daemmung' matches 'Dämmung'.
+    Also handles NFD decomposition from Unicode normalization.
+    """
+    replacements = {
+        "ä": "ae",
+        "ö": "oe",
+        "ü": "ue",
+        "ß": "ss",
+        "Ä": "ae",
+        "Ö": "oe",
+        "Ü": "ue",
+    }
+    # First apply explicit replacements
+    for umlaut, replacement in replacements.items():
+        text = text.replace(umlaut, replacement)
+    # NFD decomposition splits precomposed characters like 'ä' into base letter 'a' + combining diaeresis.
+    # After the explicit replacements above, no precomposed umlauts remain, but text from certain
+    # clipboard sources or HTTP clients may already arrive in NFD form (base + combining mark).
+    # Stripping category "Mn" (non-spacing marks) removes those combining accents safely.
+    text = "".join(c for c in unicodedata.normalize("NFD", text) if unicodedata.category(c) != "Mn")
+    return text.lower()
 
 
 # Models
@@ -468,7 +495,8 @@ async def get_materialdatenbank(material_typ: Optional[str] = None):
     ]
 
     if material_typ:
-        materials = [m for m in materials if m["kategorie"].lower() == material_typ.lower()]
+        normalized_filter = _normalize_umlaut(material_typ)
+        materials = [m for m in materials if _normalize_umlaut(m["kategorie"]) == normalized_filter]
 
     return {"materials": materials, "total": len(materials)}
 
