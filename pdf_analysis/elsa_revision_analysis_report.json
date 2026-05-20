@@ -1,0 +1,452 @@
+{
+  "analysis": "ELSA Revisions-Analyse",
+  "date": "2026-05-20T08:40:26.287545",
+  "agenten": [
+    "DDGK",
+    "EIRA",
+    "ELSA",
+    "ORION",
+    "GUARDIAN",
+    "NEXUS"
+  ],
+  "results": {
+    "09f CARPORT.pdf": {
+      "plan": "09f CARPORT.pdf",
+      "name": "CARPORT",
+      "sha256": "fefa79b056ec08b5047b2c6fbfb9d6ae20a5cb5a6a05f955ce5d589d594cddb8",
+      "ddgk_revisionen": {
+        "status": "REVISIONEN_ANALYSIERT",
+        "anzahl": 5,
+        "aenderungen": [
+          {
+            "revision": "04_09b",
+            "datum": "26.07.2024",
+            "aenderung": "Konstr. Carport geaendert, Fundamente lt. Statiker uebernehmen, Hoehenlage Carport fixiert",
+            "kritisch": true,
+            "kategorie": "TRAGWERK",
+            "elsa_action": "DEFER",
+            "begruendung": "Fundamente geaendert → Bodengutachten, Aushub, Bewehrung pruefen"
+          },
+          {
+            "revision": "04_09c",
+            "datum": "29.07.2024",
+            "aenderung": "STB-Saeulen bei Wand nord Carport, Dimension Quertraeger korr. - lt. Statik",
+            "kritisch": true,
+            "kategorie": "STATIK",
+            "elsa_action": "ABSTAIN",
+            "begruendung": "STB-Elemente geaendert → Statiker muss neu bemessen (lt. Plan: 'lt. ANG. STATIK')"
+          },
+          {
+            "revision": "04_09d",
+            "datum": "22.11.2024",
+            "aenderung": "Lage Trafo + Notstromaggregat geaendert",
+            "kritisch": true,
+            "kategorie": "SICHERHEIT",
+            "elsa_action": "DEFER",
+            "begruendung": "Notstromaggregat verschoben → Fundament, Zuleitung, Abgas, Schallschutz neu pruefen"
+          },
+          {
+            "revision": "04_09e",
+            "datum": "14.11.2025",
+            "aenderung": "Lage Notstromaggregat geaendert, Lage Einfahrtstor verschoben",
+            "kritisch": true,
+            "kategorie": "SICHERHEIT",
+            "elsa_action": "DEFER",
+            "begruendung": "Notstromaggregat verschoben → Fundament, Zuleitung, Abgas, Schallschutz neu pruefen"
+          },
+          {
+            "revision": "04_09f",
+            "datum": "08.12.2025",
+            "aenderung": "finaler Planstand",
+            "kritisch": false,
+            "kategorie": "STATUS",
+            "elsa_action": "EXECUTE",
+            "begruendung": "Finaler Planstand → Alle vorherigen Aenderungen muessen validiert sein"
+          }
+        ]
+      },
+      "eira_mass_ketten": [
+        {
+          "typ": "LAENGEN_KETTE",
+          "gesamt": "23.46m",
+          "einzel_summe": "22.90m",
+          "differenz": "0.56m",
+          "konsistent": false,
+          "elsa_action": "ABSTAIN",
+          "begruendung": "Mass-Kette: 5,725+5,725+5,725+5,725 = 22.90m ≠ 23.46m"
+        },
+        {
+          "typ": "FLAECHE",
+          "masse": "7,50 x 6,00 m",
+          "elsa_action": "EXECUTE",
+          "begruendung": "Carport-Flaeche: 7,50 x 6,00 m"
+        },
+        {
+          "typ": "DACHNEIGUNG",
+          "wert": "17,00°",
+          "elsa_action": "EXECUTE",
+          "begruendung": "Dachneigung: 17,00°"
+        }
+      ],
+      "elsa_hoehen": [
+        {
+          "typ": "HOEHE",
+          "name": "NIV. CARPORT",
+          "werte": "-0,25 (+535,25)",
+          "anzahl_werte": 2,
+          "elsa_action": "EXECUTE",
+          "begruendung": "NIV. CARPORT: -0,25 (+535,25) (2 Werte)"
+        },
+        {
+          "typ": "HOEHE",
+          "name": "FIRST",
+          "werte": "+4,03 (+539,53m)",
+          "anzahl_werte": 2,
+          "elsa_action": "EXECUTE",
+          "begruendung": "FIRST: +4,03 (+539,53m) (2 Werte)"
+        },
+        {
+          "typ": "HOEHE",
+          "name": "WH. TRAUFE",
+          "werte": "+3,11 (+538,61m) / +3,13 (+538,63m)",
+          "anzahl_werte": 4,
+          "elsa_action": "EXECUTE",
+          "begruendung": "WH. TRAUFE: +3,11 (+538,61m) / +3,13 (+538,63m) (4 Werte)"
+        },
+        {
+          "typ": "HOEHE",
+          "name": "PFUK",
+          "werte": "+2,525 / +3,40",
+          "anzahl_werte": 2,
+          "elsa_action": "EXECUTE",
+          "begruendung": "PFUK: +2,525 / +3,40 (2 Werte)"
+        }
+      ],
+      "guardian_elemente": [
+        {
+          "element": "Notstromaggregat (275,7 x 110 cm)",
+          "risiko": "HOCH",
+          "elsa_action": "DEFER",
+          "begruendung": "Notstromaggregat: 2x verschoben (09d, 09e) → Fundament, Abgas, Schallschutz, Zuleitung pruefen"
+        },
+        {
+          "element": "Trafostation",
+          "risiko": "HOCH",
+          "elsa_action": "DEFER",
+          "begruendung": "Trafostation: 1x verschoben (09d) → Fundament, Erdung, Bayernwerk"
+        },
+        {
+          "element": "STB-Stuetzen 20/20, 25/25, 40/40 cm",
+          "risiko": "HOCH",
+          "elsa_action": "EXECUTE",
+          "begruendung": "STB-Elemente: Dimensionen lt. Statik → Statiker-Proof erforderlich"
+        },
+        {
+          "element": "Quertraeger 20/40 cm",
+          "risiko": "MITTEL",
+          "elsa_action": "EXECUTE",
+          "begruendung": "Quertraeger 20/40 cm: Standard-Validierung"
+        },
+        {
+          "element": "Photovoltaik 70m² (39 STK nord + 39 STK suend)",
+          "risiko": "MITTEL",
+          "elsa_action": "EXECUTE",
+          "begruendung": "PV 70m²: 78 Module → Ertrag, Statik, Blitzschutz pruefen"
+        },
+        {
+          "element": "Luftwaermepumpe",
+          "risiko": "MITTEL",
+          "elsa_action": "EXECUTE",
+          "begruendung": "Luftwaermepumpe: Standard-Validierung"
+        },
+        {
+          "element": "Einfahrtstor",
+          "risiko": "MITTEL",
+          "elsa_action": "EXECUTE",
+          "begruendung": "Einfahrtstor: Standard-Validierung"
+        },
+        {
+          "element": "Fundamente FDUK=-1,25",
+          "risiko": "HOCH",
+          "elsa_action": "EXECUTE",
+          "begruendung": "Fundamente: FDUK=-1,25 → Bodengutachten, Aushub, Bewehrung"
+        }
+      ],
+      "gesamt_entscheidung": "ABSTAIN",
+      "gesamt_begruendung": "ABSTAIN weil:\n  - Revision 04_09c: STB-Elemente geaendert → Statiker muss neu bemessen (lt. Plan: 'lt. ANG. STATIK')\n  - Mass-Kette: Mass-Kette: 5,725+5,725+5,725+5,725 = 22.90m ≠ 23.46m"
+    },
+    "10d BBQ LOUNGE.pdf": {
+      "plan": "10d BBQ LOUNGE.pdf",
+      "name": "BBQ LOUNGE",
+      "sha256": "e5de7dd05a0ab2033d5fce282cebff71e7b3d43d44289473614b8d967dc1665d",
+      "ddgk_revisionen": {
+        "status": "KEINE_REVISIONEN",
+        "details": "Keine Revisionstabelle gefunden"
+      },
+      "eira_mass_ketten": [],
+      "elsa_hoehen": [
+        {
+          "typ": "HOEHE",
+          "name": "OK",
+          "werte": "+2,15, +2,30, +2,40, +3,65, +2,88",
+          "anzahl_werte": 5,
+          "elsa_action": "EXECUTE",
+          "begruendung": "OK: +2,15, +2,30, +2,40, +3,65, +2,88 (5 Werte)"
+        }
+      ],
+      "guardian_elemente": [
+        {
+          "element": "Gas-Grillkamin",
+          "risiko": "MITTEL",
+          "elsa_action": "EXECUTE",
+          "begruendung": "Gas-Grillkamin: Standard-Validierung"
+        },
+        {
+          "element": "Terrasse",
+          "risiko": "MITTEL",
+          "elsa_action": "EXECUTE",
+          "begruendung": "Terrasse: Standard-Validierung"
+        },
+        {
+          "element": "Starkstrom",
+          "risiko": "MITTEL",
+          "elsa_action": "EXECUTE",
+          "begruendung": "Starkstrom: Standard-Validierung"
+        },
+        {
+          "element": "Aussenwand",
+          "risiko": "MITTEL",
+          "elsa_action": "EXECUTE",
+          "begruendung": "Aussenwand: Standard-Validierung"
+        }
+      ],
+      "gesamt_entscheidung": "EXECUTE",
+      "gesamt_begruendung": "Alle Checks bestanden"
+    },
+    "11aa EG Gesamtplan 100.pdf": {
+      "plan": "11aa EG Gesamtplan 100.pdf",
+      "name": "EG Gesamtplan",
+      "sha256": "379dfa56c4df25205322500c53d36cd1cdd8eae5b247d67c903376d27ebe1d77",
+      "ddgk_revisionen": {
+        "status": "KEINE_REVISIONEN",
+        "details": "Keine Revisionstabelle gefunden"
+      },
+      "eira_mass_ketten": [],
+      "elsa_hoehen": [
+        {
+          "typ": "HOEHE",
+          "name": "OK=DUK",
+          "werte": "+3,00, +2,60",
+          "anzahl_werte": 2,
+          "elsa_action": "EXECUTE",
+          "begruendung": "OK=DUK: +3,00, +2,60 (2 Werte)"
+        }
+      ],
+      "guardian_elemente": [
+        {
+          "element": "FBH-Verteiler",
+          "risiko": "MITTEL",
+          "elsa_action": "EXECUTE",
+          "begruendung": "FBH-Verteiler: Standard-Validierung"
+        },
+        {
+          "element": "STB-Stuetzen",
+          "risiko": "HOCH",
+          "elsa_action": "EXECUTE",
+          "begruendung": "STB-Elemente: Dimensionen lt. Statik → Statiker-Proof erforderlich"
+        },
+        {
+          "element": "Holzschalung",
+          "risiko": "MITTEL",
+          "elsa_action": "EXECUTE",
+          "begruendung": "Holzschalung: Standard-Validierung"
+        },
+        {
+          "element": "Klh-Decke",
+          "risiko": "MITTEL",
+          "elsa_action": "EXECUTE",
+          "begruendung": "Klh-Decke: Standard-Validierung"
+        },
+        {
+          "element": "Gasdruckfedern",
+          "risiko": "MITTEL",
+          "elsa_action": "EXECUTE",
+          "begruendung": "Gasdruckfedern: Standard-Validierung"
+        }
+      ],
+      "gesamt_entscheidung": "EXECUTE",
+      "gesamt_begruendung": "Alle Checks bestanden"
+    },
+    "06u SCHNITTE CC, DD.pdf": {
+      "plan": "06u SCHNITTE CC, DD.pdf",
+      "name": "SCHNITTE CC, DD",
+      "sha256": "c0d4b7f1afecb9a96fc1beb1f67ac1b4adab7ed80aa5a6e1cd7d6c52b2bf1ca6",
+      "ddgk_revisionen": {
+        "status": "KEINE_REVISIONEN",
+        "details": "Keine Revisionstabelle gefunden"
+      },
+      "eira_mass_ketten": [],
+      "elsa_hoehen": [
+        {
+          "typ": "HOEHE",
+          "name": "OK",
+          "werte": "+3,05, +2,15, +2,40, +3,90, +2,80, +2,58, +3,04, +3,03",
+          "anzahl_werte": 8,
+          "elsa_action": "EXECUTE",
+          "begruendung": "OK: +3,05, +2,15, +2,40, +3,90, +2,80, +2,58, +3,04, +3,03 (8 Werte)"
+        }
+      ],
+      "guardian_elemente": [
+        {
+          "element": "KLH-Decke",
+          "risiko": "MITTEL",
+          "elsa_action": "EXECUTE",
+          "begruendung": "KLH-Decke: Standard-Validierung"
+        },
+        {
+          "element": "Holzschalung",
+          "risiko": "MITTEL",
+          "elsa_action": "EXECUTE",
+          "begruendung": "Holzschalung: Standard-Validierung"
+        },
+        {
+          "element": "Natursteinplatten",
+          "risiko": "MITTEL",
+          "elsa_action": "EXECUTE",
+          "begruendung": "Natursteinplatten: Standard-Validierung"
+        },
+        {
+          "element": "Fensterprofil",
+          "risiko": "MITTEL",
+          "elsa_action": "EXECUTE",
+          "begruendung": "Fensterprofil: Standard-Validierung"
+        },
+        {
+          "element": "Querloeftung",
+          "risiko": "MITTEL",
+          "elsa_action": "EXECUTE",
+          "begruendung": "Querloeftung: Standard-Validierung"
+        }
+      ],
+      "gesamt_entscheidung": "EXECUTE",
+      "gesamt_begruendung": "Alle Checks bestanden"
+    },
+    "08r ANSICHTEN SUED+WEST.pdf": {
+      "plan": "08r ANSICHTEN SUED+WEST.pdf",
+      "name": "ANSICHTEN SUED+WEST",
+      "sha256": "ed729309bd355b97958ccc067042323fdb8e6573146207c8541192b6f6e1abd9",
+      "ddgk_revisionen": {
+        "status": "KEINE_REVISIONEN",
+        "details": "Keine Revisionstabelle gefunden"
+      },
+      "eira_mass_ketten": [],
+      "elsa_hoehen": [
+        {
+          "typ": "HOEHE",
+          "name": "OK",
+          "werte": "+9,92, +7,48, +9,19, +5,57, +3,68",
+          "anzahl_werte": 5,
+          "elsa_action": "EXECUTE",
+          "begruendung": "OK: +9,92, +7,48, +9,19, +5,57, +3,68 (5 Werte)"
+        }
+      ],
+      "guardian_elemente": [
+        {
+          "element": "Holzfachwerk",
+          "risiko": "MITTEL",
+          "elsa_action": "EXECUTE",
+          "begruendung": "Holzfachwerk: Standard-Validierung"
+        },
+        {
+          "element": "Quergiebel",
+          "risiko": "MITTEL",
+          "elsa_action": "EXECUTE",
+          "begruendung": "Quergiebel: Standard-Validierung"
+        },
+        {
+          "element": "First",
+          "risiko": "MITTEL",
+          "elsa_action": "EXECUTE",
+          "begruendung": "First: Standard-Validierung"
+        },
+        {
+          "element": "Traufe",
+          "risiko": "MITTEL",
+          "elsa_action": "EXECUTE",
+          "begruendung": "Traufe: Standard-Validierung"
+        },
+        {
+          "element": "Querbund",
+          "risiko": "MITTEL",
+          "elsa_action": "EXECUTE",
+          "begruendung": "Querbund: Standard-Validierung"
+        }
+      ],
+      "gesamt_entscheidung": "EXECUTE",
+      "gesamt_begruendung": "Alle Checks bestanden"
+    },
+    "07r ANSICHTEN NORD+OST.pdf": {
+      "plan": "07r ANSICHTEN NORD+OST.pdf",
+      "name": "ANSICHTEN NORD+OST",
+      "sha256": "82ded160a81e640a43fc559b10682cea3bbebf80c0c1bd506f8ec91d513a40a9",
+      "ddgk_revisionen": {
+        "status": "KEINE_REVISIONEN",
+        "details": "Keine Revisionstabelle gefunden"
+      },
+      "eira_mass_ketten": [],
+      "elsa_hoehen": [
+        {
+          "typ": "HOEHE",
+          "name": "OK",
+          "werte": "+9,92, +7,48, +9,19, +5,57, +3,68",
+          "anzahl_werte": 5,
+          "elsa_action": "EXECUTE",
+          "begruendung": "OK: +9,92, +7,48, +9,19, +5,57, +3,68 (5 Werte)"
+        }
+      ],
+      "guardian_elemente": [
+        {
+          "element": "Holzschalung",
+          "risiko": "MITTEL",
+          "elsa_action": "EXECUTE",
+          "begruendung": "Holzschalung: Standard-Validierung"
+        },
+        {
+          "element": "Laerche",
+          "risiko": "MITTEL",
+          "elsa_action": "EXECUTE",
+          "begruendung": "Laerche: Standard-Validierung"
+        },
+        {
+          "element": "Sichtschutzverkleidung",
+          "risiko": "MITTEL",
+          "elsa_action": "EXECUTE",
+          "begruendung": "Sichtschutzverkleidung: Standard-Validierung"
+        },
+        {
+          "element": "Schiebetor",
+          "risiko": "MITTEL",
+          "elsa_action": "EXECUTE",
+          "begruendung": "Schiebetor: Standard-Validierung"
+        },
+        {
+          "element": "Hauptgebaeude",
+          "risiko": "MITTEL",
+          "elsa_action": "EXECUTE",
+          "begruendung": "Hauptgebaeude: Standard-Validierung"
+        }
+      ],
+      "gesamt_entscheidung": "EXECUTE",
+      "gesamt_begruendung": "Alle Checks bestanden"
+    }
+  },
+  "notstromaggregat_spezial": {
+    "verschoben_am": [
+      "22.11.2024 (09d)",
+      "14.11.2025 (09e)"
+    ],
+    "elsa_entscheidung": "DEFER",
+    "begruendung": "2x verschoben → Fundament, Abgas, Schallschutz, Zuleitung, Bayernwerk neu pruefen",
+    "erforderlich": "HITL-Checkpoint (Bauleitung + Sonderplaner)"
+  }
+}
