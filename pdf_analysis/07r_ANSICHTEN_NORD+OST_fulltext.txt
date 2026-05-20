@@ -1,0 +1,319 @@
+LEGENDE
+±0,00
+±0,00
+Gemarkung Grassau
+Resort Achental GmbH
+83224 Grassau, Mietenkamerstraße 65
+Umbau und Erweiterung des
+"Sichlerhauses" zur
+Golfakademie
+83224 Grassau
+Niederfeldstraße
+Flur-Nr. 1042/1
+PLANINHALT:
+W E R K P L A N
+PLANNUMMER:
+DATUM:
+Bei dieser Zeichnung bzw. Ausarbeitung handelt es sich um geistiges Eigentum des Planers, welches somit gesetzlich geschützt
+ist. Jegliche Vervielfältigung, Veröffentlichung, Überarbeitung, Benutzung oder Weitergabe an Dritte in Verbindung mit einem
+anderen Projekt oder einer anderen Arbeit, bedarf der ausdrücklichen schriftlichen Zustimmung des Planers.
+Die ausführende Firma akzeptiert  bei Planübergabe die am Plan dargestellten Konstruktionen, Ausführungsarten und
+Anordnungen, wobei geschriebene Planmaße gegenüber gezeichneten Dimensionen unbedingten Vorrang haben. Weiters
+verpflichten sich Auftragnehmer und Bauleitung alle Maße und Leistungen anderer Firmen im Zusammenhang mit ihrer Arbeit
+vor Arbeitsbeginn auf der Baustelle gewissenhaft zu kontrollieren, um eine ordnungsgemäße Ausführung zu gewährleisten.
+Abweichungen von dargestellten Inhalten oder schriftlichen Vereinbarungen sind mit dem Planer sowie der Bauleitung vor
+Bauausführung umgehend schriftlich mitzuteilen.
+Dieser Plan ist vom Ausführenden mit den Plänen des Statikers und denen der Sonderplaner (HKLS, Elektro, Brandschutz usw. )
+auf Übereinstimmungen und Vollständigkeit zu überprüfen! Etwaige Maßfehler und Unklarheiten sind dem Planverfasser sofort
+schriftlich mitzuteilen und abzuklären!
+Die Naturmaße sind zu nehmen und die Koten zu prüfen!
+WD 
+Wanddurchbruch
+DD 
+Deckendurchbruch
+BD 
+Bodendurchbruch
+FDD 
+Fundamentdurchbruch
+WS 
+Wandschlitz
+WA 
+Wandaussparung
+DA 
+Deckenaussparung
+FBA 
+Fussbodenaussparung
+RBL 
+Rohbaulichte
+AL 
+Architekturlichte
+STL 
+Stocklichte
+GL 
+Glaslichte
+STAM 
+Stockaußenmaß
+EI-xx 
+Feuerwiderstandsklasse
+OK 
+Oberkante
+UK 
+Unterkante
+DOK 
+Rohdeckenoberkante
+DUK 
+Rohdeckenunterkante
+FBOK 
+Fussbodenoberkante
+FDUK 
+Fundamentunterkante
+FDOK 
+Fundamentoberkante
+STUK 
+Sturzunterkante
+STH 
+Sturzhöhe
+FPH 
+fertige Parapethöhe
+L 
+Lüftungsschacht
+PT 
+Putztürchen
+KT 
+Kehrtürchen
+AL 
+Abluft
+ZL 
+Zuluft
+VSG 
+Verbund-Sicherheitsglas
+ESG 
+Einscheiben-Sicherheitsglas
+DBA 
+Druckbelüftungsanlage
+DES 
+Druckentlastungsschacht
+BÖ 
+Belüftungsöffnung
+ÜÖ 
+Überströmöffnung
+AÖ 
+Abströmöffnung mit
+ 
+Überdruckentlastungsorgan
+BSK 
+Brandsschutzklappe
+OK Fertigbau
+OK Rohbau
+UK Rohbau
+UK Fertigbau
+Wanddurchbruch
+Deckendurchbruch
+Bodenschlitz
+Bodendurchbruch
+± 0,00
+Höhenangabe einer
+waagrechten Fläche
+Höhenangabe eines Punktes in
+einem Bauwerk - Fertigmaß
+Höhenangabe eines Punktes in
+einem Bauwerk - Rohbaumaß
+Mauerwerk (wärmedämmend)
+Mauerwerk Schallschutzziegel
+Abbruch
+unbewehrter Beton
+bewehrter Beton
+Stein
+Stahl (allgemein)
+Holz (allgemein)
+Holzwerkstoffe
+Dämmstoff (weich)
+Kunststoff (allgemein)
+Dichtstoff (allgemein)
+Glas
+Gips (Gipskartonplatte)
+Bestand
+Erdmaterial (allgemein)
+Neubau
+Dämmstoff (hart)
+Schmutzwasser
+Wasser
+Regenwasser
+Heizung
+Strom
+BAUWERBER:
+ENTWURF und EINREICHPLANUNG:
+BAUVORHABEN:
+ÄND.-ID
+DATUM
+BESCHREIBUNG
+WERKPLANUNG:
+Lüftung
+Matteo Thun Milano GmbH
+80805 München, Osterwaldstraße 10
+Mail: ulrik.hinze@matteothun.de
+TEL: +49 (0)170 / 9558542
+04_07r
+08.12.2025
+Wanddurchbruch EL
+17
+17
+16
+16
+15
+15
+14
+14
+13
+13
+12
+12
+11
+11
+10
+10
+9
+9
+8
+8
+7
+7
+6
+6
+5
+5
+4
+4
+3
+3
+2
+2
+1
+1
+1
+1
+17
+17
+15
+15
+     FIRST
+HAUPTGEBÄUDE
+     +9,92
+ (+545,42m)
+WH. TRAUFE
+    +7,48
+(+542,98m)
+     FIRST
+QUERGIEBEL
+     +9,19
+ (+544,69m)
+     FIRST
+QUERGIEBEL
+     +9,19
+ (+544,69m)
+WH. TRAUFE
+    +7,48
+(+542,98m)
+   FIRST
+   +5,57
+(+541,07m)
+WH. TRAUFE
+    +3,68
+(+539,18m)
+SICHTSCHUTZVERKLEIDUNG,
+HOLZSCHALUNG SENKRECHT
+MIT AUSSCHNITT - LT. DETAILANGABE
+SCHIEBETOR - LÄRCHE
+SENKRECHT MIT AUSSCHNITT
+- LT. DETAILANGABE
+SCHIEBETOR - LÄRCHE
+SENKRECHT MIT AUSSCHNITT
+- LT. DETAILANGABE
+SICHTSCHUTZVERKLEIDUNG,
+HOLZSCHALUNG SENKRECHT
+MIT AUSSCHNITT - LT. DETAILANGABE
+A
+A
+B
+B
+C
+C
+D
+D
+E
+E
+F
+F
+G
+G
+H
+H
+I
+I
+J
+J
+K
+K
+L
+L
+M
+M
+   FIRST
+   +5,57
+(+541,07m)
+WH. TRAUFE
+    +3,68
+(+539,18m)
+2,25
+1,25
+1,25
+87
+ca.1,23
+21
+47
+215
+465
+1,08
+1,37
+5,005
+4,355
+2,23
+2,23
+3,83
+1,15
+6,10
+1,48
+4,62
+1,15
+26,00°
+ML 1,35/1,30
+ML 1,35/2,30
+QUERBUND - HOLZFACHWERK LT. DETAILANGABE
+ANSICHT NORD   
+  
+1 : 50
+ANSICHT OST 
+  
+  
+1 : 50
+ANSICHT NORD 
+ANSICHT OST
+04_07m
+generell Fenster,-Türmasse anpassen lt. Freigabe 09.04. + Fensterelemente b. Quergiebel anpassen
+11.04.2024
+04_07n
+24.05.2024
+Änderung Breite, Höhe + Dachneigung Quergiebel Ost + west
+04_07o
+12.07.2024
+Ostansicht - vorgelagerte Säulen nach innen verschoben, Fusspfette einfach, Fachwerksträger
+angepaßt lt. Angabe Statiker
+04_07p
+29.07.2024
+RR fixiert
+04_07q
+08.08.2025
+Änderung Sichtschutzverkl. b. Terrasse, Breite Schiebetor b. Eingang Suler angepasst!
+04_07r
+08.12.2025
+finaler Planstand

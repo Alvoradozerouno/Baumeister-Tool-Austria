@@ -1,0 +1,369 @@
+LEGENDE
+±0,00
+±0,00
+Gemarkung Grassau
+Resort Achental GmbH
+83224 Grassau, Mietenkamerstraße 65
+Umbau und Erweiterung des
+"Sichlerhauses" zur
+Golfakademie
+83224 Grassau
+Niederfeldstraße
+Flur-Nr. 1042/1
+PLANINHALT:
+W E R K P L A N
+PLANNUMMER:
+DATUM:
+Bei dieser Zeichnung bzw. Ausarbeitung handelt es sich um geistiges Eigentum des Planers, welches somit gesetzlich geschützt
+ist. Jegliche Vervielfältigung, Veröffentlichung, Überarbeitung, Benutzung oder Weitergabe an Dritte in Verbindung mit einem
+anderen Projekt oder einer anderen Arbeit, bedarf der ausdrücklichen schriftlichen Zustimmung des Planers.
+Die ausführende Firma akzeptiert  bei Planübergabe die am Plan dargestellten Konstruktionen, Ausführungsarten und
+Anordnungen, wobei geschriebene Planmaße gegenüber gezeichneten Dimensionen unbedingten Vorrang haben. Weiters
+verpflichten sich Auftragnehmer und Bauleitung alle Maße und Leistungen anderer Firmen im Zusammenhang mit ihrer Arbeit
+vor Arbeitsbeginn auf der Baustelle gewissenhaft zu kontrollieren, um eine ordnungsgemäße Ausführung zu gewährleisten.
+Abweichungen von dargestellten Inhalten oder schriftlichen Vereinbarungen sind mit dem Planer sowie der Bauleitung vor
+Bauausführung umgehend schriftlich mitzuteilen.
+Dieser Plan ist vom Ausführenden mit den Plänen des Statikers und denen der Sonderplaner (HKLS, Elektro, Brandschutz usw. )
+auf Übereinstimmungen und Vollständigkeit zu überprüfen! Etwaige Maßfehler und Unklarheiten sind dem Planverfasser sofort
+schriftlich mitzuteilen und abzuklären!
+Die Naturmaße sind zu nehmen und die Koten zu prüfen!
+WD 
+Wanddurchbruch
+DD 
+Deckendurchbruch
+BD 
+Bodendurchbruch
+FDD 
+Fundamentdurchbruch
+WS 
+Wandschlitz
+WA 
+Wandaussparung
+DA 
+Deckenaussparung
+FBA 
+Fussbodenaussparung
+RBL 
+Rohbaulichte
+AL 
+Architekturlichte
+STL 
+Stocklichte
+GL 
+Glaslichte
+STAM 
+Stockaußenmaß
+EI-xx 
+Feuerwiderstandsklasse
+OK 
+Oberkante
+UK 
+Unterkante
+DOK 
+Rohdeckenoberkante
+DUK 
+Rohdeckenunterkante
+FBOK 
+Fussbodenoberkante
+FDUK 
+Fundamentunterkante
+FDOK 
+Fundamentoberkante
+STUK 
+Sturzunterkante
+STH 
+Sturzhöhe
+FPH 
+fertige Parapethöhe
+L 
+Lüftungsschacht
+PT 
+Putztürchen
+KT 
+Kehrtürchen
+AL 
+Abluft
+ZL 
+Zuluft
+VSG 
+Verbund-Sicherheitsglas
+ESG 
+Einscheiben-Sicherheitsglas
+DBA 
+Druckbelüftungsanlage
+DES 
+Druckentlastungsschacht
+BÖ 
+Belüftungsöffnung
+ÜÖ 
+Überströmöffnung
+AÖ 
+Abströmöffnung mit
+ 
+Überdruckentlastungsorgan
+BSK 
+Brandsschutzklappe
+OK Fertigbau
+OK Rohbau
+UK Rohbau
+UK Fertigbau
+Wanddurchbruch
+Deckendurchbruch
+Bodenschlitz
+Bodendurchbruch
+± 0,00
+Höhenangabe einer
+waagrechten Fläche
+Höhenangabe eines Punktes in
+einem Bauwerk - Fertigmaß
+Höhenangabe eines Punktes in
+einem Bauwerk - Rohbaumaß
+Mauerwerk (wärmedämmend)
+Mauerwerk Schallschutzziegel
+Abbruch
+unbewehrter Beton
+bewehrter Beton
+Stein
+Stahl (allgemein)
+Holz (allgemein)
+Holzwerkstoffe
+Dämmstoff (weich)
+Kunststoff (allgemein)
+Dichtstoff (allgemein)
+Glas
+Gips (Gipskartonplatte)
+Bestand
+Erdmaterial (allgemein)
+Neubau
+Dämmstoff (hart)
+Schmutzwasser
+Wasser
+Regenwasser
+Heizung
+Strom
+BAUWERBER:
+ENTWURF und EINREICHPLANUNG:
+BAUVORHABEN:
+ÄND.-ID
+DATUM
+BESCHREIBUNG
+WERKPLANUNG:
+Lüftung
+Matteo Thun Milano GmbH
+80805 München, Osterwaldstraße 10
+Mail: ulrik.hinze@matteothun.de
+TEL: +49 (0)170 / 9558542
+04_10d
+08.12.2025
+Wanddurchbruch EL
+RPH 1,10
+FPH 0,89
+STUK +2,15
+RPH 1,10
+FPH 0,89
+STUK +2,15
+RPH 1,10
+FPH 0,89
+STUK +2,15
+STUK +2,30
+A
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+B
+C
+78
+1,35
+815
+1,35
+815
+1,35
+1,00
+1,35
+35
+1,30
+2,30
+1,30
+1,30
+81
+11,40
+35
+20
+10
+35
+12,00
+35
+10
+20
+35
+20
+12,70
+5,00
+12,57
+20
+10
+20
+1,00
+45
+275
+2,70
+2,275
+2,275
+45
+1,00
+25
+2,455
+25
+4,27
+25
+1,08
+1,37
+275
+1,35
+1,35
+2,275
+2,625
+90
+85
+13,09
+3,35
+1,60
+20
+-0,20
+Höhenlage +535,30m
+5,00
+1,00
+6,50
+9,00
+4,00
+1,05
+1,00
+20
+3,05
+20
+3,05
+20
+2,70
+20
+2,70
+20
+2,70
+20
+5
+20
+6,25
+5
+1,45
+1,45
+1,10
+1,30
+1,30
+1,20
+2,30
+1,30
+1,10
+1,30
+5
+5
+1,05
+2,40
+2,30
+20
+1,05 20
+5
+1,60
+6,50
+9,00
+5,00
+12,57
+F 1.12
+F 1.13
+F 1.15
+F 1.14
+TERRASSE
+BALKONSTUTZEN
+2x18/22 cm UK= +2,40 m
+12,00 lt. Eingabeplan
+5
+0
+BBQ-Lodge
+Lager
+BBQ-Area
+Terrasse offen
+GAS-GRILLKAMIN
+LT. DETAILANGABE
+ANSCHLÜSSE FÜR
+WASSER, STROM +
+STARKSTROM VORSEHEN
+VK FERTIGE
+AUSSENWAND EG
+VK FERTIGE
+AUSSENWAND EG
+12,57
+RR
+RR
+B
+A
+F
+F
+NIV. LOUNGE
+  -0,20
+(+535,30)
+20
+10
+2,30
+48
+17,00°
+FOK EG 
+GOLFAKADEMIE
+    ±0,00
+ (+535,50)
+   FIRST
+   +3,65
+(+539,15m)
+WH. TRAUFE
+    +2,885
+(+538,385m)
+75
+2,35
+20
+2,35
+75
+3,02
+48
+2,42
+24
+NIV. LOUNGE
+  -0,20
+(+535,30)
+GRUNDRISS BBQ-LOUNGE 
+   1 : 50
+SCHNITT F-F  BBQ-LOUNGE 
+   1 : 50
+ANSICHTEN BBQ LOUNGE      1 : 50
+SCHNITT F-F
+BBQ-LOUNGE
+ANSICHT NORD
+BBQ-LOUNGE
+ANSICHT OST
+BBQ-LOUNGE
+ANSICHT WEST
+BBQ-LOUNGE
+ANSICHT SÜD
+BBQ-LOUNGE
+04_10b
+29.07.2024
+RR fixiert
+04_10c
+21.03.2025
+RR geändert, Holzsäulen entfallen im Freibereich,
+04_10d
+08.12.2025
+finaler Planstand

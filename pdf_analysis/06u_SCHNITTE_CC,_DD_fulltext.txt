@@ -1,0 +1,1076 @@
+LEGENDE
+±0,00
+±0,00
+Gemarkung Grassau
+Resort Achental GmbH
+83224 Grassau, Mietenkamerstraße 65
+Umbau und Erweiterung des
+"Sichlerhauses" zur
+Golfakademie
+83224 Grassau
+Niederfeldstraße
+Flur-Nr. 1042/1
+PLANINHALT:
+W E R K P L A N
+PLANNUMMER:
+DATUM:
+Bei dieser Zeichnung bzw. Ausarbeitung handelt es sich um geistiges Eigentum des Planers, welches somit gesetzlich geschützt
+ist. Jegliche Vervielfältigung, Veröffentlichung, Überarbeitung, Benutzung oder Weitergabe an Dritte in Verbindung mit einem
+anderen Projekt oder einer anderen Arbeit, bedarf der ausdrücklichen schriftlichen Zustimmung des Planers.
+Die ausführende Firma akzeptiert  bei Planübergabe die am Plan dargestellten Konstruktionen, Ausführungsarten und
+Anordnungen, wobei geschriebene Planmaße gegenüber gezeichneten Dimensionen unbedingten Vorrang haben. Weiters
+verpflichten sich Auftragnehmer und Bauleitung alle Maße und Leistungen anderer Firmen im Zusammenhang mit ihrer Arbeit
+vor Arbeitsbeginn auf der Baustelle gewissenhaft zu kontrollieren, um eine ordnungsgemäße Ausführung zu gewährleisten.
+Abweichungen von dargestellten Inhalten oder schriftlichen Vereinbarungen sind mit dem Planer sowie der Bauleitung vor
+Bauausführung umgehend schriftlich mitzuteilen.
+Dieser Plan ist vom Ausführenden mit den Plänen des Statikers und denen der Sonderplaner (HKLS, Elektro, Brandschutz usw. )
+auf Übereinstimmungen und Vollständigkeit zu überprüfen! Etwaige Maßfehler und Unklarheiten sind dem Planverfasser sofort
+schriftlich mitzuteilen und abzuklären!
+Die Naturmaße sind zu nehmen und die Koten zu prüfen!
+WD 
+Wanddurchbruch
+DD 
+Deckendurchbruch
+BD 
+Bodendurchbruch
+FDD 
+Fundamentdurchbruch
+WS 
+Wandschlitz
+WA 
+Wandaussparung
+DA 
+Deckenaussparung
+FBA 
+Fussbodenaussparung
+RBL 
+Rohbaulichte
+AL 
+Architekturlichte
+STL 
+Stocklichte
+GL 
+Glaslichte
+STAM 
+Stockaußenmaß
+EI-xx 
+Feuerwiderstandsklasse
+OK 
+Oberkante
+UK 
+Unterkante
+DOK 
+Rohdeckenoberkante
+DUK 
+Rohdeckenunterkante
+FBOK 
+Fussbodenoberkante
+FDUK 
+Fundamentunterkante
+FDOK 
+Fundamentoberkante
+STUK 
+Sturzunterkante
+STH 
+Sturzhöhe
+FPH 
+fertige Parapethöhe
+L 
+Lüftungsschacht
+PT 
+Putztürchen
+KT 
+Kehrtürchen
+AL 
+Abluft
+ZL 
+Zuluft
+VSG 
+Verbund-Sicherheitsglas
+ESG 
+Einscheiben-Sicherheitsglas
+DBA 
+Druckbelüftungsanlage
+DES 
+Druckentlastungsschacht
+BÖ 
+Belüftungsöffnung
+ÜÖ 
+Überströmöffnung
+AÖ 
+Abströmöffnung mit
+ 
+Überdruckentlastungsorgan
+BSK 
+Brandsschutzklappe
+OK Fertigbau
+OK Rohbau
+UK Rohbau
+UK Fertigbau
+Wanddurchbruch
+Deckendurchbruch
+Bodenschlitz
+Bodendurchbruch
+± 0,00
+Höhenangabe einer
+waagrechten Fläche
+Höhenangabe eines Punktes in
+einem Bauwerk - Fertigmaß
+Höhenangabe eines Punktes in
+einem Bauwerk - Rohbaumaß
+Mauerwerk (wärmedämmend)
+Mauerwerk Schallschutzziegel
+Abbruch
+unbewehrter Beton
+bewehrter Beton
+Stein
+Stahl (allgemein)
+Holz (allgemein)
+Holzwerkstoffe
+Dämmstoff (weich)
+Kunststoff (allgemein)
+Dichtstoff (allgemein)
+Glas
+Gips (Gipskartonplatte)
+Bestand
+Erdmaterial (allgemein)
+Neubau
+Dämmstoff (hart)
+Schmutzwasser
+Wasser
+Regenwasser
+Heizung
+Strom
+BAUWERBER:
+ENTWURF und EINREICHPLANUNG:
+BAUVORHABEN:
+ÄND.-ID
+DATUM
+BESCHREIBUNG
+WERKPLANUNG:
+Lüftung
+Matteo Thun Milano GmbH
+80805 München, Osterwaldstraße 10
+Mail: ulrik.hinze@matteothun.de
+TEL: +49 (0)170 / 9558542
+04_06u
+08.12.2025
+Wanddurchbruch EL
+2%
+1%
+   FOK
+  +3,05
+(+538,55)
+43
+22
+25
+85
+1,30
+STUK
++2,15
++2,40
+22
+195
+1,00
+ RPH
++3,90
+ DOK
++2,80
+ DUK
++2,58
+87
+1
+145
+BALK.
++3,04
+BALK.
++3,03
+6
+3
+1,23
+FPH= ca. 89
+RPH=1,10
+GD 01
+FENSTERBANK
+METALL
+SCHWELLE
+14/10 cm
+HOLZROST auf feuchtigkeitsbeständiger
+Unterkonstruktion ca. 10-15 cm
+SCHUTZMATTE
+ABDICHTUNG lt. DIN 18531
+DREISCHICHTPLATTE   20 mm
+BEST. HOLZSCHALUNG  ca. 34 mm
+mit Gefälle mind. 2% nach aussen
+BALKONTRÄGER OK SCHRÄG
+LÜFTUNGS-
+GITTER
+LÜFTUNGS-
+GITTER
+LÜFTUNGS-
+GITTER
+BALKONTRÄGER
+18/195-22 cm
+BALKONTRÄGER
+18/22 cm
+KASTEN FÜR AUSSEN -
+JALOUSIE, AUSFÜHRUNG
+LT. ANGABE LIEFERFIRMA !
+BALKONTRÄGER IN STB-
+DECKE VERANKERN MIT
+SCHÖCK ISOKORB T TYP SKP bzw. LT. STATIK
+1,30
+1,23
+2,40
+WH. TRAUFE
+    +7,48
+(+542,98m)
+ PFUK
++6,75
+70
+89
+DNG.
+21,00°
+2
+65
+8
+25
+16
+20
+23
+77
+40
+35
+12
+85
+65
+8 25
+18
+STUK
++5,20
+61
+22
+4
+4
+6
+3
+16
+25
+75
+70
+18
+71
+ PFUK
+ +6,59
+4
+12
+3
+   FOK
+  +5,98
+(+541,48)
+ DOK
++5,75
+ DUK
++5,55
+LÜFTUNGS-
+GITTER
+AD 02
+GD 03
+LÜFTUNGS-
+GITTER
+BEGLEITHEIZUNG NACH
+ERFORDERNIS
+BIT. ABDICHTUNG
+KASTEN FÜR AUSSEN -
+JALOUSIE, AUSFÜHRUNG
+LT. ANGABE LIEFERFIRMA !
+SPARREN IM VORDACHBEREICH
+AUF H=16cm ABHOBELN
+SPARREN 18/18 cm IM BEREICH
+ZWISCHEN ACHSE D - G/H
+1,30
+AGBEHÄNGTE DECKE
+NACH ERFORDERNIS
+1,23
+    FIRST
+HAUPTGEB.
+    +9,92
+(+545,42m)
+12
+10
+25
+3
+5
+65
+8
+10
+10
+20
+15
+20
+AD 02
+QUERLÜFTUNG
+KANAL MIT 3S-PLATTE
+ACHSE FIRST
+ENTLÜFTUNGSHAUBEN 20/20 cm,
+UNTERKONSTRUKTION OSB
+MIT VERBLECHUNG
+ANZAHL U. POS. - LT. DETAILANGABE
+PYRAMIDENDACH
+MIT BLECHEINDECKUNG
+DNG. 45°
+LAMELLEN
+ACHSE 
+20
+2%
+   FOK
+  ±0,00
+(+535,50)
+TERR.
+-0,02
+SOCKEL
++0,30
+TERR.
+-0,05
+-0,20
+-0,05
+30
+3
+25
+RPH=1,10
+1,30
+19
+1
+13
+16
+25
+4 2
+12
+16
+20
+85
+6
+15
+15
+85
+85
+15
+16
+15
+19
+ RPH
++0,85
+2,40
+30
+1,32
+30
+FDOK
+ -0,25
+FDUK
+ -0,50
+1,23
+FPH= ca. 89
+ FPH
++0,89
+25
+8
+12
+25
+15
+15
+FDUK BESTAND
+ca.-1,32
+FDUK NEU
+ca.-1,62
+ca.-2,10
+25
+12
+SOCKEL
++0,30
+5,00°
+-0,17
+-0,35
+-0,32
+EF 04
+FENSTERBANK
+METALL AUF BÜGEL
+MONTIERT
+LÜFTUNGS-
+GITTER
+QUELL-
+FUGENBAND
+LÜFTUNGS-
+GITTER
+DRAINMATTE
+OBERFLÄCHE
+SICHTBETON
+GESPITZT
+ABDICHTUNGSTIEFZUG -
+mechanisch fixieren und
+hinterlaufsicher ausführen!
+BIT. ABDICHTUNG -
+vollflächig hinterlaufsicher verklebt,
+geeignet für drückendes Wasser
+BODENAUSWECHSLUNG LT.
+GEOLOGISCHEM GUTACHTEN
+DRAINAGE ø125 mit
+Aufstandsbögen an
+allen Ecken
+BEST. FUNDAMENT
+VERSTÄRKEN -
+LT. ANG. STATIKER!
+KUNSTFASERVLIES
+ca. LAGE TRAGFÄHIGER
+BODEN - lt. GEOLOGE
+STB-FUNDAMENT BEI SÄULEN
+100/100/30 cm bzw. 100/150/30 cm
+LT. ANGABE STATIK
+AUFFÜLLUNG
+MAGERBETON
+SÄULEN IM EG
+IM BEREICH DER UNTER-
+FANGUNGSFUNDAMENTE
+BEST. FUNDAMENTVOR-
+SPRUNG ABBRECHEN
+VORGESETZTE AUFLAGERSÄULEN
+FÜR BETONSOCKEL
+BEST. HOLZ-
+BLOCKWAND
+= ABBRUCH
+XPS
+4
+4
+5
+5
+6
+6
+7
+7
+8
+8
+9
+9
+10
+10
+11
+11
+12
+12
+13
+13
+14
+14
+   FOK
+  ±0,00
+(=+535,50m)
+21,00°
+     FIRST
+HAUPTGEBÄUDE
+     +9,92
+ (+545,42m)
+WH. TRAUFE
+    +7,48
+(+542,98m)
+     FIRST
+QUERGIEBEL
+     +9,19
+ (+544,69m)
+25
+25
+2,58
+2,50
+2,63
+40
+22
+25
+20
+23
+2,58
+22
+2,23
+27
+20
+25
+23
+2,93
+2,00
+3,05
+3,80
+85
+90
+2,625
+2,275
+1,35
+1,35
+2,275
+2,625
+90
+85
+ UK TRAM
+BEST. +2,48
+(+537,98m)
+ OK TRAM
+    +2,78
+(+538,28m)
+   FOK
+  +3,05
+(=+538,55m)
+   FOK
+  +5,98
+(=+541,48m)
+BEZUGSHÖHE lt. 
+HÖHENAUFMASS
+IB TROST
+     -0,16
+  (=+535,34m)
+ UK TRAM
+BEST. +5,35
+(+540,85m)
+ OK TRAM
+    +5,65
+(+541,15m)
+ UK TRAM
+NEU +5,28
+(+540,78m)
+     FIRST
+QUERGIEBEL
+     +9,19
+ (+544,69m)
+30
+82
+25 25
+2,30
+28
+22
+25 85
+1,30
+35 20 23
+77
+40
+8
+70
+4,90
+1,45
+1,45
+89
+70
+8
+89
+4,90
+85
+90
+90
+2,625
+2,275
+1,35
+1,35
+2,275
+2,625
+85
+30
+1,07
+25
+22
+85
+1,30
+77
+40
+85
+1,30
+43
+25
+35
+43
+STUK
++2,15
+STUK
++5,20
+STUK
++2,30
+ HQn -0,80
+(=+534,70m)
+ HQ extrem -0,20
+   (=+535,30m)
+OK Rohboden lt. gen. 
+BEBAUUNGSPLAN
+      +0,18
+  (=+535,68m)
+1,71
+WH 7,30
+  DOK
+ +2,80
+ DUK
++2,58
+FDUK
+-0,50
+ FDOK
+ -0,25
+ DUK
++5,55
+  DOK
+ +5,75
+UK SAUBERK.-
+SCHICHT
+-0,70
+FDUK
+ca.-1,62
+FDUK
+ca.-1,62
+25
+FPH=89
+1,21
+5
+RPH
++0,85
+RPH
++3,90
+5
+FPH=89
+1,21
+RPH=1,10
+RPH=1,10
+STUK
++5,20
+FPH=89
+1,21
+5
+RPH
++3,90
+BTUK
++2,40
+-0,32
+-0,35
+-0,05
+-0,015
+-0,02
+-0,05
+FDUK BESTAND
+ca.-1,32
+FDUK BESTAND
+ca.-1,32
+-0,32
+-0,35
+SOCKEL
+  +0,30
+PFUK
++8,61
+PFUK
++6,75
+2,48
+10
++2,48
++5,28
+2,23
+27
+2,18
+32
++5,23
++5,45
+2,40
+10
++5,25
+BEST. FUNDAMENT
+VERSTÄRKEN -
+LT. ANG. STATIKER!
+BEST. FUNDAMENT
+VERSTÄRKEN -
+LT. ANG. STATIKER!
+DACHAUFBAU:
+HAUPTGEBÄUDE
+PFETTEN 20/24 cm
+HOLZSCHINDELEINDECKUNG         ca. 4 cm
+STREUSCHALUNG 
+ 
+             24 mm
+HINTERLÜFTUNG / LATTUNG   
+  5 cm
+HINTERLÜFTUNG / LATTUNG punktuell auf Nageldichtband  3 cm
+BIT. ABDICHTUNG lt. DIN 18531
+RAUHSCHALUNG  24 mm
+SPARREN 18/16 cm
+dazwischen HINTERLÜFTUNG    8 cm
+MINERALFASER MW-DZ 035 vlieskaschiert   8 cm
+MINERALFASER MW-DZ 035 / LATTUNG    14 cm
+OSB-PLATTE    15 mm
+DAMPFBREMSE
+BRANDSCHUTZPLATTE  15 mm
+ELASTISCHE TRENNLAGE
+CD-PROFIL / MINERALWOLLE MW-WI 040 
+5 cm
+GK-PLATTE 15 mm + EDELPUTZ
+bzw. STREUHSCHALUNG + HOLZSCHALUNG
+SCHEINSPARREN ca.16/10 cm  (liegend)
+FLUG-
+PFETTE 18/22 cm
+VK SPARREN
+VK SPARREN
+KASTEN AUSSEN-
+ROLLADEN VORSEHEN
+EV. BODENAUSWECHSLUNG
+DRAINAGE
+KASTEN AUSSEN-
+ROLLADEN VORSEHEN
+C1
+Detailschnitt
+C2
+Detailschnitt
+Firstentlüftung
+ca. LAGE TRAGFÄHIGER
+BODEN - lt. GEOLOGE
+AUFFÜLLUNG
+MAGERBETON
+AUFFÜLLUNG
+MAGERBETON
+HOLZDECKE
+HOLZDECKE
+HOLZDECKE
+abgehängt schräg
+1
+1
+2
+2
+3
+3
+4
+4
+5
+5
+6
+6
+7
+7
+8
+8
+9
+9
+10
+10
+11
+11
+12
+12
+13
+13
+14
+14
+15
+15
+16
+16
+17
+17
+1,60
+3,35
+3,80
+85
+90
+2,625
+2,275
+1,35
+1,35
+2,275
+2,625
+90
+85
+13,09
+3,35
+1,60
+   FOK
+  ±0,00
+(+535,50)
+   FOK
+  +3,05
+(+538,55)
+   FOK
+  +5,98
+(+541,48)
+FOK=FDOK
+    -3,20
+(+532,30)
+20
+2,48
+22
+12
+40
+2,70
+25
+25
+2,60
+25
+23
+35
+20
+7
+40
+1,44
+1,24
+3,17
+3,20
+3,05
+2,93
+40
+1,915
+40
+1,915
+40
+21,00°
+     FIRST
+HAUPTGEBÄUDE
+     +9,92
+ (+545,42m)
+WH. TRAUFE
+    +7,48
+(+542,98m)
+77
+40
+8
+12
+40
+1,44
+35
+99
+12,80
+2,52
+40
+2,70
+25
+25
+8
+20
+25
+2,48
+22
+23 77
+40
+99
+12,80
+95
+30
+61
+22
+8
+70
+89
+2,975
+3,275
+20
+3,275
+2,975
+89
+70
+8
+85
+90
+2,625
+2,275
+1,35
+1,35
+2,275
+2,625
+90
+85
+  DOK
+ -1,51
+ DUK
+-1,86
+OK WASSERSP.
+       -0,07
+OK POOL
+   -1,31
+  DOK
+ +2,80
+ DUK
++2,60
+FDUK
+-3,60
+ FDOK
+ -3,20
+ DUK
++5,53
+  DOK
+ +5,75
+ DUK
+-0,50
+  DOK
+ -0,25
+   FOK
+  -3,30
+(+532,20)
+40
+2,80
+UK SAUBERK.-
+SCHICHT
+  -3,80
+UK SAUBERK.-
+SCHICHT
+  -3,90
+40
+95
+2,47
+8
+25
+25
+FDUK
+-3,70
+-0,02
+-0,12
+-0,12
+-0,50
+-0,40
+-0,40
+-0,50
+OK Naturstein
+-0,01
+OK Naturstein
+-0,01
+ FOK Bereich
+Feinstein+EL-Heizg.
+    -3,175
+PFUK
++6,75
+PFUK
++7,895
+PFUK
++9,15
+PFUK
++7,895
+PFUK
++6,75
+ DUK
++2,55
+20
++2,30
+2,30
+30
+2,25
+22
++2,25
++5,285
++5,285
+2,235
+245
+MAGERBETONRIPPEN
+ALS AUFLAGER FÜR
+PFLASTER EG - LT.
+DETAILANGABE STATIK
+MAGERBETONRIPPEN
+ALS AUFLAGER FÜR
+PFLASTER EG - LT.
+DETAILANGABE STATIK
+FLUG-
+PFETTE 18/22 cm
+VK SPARREN
+VK SPARREN
+DRAINAGE
+DRAINAGE
+C2
+Detailschnitt
+Firstentlüftung
+VK STB-DECKE ü. EG
+D1
+Detailschnitt
+AKKUSTIKDECKE ABGEHÄNGT
+AKKUSTIKDECKE ABGEHÄNGT
+QUERTRÄGER BSH 120/200
+MIT HOLZVERKLEIDUNG
+KASTEN AUSSEN FÜR
+BESCHATTUNG VORSEHEN
+DECKE
+ABGEHÄNGT
+HOLZDECKE
+STUK
++2,70
+EV. STAHLPROFIL ALS "ZUGEISEN"
+AUSFÜHRUNG. lt. STATIK
+HEIZUNG FÜR
+FENSTERPROFIL
+2%
+2%
+   FOK
+  ±0,00
+(+535,50)
+  DOK
+ -0,25
+ DUK
+-0,50
+-0,40
+TERR.
+-0,02
+40
+15
+23
+OK WASSERSP.
+       +0,02
+OK Überl.rinne
+-0,02
+16
+15
+GD 02
+NATURSTEINPLATTEN in
+FILTERBETON
+SCHUTZMATTE
+ABDICHTUNG lt. DIN 18531
+UNTERBETON -
+mit Gefälle mind. 2% nach aussen
+HINTERFÜLLUNG
+LOCHBLECH-
+WINKEL
+PURENIT ALS
+AUFLAGER FÜR
+SCHIEBETÜRELEMENT
+AUSFÜHRUNG RINNENDETAIL
+LT. ANGABE LIEFERFIRMA POOL
+AD 01
+AUFLAGER
+PURENIT
+KLH-DECKE 10 cm
+bzw. lt. STATIK
+HEIZUNG FÜR
+FENSTERPROFIL
+AKKUSTIKDECKE ABGEHÄNGT
+SCHNITT C-C 
+  
+  
+1 : 50
+SCHNITT D-D 
+  
+  
+1 : 50
+SCHNITT C-C
+SCHNITT D-D 
+DETAILSCHNITT C1     1:10
+DETAILSCHNITT C1 
+  
+1 : 10
+DETAILSCHNITT C2   1:10
+FIRSTENTLÜFTUNG MIT LÜFTUNGSHAUBEN
+DETAILSCHNITT D1     1:10
+DETAILSCHNITT D1 
+  
+1 : 10
+04_06m
+Fenster,-Türmasse anpassen lt. Freigabe 09.04. - Unterfangungsfundamente anpassen lt. Statiker
+11.04.2024
+18.04.2024
+Unterfangungsfundamente anpassen lt. Bauphysiker, Sockelhöhe 30cm
+04_06n
+24.05.2024
+04_06o
+Änderung Breite, Höhe + Dachneigung Quergiebel Ost + west
+29.07.2024
+04_06p
+Änderung Wandaufbau Aussenwände
+20.09.2024
+04_06q
+27.09.2024
+04_06r
+Änd. WA b. Riegelwand, Details überarbeitet, Darstellung Holzdecken+Wandverkleidungen
+04_06s
+01.03.2025
+generell Festlegung abgehängte Decken + Raumhöhen lt. Vorgabe HLS
+04_06t
+11.04.2025
+Schnitt D - Beckenumgang ohne Gefälle, Änderg. Überlauf Pool
+04_06u
+08.12.2025
+finaler Planstand

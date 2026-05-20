@@ -1,0 +1,506 @@
+{
+  "analysis": "EIRA PDF Deep Analyse",
+  "date": "2026-05-20T07:29:43.829427",
+  "tool": "PyMuPDF 1.27.2.3",
+  "results": [
+    {
+      "file": "09f CARPORT.pdf",
+      "status": "OK",
+      "sha256": "fefa79b056ec08b5047b2c6fbfb9d6ae20a5cb5a6a05f955ce5d589d594cddb8",
+      "pages": 1,
+      "size_kb": 451.6,
+      "text_len": 6421,
+      "plan_type": "CARPORT",
+      "dimensions": [
+        "7,50 x 6,00 m",
+        "6,00 m",
+        "1,50 m",
+        "OK +0,05",
+        "OK +4,03",
+        "OK +3,11",
+        "OK +3,13",
+        "OK +2,52",
+        "OK +3,40",
+        "OK +2,15",
+        "80 cm",
+        "30 cm",
+        "20 cm",
+        "25 cm",
+        "40 cm"
+      ],
+      "norms_rules": [
+        "EN 40",
+        "Krafteinleitung",
+        "EN\n04",
+        "Stahlbeton"
+      ],
+      "categories": {
+        "Bauteile": [
+          "STB",
+          "HOLZ",
+          "STAHL",
+          "BETON",
+          "TOR",
+          "DECKE",
+          "WAND",
+          "BODEN",
+          "DACH",
+          "FUNDAMENT"
+        ],
+        "Technik": [
+          "ELEKTRO",
+          "WASSER",
+          "HEIZUNG",
+          "NOTSTROM"
+        ],
+        "Oertlichkeit": [
+          "NORD",
+          "OST",
+          "EINGANG"
+        ],
+        "Massangaben": [
+          "MAS",
+          "+",
+          "CM",
+          "MM"
+        ],
+        "Planung": [
+          "ENTWURF",
+          "WERKPLANUNG",
+          "EINREICHPLAN",
+          "BESTAND",
+          "NEU"
+        ]
+      },
+      "epistemic_state": "VERIFIED",
+      "elsa_validation": {
+        "decision": "EXECUTE",
+        "reason": "Alle Checks bestanden",
+        "checks_passed": [
+          "Text extrahierbar",
+          "Plan-Typ: CARPORT",
+          "8 reale Masse erkannt",
+          "Normen erkannt: EN 40, Krafteinleitung, EN\n04",
+          "Bauteile: STB, HOLZ, STAHL",
+          "Technik: ELEKTRO, WASSER, HEIZUNG"
+        ],
+        "issues": []
+      },
+      "preview": "09f_CARPORT_preview.png",
+      "fulltext_file": "09f_CARPORT_fulltext.txt"
+    },
+    {
+      "file": "10d BBQ LOUNGE.pdf",
+      "status": "OK",
+      "sha256": "e5de7dd05a0ab2033d5fce282cebff71e7b3d43d44289473614b8d967dc1665d",
+      "pages": 1,
+      "size_kb": 436.6,
+      "text_len": 4715,
+      "plan_type": "BBQ_LOUNGE",
+      "dimensions": [
+        "2,40 m",
+        "OK +2,15",
+        "OK +2,30",
+        "OK +2,40",
+        "OK +3,65",
+        "OK +2,88",
+        "22 cm"
+      ],
+      "norms_rules": [
+        "Krafteinleitung"
+      ],
+      "categories": {
+        "Bauteile": [
+          "HOLZ",
+          "STAHL",
+          "BETON",
+          "DECKE",
+          "WAND",
+          "BODEN",
+          "FUNDAMENT"
+        ],
+        "Technik": [
+          "ELEKTRO",
+          "WASSER",
+          "HEIZUNG",
+          "STARKSTROM"
+        ],
+        "Oertlichkeit": [
+          "NORD",
+          "OST",
+          "WEST",
+          "TERRASSE"
+        ],
+        "Massangaben": [
+          "MAS",
+          "+",
+          "CM",
+          "MM"
+        ],
+        "Planung": [
+          "ENTWURF",
+          "WERKPLANUNG",
+          "EINREICHPLAN",
+          "BESTAND",
+          "NEU"
+        ]
+      },
+      "epistemic_state": "VERIFIED",
+      "elsa_validation": {
+        "decision": "EXECUTE",
+        "reason": "Alle Checks bestanden",
+        "checks_passed": [
+          "Text extrahierbar",
+          "Plan-Typ: BBQ_LOUNGE",
+          "2 reale Masse erkannt",
+          "Normen erkannt: Krafteinleitung",
+          "Bauteile: HOLZ, STAHL, BETON",
+          "Technik: ELEKTRO, WASSER, HEIZUNG"
+        ],
+        "issues": []
+      },
+      "preview": "10d_BBQ_LOUNGE_preview.png",
+      "fulltext_file": "10d_BBQ_LOUNGE_fulltext.txt"
+    },
+    {
+      "file": "11aa EG Gesamtplan 100.pdf",
+      "status": "OK",
+      "sha256": "379dfa56c4df25205322500c53d36cd1cdd8eae5b247d67c903376d27ebe1d77",
+      "pages": 1,
+      "size_kb": 1542.3,
+      "text_len": 17466,
+      "plan_type": "CARPORT",
+      "dimensions": [
+        "7,50 x 6,00 m",
+        "12,00 m",
+        "2,60 m",
+        "2,58 m",
+        "2,40 m",
+        "4,80 m",
+        "2,55 m",
+        "4,79 m",
+        "6,00 m",
+        "2,30 m",
+        "1,50 m",
+        "25,50 m",
+        "25,49 m",
+        "2,48 m",
+        "23,53 m"
+      ],
+      "norms_rules": [
+        "Holzbau",
+        "Krafteinleitung",
+        "Fussbodenheizung",
+        "EN 30",
+        "EN 40",
+        "Stahlbeton"
+      ],
+      "categories": {
+        "Bauteile": [
+          "STB",
+          "BSH",
+          "HOLZ",
+          "STAHL",
+          "BETON",
+          "FENSTER",
+          "TOR",
+          "DECKE",
+          "WAND",
+          "BODEN",
+          "DACH",
+          "FUNDAMENT"
+        ],
+        "Technik": [
+          "FBH",
+          "ELEKTRO",
+          "WASSER",
+          "HEIZUNG",
+          "STARKSTROM",
+          "NOTSTROM"
+        ],
+        "Oertlichkeit": [
+          "NORD",
+          "OST",
+          "TERRASSE",
+          "EINGANG",
+          "ZUGANG"
+        ],
+        "Massangaben": [
+          "MAS",
+          "+",
+          "CM",
+          "MM"
+        ],
+        "Planung": [
+          "ENTWURF",
+          "WERKPLANUNG",
+          "EINREICHPLAN",
+          "BESTAND",
+          "NEU"
+        ]
+      },
+      "epistemic_state": "VERIFIED",
+      "elsa_validation": {
+        "decision": "EXECUTE",
+        "reason": "Alle Checks bestanden",
+        "checks_passed": [
+          "Text extrahierbar",
+          "Plan-Typ: CARPORT",
+          "15 reale Masse erkannt",
+          "Normen erkannt: Holzbau, Krafteinleitung, Fussbodenheizung",
+          "Bauteile: STB, BSH, HOLZ",
+          "Technik: FBH, ELEKTRO, WASSER"
+        ],
+        "issues": []
+      },
+      "preview": "11aa_EG_Gesamtplan_100_preview.png",
+      "fulltext_file": "11aa_EG_Gesamtplan_100_fulltext.txt"
+    },
+    {
+      "file": "06u SCHNITTE CC, DD.pdf",
+      "status": "OK",
+      "sha256": "c0d4b7f1afecb9a96fc1beb1f67ac1b4adab7ed80aa5a6e1cd7d6c52b2bf1ca6",
+      "pages": 1,
+      "size_kb": 1490.2,
+      "text_len": 11393,
+      "plan_type": "BBQ_LOUNGE",
+      "dimensions": [
+        "OK +3,05",
+        "OK +2,15",
+        "OK +2,40",
+        "OK +3,90",
+        "OK +2,80",
+        "OK +2,58",
+        "OK +3,04",
+        "OK +3,03",
+        "OK +7,48",
+        "OK +6,75",
+        "OK +5,20",
+        "OK +6,59",
+        "OK +5,98",
+        "OK +5,75",
+        "OK +5,55"
+      ],
+      "norms_rules": [
+        "Holzbau",
+        "Krafteinleitung",
+        "EN 20",
+        "DIN 18531",
+        "EN 18",
+        "Stahlbeton",
+        "EN\n04",
+        "EN\n100"
+      ],
+      "categories": {
+        "Bauteile": [
+          "STB",
+          "KLH",
+          "BSH",
+          "HOLZ",
+          "STAHL",
+          "BETON",
+          "FENSTER",
+          "DECKE",
+          "WAND",
+          "BODEN",
+          "DACH",
+          "FUNDAMENT"
+        ],
+        "Technik": [
+          "ELEKTRO",
+          "WASSER",
+          "KANAL",
+          "HEIZUNG"
+        ],
+        "Oertlichkeit": [
+          "NORD",
+          "OST",
+          "WEST"
+        ],
+        "Massangaben": [
+          "MAS",
+          "H= ",
+          "+",
+          "CM",
+          "MM"
+        ],
+        "Planung": [
+          "ENTWURF",
+          "WERKPLANUNG",
+          "EINREICHPLAN",
+          "BESTAND",
+          "NEU",
+          "ABBRECHEN"
+        ]
+      },
+      "epistemic_state": "VERIFIED",
+      "elsa_validation": {
+        "decision": "DEFER",
+        "reason": "Minor issues: Nur 0 reale Masse - unvollstaendig",
+        "checks_passed": [
+          "Text extrahierbar",
+          "Plan-Typ: BBQ_LOUNGE",
+          "Normen erkannt: Holzbau, Krafteinleitung, EN 20",
+          "Bauteile: STB, KLH, BSH",
+          "Technik: ELEKTRO, WASSER, KANAL"
+        ],
+        "issues": [
+          "Nur 0 reale Masse - unvollstaendig"
+        ]
+      },
+      "preview": "06u_SCHNITTE_CC,_DD_preview.png",
+      "fulltext_file": "06u_SCHNITTE_CC,_DD_fulltext.txt"
+    },
+    {
+      "file": "08r ANSICHTEN SUED+WEST.pdf",
+      "status": "OK",
+      "sha256": "ed729309bd355b97958ccc067042323fdb8e6573146207c8541192b6f6e1abd9",
+      "pages": 1,
+      "size_kb": 539.7,
+      "text_len": 4310,
+      "plan_type": "BBQ_LOUNGE",
+      "dimensions": [
+        "OK +9,92",
+        "OK +7,48",
+        "OK +9,19",
+        "OK +5,57",
+        "OK +3,68"
+      ],
+      "norms_rules": [
+        "Krafteinleitung",
+        "EN\n11"
+      ],
+      "categories": {
+        "Bauteile": [
+          "HOLZ",
+          "STAHL",
+          "BETON",
+          "FENSTER",
+          "DECKE",
+          "WAND",
+          "BODEN",
+          "DACH",
+          "FUNDAMENT"
+        ],
+        "Technik": [
+          "ELEKTRO",
+          "WASSER",
+          "HEIZUNG"
+        ],
+        "Oertlichkeit": [
+          "NORD",
+          "OST",
+          "WEST"
+        ],
+        "Massangaben": [
+          "MAS",
+          "+",
+          "MM"
+        ],
+        "Planung": [
+          "ENTWURF",
+          "WERKPLANUNG",
+          "EINREICHPLAN",
+          "BESTAND",
+          "NEU"
+        ]
+      },
+      "epistemic_state": "VERIFIED",
+      "elsa_validation": {
+        "decision": "DEFER",
+        "reason": "Minor issues: Nur 0 reale Masse - unvollstaendig",
+        "checks_passed": [
+          "Text extrahierbar",
+          "Plan-Typ: BBQ_LOUNGE",
+          "Normen erkannt: Krafteinleitung, EN\n11",
+          "Bauteile: HOLZ, STAHL, BETON",
+          "Technik: ELEKTRO, WASSER, HEIZUNG"
+        ],
+        "issues": [
+          "Nur 0 reale Masse - unvollstaendig"
+        ]
+      },
+      "preview": "08r_ANSICHTEN_SUED+WEST_preview.png",
+      "fulltext_file": "08r_ANSICHTEN_SUED+WEST_fulltext.txt"
+    },
+    {
+      "file": "07r ANSICHTEN NORD+OST.pdf",
+      "status": "OK",
+      "sha256": "82ded160a81e640a43fc559b10682cea3bbebf80c0c1bd506f8ec91d513a40a9",
+      "pages": 1,
+      "size_kb": 522.2,
+      "text_len": 4769,
+      "plan_type": "BBQ_LOUNGE",
+      "dimensions": [
+        "OK +9,92",
+        "OK +7,48",
+        "OK +9,19",
+        "OK +5,57",
+        "OK +3,68"
+      ],
+      "norms_rules": [
+        "Krafteinleitung",
+        "EN\n11"
+      ],
+      "categories": {
+        "Bauteile": [
+          "HOLZ",
+          "STAHL",
+          "BETON",
+          "FENSTER",
+          "TOR",
+          "DECKE",
+          "WAND",
+          "BODEN",
+          "DACH",
+          "FUNDAMENT"
+        ],
+        "Technik": [
+          "ELEKTRO",
+          "WASSER",
+          "HEIZUNG"
+        ],
+        "Oertlichkeit": [
+          "NORD",
+          "OST",
+          "WEST",
+          "TERRASSE",
+          "EINGANG"
+        ],
+        "Massangaben": [
+          "MAS",
+          "+",
+          "MM"
+        ],
+        "Planung": [
+          "ENTWURF",
+          "WERKPLANUNG",
+          "EINREICHPLAN",
+          "BESTAND",
+          "NEU"
+        ]
+      },
+      "epistemic_state": "VERIFIED",
+      "elsa_validation": {
+        "decision": "DEFER",
+        "reason": "Minor issues: Nur 0 reale Masse - unvollstaendig",
+        "checks_passed": [
+          "Text extrahierbar",
+          "Plan-Typ: BBQ_LOUNGE",
+          "Normen erkannt: Krafteinleitung, EN\n11",
+          "Bauteile: HOLZ, STAHL, BETON",
+          "Technik: ELEKTRO, WASSER, HEIZUNG"
+        ],
+        "issues": [
+          "Nur 0 reale Masse - unvollstaendig"
+        ]
+      },
+      "preview": "07r_ANSICHTEN_NORD+OST_preview.png",
+      "fulltext_file": "07r_ANSICHTEN_NORD+OST_fulltext.txt"
+    }
+  ],
+  "summary": {
+    "EXECUTE": 3,
+    "DEFER": 3
+  }
+}

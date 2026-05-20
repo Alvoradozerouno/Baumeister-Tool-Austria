@@ -1,0 +1,2050 @@
+LEGENDE
+±0,00
+±0,00
+Gemarkung Grassau
+Resort Achental GmbH
+83224 Grassau, Mietenkamerstraße 65
+Umbau und Erweiterung des
+"Sichlerhauses" zur
+Golfakademie
+83224 Grassau
+Niederfeldstraße
+Flur-Nr. 1042/1
+PLANINHALT:
+W E R K P L A N
+PLANNUMMER:
+DATUM:
+Bei dieser Zeichnung bzw. Ausarbeitung handelt es sich um geistiges Eigentum des Planers, welches somit gesetzlich geschützt
+ist. Jegliche Vervielfältigung, Veröffentlichung, Überarbeitung, Benutzung oder Weitergabe an Dritte in Verbindung mit einem
+anderen Projekt oder einer anderen Arbeit, bedarf der ausdrücklichen schriftlichen Zustimmung des Planers.
+Die ausführende Firma akzeptiert  bei Planübergabe die am Plan dargestellten Konstruktionen, Ausführungsarten und
+Anordnungen, wobei geschriebene Planmaße gegenüber gezeichneten Dimensionen unbedingten Vorrang haben. Weiters
+verpflichten sich Auftragnehmer und Bauleitung alle Maße und Leistungen anderer Firmen im Zusammenhang mit ihrer Arbeit
+vor Arbeitsbeginn auf der Baustelle gewissenhaft zu kontrollieren, um eine ordnungsgemäße Ausführung zu gewährleisten.
+Abweichungen von dargestellten Inhalten oder schriftlichen Vereinbarungen sind mit dem Planer sowie der Bauleitung vor
+Bauausführung umgehend schriftlich mitzuteilen.
+Dieser Plan ist vom Ausführenden mit den Plänen des Statikers und denen der Sonderplaner (HKLS, Elektro, Brandschutz usw. )
+auf Übereinstimmungen und Vollständigkeit zu überprüfen! Etwaige Maßfehler und Unklarheiten sind dem Planverfasser sofort
+schriftlich mitzuteilen und abzuklären!
+Die Naturmaße sind zu nehmen und die Koten zu prüfen!
+WD 
+Wanddurchbruch
+DD 
+Deckendurchbruch
+BD 
+Bodendurchbruch
+FDD 
+Fundamentdurchbruch
+WS 
+Wandschlitz
+WA 
+Wandaussparung
+DA 
+Deckenaussparung
+FBA 
+Fussbodenaussparung
+RBL 
+Rohbaulichte
+AL 
+Architekturlichte
+STL 
+Stocklichte
+GL 
+Glaslichte
+STAM 
+Stockaußenmaß
+EI-xx 
+Feuerwiderstandsklasse
+OK 
+Oberkante
+UK 
+Unterkante
+DOK 
+Rohdeckenoberkante
+DUK 
+Rohdeckenunterkante
+FBOK 
+Fussbodenoberkante
+FDUK 
+Fundamentunterkante
+FDOK 
+Fundamentoberkante
+STUK 
+Sturzunterkante
+STH 
+Sturzhöhe
+FPH 
+fertige Parapethöhe
+L 
+Lüftungsschacht
+PT 
+Putztürchen
+KT 
+Kehrtürchen
+AL 
+Abluft
+ZL 
+Zuluft
+VSG 
+Verbund-Sicherheitsglas
+ESG 
+Einscheiben-Sicherheitsglas
+DBA 
+Druckbelüftungsanlage
+DES 
+Druckentlastungsschacht
+BÖ 
+Belüftungsöffnung
+ÜÖ 
+Überströmöffnung
+AÖ 
+Abströmöffnung mit
+ 
+Überdruckentlastungsorgan
+BSK 
+Brandsschutzklappe
+OK Fertigbau
+OK Rohbau
+UK Rohbau
+UK Fertigbau
+Wanddurchbruch
+Deckendurchbruch
+Bodenschlitz
+Bodendurchbruch
+± 0,00
+Höhenangabe einer
+waagrechten Fläche
+Höhenangabe eines Punktes in
+einem Bauwerk - Fertigmaß
+Höhenangabe eines Punktes in
+einem Bauwerk - Rohbaumaß
+Mauerwerk (wärmedämmend)
+Mauerwerk Schallschutzziegel
+Abbruch
+unbewehrter Beton
+bewehrter Beton
+Stein
+Stahl (allgemein)
+Holz (allgemein)
+Holzwerkstoffe
+Dämmstoff (weich)
+Kunststoff (allgemein)
+Dichtstoff (allgemein)
+Glas
+Gips (Gipskartonplatte)
+Bestand
+Erdmaterial (allgemein)
+Neubau
+Dämmstoff (hart)
+Schmutzwasser
+Wasser
+Regenwasser
+Heizung
+Strom
+BAUWERBER:
+ENTWURF und EINREICHPLANUNG:
+BAUVORHABEN:
+ÄND.-ID
+DATUM
+BESCHREIBUNG
+WERKPLANUNG:
+Lüftung
+Matteo Thun Milano GmbH
+80805 München, Osterwaldstraße 10
+Mail: ulrik.hinze@matteothun.de
+TEL: +49 (0)170 / 9558542
+04_11aa
+08.12.2025
+Wanddurchbruch EL
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+18 STG
+16,9 / 32,0
+STUK +2,14
+94
+210
+STUK +2,70
+STUK +2,30
+STUK +2,14
+89
+210
+STUK +2,30
+STUK +2,30
+STUK +2,14
+94
+210
+RPH 1,10
+FPH 0,89
+STUK +2,15
+STUK +2,30
+STUK +2,14
+94
+210
+STUK +2,14
+94
+210
+STUK +2,14
+108
+212
+STUK +2,14
+82
+210
+STUK +2,14
+EI230-CS200
+82
+210
+STUK +2,14
+EI230-CS200
+94
+210
+STUK +2,14
+EI230-CS200
+94
+210
+STUK +2,14
+94
+210
+STUK +2,14
+EI230-CS200
+94
+210
+STUK +2,14
+EI230-CS200
+94
+210
+STUK +2,19
+EI230-CS200
+166
+215
+STUK 2,14
+172
+210
+RPH 1,10
+FPH 0,89
+STUK +2,15
+RPH 1,10
+FPH 0,89
+STUK +2,15
+RPH 1,10
+FPH 0,89
+STUK +2,15
+RPH 1,10
+FPH 0,89
+STUK +2,15
+STUK +2,30
+STUK +2,30
+RPH 1,10
+FPH 0,89
+STUK +2,15
+RPH 1,10
+FPH 0,89
+STUK +2,15
+RPH 1,10
+FPH 0,89
+STUK +2,15
+RPH 1,10
+FPH 0,89
+STUK +2,15
+STUK +2,30
+RPH 1,10
+FPH 0,89
+STUK +2,15
+RPH 1,10
+FPH 0,89
+STUK +2,15
+RPH 1,10
+FPH 0,89
+STUK +2,15
+RPH 1,10
+FPH 0,89
+STUK +2,15
+RPH 1,10
+FPH 0,89
+STUK +2,15
+RPH 1,10
+FPH 0,89
+STUK +2,15
+STUK +2,19
+166
+215
+FPH 0,17
+STUK +2,14
+70
+210
+STUK +2,20
+170
+2125
+STUK +2,20
+170
+2125
+STUK +2,21
+90
+210
+N
+1
+1
+A
+A
+2
+2
+3
+3
+4
+4
+5
+5
+6
+6
+7
+7
+8
+8
+9
+9
+10
+10
+11
+11
+12
+12
+13
+13
+14
+14
+15
+15
+16
+16
+17
+17
+B
+B
+C
+C
+D
+D
+E
+E
+F
+F
+G
+G
+H
+H
+I
+I
+J
+J
+L
+L
+M
+M
+K
+K
+WM
+TR
+BD 2,46 /0,85
+BD 0,25 /0,15
+BD 0,25 /0,25
+BD 0,20 /0,20
+BD 0,30 /0,30
+BD 0,25 /0,25
+BD 0,40 /0,25
+BD 0,20 /0,40
+BD 0,30 /0,30
+BD 0,25 /0,30
+BD 0,25 /0,40
+BD 0,25 /0,40
+BD 0,25 /0,30
+BD 0,60 /0,25
+BD 0,40 /0,25
+BD 0,25 /0,25
+BD 0,20 /0,20
+BD 0,20 /0,60
+BD 0,20 /0,60
+BD 0,30 /0,30
+BD 0,30 /0,30
+BD 0,30 /0,30
+BD 0,30 /0,30
+BD 0,30 /0,30
+BD 0,30 /0,30
+BD 0,30 /0,30
+BD 0,20 /0,60
+BD 0,45 /1,30
+BD 0,25 /0,25
+BD 0,25 /0,25
+BD 0,30 /0,30
+N
+N
+O
+O
+P
+P
+1
+1
+17
+17
+15
+15
+ind. Beleuchtung
+ind. Beleuchtung
+DD 0,70 /1,80
+DD 0,55 /1,70
+DD 0,20 /0,20
+DD 0,20 /0,20
+DD 0,60 /0,30
+DD 0,20 /0,20
+DD 1,15 /0,225
+DD 1,15 /0,225
+DD 0,50 /0,25
+DD 1,00 /0,25
+DD 0,40 /0,20
+DD 0,25 /0,25
+DD 0,25 /0,25
+DD 0,25 /0,25
+DD 0,25 /0,25
+DD 0,30 /0,30
+DD 0,25 /0,25
+DD 0,25 /0,25
+S2
+Stiegenaustritt
+S1
+Stiegenantritt
+±0,00
+19,10
+35
+25
+11,30
+25
+30
+78
+1,35
+1,025
+1,35
+87
+1,35
+74
+1,35
+41
+49
+1,35
+83
+1,35
+1,26
+30
+1,30
+2,30
+2,30
+1,30
+2,30
+2,30
+35
+81
+1,35
+1,00
+1,35
+815
+1,35
+815
+1,35
+1,00
+1,35
+35
+1,30
+1,30
+2,30
+1,30
+1,30
+81
+35
+10
+11,40
+35
+20
+35
+11,21
+125
+2,285
+20
+2,265
+20
+5,62
+20
+5,18
+20
+30
+30
+11,25
+25
+30
+125
+3,045
+1,025
+1,35
+1,30
+87
+1,35
+1,30
+20
+10
+35
+35
+12,00
+35
+10
+11,11
+125
+2,285
+20
+5,08
+30
+20
+35
+5,28
+20
+13,62
+30
+855
+1,35
+1,115
+1,35
+80
+1,35
+74
+1,35
+28
+1,35
+83
+1,35
+2,07
+1,875
+12
+1,835
+1,835
+12
+1,875
+1,30
+1,30
+1,30
+1,30
+1,30
+2,30
+2,70
+2,70
+2,70
+2,70
+78
+1,35
+1,30
+1,025
+1,35
+1,30
+62
+30
+11,20
+2,70
+30
+12
+1,35
+20
+2,95
+30
+20
+3,405
+125
+1,92
+10
+20
+1,60
+20
+14
+7,82
+14
+20
+1,47
+8
+25 8
+3,25
+20
+14,96
+1,26
+2,07
+25
+1,50
+3,15
+3,15
+1,50
+33,49
+12,40
+±0,00
+±0,00
+3
+1,47
+3,15
+30
+20
+30
+3,15
+1,35
+12
+5,55
+20
+1,60
+20
+8,10
+20
+1,55
+25
+15,04
+9,84
+3,92
+2,61
+19,13
+12,70
+5,00
+12,57
+19,15
+1,26
+1,35
+3,25
+2,30
+20
+1,11
+7,70
+2,95
+3,62
+20
+15,04
+30
+2,95
+20
+1,35
+12
+20
+10
+11,745
+125
+1,65
+20
+3
+20
+1,99
+20
+2,76
+20
+Höhenlage +535,50m
+25
+3,415
+125
+1,94
+2,785
+1,10
+1,935
+25
+2,14
+1,28
+125
+1,275
+10
+25
+675
+125
+2,215
+10
+60
+10
+22125
+5,62
+25
+20
+3,045
+10
+1,865
+75
+20
+54
+1,02
+2,80
+1,02
+29
+20
+2,14
+2,14
+20
+54
+97
+2,14
+2,68
+1,02
+2,14
+22
+20
+10
+3,605
+125
+1,42
+20
+10225 75
+20
+1,47
+8
+1,60
+20
+385
+1,85
+2,20
+3,625
+1,85
+2,20
+385
+20
+8
+25
+30
+20
+4,37
+125
+125
+2,63
+2,525
+10
+20
+10
+125
+1,20
+20
+1,20
+125
+2,625
+25
+8
+1,63
+12
+2,40
+1,73
+2,14
+8
+1,04
+8
+5
+20
+75
+10
+1,74
+10
+1,74
+2,19
+2,19
+20
+34
+10
+3,535
+10
+34
+25
+14
+20
+1,47
+8
+10
+1,50
+10
+12
+85
+12
+25
+8
+12
+2,46
+12
+1,00
+30
+20
+2,24
+1,02
+2,14
+865
+20
+3,515
+1,50
+2,20
+2,36
+20
+30
+2,15
+125
+20
+1,85
+20
+1,25
+20
+1,65
+20
+25
+10
+10
+125
+1,65
+2,76
+20
+3
+20
+1,99
+20
+20
+8
+39
+1,18
+2,31
+20
+1,45
+20
+1,65
+20
+20
+45
+1,02
+2,14
+805
+1,85
+2,405
+1,02
+2,14
+65
+20
+85
+10
+2,04
+1
+35
+19
+1,915
+125
+7,125
+125
+85 19 36
+505
+125
+515
+1,00
+2,20
+10
+10
+31
+1,00
+2,20
+59
+125
+20
+4,755
+30
+4,055
+30
+4,21
+20
+25
+4,25
+30
+4,25
+2,40
+30
+25
+125
+2,285
+20
+50
+10
+1,465
+14
+20
+1,06
+90
+2,14
+1,085
+125
+20
+20
+1,25
+15
+20
+985
+2,065
+20
+20
+14
+20
+10
+61
+90
+2,14
+10
+125
+25
+95
+1,02
+2,14
+3,36
+11,60
+20
+20
+30
+1,20
+40
+4,00
+40
+40
+12,00
+40
+1,25
+4,125
+4,175
+20
+20
+3,10
+10
+20
+18
+1,00
+45
+2,505
+2,505
+2,175
+2,175
+2,23
+2,23
+2,23
+1,00
+1
+35
+19
+1,00
+45
+2,505
+2,505
+2,175
+2,175
+2,23
+2,23
+2,23
+18
+1,00
+45
+2,275
+2,275
+2,70
+2,275
+2,275
+45
+1,00
+DUK 3,035
+DUK 4,745
+DUK 3,035
+DUK 3,07
+DUK 4,80
+DUK 3,07
+DUK 4,79
+DUK 3,055
+1,02
+2,14
+19
+30
+2,88
+20 205
+2,095
+42,79
+25
+4,275
+25
+2,455
+25
+4,27
+25
+635 10
+125
+1,65
+1,325
+87
+20
+10
+125
+20 15 10 20
+25
+2,65
+445
+20 20
+10
+20
+1,99
+20
+2 20
+-0,25
+Höhenlage +535,25m
+5
+20
+5,725
+20
+5,725
+20
+5,725
+20
+5,725
+20
+5
+23,46
+27
+85
+7,50
+3,05
+1,75
+27
+60
+60
+24,00
+20
+5,475
+25
+1,10
+2,24
+20
+2,65
+20
+2,65
+20
+5
+7
+70
+70
+7
+6,00
++534,82m
+635 10
+125 58
+1,02
+2,14
+5
+20
+7,66
+1,80
+1,62
+30
+25
+1,90
+70
+±0,00
+-0,02
+±0,00
+±0,00
+-0,01
+±0,00
+±0,00
+Wasserspiegel -0,07
+Wasserspiegel -0,07
+±0,00
+Steinkante -0,01
+1,08
+1,37
+5,005
+4,355
+2,23
+2,23
+3,83
+1,15
+6,10
+1,48
+4,62
+1,15
+1,60
+3,35
+3,80
+85
+90
+2,625
+2,275
+1,35
+1,35
+2,275
+2,625
+90
+85
+13,09
+3,35
+1,60
+16,01
+2,85
+2,85
+1,08
+1,37
+5,005
+4,355
+2,23
+2,23
+3,83
+1,15
+6,10
+1,48
+4,62
+1,15
+1,60
+3,35
+3,80
+85
+90
+2,625
+2,275
+1,35
+1,35
+2,275
+2,625
+90
+85
+13,09
+3,35
+1,60
+10
+1,50
+1,625
+50
+85
+50
+2,475
+30
+15
+1,10
+15
+30
+35
+1,80
+475
+30
+20
+1,00
+60
+37
+40
+1,00
+485
+33
+1,50
+295
+42
+1,50
+33
+125
+275
+1,30
+25
+35
+75
+1,50
+755
+35
+25
+1,30
+15
+125
+20
+30
+375
+1,10
+425
+40
+1,275
+1,25
+30
+20
+225
+30
+20
+35
+60
+20
+10
+30
+1,20
+2,30
+15
+25
+80
+1,93
+95
+30
+20
+30
+20
+80
+42
+2,45
+60
+95
+30
+20
+30
+20
+80
+42
+1,00
+30
+1,10
+30
+1,10
+60
+60
+3,80
+30
+45
+50
+20
+30
+5
+90
+20 16
+25
+1,75
+80
+30
+55
+2,15
+1,70
+1,53
+±0,00
+-0,04
+2,38
+60
+20
+75
+1,00
+625
+50
+±0,00
+1,15
+225
+20
+225
+3,725
+25
+20
+75
+75 20
+20
+30
+25
+1,92
+25
+1,79
+25
+5
+4,68
+25
+1,93
+25
+6,71
+20
+20 5
+30
+3
+30
+20
+4,755
+30
+4,055
+30
+4,21
+20
+15
+20
+2,85
+30
+5,50
+2,85
+30
+15
+15
+30
+1,00
+20
+30
+95
+45
+4,905
+125
+3,30
+20
+20
+2,295
+125
+20
+80
+25
+25
+8
+25
+1,20
+25
+2,36
+20
+2,43
+R= 50
+1,85
+25
+1,05
+25
+25
+80
+25
+21,03
+5
+5
+1,96
+2,96
+2,90
+5
+1,05
+5
+2,24
+2,34
+1,96
+2,96
+3,00
+-0,25
+Höhenlage +535,25m
+-0,25
+Höhenlage +535,25m
+-0,20
+Höhenlage +535,30m
+10
+3,05
+5,00
+1,00
+6,50
+9,00
+4,00
+1,05
+1,00
+20
+3,05
+20
+3,05
+20
+2,70
+20
+2,70
+20
+2,70
+20
+5
+20
+6,25
+5
+1,45
+1,45
+1,10
+1,30
+1,30
+1,20
+2,30
+1,30
+1,10
+1,30
+5
+5
+1,05
+2,40
+2,30
+20
+1,05 20
+5
+2,415
+1,55
+985
+26,70
+3,965
+1,60
+6,50
+9,00
+5,00
+12,57
+-0,25
+-0,25
+OK BETON-
+SCHACHT +0,05
+5
+5
+20
+5,70
+25
+5,675
+25
+5,675
+25
+5,70
+20
+20
+11,60
+20
+125
+1,865
+155
+20
+18
+20
+-0,25
+Höhenlage +535,25m
+585
+75
+585
+10
+92
+1,00
+10
+9
+1 10
+20
+125
+±0,00
+Steinkante -0,01
+±0,00
+Höhenlage +535,50m
+-0,35
+5,55
+45
+1,10
+45
+4,00
+45
+40
+2,00
+40
+45
+2,745
+4,805
+20
+-1,10
+SOCKEL 
+OK +0,05
+SOCKEL 
+OK +0,05
+SOCKEL 
+OK +0,05
+1,35
+1,30
+8
+75
+85
+10
+±0,00
++0,17
+3,045
+65
+5,70
+29
+29
+FBH-VERTEILER
+LT. SONDERPLANER
+FBH-VERTEILER
+LT. SONDERPLANER
+F 1.01
+F 1.02
+F 1.03
+F 1.04
+F 1.05
+F 1.06
+F 1.07
+F 1.08
+F 1.09
+F 1.10
+F 1.11
+F 1.12
+F 1.13
+F 1.15
+F 1.16
+F 1.14
+F 1.17
+F 1.18
+F 1.19
+F 1.20
+F 1.21
+F 1.22
+F 1.23
+F 1.24
+F 1.25
+F 1.28
+WD 2,46 / 0,80
+UK= +2,60
+WD 1,50 / 0,45
+OK=DUK= 2,60
+WD 0,50 / 0,30
+OK=DUK= 2,60
+WD 0,50 / 0,30
+OK=DUK= 2,60
+WD 1,00 / 0,30
+OK=DUK= 2,60
+WD 0,60 / 0,30
+OK=DUK= 2,60
+WD 0,40 / 0,30
+OK=DUK= 2,58
+WD 1,00 / 0,90
+OK= +0,65
+UK=FDOK=-0,25
+WD 1,30 / 0,35
+OK=DUK= 2,58
+WD 0,35 / 0,35
+OK=DUK= 2,58
+WD 1,50 / 0,30
+OK=DUK= 2,58
+WD 0,35 / 0,35
+OK=DUK= 2,58
+WD 1,30 / 0,35
+OK=DUK= 2,58
+WD 1,50 / 0,30
+OK=DUK= 2,58
+WD 1,50 / 0,30
+OK=DUK= 2,58
+WD 1,10 / 0,30
+OK=DUK= 2,58
+WD 0,40 / 0,30
+OK=DUK= 2,58
+WD 0,30 / 0,30
+OK=DUK= 2,58
+WD 0,60 / 0,30
+OK=DUK=+2,60
+WD 0,80 / 0,30
+OK=DUK=+2,60
+WD 1,20 / 0,30
+OK=DUK=+2,60
+WD 0,80 / 0,30
+OK=DUK=+2,60
+WD 0,30 / 0,30
+OK=DUK=+2,60
+WD 0,60 / 0,30
+OK=DUK=+2,60
+WD 0,50 / 0,30
+OK=DUK=+2,60
+WD 0,15 / 0,15
+UK=DOK=-0,25
+WD 0,60 / 0,30
+OK=DUK=+2,55
+WD 0,30 / 0,30
+OK=DUK=+2,60
+WD 1,10 / 0,30
+OK=DUK=+2,60
+WD 0,30 / 0,30
+OK=DUK=+2,60
+WD 0,25 / 0,35
+OK=DUK= 2,60
+WD 0,30 / 0,30
+OK=DUK=+2,60
+WD 1,60 / 0,30
+OK=DUK=+2,60
+WD 1,60 / 0,30
+OK=DUK=+2,60
+WD 1,10 / 0,30
+OK=DUK=+2,60
+WD 1,10 / 0,30
+OK=DUK=+2,60
+WD 0,70 / 0,30
+OK=DUK=+3,00
+WD 0,15 / 1,25
+UK=DOK= -0,25
+WD 2,46 / 1,20
+UK= +2,60
+WD 0,50 / 0,30
+OK=DUK=+2,60
+WD 0,30 / 0,30
+OK=DUK=+2,60
+WD 0,80 / 0,30
+OK=DUK=+2,60
+WD 0,25 / 0,50
+UK=DOK=-0,25
+WD 0,20 / 1,20
+UK=DOK=-0,25
+F 1.26
+F 1.27
+WD 0,30 / 0,20
+OK=DUK=+2,60
+WD 0,25 / 0,25
+OK=DUK=+2,60
+WD 0,30 / 0,20
+OK=DUK=+2,55
+WD 0,30 / 0,20
+OK=DUK=+2,60
+WD 0,30 / 0,20
+OK=DUK=+2,60
+WD 0,30 / 0,20
+OK=DUK=+2,60
+WD 0,30 / 0,20
+OK=DUK=+2,60
+WD 0,30 / 0,20
+OK=DUK=+2,58
+WD 0,30 / 0,20
+OK=DUK=+2,60
+WD 0,30 / 0,20
+OK=DUK=+2,58
+WD 0,30 / 0,20
+OK=DUK=+2,58
+WD 0,30 / 0,20
+OK=DUK=+2,58
+WD 0,30 / 0,20
+OK=DUK=+2,58
+SCHÖCK TRONSOLE TYP Q - FV
+LT. ANGABE STATIKER
+ZUGANG
+VK DACH
+Z U F A H R T
+Vorfahrt AKADEMIE
+LIFT
+TERRASSE
+TERRASSE
+18 STH
+17,64/28
+TERRASSE
+VK DACH
+Innenabmessung
+4,00/12,00 m
+DUSCHE
+DU
+GARD.
+VK DECKE OG
+VK DECKE OG
+VK DECKE OG
+GASKAMIN
+LIFTSCHACHT SCHALL-
+TECHNISCH ENTKOPPELT
+AUSFÜHREN !
+FOAMGLAS 8 cm
+FOAMGLAS 8 cm
+BEST. FENSTERGRÖSSEN
+PRÜFEN + AUF NEUES
+MASS AUSSCHNEIDEN!
+HOLZSÄULE BSH 20/20 cm
+- LT. DETAILANGABE STATIK
+QUERBUND - HOLZFACHWERK LT. DETAILANGABE
+BODENABLAUF
+BEHEIZT
+STB-SÄULE
+30/30 cm
+STB-SÄULE
+30/25 cm
+FOAMGLAS 8 cm
+FOAMGLAS 8 cm
+IN SCHALUNG EINLEGEN
+DECKE ÜBER EG
+d= 20 cm, DUK= +2,60 m
+DECKE ÜBER EG
+d= 20 cm, DUK= +2,60 m
+DECKE ÜBER EG
+d= 22 cm, DUK= +2,58 m
+BALKONSTUTZEN
+2x18/22 cm UK= +2,40 m
+BALKONSTUTZEN
+2x18/22 cm UK= +2,40 m
+BALKONSTUTZEN
+2x18/22 cm UK= +2,40 m
+DECKE ÜBER EG SCHRÄG
+d= 30 cm, DUK= +3,035 bis +4,745 m
+DECKE ÜBER EG SCHRÄG
+d= 25 cm, DUK= +3,07 bis +4,80 m
+12,00 lt. Eingabeplan
+42,65 lt. Eingabeplan
+12,00 lt. Eingabeplan
+12,00 lt. Eingabeplan
+STB-SÄULE
+25/20 cm
+GKVS 10,0 cm
+BETON-
+VOLLZIEGEL
+BETON-
+VOLLZIEGEL
+PURENITSCHWELLE
+EINGEDICHTET
+STB-STIEGE mit
+TRITTSTUFE HOLZ 5,0 cm
+SETZSTUFE HOLZ 4,0 cm
+FIX
+FIX
+Giebelverglasung
+MÜLL
+DECKE ÜBER EG
+d= 25 cm, DUK= +2,55 m
+STB-STÜTZEN 30/30 cm
+- lt. ANG. STATIK
+STB-STÜTZE 20/20 cm
+- lt. ANG. STATIK
+DECKE ÜBER EG SCHRÄG
+d= 25 cm, DUK= +3,055 bis +4,79 m
+CARPORT
+1
+2
+3
+4
+5
+6
+GOLFCART
+FAHRRÄDER
+Bereich Stellfläche
+Luftwärmepumpe offen
+ca. 7,50 x 6,00 m
+RASENWEG
+RAMPE ca. 3,8%
+Vorfahrt AKADEMIE
+DIESE WAND NACH
+AUSF. INSTALLATION
+AUFSTELLEN!
+2%
+2%
+VK STB-DECKE ü. EG
+STAHLSÄULE
+- lt. Angabe STATIK
+STAHLSÄULE
+- lt. Angabe STATIK
+STAHLPROFIL als
+"ZUGEISEN"
+- lt. Angabe STATIK
+KÜCHE
+VK DECKE OG
+VK BETONAUF-
+LAGER STIEGE
+SCHACHT FÜR
+FRISCHLUFTANSAUGUNG
+105/80 cm OK= +30cm über Gelände
+EINHAUSUNG TRAFOSTATION,
+AUF FUNDAMENTSOCKEL,
+AUSFÜHRUNG DURCHBRÜCHE,
+ZULEITUNG, etc. lt. ANGABE
+SONDERPLANER + BAYERNWERK
+Trafostation
+Notstrom-
+aggregat
+BBQ-Lodge
+Lager
+BBQ-Area
+Terrasse offen
+GAS-GRILLKAMIN
+LT. DETAILANGABE
+ANSCHLÜSSE FÜR
+WASSER, STROM +
+STARKSTROM VORSEHEN
+VK FERTIGE
+AUSSENWAND EG
+VK BETON-AUSSENWAND EG
+26,70
+VK FERTIGE
+AUSSENWAND EG
+12,57
+QUERBUND - HOLZFACHWERK LT. DETAILANGABE
+RR
+RR
+RR
+RR
+RR
+RR
+RR
+RR
+RR
+RR
+RR
+RR
+RR
+RR
+STB-STÜTZE 20/20 cm
+- lt. ANG. STATIK
+MIT HOLZVERKLEIDG.
+STB-STÜTZE 20/20 cm
+- lt. ANG. STATIK
+MIT HOLZVERKLEIDG.
+SÄULENVER-
+KLEIDUNG PUTZ
+STB-STÜTZE 25/25 cm
+- lt. ANG. STATIK
+2,21
+ABBRUCH DER BEST.
+HOLZ-BLOCKWAND,
+HOHLRAUM LT. ERFORDERNIS
++ VS-SCHALE INNEN
+HOLZSÄULE BSH 120/180
+MIT HOLZVERKLEIDUNG
+HOLZSÄULE BSH 120/180
+MIT HOLZVERKLEIDUNG
+SÄULENVER-
+KLEIDUNG HOLZ
+DECKE
+ABGEHÄNGT
+WANDVERKLEIDUNG -
+HOLZ OK +2,30 m
+WANDVERKLEIDUNG - HOLZ
+WANDVERKLEIDUNG - HOLZ
+WANDVERKLEIDUNG - HOLZ
+WANDVERKLEIDUNG
+LT. ANGABE INNENARCH.
+45
+RH=2,40
+RH=ca.2,35
+DECKE
+ABGEHÄNGT
+VS-WC H=1,18
+VS H=1,15 (fertig)
+VK. ABGEHÄNGTE DECKE
+HOLZDECKE
+ABGEHÄNGT
+WANDVERKLEIDUNG -
+HOLZ OK +2,30 m
+2%
+FBA SULER
+ohne Gefälle!
+2%
+AUSFÜHRUNG SAUNA
+LT. DETAILPLAN FA. KLAFS
+AUSFÜHRUNG FITNESS PODEST
+LT. DETAILPLAN KAMPER
+AUSFÜHRUNG KAMIN -
+LT. DETAILPLAN Fa. THURNER
+Höhenlage +535,15m
+STB-SÄULEN 40/40 cm
+H=1,50 m, Oberﬂäche gespitzt
+- BEMESSUNG lt. STATIK
+STB-SÄULEN 40/40 cm
+H=1,50 m, Oberﬂäche gespitzt
+- BEMESSUNG lt. STATIK
+LAGE TOR LT. ANGABE LANDSCHAFTSARCHITEKT,
+bzw. FESTLEGUNG in der NATUR
+Höhenlage +534,40m
+REGENDUSCHE
+EINHAUSUNG NOTSTROMAGGREGAT,
+AUF FUNDAMENTSOCKEL,
+AUSFÜHRUNG DURCHBRÜCHE,
+ZULEITUNG, etc. lt. ANGABE
+SONDERPLANER
+Notstromaggregat
+275,7 x 110 cm
+FHT
+RD
+FHT
+FHT
+RD
+FHT
+RD
+FHT
+RD
+FHT
+RD
+WANDVERKLEIDUNG
+HOLZ 65 mm
+FHT
+RD
+FLUCHTTÜR
+2,14
+HOLZSÄULE BSH 20/20 cm
+- LT. DETAILANGABE STATIK
+SICHTSCHUTZVERKLEIDUNG,
+HOLZSCHALUNG SENKRECHT
+MIT AUSSCHNITT - LT. DETAILANGABE
+SICHTSCHUTZVERKLEIDUNG,
+HOLZSCHALUNG SENKRECHT
+MIT AUSSCHNITT - LT. DETAILANGABE
+SICHTSCHUTZVERKLEIDUNG,
+HOLZSCHALUNG SENKRECHT
+MIT AUSSCHNITT - LT. DETAILANGABE
+HOLZSÄULE BSH 20/20 cm
+- LT. DETAILANGABE STATIK
+SICHTSCHUTZVERKLEIDUNG,
+HOLZSCHALUNG SENKRECHT
+MIT AUSSCHNITT - LT. DETAILANGABE
+SCHIEBETOR - LÄRCHE
+SENKRECHT MIT AUSSCHNITT
+- LT. DETAILANGABE
+SCHIEBETOR - LÄRCHE
+SENKRECHT MIT AUSSCHNITT
+- LT. DETAILANGABE
+Natursteinrand
+ENTRAUCHUNGSÖFFNUNG 70/140 cm
+mit GASDRUCKFEDERN -
+AUSFÜHRUNG LT. HERSTELLERFIRMA
+2.23
+ERSCHLIESSUNG
+Holzboden 2,1 cm
+24,55 m2
+25,50   m
+GK-Decke (Brandsch.)
+2.19
+KÜCHE
+Naturstein
+19,53 m2
+25,49   m
+2,30   m
+GKD abg.
+2.21
+LOUNGE
+Holzboden 2,1 cm
+130,06 m2
+51,79   m
+2,48   m
+Kass.decke abgeh.
+2.15
+WELLNESS
+Naturstein
+87,35 m2
+104,23   m
+Akkustik-Holzdecke
+2.02
+ATRIUM
+Naturstein
+15,13 m2
+23,53   m
+2,30   m
+Holzdecke abgeh.
+2.10
+WC
+Naturstein
+2,99 m2
+7,39   m
+2,30   m
+GKD abg.
+2.11
+WC
+Naturstein
+2,99 m2
+7,39   m
+GKD abg.
+2.12
+EINGANG
+Holzboden 2,1 cm
+9,07 m2
+12,59   m
+2,30   m
+GK-Decke abgeh.
+2.09
+FLUR
+Naturstein
+8,77 m2
+12,39   m
+2,30   m
+Holzdecke abgeh.
+2.08
+LAGER
+Naturstein
+7,62 m2
+12,98   m
+2,25   m
+GK-De. abgeh.
+2.18
+SERVICE
+Naturstein
+16,17 m2
+18,41   m
+2,30   m
+Holzde.abgeh.
+2.22
+VR.
+Holzboden 2,1 cm
+4,66 m2
+8,65   m
+2,25   m
+Holzde.abgeh.
+2.20
+VR.
+Holzboden 2,1 cm
+4,38 m2
+8,40   m
+2,25   m
+Holzde.abgeh.
+2.01
+SULER
+Naturstein+EL-Heizg. 4,0
+41,51 m2
+26,26   m
+Holzdecke schräg
+2.16
+SAUNA
+Naturstein
+6,60 m2
+10,60   m
+2.14
+POOL
+Edelstahl
+48,00 m2
+2.07
+GARD.
+Nat.st+EL-Heizg. 4,0
+8,51 m2
+13,84   m
+2,50   m
+Holzdecke gerade
+2.06
+WC
+Naturstein
+1,81 m2
+5,39   m
+2.05
+BAD
+Naturstein
+6,89 m2
+11,02   m
+2,75   m
+De. abgehä.
+2.03
+WOHNEN
+ESSEN
+Holzboden 2,1 cm
+51,97 m2
+38,87   m
+Holzdecke schräg
+2.13
+SCHL.
+Naturstein
+8,43 m2
+13,60   m
+2,25   m
+GKD abgeh.
+2.17
+FITNESS
+PODEST
+Holz+Naturstein
+17,88 m2
+17,67   m
+B
+B
+A
+A
+C
+C
+D
+D
+E
+E
+A1
+Detailschnitt
+F
+F
+STUK +2,70
+STUK +2,70
+STUK +2,70
+STUK +2,70
+STUK +2,61
+3,74
+2,61
+GRUNDRISS ERDGESCHOSS
+GESAMTPLAN 
+ 
+  
+1 : 100
+04_11z
+11.04.2025
+Verbreiterung Zufahrt, Angabe Einfahrtssäulen für Tor, + Tor für Golfcarts
+04_11aa
+08.12.2025
+finaler Planstand
