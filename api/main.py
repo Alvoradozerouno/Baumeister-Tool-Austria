@@ -30,6 +30,8 @@ from api.routers import (
     calculations,
     collaboration,
     compliance,
+    elsa_validation,
+    hitl_bridge,
     reports,
     tendering,
     validation,
@@ -137,6 +139,8 @@ app.include_router(tendering.router, tags=["tendering"])  # Uses own prefix
 app.include_router(ai_recommendations.router, prefix="/api/v1/ai", tags=["ai"])
 app.include_router(bim_integration.router, prefix="/api/v1/bim", tags=["bim"])
 app.include_router(collaboration.router, prefix="/api/v1/collaboration", tags=["collaboration"])
+app.include_router(elsa_validation.router, tags=["elsa"])
+app.include_router(hitl_bridge.router, tags=["hitl"])
 app.include_router(auth_router, prefix="/auth", tags=["auth"])
 
 
