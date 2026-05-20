@@ -1,0 +1,326 @@
+{
+  "analysis": "EIRA PDF Analyse",
+  "date": "2026-05-20T06:39:36.734416",
+  "tool": "PyMuPDF 1.27.2.3",
+  "results": [
+    {
+      "file": "09f CARPORT.pdf",
+      "status": "OK",
+      "sha256": "fefa79b056ec08b5047b2c6fbfb9d6ae20a5cb5a6a05f955ce5d589d594cddb8",
+      "pages": 1,
+      "size_kb": 451.6,
+      "text_len": 6421,
+      "has_text": true,
+      "plan_type": "CARPORT",
+      "dimensions": [
+        "538,63",
+        "535,25",
+        "1,50",
+        "25",
+        "30",
+        "535,15",
+        "534,82",
+        "80",
+        "40",
+        "7,50x6,00"
+      ],
+      "norms": [],
+      "keywords": [
+        "BAUVORHABEN:",
+        "EINHAUSUNG",
+        "TRAFOSTATION,",
+        "TRAUFE",
+        "ANSICHT",
+        "PLANINHALT:",
+        "PLANNUMMER:",
+        "BESCHREIBUNG",
+        "CARPORT",
+        "DURCHBRÜCHE,",
+        "RASENWEG",
+        "AUSFÜHRUNG",
+        "MONTIERT",
+        "(HKLS,",
+        "FUNDAMENTSOCKEL,",
+        "QUERTR.",
+        "FAHRRÄDER",
+        "DATUM:",
+        "NOTSTROMAGGREGAT,",
+        "SCHNITT"
+      ],
+      "epistemic_state": "VERIFIED",
+      "epistemic_reason": "Text, Plan-Typ und Masse erkannt",
+      "preview": "09f CARPORT_preview.png",
+      "page_details": [
+        {
+          "page": 1,
+          "text_len": 6421,
+          "text_preview": "LEGENDE\n±0,00\n±0,00\nGemarkung Grassau\nResort Achental GmbH\n83224 Grassau, Mietenkamerstraße 65\nUmbau und Erweiterung des\n\"Sichlerhauses\" zur\nGolfakademie\n83224 Grassau\nNiederfeldstraße\nFlur-Nr. 1042/1"
+        }
+      ]
+    },
+    {
+      "file": "10d BBQ LOUNGE.pdf",
+      "status": "OK",
+      "sha256": "e5de7dd05a0ab2033d5fce282cebff71e7b3d43d44289473614b8d967dc1665d",
+      "pages": 1,
+      "size_kb": 436.6,
+      "text_len": 4715,
+      "has_text": true,
+      "plan_type": "BBQ_LOUNGE",
+      "dimensions": [
+        "538,385",
+        "2x18",
+        "80805",
+        "2,40",
+        "535,30",
+        "539,15",
+        "22",
+        "10"
+      ],
+      "norms": [],
+      "keywords": [
+        "BAUVORHABEN:",
+        "TERRASSE",
+        "GAS-GRILLKAMIN",
+        "STROM",
+        "TRAUFE",
+        "ANSICHT",
+        "PLANINHALT:",
+        "PLANNUMMER:",
+        "BESCHREIBUNG",
+        "GOLFAKADEMIE",
+        "AUSSENWAND",
+        "FERTIGE",
+        "(HKLS,",
+        "STARKSTROM",
+        "DATUM:",
+        "BBQ-LOUNGE",
+        "SCHNITT",
+        "DATUM",
+        "GRUNDRISS",
+        "DETAILANGABE"
+      ],
+      "epistemic_state": "VERIFIED",
+      "epistemic_reason": "Text, Plan-Typ und Masse erkannt",
+      "preview": "10d BBQ LOUNGE_preview.png",
+      "page_details": [
+        {
+          "page": 1,
+          "text_len": 4715,
+          "text_preview": "LEGENDE\n±0,00\n±0,00\nGemarkung Grassau\nResort Achental GmbH\n83224 Grassau, Mietenkamerstraße 65\nUmbau und Erweiterung des\n\"Sichlerhauses\" zur\nGolfakademie\n83224 Grassau\nNiederfeldstraße\nFlur-Nr. 1042/1"
+        }
+      ]
+    },
+    {
+      "file": "11aa EG Gesamtplan 100.pdf",
+      "status": "OK",
+      "sha256": "379dfa56c4df25205322500c53d36cd1cdd8eae5b247d67c903376d27ebe1d77",
+      "pages": 1,
+      "size_kb": 1542.3,
+      "text_len": 17466,
+      "has_text": true,
+      "plan_type": "CARPORT",
+      "dimensions": [
+        "10",
+        "80805"
+      ],
+      "norms": [],
+      "keywords": [
+        "HOLZSCHALUNG",
+        "FBH-VERTEILER",
+        "OK=DUK=+3,00",
+        "NEUES",
+        "AUSFÜHRUNG",
+        "FUNDAMENTSOCKEL,",
+        "AKADEMIE",
+        "FAHRRÄDER",
+        "NOTSTROMAGGREGAT,",
+        "SENKRECHT",
+        "STB-STÜTZEN",
+        "BEMESSUNG",
+        "EINLEGEN",
+        "SCHACHT",
+        "ÄND.-ID",
+        "GASDRUCKFEDERN",
+        "OK=DUK=+2,60",
+        "ABGEHÄNGT",
+        "SONDERPLANER",
+        "ZUGANG"
+      ],
+      "epistemic_state": "VERIFIED",
+      "epistemic_reason": "Text, Plan-Typ und Masse erkannt",
+      "preview": "11aa EG Gesamtplan 100_preview.png",
+      "page_details": [
+        {
+          "page": 1,
+          "text_len": 17466,
+          "text_preview": "LEGENDE\n±0,00\n±0,00\nGemarkung Grassau\nResort Achental GmbH\n83224 Grassau, Mietenkamerstraße 65\nUmbau und Erweiterung des\n\"Sichlerhauses\" zur\nGolfakademie\n83224 Grassau\nNiederfeldstraße\nFlur-Nr. 1042/1"
+        }
+      ]
+    },
+    {
+      "file": "06u SCHNITTE CC, DD.pdf",
+      "status": "OK",
+      "sha256": "c0d4b7f1afecb9a96fc1beb1f67ac1b4adab7ed80aa5a6e1cd7d6c52b2bf1ca6",
+      "pages": 1,
+      "size_kb": 1490.2,
+      "text_len": 11393,
+      "has_text": true,
+      "plan_type": "SCHNITT",
+      "dimensions": [
+        "16",
+        "542,98",
+        "18",
+        "34",
+        "545,42",
+        "80805",
+        "15",
+        "20",
+        "22",
+        "10"
+      ],
+      "norms": [],
+      "keywords": [
+        "GUTACHTEN",
+        "ABBRECHEN",
+        "QUERLÜFTUNG",
+        "HOLZSCHALUNG",
+        "KLH-DECKE",
+        "SÄULEN",
+        "HOLZ-",
+        "AUSFÜHRUNG",
+        "WINKEL",
+        "BÜGEL",
+        "KUNSTFASERVLIES",
+        "METALL",
+        "SCHNITT",
+        "NATURSTEINPLATTEN",
+        "BALK.",
+        "ÄND.-ID",
+        "VERSTÄRKEN",
+        "HEIZUNG",
+        "FENSTERPROFIL",
+        "ABHOBELN"
+      ],
+      "epistemic_state": "VERIFIED",
+      "epistemic_reason": "Text, Plan-Typ und Masse erkannt",
+      "preview": "06u SCHNITTE CC, DD_preview.png",
+      "page_details": [
+        {
+          "page": 1,
+          "text_len": 11393,
+          "text_preview": "LEGENDE\n±0,00\n±0,00\nGemarkung Grassau\nResort Achental GmbH\n83224 Grassau, Mietenkamerstraße 65\nUmbau und Erweiterung des\n\"Sichlerhauses\" zur\nGolfakademie\n83224 Grassau\nNiederfeldstraße\nFlur-Nr. 1042/1"
+        }
+      ]
+    },
+    {
+      "file": "08r ANSICHTEN SUED+WEST.pdf",
+      "status": "OK",
+      "sha256": "ed729309bd355b97958ccc067042323fdb8e6573146207c8541192b6f6e1abd9",
+      "pages": 1,
+      "size_kb": 539.7,
+      "text_len": 4310,
+      "has_text": true,
+      "plan_type": "ANSICHT",
+      "dimensions": [
+        "541,07",
+        "2,30",
+        "542,98",
+        "08",
+        "47",
+        "1,30",
+        "545,42",
+        "544,69",
+        "80805",
+        "539,18"
+      ],
+      "norms": [],
+      "keywords": [
+        "BAUVORHABEN:",
+        "TRAUFE",
+        "ANSICHT",
+        "PLANINHALT:",
+        "PLANNUMMER:",
+        "BESCHREIBUNG",
+        "(HKLS,",
+        "DATUM:",
+        "DATUM",
+        "HAUPTGEBÄUDE",
+        "DETAILANGABE",
+        "QUERGIEBEL",
+        "ÄND.-ID",
+        "ENTWURF",
+        "HOLZFACHWERK",
+        "BAUWERBER:",
+        "QUERBUND",
+        "FIRST",
+        "WERKPLANUNG:",
+        "LEGENDE"
+      ],
+      "epistemic_state": "VERIFIED",
+      "epistemic_reason": "Text, Plan-Typ und Masse erkannt",
+      "preview": "08r ANSICHTEN SUED+WEST_preview.png",
+      "page_details": [
+        {
+          "page": 1,
+          "text_len": 4310,
+          "text_preview": "LEGENDE\n±0,00\n±0,00\nGemarkung Grassau\nResort Achental GmbH\n83224 Grassau, Mietenkamerstraße 65\nUmbau und Erweiterung des\n\"Sichlerhauses\" zur\nGolfakademie\n83224 Grassau\nNiederfeldstraße\nFlur-Nr. 1042/1"
+        }
+      ]
+    },
+    {
+      "file": "07r ANSICHTEN NORD+OST.pdf",
+      "status": "OK",
+      "sha256": "82ded160a81e640a43fc559b10682cea3bbebf80c0c1bd506f8ec91d513a40a9",
+      "pages": 1,
+      "size_kb": 522.2,
+      "text_len": 4769,
+      "has_text": true,
+      "plan_type": "BBQ_LOUNGE",
+      "dimensions": [
+        "541,07",
+        "542,98",
+        "1,30",
+        "545,42",
+        "544,69",
+        "07",
+        "80805",
+        "539,18",
+        "10"
+      ],
+      "norms": [],
+      "keywords": [
+        "BAUVORHABEN:",
+        "HOLZSCHALUNG",
+        "TRAUFE",
+        "ANSICHT",
+        "PLANINHALT:",
+        "PLANNUMMER:",
+        "BESCHREIBUNG",
+        "LÄRCHE",
+        "(HKLS,",
+        "DATUM:",
+        "AUSSCHNITT",
+        "SENKRECHT",
+        "DATUM",
+        "HAUPTGEBÄUDE",
+        "SICHTSCHUTZVERKLEIDUNG,",
+        "DETAILANGABE",
+        "QUERGIEBEL",
+        "ÄND.-ID",
+        "ENTWURF",
+        "SCHIEBETOR"
+      ],
+      "epistemic_state": "VERIFIED",
+      "epistemic_reason": "Text, Plan-Typ und Masse erkannt",
+      "preview": "07r ANSICHTEN NORD+OST_preview.png",
+      "page_details": [
+        {
+          "page": 1,
+          "text_len": 4769,
+          "text_preview": "LEGENDE\n±0,00\n±0,00\nGemarkung Grassau\nResort Achental GmbH\n83224 Grassau, Mietenkamerstraße 65\nUmbau und Erweiterung des\n\"Sichlerhauses\" zur\nGolfakademie\n83224 Grassau\nNiederfeldstraße\nFlur-Nr. 1042/1"
+        }
+      ]
+    }
+  ]
+}
