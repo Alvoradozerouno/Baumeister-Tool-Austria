@@ -1,0 +1,143 @@
+{
+  "geschosse": 4,
+  "gesamt_elemente": 30,
+  "gesamt_symbole": 12,
+  "gesamt_raeume": 10,
+  "gesamt_normen_fehler": 0,
+  "gesamt_fehler": 2,
+  "alle_valide": true,
+  "ergebnisse": {
+    "UG": {
+      "geometrie": {
+        "anzahl": 7,
+        "typen": [
+          "polygon",
+          "wand"
+        ]
+      },
+      "symbole": {
+        "anzahl": 1,
+        "typen": [
+          "tuer_einfach"
+        ]
+      },
+      "raeume": {
+        "anzahl": 2,
+        "gesamt_flaeche": 5568.0
+      },
+      "massstab": 50.0,
+      "normen_fehler": 0,
+      "fehler": 1,
+      "validierung": {
+        "system_valide": true,
+        "widersprueche": 0,
+        "agenten": 6,
+        "globales_wissen": 6,
+        "konsens_state": "unknown",
+        "konsens_strength": 1.0
+      },
+      "dauer_sec": 0.0008845329284667969
+    },
+    "EG": {
+      "geometrie": {
+        "anzahl": 9,
+        "typen": [
+          "polygon",
+          "wand"
+        ]
+      },
+      "symbole": {
+        "anzahl": 4,
+        "typen": [
+          "fenster_einfach",
+          "tuer_einfach",
+          "fenster_balkon",
+          "treppe_gerade"
+        ]
+      },
+      "raeume": {
+        "anzahl": 3,
+        "gesamt_flaeche": 7352.0
+      },
+      "massstab": 50.0,
+      "normen_fehler": 0,
+      "fehler": 0,
+      "validierung": {
+        "system_valide": true,
+        "widersprueche": 0,
+        "agenten": 6,
+        "globales_wissen": 18,
+        "konsens_state": "unknown",
+        "konsens_strength": 1.0
+      },
+      "dauer_sec": 0.0008032321929931641
+    },
+    "OG": {
+      "geometrie": {
+        "anzahl": 8,
+        "typen": [
+          "polygon",
+          "wand"
+        ]
+      },
+      "symbole": {
+        "anzahl": 5,
+        "typen": [
+          "sanitaer_bad",
+          "treppe_gerade",
+          "fenster_einfach",
+          "sanitaer_wc",
+          "tuer_einfach"
+        ]
+      },
+      "raeume": {
+        "anzahl": 3,
+        "gesamt_flaeche": 7372.0
+      },
+      "massstab": 50.0,
+      "normen_fehler": 0,
+      "fehler": 0,
+      "validierung": {
+        "system_valide": true,
+        "widersprueche": 0,
+        "agenten": 6,
+        "globales_wissen": 36,
+        "konsens_state": "unknown",
+        "konsens_strength": 1.0
+      },
+      "dauer_sec": 0.0011544227600097656
+    },
+    "DG": {
+      "geometrie": {
+        "anzahl": 6,
+        "typen": [
+          "polygon",
+          "wand"
+        ]
+      },
+      "symbole": {
+        "anzahl": 2,
+        "typen": [
+          "fenster_balkon",
+          "treppe_gerade"
+        ]
+      },
+      "raeume": {
+        "anzahl": 2,
+        "gesamt_flaeche": 6146.0
+      },
+      "massstab": 50.0,
+      "normen_fehler": 0,
+      "fehler": 1,
+      "validierung": {
+        "system_valide": true,
+        "widersprueche": 0,
+        "agenten": 6,
+        "globales_wissen": 60,
+        "konsens_state": "unknown",
+        "konsens_strength": 1.0
+      },
+      "dauer_sec": 0.0013859272003173828
+    }
+  }
+}
