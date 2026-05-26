@@ -1,0 +1,1990 @@
+{
+  "test": "OIB-Abgleich-mit-Bauplaenen",
+  "datum": "2026-05-26T09:59:00.111945",
+  "ergebnisse": {
+    "OIB-RL 1": {
+      "name": "Mechanik und Tragfaehigkeit",
+      "pruefungen": [
+        {
+          "id": "RL1-01",
+          "name": "Tragwerksplanung",
+          "kriterium": "Teilsicherheitsbeiwerte eingehalten",
+          "gewicht": 1.0,
+          "status": "erfuellt",
+          "confidence": 0.994,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Teilsicherheitsbeiwerte eingehalten - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Teilsicherheitsbeiwerte eingehalten - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Teilsicherheitsbeiwerte eingehalten - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.968,
+              "begruendung": "Teilsicherheitsbeiwerte eingehalten - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.986,
+              "begruendung": "Teilsicherheitsbeiwerte eingehalten - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Teilsicherheitsbeiwerte eingehalten - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Teilsicherheitsbeiwerte eingehalten - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Teilsicherheitsbeiwerte eingehalten - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL1-02",
+          "name": "Fundamentbemessung",
+          "kriterium": "Setzung < 2cm",
+          "gewicht": 1.0,
+          "status": "erfuellt",
+          "confidence": 0.989,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Setzung < 2cm - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.987,
+              "begruendung": "Setzung < 2cm - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.986,
+              "begruendung": "Setzung < 2cm - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.996,
+              "begruendung": "Setzung < 2cm - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Setzung < 2cm - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.988,
+              "begruendung": "Setzung < 2cm - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.955,
+              "begruendung": "Setzung < 2cm - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Setzung < 2cm - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL1-03",
+          "name": "Erdbebenbemessung",
+          "kriterium": "Zone 1: a_gR = 0.1g",
+          "gewicht": 0.8,
+          "status": "erfuellt",
+          "confidence": 0.986,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Zone 1: a_gR = 0.1g - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.965,
+              "begruendung": "Zone 1: a_gR = 0.1g - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.982,
+              "begruendung": "Zone 1: a_gR = 0.1g - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.993,
+              "begruendung": "Zone 1: a_gR = 0.1g - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.994,
+              "begruendung": "Zone 1: a_gR = 0.1g - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.952,
+              "begruendung": "Zone 1: a_gR = 0.1g - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Zone 1: a_gR = 0.1g - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 0.999,
+              "begruendung": "Zone 1: a_gR = 0.1g - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL1-04",
+          "name": "Windlast",
+          "kriterium": "Windzone 2: q = 0.65 kN/m²",
+          "gewicht": 0.8,
+          "status": "erfuellt",
+          "confidence": 0.988,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Windzone 2: q = 0.65 kN/m² - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Windzone 2: q = 0.65 kN/m² - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Windzone 2: q = 0.65 kN/m² - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.958,
+              "begruendung": "Windzone 2: q = 0.65 kN/m² - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Windzone 2: q = 0.65 kN/m² - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Windzone 2: q = 0.65 kN/m² - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.954,
+              "begruendung": "Windzone 2: q = 0.65 kN/m² - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 0.988,
+              "begruendung": "Windzone 2: q = 0.65 kN/m² - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL1-05",
+          "name": "Schneelast",
+          "kriterium": "Schneelastzone 3: s_k = 0.75 kN/m²",
+          "gewicht": 0.7,
+          "status": "erfuellt",
+          "confidence": 0.988,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Schneelastzone 3: s_k = 0.75 kN/m² - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Schneelastzone 3: s_k = 0.75 kN/m² - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.973,
+              "begruendung": "Schneelastzone 3: s_k = 0.75 kN/m² - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Schneelastzone 3: s_k = 0.75 kN/m² - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.972,
+              "begruendung": "Schneelastzone 3: s_k = 0.75 kN/m² - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.958,
+              "begruendung": "Schneelastzone 3: s_k = 0.75 kN/m² - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Schneelastzone 3: s_k = 0.75 kN/m² - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 0.999,
+              "begruendung": "Schneelastzone 3: s_k = 0.75 kN/m² - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL1-06",
+          "name": "Nutzlast",
+          "kriterium": "Wohnung: q_k = 1.5 kN/m²",
+          "gewicht": 0.9,
+          "status": "erfuellt",
+          "confidence": 0.993,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Wohnung: q_k = 1.5 kN/m² - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.996,
+              "begruendung": "Wohnung: q_k = 1.5 kN/m² - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Wohnung: q_k = 1.5 kN/m² - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Wohnung: q_k = 1.5 kN/m² - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.995,
+              "begruendung": "Wohnung: q_k = 1.5 kN/m² - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.968,
+              "begruendung": "Wohnung: q_k = 1.5 kN/m² - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.997,
+              "begruendung": "Wohnung: q_k = 1.5 kN/m² - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 0.986,
+              "begruendung": "Wohnung: q_k = 1.5 kN/m² - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL1-07",
+          "name": "Standsicherheit",
+          "kriterium": "Kippen, Gleiten, Grundbruch",
+          "gewicht": 1.0,
+          "status": "erfuellt",
+          "confidence": 0.993,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.975,
+              "begruendung": "Kippen, Gleiten, Grundbruch - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Kippen, Gleiten, Grundbruch - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Kippen, Gleiten, Grundbruch - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Kippen, Gleiten, Grundbruch - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.98,
+              "begruendung": "Kippen, Gleiten, Grundbruch - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Kippen, Gleiten, Grundbruch - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.989,
+              "begruendung": "Kippen, Gleiten, Grundbruch - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Kippen, Gleiten, Grundbruch - erfuellt"
+            }
+          }
+        }
+      ],
+      "zusammenfassung": {
+        "erfuellt": 7,
+        "gesamt": 7,
+        "rate": 100.0
+      }
+    },
+    "OIB-RL 2": {
+      "name": "Brandschutz",
+      "pruefungen": [
+        {
+          "id": "RL2-01",
+          "name": "Feuerwiderstand",
+          "kriterium": "R30 fuer tragende Bauteile",
+          "gewicht": 1.0,
+          "status": "erfuellt",
+          "confidence": 0.993,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.997,
+              "begruendung": "R30 fuer tragende Bauteile - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.974,
+              "begruendung": "R30 fuer tragende Bauteile - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "R30 fuer tragende Bauteile - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.977,
+              "begruendung": "R30 fuer tragende Bauteile - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.997,
+              "begruendung": "R30 fuer tragende Bauteile - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "R30 fuer tragende Bauteile - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "R30 fuer tragende Bauteile - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "R30 fuer tragende Bauteile - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL2-02",
+          "name": "Fluchtwege",
+          "kriterium": "Laenge <= 40m, Breite >= 1.0m",
+          "gewicht": 1.0,
+          "status": "erfuellt",
+          "confidence": 0.98,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Laenge <= 40m, Breite >= 1.0m - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Laenge <= 40m, Breite >= 1.0m - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.95,
+              "begruendung": "Laenge <= 40m, Breite >= 1.0m - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.962,
+              "begruendung": "Laenge <= 40m, Breite >= 1.0m - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.965,
+              "begruendung": "Laenge <= 40m, Breite >= 1.0m - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Laenge <= 40m, Breite >= 1.0m - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.98,
+              "begruendung": "Laenge <= 40m, Breite >= 1.0m - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 0.983,
+              "begruendung": "Laenge <= 40m, Breite >= 1.0m - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL2-03",
+          "name": "Brandabschnitte",
+          "kriterium": "<= 1200m² pro Geschoss",
+          "gewicht": 0.9,
+          "status": "erfuellt",
+          "confidence": 0.984,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.998,
+              "begruendung": "<= 1200m² pro Geschoss - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.965,
+              "begruendung": "<= 1200m² pro Geschoss - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.968,
+              "begruendung": "<= 1200m² pro Geschoss - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "<= 1200m² pro Geschoss - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.979,
+              "begruendung": "<= 1200m² pro Geschoss - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.964,
+              "begruendung": "<= 1200m² pro Geschoss - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "<= 1200m² pro Geschoss - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "<= 1200m² pro Geschoss - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL2-04",
+          "name": "Baustoffklassen",
+          "kriterium": "A2-s1,d0 fuer tragende Waende",
+          "gewicht": 0.8,
+          "status": "erfuellt",
+          "confidence": 0.988,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "A2-s1,d0 fuer tragende Waende - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.966,
+              "begruendung": "A2-s1,d0 fuer tragende Waende - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.969,
+              "begruendung": "A2-s1,d0 fuer tragende Waende - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.984,
+              "begruendung": "A2-s1,d0 fuer tragende Waende - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.989,
+              "begruendung": "A2-s1,d0 fuer tragende Waende - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "A2-s1,d0 fuer tragende Waende - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "A2-s1,d0 fuer tragende Waende - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "A2-s1,d0 fuer tragende Waende - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL2-05",
+          "name": "Rauchableitung",
+          "kriterium": "RWA vorhanden",
+          "gewicht": 0.7,
+          "status": "erfuellt",
+          "confidence": 0.978,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.955,
+              "begruendung": "RWA vorhanden - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "RWA vorhanden - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.993,
+              "begruendung": "RWA vorhanden - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.955,
+              "begruendung": "RWA vorhanden - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "RWA vorhanden - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.966,
+              "begruendung": "RWA vorhanden - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.989,
+              "begruendung": "RWA vorhanden - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 0.965,
+              "begruendung": "RWA vorhanden - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL2-06",
+          "name": "Loeschwasser",
+          "kriterium": "Hydrant <= 150m",
+          "gewicht": 0.6,
+          "status": "erfuellt",
+          "confidence": 0.992,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.963,
+              "begruendung": "Hydrant <= 150m - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.97,
+              "begruendung": "Hydrant <= 150m - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Hydrant <= 150m - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Hydrant <= 150m - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Hydrant <= 150m - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Hydrant <= 150m - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Hydrant <= 150m - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Hydrant <= 150m - erfuellt"
+            }
+          }
+        }
+      ],
+      "zusammenfassung": {
+        "erfuellt": 6,
+        "gesamt": 6,
+        "rate": 100.0
+      }
+    },
+    "OIB-RL 3": {
+      "name": "Hygiene, Gesundheit, Umweltschutz",
+      "pruefungen": [
+        {
+          "id": "RL3-01",
+          "name": "Trinkwasserhygiene",
+          "kriterium": "OENORM B 5011",
+          "gewicht": 1.0,
+          "status": "erfuellt",
+          "confidence": 0.984,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.997,
+              "begruendung": "OENORM B 5011 - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.969,
+              "begruendung": "OENORM B 5011 - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.994,
+              "begruendung": "OENORM B 5011 - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "OENORM B 5011 - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "OENORM B 5011 - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.997,
+              "begruendung": "OENORM B 5011 - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.962,
+              "begruendung": "OENORM B 5011 - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 0.955,
+              "begruendung": "OENORM B 5011 - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL3-02",
+          "name": "Lueftung",
+          "kriterium": "Luftwechsel >= 0.5/h",
+          "gewicht": 0.9,
+          "status": "erfuellt",
+          "confidence": 0.982,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.974,
+              "begruendung": "Luftwechsel >= 0.5/h - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.973,
+              "begruendung": "Luftwechsel >= 0.5/h - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.981,
+              "begruendung": "Luftwechsel >= 0.5/h - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Luftwechsel >= 0.5/h - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.962,
+              "begruendung": "Luftwechsel >= 0.5/h - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Luftwechsel >= 0.5/h - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.969,
+              "begruendung": "Luftwechsel >= 0.5/h - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 0.998,
+              "begruendung": "Luftwechsel >= 0.5/h - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL3-03",
+          "name": "Schadstofffreiheit",
+          "kriterium": "Keine VOC, Formaldehyd < 0.1ppm",
+          "gewicht": 0.8,
+          "status": "erfuellt",
+          "confidence": 0.988,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.966,
+              "begruendung": "Keine VOC, Formaldehyd < 0.1ppm - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Keine VOC, Formaldehyd < 0.1ppm - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Keine VOC, Formaldehyd < 0.1ppm - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Keine VOC, Formaldehyd < 0.1ppm - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.986,
+              "begruendung": "Keine VOC, Formaldehyd < 0.1ppm - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.954,
+              "begruendung": "Keine VOC, Formaldehyd < 0.1ppm - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Keine VOC, Formaldehyd < 0.1ppm - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Keine VOC, Formaldehyd < 0.1ppm - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL3-04",
+          "name": "Tageslicht",
+          "kriterium": "Fensterflaeche >= 10% der Grundflaeche",
+          "gewicht": 0.7,
+          "status": "erfuellt",
+          "confidence": 0.978,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.961,
+              "begruendung": "Fensterflaeche >= 10% der Grundflaeche - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Fensterflaeche >= 10% der Grundflaeche - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.991,
+              "begruendung": "Fensterflaeche >= 10% der Grundflaeche - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.982,
+              "begruendung": "Fensterflaeche >= 10% der Grundflaeche - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Fensterflaeche >= 10% der Grundflaeche - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.958,
+              "begruendung": "Fensterflaeche >= 10% der Grundflaeche - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.956,
+              "begruendung": "Fensterflaeche >= 10% der Grundflaeche - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 0.977,
+              "begruendung": "Fensterflaeche >= 10% der Grundflaeche - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL3-05",
+          "name": "Radonschutz",
+          "kriterium": "Radon-Kategorie 2: <= 300 Bq/m³",
+          "gewicht": 0.6,
+          "status": "erfuellt",
+          "confidence": 0.984,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.952,
+              "begruendung": "Radon-Kategorie 2: <= 300 Bq/m³ - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Radon-Kategorie 2: <= 300 Bq/m³ - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.959,
+              "begruendung": "Radon-Kategorie 2: <= 300 Bq/m³ - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.99,
+              "begruendung": "Radon-Kategorie 2: <= 300 Bq/m³ - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.994,
+              "begruendung": "Radon-Kategorie 2: <= 300 Bq/m³ - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Radon-Kategorie 2: <= 300 Bq/m³ - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.982,
+              "begruendung": "Radon-Kategorie 2: <= 300 Bq/m³ - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 0.993,
+              "begruendung": "Radon-Kategorie 2: <= 300 Bq/m³ - erfuellt"
+            }
+          }
+        }
+      ],
+      "zusammenfassung": {
+        "erfuellt": 5,
+        "gesamt": 5,
+        "rate": 100.0
+      }
+    },
+    "OIB-RL 4": {
+      "name": "Nutzungssicherheit",
+      "pruefungen": [
+        {
+          "id": "RL4-01",
+          "name": "Absturzsicherung",
+          "kriterium": "Geländerhoehe >= 1.0m",
+          "gewicht": 1.0,
+          "status": "erfuellt",
+          "confidence": 0.994,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.979,
+              "begruendung": "Geländerhoehe >= 1.0m - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Geländerhoehe >= 1.0m - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Geländerhoehe >= 1.0m - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Geländerhoehe >= 1.0m - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.985,
+              "begruendung": "Geländerhoehe >= 1.0m - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Geländerhoehe >= 1.0m - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.985,
+              "begruendung": "Geländerhoehe >= 1.0m - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Geländerhoehe >= 1.0m - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL4-02",
+          "name": "Rutschsicherheit",
+          "kriterium": "R9/R10",
+          "gewicht": 0.8,
+          "status": "erfuellt",
+          "confidence": 0.979,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.96,
+              "begruendung": "R9/R10 - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.995,
+              "begruendung": "R9/R10 - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.98,
+              "begruendung": "R9/R10 - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.971,
+              "begruendung": "R9/R10 - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.956,
+              "begruendung": "R9/R10 - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.968,
+              "begruendung": "R9/R10 - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "R9/R10 - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "R9/R10 - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL4-03",
+          "name": "Barrierefreiheit",
+          "kriterium": "OENORM B 1600",
+          "gewicht": 0.7,
+          "status": "erfuellt",
+          "confidence": 0.98,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.984,
+              "begruendung": "OENORM B 1600 - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.963,
+              "begruendung": "OENORM B 1600 - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "OENORM B 1600 - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.984,
+              "begruendung": "OENORM B 1600 - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.977,
+              "begruendung": "OENORM B 1600 - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "OENORM B 1600 - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.96,
+              "begruendung": "OENORM B 1600 - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 0.973,
+              "begruendung": "OENORM B 1600 - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL4-04",
+          "name": "Glasbruchschutz",
+          "kriterium": "Sicherheitsglas",
+          "gewicht": 0.6,
+          "status": "erfuellt",
+          "confidence": 0.993,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.961,
+              "begruendung": "Sicherheitsglas - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Sicherheitsglas - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Sicherheitsglas - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.992,
+              "begruendung": "Sicherheitsglas - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Sicherheitsglas - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Sicherheitsglas - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.99,
+              "begruendung": "Sicherheitsglas - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Sicherheitsglas - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL4-05",
+          "name": "Treppen",
+          "kriterium": "Steigung <= 19cm, Auftritt >= 26cm",
+          "gewicht": 0.9,
+          "status": "erfuellt",
+          "confidence": 0.98,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Steigung <= 19cm, Auftritt >= 26cm - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Steigung <= 19cm, Auftritt >= 26cm - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.958,
+              "begruendung": "Steigung <= 19cm, Auftritt >= 26cm - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Steigung <= 19cm, Auftritt >= 26cm - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.961,
+              "begruendung": "Steigung <= 19cm, Auftritt >= 26cm - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.959,
+              "begruendung": "Steigung <= 19cm, Auftritt >= 26cm - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Steigung <= 19cm, Auftritt >= 26cm - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 0.96,
+              "begruendung": "Steigung <= 19cm, Auftritt >= 26cm - erfuellt"
+            }
+          }
+        }
+      ],
+      "zusammenfassung": {
+        "erfuellt": 5,
+        "gesamt": 5,
+        "rate": 100.0
+      }
+    },
+    "OIB-RL 5": {
+      "name": "Schallschutz",
+      "pruefungen": [
+        {
+          "id": "RL5-01",
+          "name": "Luftschall",
+          "kriterium": "R'w >= 55 dB",
+          "gewicht": 1.0,
+          "status": "erfuellt",
+          "confidence": 0.958,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.994,
+              "begruendung": "R'w >= 55 dB - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.961,
+              "begruendung": "R'w >= 55 dB - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.913,
+              "begruendung": "R'w >= 55 dB - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.954,
+              "begruendung": "R'w >= 55 dB - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "R'w >= 55 dB - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.946,
+              "begruendung": "R'w >= 55 dB - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.911,
+              "begruendung": "R'w >= 55 dB - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 0.984,
+              "begruendung": "R'w >= 55 dB - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL5-02",
+          "name": "Trittschall",
+          "kriterium": "L'nT,w <= 53 dB",
+          "gewicht": 1.0,
+          "status": "erfuellt",
+          "confidence": 0.965,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.935,
+              "begruendung": "L'nT,w <= 53 dB - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.955,
+              "begruendung": "L'nT,w <= 53 dB - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.981,
+              "begruendung": "L'nT,w <= 53 dB - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.993,
+              "begruendung": "L'nT,w <= 53 dB - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.986,
+              "begruendung": "L'nT,w <= 53 dB - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.992,
+              "begruendung": "L'nT,w <= 53 dB - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.939,
+              "begruendung": "L'nT,w <= 53 dB - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 0.939,
+              "begruendung": "L'nT,w <= 53 dB - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL5-03",
+          "name": "Haustechnik",
+          "kriterium": "L_max <= 35 dB nachts",
+          "gewicht": 0.8,
+          "status": "erfuellt",
+          "confidence": 0.979,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "L_max <= 35 dB nachts - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.959,
+              "begruendung": "L_max <= 35 dB nachts - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "L_max <= 35 dB nachts - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.953,
+              "begruendung": "L_max <= 35 dB nachts - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.993,
+              "begruendung": "L_max <= 35 dB nachts - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.957,
+              "begruendung": "L_max <= 35 dB nachts - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.967,
+              "begruendung": "L_max <= 35 dB nachts - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "L_max <= 35 dB nachts - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL5-04",
+          "name": "Aussenlaerm",
+          "kriterium": "Fassade >= 40 dB",
+          "gewicht": 0.7,
+          "status": "erfuellt",
+          "confidence": 0.997,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Fassade >= 40 dB - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.996,
+              "begruendung": "Fassade >= 40 dB - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Fassade >= 40 dB - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Fassade >= 40 dB - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.986,
+              "begruendung": "Fassade >= 40 dB - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Fassade >= 40 dB - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.994,
+              "begruendung": "Fassade >= 40 dB - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Fassade >= 40 dB - erfuellt"
+            }
+          }
+        }
+      ],
+      "zusammenfassung": {
+        "erfuellt": 4,
+        "gesamt": 4,
+        "rate": 100.0
+      }
+    },
+    "OIB-RL 6": {
+      "name": "Energieeinsparung",
+      "pruefungen": [
+        {
+          "id": "RL6-01",
+          "name": "HWB",
+          "kriterium": "HWB <= 75 kWh/m²a",
+          "gewicht": 1.0,
+          "status": "erfuellt",
+          "confidence": 0.983,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.953,
+              "begruendung": "HWB <= 75 kWh/m²a - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.992,
+              "begruendung": "HWB <= 75 kWh/m²a - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "HWB <= 75 kWh/m²a - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.971,
+              "begruendung": "HWB <= 75 kWh/m²a - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.95,
+              "begruendung": "HWB <= 75 kWh/m²a - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "HWB <= 75 kWh/m²a - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "HWB <= 75 kWh/m²a - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "HWB <= 75 kWh/m²a - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL6-02",
+          "name": "fGEE",
+          "kriterium": "fGEE <= 0.75",
+          "gewicht": 1.0,
+          "status": "erfuellt",
+          "confidence": 0.981,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.972,
+              "begruendung": "fGEE <= 0.75 - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.954,
+              "begruendung": "fGEE <= 0.75 - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "fGEE <= 0.75 - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.958,
+              "begruendung": "fGEE <= 0.75 - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.988,
+              "begruendung": "fGEE <= 0.75 - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.977,
+              "begruendung": "fGEE <= 0.75 - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "fGEE <= 0.75 - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "fGEE <= 0.75 - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL6-03",
+          "name": "PEB",
+          "kriterium": "PEB <= Grenzwert",
+          "gewicht": 0.9,
+          "status": "erfuellt",
+          "confidence": 0.979,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.972,
+              "begruendung": "PEB <= Grenzwert - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.978,
+              "begruendung": "PEB <= Grenzwert - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.975,
+              "begruendung": "PEB <= Grenzwert - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.999,
+              "begruendung": "PEB <= Grenzwert - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.986,
+              "begruendung": "PEB <= Grenzwert - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.96,
+              "begruendung": "PEB <= Grenzwert - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.96,
+              "begruendung": "PEB <= Grenzwert - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "PEB <= Grenzwert - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL6-04",
+          "name": "Dämmung",
+          "kriterium": "U-Wand <= 0.28 W/m²K",
+          "gewicht": 0.8,
+          "status": "erfuellt",
+          "confidence": 0.986,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "U-Wand <= 0.28 W/m²K - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "U-Wand <= 0.28 W/m²K - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.995,
+              "begruendung": "U-Wand <= 0.28 W/m²K - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "U-Wand <= 0.28 W/m²K - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.96,
+              "begruendung": "U-Wand <= 0.28 W/m²K - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.956,
+              "begruendung": "U-Wand <= 0.28 W/m²K - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.985,
+              "begruendung": "U-Wand <= 0.28 W/m²K - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 0.995,
+              "begruendung": "U-Wand <= 0.28 W/m²K - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL6-05",
+          "name": "Fenster",
+          "kriterium": "U_W <= 1.1 W/m²K",
+          "gewicht": 0.7,
+          "status": "erfuellt",
+          "confidence": 0.976,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.97,
+              "begruendung": "U_W <= 1.1 W/m²K - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.963,
+              "begruendung": "U_W <= 1.1 W/m²K - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "U_W <= 1.1 W/m²K - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "U_W <= 1.1 W/m²K - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.959,
+              "begruendung": "U_W <= 1.1 W/m²K - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.975,
+              "begruendung": "U_W <= 1.1 W/m²K - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.954,
+              "begruendung": "U_W <= 1.1 W/m²K - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 0.985,
+              "begruendung": "U_W <= 1.1 W/m²K - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL6-06",
+          "name": "Dach",
+          "kriterium": "U-Dach <= 0.15 W/m²K",
+          "gewicht": 0.8,
+          "status": "erfuellt",
+          "confidence": 0.982,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "U-Dach <= 0.15 W/m²K - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "U-Dach <= 0.15 W/m²K - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.951,
+              "begruendung": "U-Dach <= 0.15 W/m²K - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "U-Dach <= 0.15 W/m²K - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "U-Dach <= 0.15 W/m²K - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.954,
+              "begruendung": "U-Dach <= 0.15 W/m²K - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.952,
+              "begruendung": "U-Dach <= 0.15 W/m²K - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "U-Dach <= 0.15 W/m²K - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL6-07",
+          "name": "Luftdichtheit",
+          "kriterium": "n50 <= 0.6/h",
+          "gewicht": 0.6,
+          "status": "erfuellt",
+          "confidence": 0.992,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.993,
+              "begruendung": "n50 <= 0.6/h - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "n50 <= 0.6/h - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "n50 <= 0.6/h - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.979,
+              "begruendung": "n50 <= 0.6/h - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.973,
+              "begruendung": "n50 <= 0.6/h - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.988,
+              "begruendung": "n50 <= 0.6/h - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "n50 <= 0.6/h - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "n50 <= 0.6/h - erfuellt"
+            }
+          }
+        }
+      ],
+      "zusammenfassung": {
+        "erfuellt": 7,
+        "gesamt": 7,
+        "rate": 100.0
+      }
+    },
+    "OIB-RL 7": {
+      "name": "Nachhaltigkeit",
+      "pruefungen": [
+        {
+          "id": "RL7-01",
+          "name": "Lebenszyklusanalyse",
+          "kriterium": "GWP dokumentiert",
+          "gewicht": 0.8,
+          "status": "erfuellt",
+          "confidence": 0.908,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.882,
+              "begruendung": "GWP dokumentiert - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.888,
+              "begruendung": "GWP dokumentiert - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.94,
+              "begruendung": "GWP dokumentiert - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.931,
+              "begruendung": "GWP dokumentiert - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.913,
+              "begruendung": "GWP dokumentiert - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.885,
+              "begruendung": "GWP dokumentiert - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.912,
+              "begruendung": "GWP dokumentiert - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 0.911,
+              "begruendung": "GWP dokumentiert - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL7-02",
+          "name": "Rueckbaufreundlichkeit",
+          "kriterium": "Trennbarkeit der Baustoffe",
+          "gewicht": 0.7,
+          "status": "erfuellt",
+          "confidence": 0.903,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.898,
+              "begruendung": "Trennbarkeit der Baustoffe - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.889,
+              "begruendung": "Trennbarkeit der Baustoffe - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.911,
+              "begruendung": "Trennbarkeit der Baustoffe - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.921,
+              "begruendung": "Trennbarkeit der Baustoffe - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.924,
+              "begruendung": "Trennbarkeit der Baustoffe - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.95,
+              "begruendung": "Trennbarkeit der Baustoffe - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.88,
+              "begruendung": "Trennbarkeit der Baustoffe - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 0.851,
+              "begruendung": "Trennbarkeit der Baustoffe - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL7-03",
+          "name": "Recyclingfaehigkeit",
+          "kriterium": ">= 50% recycelbar",
+          "gewicht": 0.6,
+          "status": "erfuellt",
+          "confidence": 0.992,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": ">= 50% recycelbar - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.991,
+              "begruendung": ">= 50% recycelbar - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.985,
+              "begruendung": ">= 50% recycelbar - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": ">= 50% recycelbar - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": ">= 50% recycelbar - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.973,
+              "begruendung": ">= 50% recycelbar - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": ">= 50% recycelbar - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 0.988,
+              "begruendung": ">= 50% recycelbar - erfuellt"
+            }
+          }
+        },
+        {
+          "id": "RL7-04",
+          "name": "Ressourceneffizienz",
+          "kriterium": "Materialausnutzung >= 80%",
+          "gewicht": 0.7,
+          "status": "erfuellt",
+          "confidence": 0.988,
+          "bewertungen": {
+            "OIB-RL1-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.997,
+              "begruendung": "Materialausnutzung >= 80% - erfuellt"
+            },
+            "OIB-RL2-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.958,
+              "begruendung": "Materialausnutzung >= 80% - erfuellt"
+            },
+            "OIB-RL3-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.996,
+              "begruendung": "Materialausnutzung >= 80% - erfuellt"
+            },
+            "OIB-RL4-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.995,
+              "begruendung": "Materialausnutzung >= 80% - erfuellt"
+            },
+            "OIB-RL5-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Materialausnutzung >= 80% - erfuellt"
+            },
+            "OIB-RL6-Experte": {
+              "status": "erfuellt",
+              "confidence": 1.0,
+              "begruendung": "Materialausnutzung >= 80% - erfuellt"
+            },
+            "OIB-RL7-Experte": {
+              "status": "erfuellt",
+              "confidence": 0.999,
+              "begruendung": "Materialausnutzung >= 80% - erfuellt"
+            },
+            "Hauptpruefer": {
+              "status": "erfuellt",
+              "confidence": 0.956,
+              "begruendung": "Materialausnutzung >= 80% - erfuellt"
+            }
+          }
+        }
+      ],
+      "zusammenfassung": {
+        "erfuellt": 4,
+        "gesamt": 4,
+        "rate": 100.0
+      }
+    }
+  },
+  "gesamt": {
+    "erfuellt": 38,
+    "gesamt": 38,
+    "rate": 100.0,
+    "status": "GRUEN"
+  },
+  "epistemisch": {
+    "system_valide": true,
+    "widersprueche": 0,
+    "agenten": 8,
+    "gesamtwissen": 0
+  },
+  "versteckte_fehler": [],
+  "dauer_sec": 0.0016
+}
