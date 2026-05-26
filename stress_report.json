@@ -1,0 +1,119 @@
+{
+  "test": "DES-Stress-Test",
+  "datum": "2026-05-26T09:44:20.447105",
+  "konfiguration": {
+    "num_agenten": 50,
+    "num_propositionen": 500,
+    "num_inferenzregeln": 200,
+    "num_threads": 4,
+    "widerspruch_rate": 0.05
+  },
+  "ergebnisse": {
+    "agenten_erstellung": {
+      "anzahl": 50,
+      "dauer_sec": 0.0002,
+      "pro_agent": 0.0035
+    },
+    "propositionen_erstellung": {
+      "anzahl": 500,
+      "dauer_sec": 0.0112,
+      "pro_proposition": 0.0225
+    },
+    "inferenzregeln_erstellung": {
+      "anzahl": 200,
+      "dauer_sec": 0.0029,
+      "pro_regel": 0.0147
+    },
+    "wissen_synchronisation": {
+      "anzahl_agenten": 50,
+      "dauer_sec": 0.0353,
+      "pro_agent": 0.7063
+    },
+    "konsens_berechnung": {
+      "anzahl_propositionen": 50,
+      "dauer_sec": 0.0016,
+      "pro_proposition": 0.0327,
+      "konsens_zustand": {
+        "certain": 2,
+        "probable": 10,
+        "unknown": 38
+      }
+    },
+    "widerspruchs_erkenntung": {
+      "dauer_sec": 0.0077,
+      "widersprueche": 0,
+      "system_valide": true
+    },
+    "system_validierung": {
+      "dauer_sec": 0.0075,
+      "report_laenge": 2794
+    },
+    "parallel_operationen": {
+      "anzahl_threads": 4,
+      "dauer_sec": 0.0056,
+      "pro_thread": 1.3888,
+      "ergebnisse": {
+        "2": {
+          "thread_id": 2,
+          "propositionen": 50,
+          "agenten": 1
+        },
+        "1": {
+          "thread_id": 1,
+          "propositionen": 50,
+          "agenten": 1
+        },
+        "0": {
+          "thread_id": 0,
+          "propositionen": 50,
+          "agenten": 1
+        },
+        "3": {
+          "thread_id": 3,
+          "propositionen": 50,
+          "agenten": 1
+        }
+      }
+    },
+    "fallback_mechanismen": {
+      "anzahl_unknown": 20,
+      "unknown_konsens": 20,
+      "dauer_sec": 0.0012
+    },
+    "skalierung": [
+      {
+        "faktor": 1,
+        "propositionen": 50,
+        "agenten": 50,
+        "dauer_sec": 0.0053
+      },
+      {
+        "faktor": 2,
+        "propositionen": 100,
+        "agenten": 25,
+        "dauer_sec": 0.005
+      },
+      {
+        "faktor": 5,
+        "propositionen": 250,
+        "agenten": 10,
+        "dauer_sec": 0.0082
+      },
+      {
+        "faktor": 10,
+        "propositionen": 500,
+        "agenten": 5,
+        "dauer_sec": 0.0184
+      }
+    ]
+  },
+  "system_zustand": {
+    "system_valide": true,
+    "widersprueche": 0,
+    "agenten": 50,
+    "globales_wissen": 519,
+    "gesamtwissen": 10205
+  },
+  "gesamtzeit_sec": 0.1108,
+  "bestanden": true
+}
