@@ -1,0 +1,149 @@
+{
+  "projekt": "Koenigstr 59, Breitbrunn am Neusiedler See",
+  "datum": "2026-05-26T09:37:46.708291",
+  "dwg_analyse": {
+    "dateien": 5,
+    "gesamt_vollstaendigkeit": 100.0,
+    "geschosse": [
+      {
+        "geschoss": "UG",
+        "datei": "02_01d_Königstr_59_Breitbrunn_WH_1.UIG_UG_50_VE_030524.dwg",
+        "groesse": 597087,
+        "elemente": 6,
+        "vollstaendigkeit": 100.0,
+        "gefunden": [
+          "Decke",
+          "Stiege",
+          "Fundament",
+          "Innenwand",
+          "Aussenwand",
+          "Heizungsraum"
+        ],
+        "fehlend": []
+      },
+      {
+        "geschoss": "EG",
+        "datei": "02_02c_Königstr_59_Breitbrunn_WH_1.OIG_EG_50_VE_160424.dwg",
+        "groesse": 1076099,
+        "elemente": 7,
+        "vollstaendigkeit": 100.0,
+        "gefunden": [
+          "Decke",
+          "Fenster",
+          "Stiege",
+          "Innenwand",
+          "Aussenwand",
+          "Tuer",
+          "Eingang"
+        ],
+        "fehlend": []
+      },
+      {
+        "geschoss": "OG",
+        "datei": "02_03c_Königstr_59_Breitbrunn_WH_2.OIG_OG_50_VE_290424 (1).dwg",
+        "groesse": 902068,
+        "elemente": 7,
+        "vollstaendigkeit": 100.0,
+        "gefunden": [
+          "Decke",
+          "Fenster",
+          "Stiege",
+          "Innenwand",
+          "Aussenwand",
+          "Tuer",
+          "Balkon"
+        ],
+        "fehlend": []
+      },
+      {
+        "geschoss": "OG",
+        "datei": "02_03c_Königstr_59_Breitbrunn_WH_2.OIG_OG_50_VE_290424.dwg",
+        "groesse": 902068,
+        "elemente": 7,
+        "vollstaendigkeit": 100.0,
+        "gefunden": [
+          "Decke",
+          "Fenster",
+          "Stiege",
+          "Innenwand",
+          "Aussenwand",
+          "Tuer",
+          "Balkon"
+        ],
+        "fehlend": []
+      },
+      {
+        "geschoss": "DG",
+        "datei": "02_04c_Königstr_59_Breitbrunn_WH_3.OIG_DG_50_VE_290424.dwg",
+        "groesse": 465686,
+        "elemente": 7,
+        "vollstaendigkeit": 100.0,
+        "gefunden": [
+          "Fenster",
+          "Stiege",
+          "Dach",
+          "Innenwand",
+          "Aussenwand",
+          "Tuer",
+          "Gauben"
+        ],
+        "fehlend": []
+      }
+    ]
+  },
+  "epistemisch": {
+    "system_valide": true,
+    "widersprueche": 0,
+    "agenten": 5,
+    "globales_wissen": 37,
+    "gesamtwissen": 74
+  },
+  "konsens": {
+    "UG": {
+      "vollstaendigkeit": 100.0,
+      "agent_bewertungen": {
+        "Architekt": "certain",
+        "Statiker": "certain",
+        "Prufer": "certain",
+        "Bauphysiker": "certain",
+        "Energieberater": "certain"
+      }
+    },
+    "EG": {
+      "vollstaendigkeit": 100.0,
+      "agent_bewertungen": {
+        "Architekt": "certain",
+        "Statiker": "certain",
+        "Prufer": "certain",
+        "Bauphysiker": "certain",
+        "Energieberater": "certain"
+      }
+    },
+    "OG": {
+      "vollstaendigkeit": 100.0,
+      "agent_bewertungen": {
+        "Architekt": "certain",
+        "Statiker": "certain",
+        "Prufer": "certain",
+        "Bauphysiker": "certain",
+        "Energieberater": "certain"
+      }
+    },
+    "DG": {
+      "vollstaendigkeit": 100.0,
+      "agent_bewertungen": {
+        "Architekt": "certain",
+        "Statiker": "certain",
+        "Prufer": "certain",
+        "Bauphysiker": "certain",
+        "Energieberater": "certain"
+      }
+    }
+  },
+  "compliance": {
+    "system_valide": true,
+    "widersprueche": 0,
+    "agenten": 4,
+    "gesamtwissen": 104
+  }
+}
