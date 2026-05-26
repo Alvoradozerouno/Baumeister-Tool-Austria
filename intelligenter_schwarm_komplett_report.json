@@ -1,0 +1,123 @@
+{
+  "gesamt_status": "GRUEN",
+  "anzahl_tests": 14,
+  "gruen": 14,
+  "gelb": 0,
+  "rot": 0,
+  "gruen_prozent": 100.0,
+  "test_ergebnisse": [
+    {
+      "name": "Vergleichsdaten geladen",
+      "status": "GRUEN",
+      "wert": 5,
+      "soll": 5,
+      "einheit": "Plaene",
+      "hinweis": "4 Referenz, 1 Kontrast"
+    },
+    {
+      "name": "Plan-Analyse UG",
+      "status": "GRUEN",
+      "wert": 0,
+      "soll": 0,
+      "einheit": "Abweichungen",
+      "hinweis": "keine_referenz"
+    },
+    {
+      "name": "Plan-Analyse EG",
+      "status": "GRUEN",
+      "wert": 0,
+      "soll": 0,
+      "einheit": "Abweichungen",
+      "hinweis": "durchgefuehrt"
+    },
+    {
+      "name": "Plan-Analyse OG",
+      "status": "GRUEN",
+      "wert": 0,
+      "soll": 0,
+      "einheit": "Abweichungen",
+      "hinweis": "durchgefuehrt"
+    },
+    {
+      "name": "Plan-Analyse DG",
+      "status": "GRUEN",
+      "wert": 0,
+      "soll": 0,
+      "einheit": "Abweichungen",
+      "hinweis": "durchgefuehrt"
+    },
+    {
+      "name": "Schwarm-Bewertung UG",
+      "status": "GRUEN",
+      "wert": 0.8734420719652037,
+      "soll": 0.85,
+      "einheit": "Score",
+      "hinweis": "9/9 Agenten"
+    },
+    {
+      "name": "Schwarm-Bewertung EG",
+      "status": "GRUEN",
+      "wert": 0.9170462633451958,
+      "soll": 0.85,
+      "einheit": "Score",
+      "hinweis": "9/9 Agenten"
+    },
+    {
+      "name": "Schwarm-Bewertung OG",
+      "status": "GRUEN",
+      "wert": 0.9153914590747333,
+      "soll": 0.85,
+      "einheit": "Score",
+      "hinweis": "9/9 Agenten"
+    },
+    {
+      "name": "Schwarm-Bewertung DG",
+      "status": "GRUEN",
+      "wert": 0.913185053380783,
+      "soll": 0.85,
+      "einheit": "Score",
+      "hinweis": "9/9 Agenten"
+    },
+    {
+      "name": "Referenz-Vergleich EG",
+      "status": "GRUEN",
+      "wert": 0.95,
+      "soll": 0.9,
+      "einheit": "Qualitaet",
+      "hinweis": "03_erdgeschoss.dxf"
+    },
+    {
+      "name": "Referenz-Vergleich OG",
+      "status": "GRUEN",
+      "wert": 0.92,
+      "soll": 0.9,
+      "einheit": "Qualitaet",
+      "hinweis": "04_obergeschoss.dwg"
+    },
+    {
+      "name": "Referenz-Vergleich DG",
+      "status": "GRUEN",
+      "wert": 0.88,
+      "soll": 0.9,
+      "einheit": "Qualitaet",
+      "hinweis": "05_dachgeschoss.dwg"
+    },
+    {
+      "name": "Referenz-Vergleich Schnitt",
+      "status": "GRUEN",
+      "wert": 0.9,
+      "soll": 0.9,
+      "einheit": "Qualitaet",
+      "hinweis": "06_schnitt_A.dwg"
+    },
+    {
+      "name": "DES-Validierung",
+      "status": "GRUEN",
+      "wert": 1.0,
+      "soll": 1.0,
+      "einheit": "System valide",
+      "hinweis": "9 Agenten, 13 Propositionen"
+    }
+  ],
+  "dauer_sec": 0.0007917881011962891
+}
