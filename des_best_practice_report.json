@@ -28,9 +28,9 @@
       "status": "GRUEN"
     },
     "temporal": {
-      "current_confidence": 0.9999999999970034,
-      "old_confidence": 0.49999999999550515,
-      "degradation_factor": 0.49999999999700345,
+      "current_confidence": 0.999999999997641,
+      "old_confidence": 0.49999999999722655,
+      "degradation_factor": 0.49999999999840605,
       "status": "GRUEN"
     },
     "zyklen": {
@@ -47,5 +47,5 @@
       "status": "GRUEN"
     }
   },
-  "dauer_sec": 0.007215976715087891
+  "dauer_sec": 0.007610321044921875
 }

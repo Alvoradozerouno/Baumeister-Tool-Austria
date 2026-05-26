@@ -1,6 +1,6 @@
 {
   "projekt": "Koenigstr 59, Breitbrunn am Neusiedler See",
-  "datum": "2026-05-26T10:56:59.483087",
+  "datum": "2026-05-26T14:11:56.761628",
   "dwg_analyse": {
     "dateien": 5,
     "gesamt_vollstaendigkeit": 100.0,
@@ -13,11 +13,11 @@
         "vollstaendigkeit": 100.0,
         "gefunden": [
           "Innenwand",
+          "Fundament",
           "Stiege",
           "Heizungsraum",
-          "Aussenwand",
           "Decke",
-          "Fundament"
+          "Aussenwand"
         ],
         "fehlend": []
       },
@@ -28,13 +28,13 @@
         "elemente": 7,
         "vollstaendigkeit": 100.0,
         "gefunden": [
-          "Tuer",
           "Innenwand",
-          "Fenster",
           "Stiege",
-          "Aussenwand",
+          "Fenster",
+          "Eingang",
           "Decke",
-          "Eingang"
+          "Tuer",
+          "Aussenwand"
         ],
         "fehlend": []
       },
@@ -45,13 +45,13 @@
         "elemente": 7,
         "vollstaendigkeit": 100.0,
         "gefunden": [
-          "Tuer",
           "Innenwand",
-          "Fenster",
           "Stiege",
-          "Balkon",
+          "Fenster",
+          "Decke",
+          "Tuer",
           "Aussenwand",
-          "Decke"
+          "Balkon"
         ],
         "fehlend": []
       },
@@ -62,13 +62,13 @@
         "elemente": 7,
         "vollstaendigkeit": 100.0,
         "gefunden": [
-          "Tuer",
           "Innenwand",
-          "Fenster",
           "Stiege",
-          "Balkon",
+          "Fenster",
+          "Decke",
+          "Tuer",
           "Aussenwand",
-          "Decke"
+          "Balkon"
         ],
         "fehlend": []
       },
@@ -79,13 +79,13 @@
         "elemente": 7,
         "vollstaendigkeit": 100.0,
         "gefunden": [
-          "Tuer",
           "Innenwand",
-          "Fenster",
           "Stiege",
+          "Fenster",
+          "Dach",
           "Gauben",
-          "Aussenwand",
-          "Dach"
+          "Tuer",
+          "Aussenwand"
         ],
         "fehlend": []
       }

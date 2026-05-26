@@ -1,6 +1,6 @@
 {
   "test": "Verbesserungs-Analyse",
-  "datum": "2026-05-26T10:57:02.283941",
+  "datum": "2026-05-26T14:11:19.573689",
   "ergebnisse": {
     "tragwerk": {
       "name": "Tragwerk und Statik",
@@ -16,51 +16,51 @@
             "UG"
           ],
           "status": "empfohlen",
-          "confidence": 0.904,
+          "confidence": 0.89,
           "bewertungen": {
             "Tragwerksplaner": {
               "status": "empfohlen",
-              "confidence": 0.873,
+              "confidence": 0.91,
               "begruendung": "Plattengruendung statt Streifenfundament fuer bessere Lastverteilung - empfohlen"
             },
             "Energieberater": {
               "status": "empfohlen",
-              "confidence": 0.884,
+              "confidence": 0.883,
               "begruendung": "Plattengruendung statt Streifenfundament fuer bessere Lastverteilung - empfohlen"
             },
             "Brandschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.925,
+              "confidence": 0.883,
               "begruendung": "Plattengruendung statt Streifenfundament fuer bessere Lastverteilung - empfohlen"
             },
             "Schallschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.896,
+              "confidence": 0.916,
               "begruendung": "Plattengruendung statt Streifenfundament fuer bessere Lastverteilung - empfohlen"
             },
             "Barrierefreiheitsexperte": {
               "status": "empfohlen",
-              "confidence": 0.916,
+              "confidence": 0.873,
               "begruendung": "Plattengruendung statt Streifenfundament fuer bessere Lastverteilung - empfohlen"
             },
             "Nachhaltigkeitsgutachter": {
               "status": "empfohlen",
-              "confidence": 0.89,
+              "confidence": 0.879,
               "begruendung": "Plattengruendung statt Streifenfundament fuer bessere Lastverteilung - empfohlen"
             },
             "Kostenplaner": {
               "status": "empfohlen",
-              "confidence": 0.929,
+              "confidence": 0.895,
               "begruendung": "Plattengruendung statt Streifenfundament fuer bessere Lastverteilung - empfohlen"
             },
             "Bauablaufplaner": {
               "status": "empfohlen",
-              "confidence": 0.921,
+              "confidence": 0.885,
               "begruendung": "Plattengruendung statt Streifenfundament fuer bessere Lastverteilung - empfohlen"
             },
             "Hauptgutachter": {
               "status": "empfohlen",
-              "confidence": 0.898,
+              "confidence": 0.887,
               "begruendung": "Plattengruendung statt Streifenfundament fuer bessere Lastverteilung - empfohlen"
             }
           }
@@ -77,51 +77,51 @@
             "OG"
           ],
           "status": "empfohlen",
-          "confidence": 0.827,
+          "confidence": 0.831,
           "bewertungen": {
             "Tragwerksplaner": {
               "status": "empfohlen",
-              "confidence": 0.826,
+              "confidence": 0.808,
               "begruendung": "Zusaetzliche Bewehrung in Deckenbereichen mit grossen Spannweiten - empfohlen"
             },
             "Energieberater": {
               "status": "empfohlen",
-              "confidence": 0.825,
+              "confidence": 0.851,
               "begruendung": "Zusaetzliche Bewehrung in Deckenbereichen mit grossen Spannweiten - empfohlen"
             },
             "Brandschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.817,
+              "confidence": 0.832,
               "begruendung": "Zusaetzliche Bewehrung in Deckenbereichen mit grossen Spannweiten - empfohlen"
             },
             "Schallschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.819,
+              "confidence": 0.849,
               "begruendung": "Zusaetzliche Bewehrung in Deckenbereichen mit grossen Spannweiten - empfohlen"
             },
             "Barrierefreiheitsexperte": {
               "status": "empfohlen",
-              "confidence": 0.841,
+              "confidence": 0.815,
               "begruendung": "Zusaetzliche Bewehrung in Deckenbereichen mit grossen Spannweiten - empfohlen"
             },
             "Nachhaltigkeitsgutachter": {
               "status": "empfohlen",
-              "confidence": 0.801,
+              "confidence": 0.842,
               "begruendung": "Zusaetzliche Bewehrung in Deckenbereichen mit grossen Spannweiten - empfohlen"
             },
             "Kostenplaner": {
               "status": "empfohlen",
-              "confidence": 0.824,
+              "confidence": 0.835,
               "begruendung": "Zusaetzliche Bewehrung in Deckenbereichen mit grossen Spannweiten - empfohlen"
             },
             "Bauablaufplaner": {
               "status": "empfohlen",
-              "confidence": 0.851,
+              "confidence": 0.802,
               "begruendung": "Zusaetzliche Bewehrung in Deckenbereichen mit grossen Spannweiten - empfohlen"
             },
             "Hauptgutachter": {
               "status": "empfohlen",
-              "confidence": 0.837,
+              "confidence": 0.848,
               "begruendung": "Zusaetzliche Bewehrung in Deckenbereichen mit grossen Spannweiten - empfohlen"
             }
           }
@@ -140,51 +140,51 @@
             "DG"
           ],
           "status": "empfohlen",
-          "confidence": 0.903,
+          "confidence": 0.901,
           "bewertungen": {
             "Tragwerksplaner": {
               "status": "empfohlen",
-              "confidence": 0.928,
+              "confidence": 0.88,
               "begruendung": "Zusaetzliche Aussteifung durch Schubwaende im Treppenhaus - empfohlen"
             },
             "Energieberater": {
               "status": "empfohlen",
-              "confidence": 0.888,
+              "confidence": 0.881,
               "begruendung": "Zusaetzliche Aussteifung durch Schubwaende im Treppenhaus - empfohlen"
             },
             "Brandschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.908,
+              "confidence": 0.926,
               "begruendung": "Zusaetzliche Aussteifung durch Schubwaende im Treppenhaus - empfohlen"
             },
             "Schallschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.923,
+              "confidence": 0.898,
               "begruendung": "Zusaetzliche Aussteifung durch Schubwaende im Treppenhaus - empfohlen"
             },
             "Barrierefreiheitsexperte": {
               "status": "empfohlen",
-              "confidence": 0.901,
+              "confidence": 0.919,
               "begruendung": "Zusaetzliche Aussteifung durch Schubwaende im Treppenhaus - empfohlen"
             },
             "Nachhaltigkeitsgutachter": {
               "status": "empfohlen",
-              "confidence": 0.893,
+              "confidence": 0.891,
               "begruendung": "Zusaetzliche Aussteifung durch Schubwaende im Treppenhaus - empfohlen"
             },
             "Kostenplaner": {
               "status": "empfohlen",
-              "confidence": 0.922,
+              "confidence": 0.897,
               "begruendung": "Zusaetzliche Aussteifung durch Schubwaende im Treppenhaus - empfohlen"
             },
             "Bauablaufplaner": {
               "status": "empfohlen",
-              "confidence": 0.882,
+              "confidence": 0.916,
               "begruendung": "Zusaetzliche Aussteifung durch Schubwaende im Treppenhaus - empfohlen"
             },
             "Hauptgutachter": {
               "status": "empfohlen",
-              "confidence": 0.885,
+              "confidence": 0.903,
               "begruendung": "Zusaetzliche Aussteifung durch Schubwaende im Treppenhaus - empfohlen"
             }
           }
@@ -211,26 +211,26 @@
             "DG"
           ],
           "status": "empfohlen",
-          "confidence": 0.991,
+          "confidence": 0.997,
           "bewertungen": {
             "Tragwerksplaner": {
               "status": "empfohlen",
-              "confidence": 0.998,
+              "confidence": 1.0,
               "begruendung": "WDWS mit 20cm statt 16cm fuer HWB-Reduktion um 15% - empfohlen"
             },
             "Energieberater": {
               "status": "empfohlen",
-              "confidence": 0.971,
+              "confidence": 0.996,
               "begruendung": "WDWS mit 20cm statt 16cm fuer HWB-Reduktion um 15% - empfohlen"
             },
             "Brandschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.989,
+              "confidence": 1.0,
               "begruendung": "WDWS mit 20cm statt 16cm fuer HWB-Reduktion um 15% - empfohlen"
             },
             "Schallschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.994,
+              "confidence": 1.0,
               "begruendung": "WDWS mit 20cm statt 16cm fuer HWB-Reduktion um 15% - empfohlen"
             },
             "Barrierefreiheitsexperte": {
@@ -245,7 +245,7 @@
             },
             "Kostenplaner": {
               "status": "empfohlen",
-              "confidence": 0.99,
+              "confidence": 0.981,
               "begruendung": "WDWS mit 20cm statt 16cm fuer HWB-Reduktion um 15% - empfohlen"
             },
             "Bauablaufplaner": {
@@ -255,7 +255,7 @@
             },
             "Hauptgutachter": {
               "status": "empfohlen",
-              "confidence": 0.973,
+              "confidence": 1.0,
               "begruendung": "WDWS mit 20cm statt 16cm fuer HWB-Reduktion um 15% - empfohlen"
             }
           }
@@ -273,51 +273,51 @@
             "DG"
           ],
           "status": "empfohlen",
-          "confidence": 0.847,
+          "confidence": 0.844,
           "bewertungen": {
             "Tragwerksplaner": {
               "status": "empfohlen",
-              "confidence": 0.827,
+              "confidence": 0.845,
               "begruendung": "3-fach Verglasung statt 2-fach fuer U_W <= 0.8 W/m²K - empfohlen"
             },
             "Energieberater": {
               "status": "empfohlen",
-              "confidence": 0.836,
+              "confidence": 0.842,
               "begruendung": "3-fach Verglasung statt 2-fach fuer U_W <= 0.8 W/m²K - empfohlen"
             },
             "Brandschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.822,
+              "confidence": 0.836,
               "begruendung": "3-fach Verglasung statt 2-fach fuer U_W <= 0.8 W/m²K - empfohlen"
             },
             "Schallschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.833,
+              "confidence": 0.831,
               "begruendung": "3-fach Verglasung statt 2-fach fuer U_W <= 0.8 W/m²K - empfohlen"
             },
             "Barrierefreiheitsexperte": {
               "status": "empfohlen",
-              "confidence": 0.828,
+              "confidence": 0.835,
               "begruendung": "3-fach Verglasung statt 2-fach fuer U_W <= 0.8 W/m²K - empfohlen"
             },
             "Nachhaltigkeitsgutachter": {
               "status": "empfohlen",
-              "confidence": 0.876,
+              "confidence": 0.869,
               "begruendung": "3-fach Verglasung statt 2-fach fuer U_W <= 0.8 W/m²K - empfohlen"
             },
             "Kostenplaner": {
               "status": "empfohlen",
-              "confidence": 0.866,
+              "confidence": 0.857,
               "begruendung": "3-fach Verglasung statt 2-fach fuer U_W <= 0.8 W/m²K - empfohlen"
             },
             "Bauablaufplaner": {
               "status": "empfohlen",
-              "confidence": 0.876,
+              "confidence": 0.852,
               "begruendung": "3-fach Verglasung statt 2-fach fuer U_W <= 0.8 W/m²K - empfohlen"
             },
             "Hauptgutachter": {
               "status": "empfohlen",
-              "confidence": 0.86,
+              "confidence": 0.828,
               "begruendung": "3-fach Verglasung statt 2-fach fuer U_W <= 0.8 W/m²K - empfohlen"
             }
           }
@@ -333,51 +333,51 @@
             "DG"
           ],
           "status": "empfohlen",
-          "confidence": 0.971,
+          "confidence": 0.976,
           "bewertungen": {
             "Tragwerksplaner": {
               "status": "empfohlen",
-              "confidence": 0.97,
+              "confidence": 0.966,
               "begruendung": "Photovoltaik auf Dachflaeche fuer fGEE-Reduktion - empfohlen"
             },
             "Energieberater": {
               "status": "empfohlen",
-              "confidence": 0.973,
+              "confidence": 0.989,
               "begruendung": "Photovoltaik auf Dachflaeche fuer fGEE-Reduktion - empfohlen"
             },
             "Brandschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.953,
+              "confidence": 0.996,
               "begruendung": "Photovoltaik auf Dachflaeche fuer fGEE-Reduktion - empfohlen"
             },
             "Schallschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.994,
+              "confidence": 0.973,
               "begruendung": "Photovoltaik auf Dachflaeche fuer fGEE-Reduktion - empfohlen"
             },
             "Barrierefreiheitsexperte": {
               "status": "empfohlen",
-              "confidence": 0.982,
+              "confidence": 0.958,
               "begruendung": "Photovoltaik auf Dachflaeche fuer fGEE-Reduktion - empfohlen"
             },
             "Nachhaltigkeitsgutachter": {
               "status": "empfohlen",
-              "confidence": 0.954,
+              "confidence": 0.975,
               "begruendung": "Photovoltaik auf Dachflaeche fuer fGEE-Reduktion - empfohlen"
             },
             "Kostenplaner": {
               "status": "empfohlen",
-              "confidence": 0.955,
+              "confidence": 1.0,
               "begruendung": "Photovoltaik auf Dachflaeche fuer fGEE-Reduktion - empfohlen"
             },
             "Bauablaufplaner": {
               "status": "empfohlen",
-              "confidence": 1.0,
+              "confidence": 0.953,
               "begruendung": "Photovoltaik auf Dachflaeche fuer fGEE-Reduktion - empfohlen"
             },
             "Hauptgutachter": {
               "status": "empfohlen",
-              "confidence": 0.956,
+              "confidence": 0.977,
               "begruendung": "Photovoltaik auf Dachflaeche fuer fGEE-Reduktion - empfohlen"
             }
           }
@@ -395,11 +395,11 @@
             "DG"
           ],
           "status": "empfohlen",
-          "confidence": 0.984,
+          "confidence": 0.973,
           "bewertungen": {
             "Tragwerksplaner": {
               "status": "empfohlen",
-              "confidence": 0.957,
+              "confidence": 0.969,
               "begruendung": "Kontrollierte Lueftung mit Waermerueckgewinnung >= 85% - empfohlen"
             },
             "Energieberater": {
@@ -409,37 +409,37 @@
             },
             "Brandschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.955,
+              "confidence": 0.957,
               "begruendung": "Kontrollierte Lueftung mit Waermerueckgewinnung >= 85% - empfohlen"
             },
             "Schallschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.996,
+              "confidence": 0.973,
               "begruendung": "Kontrollierte Lueftung mit Waermerueckgewinnung >= 85% - empfohlen"
             },
             "Barrierefreiheitsexperte": {
               "status": "empfohlen",
-              "confidence": 0.98,
+              "confidence": 0.972,
               "begruendung": "Kontrollierte Lueftung mit Waermerueckgewinnung >= 85% - empfohlen"
             },
             "Nachhaltigkeitsgutachter": {
               "status": "empfohlen",
-              "confidence": 1.0,
+              "confidence": 0.972,
               "begruendung": "Kontrollierte Lueftung mit Waermerueckgewinnung >= 85% - empfohlen"
             },
             "Kostenplaner": {
               "status": "empfohlen",
-              "confidence": 1.0,
+              "confidence": 0.958,
               "begruendung": "Kontrollierte Lueftung mit Waermerueckgewinnung >= 85% - empfohlen"
             },
             "Bauablaufplaner": {
               "status": "empfohlen",
-              "confidence": 0.973,
+              "confidence": 0.982,
               "begruendung": "Kontrollierte Lueftung mit Waermerueckgewinnung >= 85% - empfohlen"
             },
             "Hauptgutachter": {
               "status": "empfohlen",
-              "confidence": 0.995,
+              "confidence": 0.972,
               "begruendung": "Kontrollierte Lueftung mit Waermerueckgewinnung >= 85% - empfohlen"
             }
           }
@@ -467,51 +467,51 @@
             "DG"
           ],
           "status": "empfohlen",
-          "confidence": 0.897,
+          "confidence": 0.896,
           "bewertungen": {
             "Tragwerksplaner": {
               "status": "empfohlen",
-              "confidence": 0.878,
+              "confidence": 0.884,
               "begruendung": "Rauch- und Waermeableitung im Treppenhaus - empfohlen"
             },
             "Energieberater": {
               "status": "empfohlen",
-              "confidence": 0.904,
+              "confidence": 0.88,
               "begruendung": "Rauch- und Waermeableitung im Treppenhaus - empfohlen"
             },
             "Brandschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.895,
+              "confidence": 0.897,
               "begruendung": "Rauch- und Waermeableitung im Treppenhaus - empfohlen"
             },
             "Schallschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.887,
+              "confidence": 0.878,
               "begruendung": "Rauch- und Waermeableitung im Treppenhaus - empfohlen"
             },
             "Barrierefreiheitsexperte": {
               "status": "empfohlen",
-              "confidence": 0.916,
+              "confidence": 0.902,
               "begruendung": "Rauch- und Waermeableitung im Treppenhaus - empfohlen"
             },
             "Nachhaltigkeitsgutachter": {
               "status": "empfohlen",
-              "confidence": 0.909,
+              "confidence": 0.91,
               "begruendung": "Rauch- und Waermeableitung im Treppenhaus - empfohlen"
             },
             "Kostenplaner": {
               "status": "empfohlen",
-              "confidence": 0.898,
+              "confidence": 0.906,
               "begruendung": "Rauch- und Waermeableitung im Treppenhaus - empfohlen"
             },
             "Bauablaufplaner": {
               "status": "empfohlen",
-              "confidence": 0.891,
+              "confidence": 0.911,
               "begruendung": "Rauch- und Waermeableitung im Treppenhaus - empfohlen"
             },
             "Hauptgutachter": {
               "status": "empfohlen",
-              "confidence": 0.896,
+              "confidence": 0.9,
               "begruendung": "Rauch- und Waermeableitung im Treppenhaus - empfohlen"
             }
           }
@@ -529,51 +529,51 @@
             "DG"
           ],
           "status": "empfohlen",
-          "confidence": 0.646,
+          "confidence": 0.652,
           "bewertungen": {
             "Tragwerksplaner": {
               "status": "empfohlen",
-              "confidence": 0.645,
+              "confidence": 0.634,
               "begruendung": "Zusaetzliche Brandwand zwischen WH1 und WH2 - optional"
             },
             "Energieberater": {
               "status": "empfohlen",
-              "confidence": 0.651,
+              "confidence": 0.627,
               "begruendung": "Zusaetzliche Brandwand zwischen WH1 und WH2 - optional"
             },
             "Brandschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.64,
+              "confidence": 0.667,
               "begruendung": "Zusaetzliche Brandwand zwischen WH1 und WH2 - optional"
             },
             "Schallschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.62,
+              "confidence": 0.66,
               "begruendung": "Zusaetzliche Brandwand zwischen WH1 und WH2 - optional"
             },
             "Barrierefreiheitsexperte": {
               "status": "empfohlen",
-              "confidence": 0.631,
+              "confidence": 0.646,
               "begruendung": "Zusaetzliche Brandwand zwischen WH1 und WH2 - optional"
             },
             "Nachhaltigkeitsgutachter": {
               "status": "empfohlen",
-              "confidence": 0.656,
+              "confidence": 0.651,
               "begruendung": "Zusaetzliche Brandwand zwischen WH1 und WH2 - optional"
             },
             "Kostenplaner": {
               "status": "empfohlen",
-              "confidence": 0.671,
+              "confidence": 0.662,
               "begruendung": "Zusaetzliche Brandwand zwischen WH1 und WH2 - optional"
             },
             "Bauablaufplaner": {
               "status": "empfohlen",
-              "confidence": 0.633,
+              "confidence": 0.676,
               "begruendung": "Zusaetzliche Brandwand zwischen WH1 und WH2 - optional"
             },
             "Hauptgutachter": {
               "status": "empfohlen",
-              "confidence": 0.669,
+              "confidence": 0.642,
               "begruendung": "Zusaetzliche Brandwand zwischen WH1 und WH2 - optional"
             }
           }
@@ -592,51 +592,51 @@
             "DG"
           ],
           "status": "empfohlen",
-          "confidence": 0.957,
+          "confidence": 0.951,
           "bewertungen": {
             "Tragwerksplaner": {
-              "status": "empfohlen",
-              "confidence": 0.977,
-              "begruendung": "Brandschutzschott fuer alle Durchbrueche - empfohlen"
-            },
-            "Energieberater": {
-              "status": "empfohlen",
-              "confidence": 0.923,
-              "begruendung": "Brandschutzschott fuer alle Durchbrueche - empfohlen"
-            },
-            "Brandschuetzer": {
               "status": "empfohlen",
               "confidence": 0.956,
               "begruendung": "Brandschutzschott fuer alle Durchbrueche - empfohlen"
             },
+            "Energieberater": {
+              "status": "empfohlen",
+              "confidence": 0.978,
+              "begruendung": "Brandschutzschott fuer alle Durchbrueche - empfohlen"
+            },
+            "Brandschuetzer": {
+              "status": "empfohlen",
+              "confidence": 0.97,
+              "begruendung": "Brandschutzschott fuer alle Durchbrueche - empfohlen"
+            },
             "Schallschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.945,
+              "confidence": 0.934,
               "begruendung": "Brandschutzschott fuer alle Durchbrueche - empfohlen"
             },
             "Barrierefreiheitsexperte": {
               "status": "empfohlen",
-              "confidence": 0.977,
+              "confidence": 0.928,
               "begruendung": "Brandschutzschott fuer alle Durchbrueche - empfohlen"
             },
             "Nachhaltigkeitsgutachter": {
               "status": "empfohlen",
-              "confidence": 0.953,
+              "confidence": 0.942,
               "begruendung": "Brandschutzschott fuer alle Durchbrueche - empfohlen"
             },
             "Kostenplaner": {
               "status": "empfohlen",
-              "confidence": 0.967,
+              "confidence": 0.952,
               "begruendung": "Brandschutzschott fuer alle Durchbrueche - empfohlen"
             },
             "Bauablaufplaner": {
               "status": "empfohlen",
-              "confidence": 0.977,
+              "confidence": 0.943,
               "begruendung": "Brandschutzschott fuer alle Durchbrueche - empfohlen"
             },
             "Hauptgutachter": {
               "status": "empfohlen",
-              "confidence": 0.938,
+              "confidence": 0.955,
               "begruendung": "Brandschutzschott fuer alle Durchbrueche - empfohlen"
             }
           }
@@ -662,51 +662,51 @@
             "OG"
           ],
           "status": "empfohlen",
-          "confidence": 0.957,
+          "confidence": 0.948,
           "bewertungen": {
             "Tragwerksplaner": {
               "status": "empfohlen",
-              "confidence": 0.976,
+              "confidence": 0.951,
               "begruendung": "Schwimmender Estrich mit zusaetzlicher Trittschalldaemmung - empfohlen"
             },
             "Energieberater": {
               "status": "empfohlen",
-              "confidence": 0.943,
+              "confidence": 0.939,
               "begruendung": "Schwimmender Estrich mit zusaetzlicher Trittschalldaemmung - empfohlen"
             },
             "Brandschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.944,
+              "confidence": 0.936,
               "begruendung": "Schwimmender Estrich mit zusaetzlicher Trittschalldaemmung - empfohlen"
             },
             "Schallschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.97,
+              "confidence": 0.921,
               "begruendung": "Schwimmender Estrich mit zusaetzlicher Trittschalldaemmung - empfohlen"
             },
             "Barrierefreiheitsexperte": {
               "status": "empfohlen",
-              "confidence": 0.92,
+              "confidence": 0.96,
               "begruendung": "Schwimmender Estrich mit zusaetzlicher Trittschalldaemmung - empfohlen"
             },
             "Nachhaltigkeitsgutachter": {
               "status": "empfohlen",
-              "confidence": 0.98,
+              "confidence": 0.945,
               "begruendung": "Schwimmender Estrich mit zusaetzlicher Trittschalldaemmung - empfohlen"
             },
             "Kostenplaner": {
               "status": "empfohlen",
-              "confidence": 0.962,
+              "confidence": 0.934,
               "begruendung": "Schwimmender Estrich mit zusaetzlicher Trittschalldaemmung - empfohlen"
             },
             "Bauablaufplaner": {
               "status": "empfohlen",
-              "confidence": 0.959,
+              "confidence": 0.972,
               "begruendung": "Schwimmender Estrich mit zusaetzlicher Trittschalldaemmung - empfohlen"
             },
             "Hauptgutachter": {
               "status": "empfohlen",
-              "confidence": 0.955,
+              "confidence": 0.975,
               "begruendung": "Schwimmender Estrich mit zusaetzlicher Trittschalldaemmung - empfohlen"
             }
           }
@@ -724,51 +724,51 @@
             "DG"
           ],
           "status": "empfohlen",
-          "confidence": 0.753,
+          "confidence": 0.747,
           "bewertungen": {
             "Tragwerksplaner": {
               "status": "empfohlen",
-              "confidence": 0.759,
+              "confidence": 0.775,
               "begruendung": "Vorsatzschale vor Trennwaenden fuer R'w >= 60 dB - empfohlen"
             },
             "Energieberater": {
               "status": "empfohlen",
-              "confidence": 0.745,
+              "confidence": 0.77,
               "begruendung": "Vorsatzschale vor Trennwaenden fuer R'w >= 60 dB - empfohlen"
             },
             "Brandschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.767,
+              "confidence": 0.726,
               "begruendung": "Vorsatzschale vor Trennwaenden fuer R'w >= 60 dB - empfohlen"
             },
             "Schallschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.763,
+              "confidence": 0.728,
               "begruendung": "Vorsatzschale vor Trennwaenden fuer R'w >= 60 dB - empfohlen"
             },
             "Barrierefreiheitsexperte": {
               "status": "empfohlen",
-              "confidence": 0.764,
+              "confidence": 0.747,
               "begruendung": "Vorsatzschale vor Trennwaenden fuer R'w >= 60 dB - empfohlen"
             },
             "Nachhaltigkeitsgutachter": {
               "status": "empfohlen",
-              "confidence": 0.762,
+              "confidence": 0.743,
               "begruendung": "Vorsatzschale vor Trennwaenden fuer R'w >= 60 dB - empfohlen"
             },
             "Kostenplaner": {
               "status": "empfohlen",
-              "confidence": 0.722,
+              "confidence": 0.737,
               "begruendung": "Vorsatzschale vor Trennwaenden fuer R'w >= 60 dB - empfohlen"
             },
             "Bauablaufplaner": {
               "status": "empfohlen",
-              "confidence": 0.767,
+              "confidence": 0.776,
               "begruendung": "Vorsatzschale vor Trennwaenden fuer R'w >= 60 dB - empfohlen"
             },
             "Hauptgutachter": {
               "status": "empfohlen",
-              "confidence": 0.732,
+              "confidence": 0.724,
               "begruendung": "Vorsatzschale vor Trennwaenden fuer R'w >= 60 dB - empfohlen"
             }
           }
@@ -796,51 +796,51 @@
             "DG"
           ],
           "status": "empfohlen",
-          "confidence": 0.647,
+          "confidence": 0.639,
           "bewertungen": {
             "Tragwerksplaner": {
               "status": "empfohlen",
-              "confidence": 0.645,
+              "confidence": 0.637,
               "begruendung": "Nachtraeglicher Aufzug fuer barrierefreien Zugang - optional"
             },
             "Energieberater": {
               "status": "empfohlen",
-              "confidence": 0.648,
+              "confidence": 0.62,
               "begruendung": "Nachtraeglicher Aufzug fuer barrierefreien Zugang - optional"
             },
             "Brandschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.652,
+              "confidence": 0.621,
               "begruendung": "Nachtraeglicher Aufzug fuer barrierefreien Zugang - optional"
             },
             "Schallschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.625,
+              "confidence": 0.652,
               "begruendung": "Nachtraeglicher Aufzug fuer barrierefreien Zugang - optional"
             },
             "Barrierefreiheitsexperte": {
               "status": "empfohlen",
-              "confidence": 0.648,
+              "confidence": 0.628,
               "begruendung": "Nachtraeglicher Aufzug fuer barrierefreien Zugang - optional"
             },
             "Nachhaltigkeitsgutachter": {
               "status": "empfohlen",
-              "confidence": 0.628,
+              "confidence": 0.672,
               "begruendung": "Nachtraeglicher Aufzug fuer barrierefreien Zugang - optional"
             },
             "Kostenplaner": {
               "status": "empfohlen",
-              "confidence": 0.669,
+              "confidence": 0.656,
               "begruendung": "Nachtraeglicher Aufzug fuer barrierefreien Zugang - optional"
             },
             "Bauablaufplaner": {
               "status": "empfohlen",
-              "confidence": 0.627,
+              "confidence": 0.637,
               "begruendung": "Nachtraeglicher Aufzug fuer barrierefreien Zugang - optional"
             },
             "Hauptgutachter": {
               "status": "empfohlen",
-              "confidence": 0.677,
+              "confidence": 0.625,
               "begruendung": "Nachtraeglicher Aufzug fuer barrierefreien Zugang - optional"
             }
           }
@@ -856,51 +856,51 @@
             "EG"
           ],
           "status": "empfohlen",
-          "confidence": 0.943,
+          "confidence": 0.953,
           "bewertungen": {
             "Tragwerksplaner": {
               "status": "empfohlen",
-              "confidence": 0.946,
+              "confidence": 0.951,
               "begruendung": "Rampe statt Stufe am Eingang (max 6% Steigung) - empfohlen"
             },
             "Energieberater": {
               "status": "empfohlen",
-              "confidence": 0.937,
+              "confidence": 0.975,
               "begruendung": "Rampe statt Stufe am Eingang (max 6% Steigung) - empfohlen"
             },
             "Brandschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.924,
+              "confidence": 0.966,
               "begruendung": "Rampe statt Stufe am Eingang (max 6% Steigung) - empfohlen"
             },
             "Schallschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.933,
+              "confidence": 0.927,
               "begruendung": "Rampe statt Stufe am Eingang (max 6% Steigung) - empfohlen"
             },
             "Barrierefreiheitsexperte": {
               "status": "empfohlen",
-              "confidence": 0.944,
+              "confidence": 0.956,
               "begruendung": "Rampe statt Stufe am Eingang (max 6% Steigung) - empfohlen"
             },
             "Nachhaltigkeitsgutachter": {
               "status": "empfohlen",
-              "confidence": 0.953,
+              "confidence": 0.97,
               "begruendung": "Rampe statt Stufe am Eingang (max 6% Steigung) - empfohlen"
             },
             "Kostenplaner": {
               "status": "empfohlen",
-              "confidence": 0.945,
+              "confidence": 0.937,
               "begruendung": "Rampe statt Stufe am Eingang (max 6% Steigung) - empfohlen"
             },
             "Bauablaufplaner": {
               "status": "empfohlen",
-              "confidence": 0.947,
+              "confidence": 0.929,
               "begruendung": "Rampe statt Stufe am Eingang (max 6% Steigung) - empfohlen"
             },
             "Hauptgutachter": {
               "status": "empfohlen",
-              "confidence": 0.959,
+              "confidence": 0.969,
               "begruendung": "Rampe statt Stufe am Eingang (max 6% Steigung) - empfohlen"
             }
           }
@@ -922,47 +922,47 @@
           "bewertungen": {
             "Tragwerksplaner": {
               "status": "empfohlen",
-              "confidence": 0.816,
+              "confidence": 0.774,
               "begruendung": "Alle Wohnungstueren >= 90cm fuer Rollstuhlzugang - empfohlen"
             },
             "Energieberater": {
               "status": "empfohlen",
-              "confidence": 0.819,
+              "confidence": 0.818,
               "begruendung": "Alle Wohnungstueren >= 90cm fuer Rollstuhlzugang - empfohlen"
             },
             "Brandschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.798,
+              "confidence": 0.772,
               "begruendung": "Alle Wohnungstueren >= 90cm fuer Rollstuhlzugang - empfohlen"
             },
             "Schallschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.772,
+              "confidence": 0.81,
               "begruendung": "Alle Wohnungstueren >= 90cm fuer Rollstuhlzugang - empfohlen"
             },
             "Barrierefreiheitsexperte": {
               "status": "empfohlen",
-              "confidence": 0.774,
+              "confidence": 0.826,
               "begruendung": "Alle Wohnungstueren >= 90cm fuer Rollstuhlzugang - empfohlen"
             },
             "Nachhaltigkeitsgutachter": {
               "status": "empfohlen",
-              "confidence": 0.802,
+              "confidence": 0.79,
               "begruendung": "Alle Wohnungstueren >= 90cm fuer Rollstuhlzugang - empfohlen"
             },
             "Kostenplaner": {
               "status": "empfohlen",
-              "confidence": 0.806,
+              "confidence": 0.809,
               "begruendung": "Alle Wohnungstueren >= 90cm fuer Rollstuhlzugang - empfohlen"
             },
             "Bauablaufplaner": {
               "status": "empfohlen",
-              "confidence": 0.815,
+              "confidence": 0.773,
               "begruendung": "Alle Wohnungstueren >= 90cm fuer Rollstuhlzugang - empfohlen"
             },
             "Hauptgutachter": {
               "status": "empfohlen",
-              "confidence": 0.771,
+              "confidence": 0.802,
               "begruendung": "Alle Wohnungstueren >= 90cm fuer Rollstuhlzugang - empfohlen"
             }
           }
@@ -988,51 +988,51 @@
             "EG"
           ],
           "status": "empfohlen",
-          "confidence": 0.839,
+          "confidence": 0.831,
           "bewertungen": {
             "Tragwerksplaner": {
               "status": "empfohlen",
-              "confidence": 0.81,
+              "confidence": 0.843,
               "begruendung": "RC-Beton fuer Fundament und nicht-tragende Bauteile - empfohlen"
             },
             "Energieberater": {
               "status": "empfohlen",
-              "confidence": 0.841,
+              "confidence": 0.847,
               "begruendung": "RC-Beton fuer Fundament und nicht-tragende Bauteile - empfohlen"
             },
             "Brandschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.855,
+              "confidence": 0.834,
               "begruendung": "RC-Beton fuer Fundament und nicht-tragende Bauteile - empfohlen"
             },
             "Schallschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.846,
+              "confidence": 0.845,
               "begruendung": "RC-Beton fuer Fundament und nicht-tragende Bauteile - empfohlen"
             },
             "Barrierefreiheitsexperte": {
               "status": "empfohlen",
-              "confidence": 0.846,
+              "confidence": 0.824,
               "begruendung": "RC-Beton fuer Fundament und nicht-tragende Bauteile - empfohlen"
             },
             "Nachhaltigkeitsgutachter": {
               "status": "empfohlen",
-              "confidence": 0.837,
+              "confidence": 0.811,
               "begruendung": "RC-Beton fuer Fundament und nicht-tragende Bauteile - empfohlen"
             },
             "Kostenplaner": {
               "status": "empfohlen",
-              "confidence": 0.85,
+              "confidence": 0.815,
               "begruendung": "RC-Beton fuer Fundament und nicht-tragende Bauteile - empfohlen"
             },
             "Bauablaufplaner": {
               "status": "empfohlen",
-              "confidence": 0.849,
+              "confidence": 0.813,
               "begruendung": "RC-Beton fuer Fundament und nicht-tragende Bauteile - empfohlen"
             },
             "Hauptgutachter": {
               "status": "empfohlen",
-              "confidence": 0.819,
+              "confidence": 0.845,
               "begruendung": "RC-Beton fuer Fundament und nicht-tragende Bauteile - empfohlen"
             }
           }
@@ -1048,51 +1048,51 @@
             "DG"
           ],
           "status": "empfohlen",
-          "confidence": 0.753,
+          "confidence": 0.757,
           "bewertungen": {
             "Tragwerksplaner": {
               "status": "empfohlen",
-              "confidence": 0.746,
+              "confidence": 0.731,
               "begruendung": "Holzdecke statt Stahlbetondecke im DG - empfohlen"
             },
             "Energieberater": {
               "status": "empfohlen",
-              "confidence": 0.724,
+              "confidence": 0.731,
               "begruendung": "Holzdecke statt Stahlbetondecke im DG - empfohlen"
             },
             "Brandschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.759,
+              "confidence": 0.756,
               "begruendung": "Holzdecke statt Stahlbetondecke im DG - empfohlen"
             },
             "Schallschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.758,
+              "confidence": 0.775,
               "begruendung": "Holzdecke statt Stahlbetondecke im DG - empfohlen"
             },
             "Barrierefreiheitsexperte": {
               "status": "empfohlen",
-              "confidence": 0.774,
+              "confidence": 0.779,
               "begruendung": "Holzdecke statt Stahlbetondecke im DG - empfohlen"
             },
             "Nachhaltigkeitsgutachter": {
               "status": "empfohlen",
-              "confidence": 0.737,
+              "confidence": 0.755,
               "begruendung": "Holzdecke statt Stahlbetondecke im DG - empfohlen"
             },
             "Kostenplaner": {
               "status": "empfohlen",
-              "confidence": 0.761,
+              "confidence": 0.775,
               "begruendung": "Holzdecke statt Stahlbetondecke im DG - empfohlen"
             },
             "Bauablaufplaner": {
               "status": "empfohlen",
-              "confidence": 0.754,
+              "confidence": 0.77,
               "begruendung": "Holzdecke statt Stahlbetondecke im DG - empfohlen"
             },
             "Hauptgutachter": {
               "status": "empfohlen",
-              "confidence": 0.763,
+              "confidence": 0.745,
               "begruendung": "Holzdecke statt Stahlbetondecke im DG - empfohlen"
             }
           }
@@ -1109,51 +1109,51 @@
             "EG"
           ],
           "status": "optional",
-          "confidence": 0.631,
+          "confidence": 0.628,
           "bewertungen": {
             "Tragwerksplaner": {
               "status": "optional",
-              "confidence": 0.603,
+              "confidence": 0.616,
               "begruendung": "Dachbegruenung und Fassadenbegruenung - optional"
             },
             "Energieberater": {
               "status": "optional",
-              "confidence": 0.617,
+              "confidence": 0.655,
               "begruendung": "Dachbegruenung und Fassadenbegruenung - optional"
             },
             "Brandschuetzer": {
               "status": "optional",
-              "confidence": 0.603,
+              "confidence": 0.633,
               "begruendung": "Dachbegruenung und Fassadenbegruenung - optional"
             },
             "Schallschuetzer": {
               "status": "optional",
-              "confidence": 0.624,
+              "confidence": 0.658,
               "begruendung": "Dachbegruenung und Fassadenbegruenung - optional"
             },
             "Barrierefreiheitsexperte": {
               "status": "optional",
-              "confidence": 0.653,
+              "confidence": 0.608,
               "begruendung": "Dachbegruenung und Fassadenbegruenung - optional"
             },
             "Nachhaltigkeitsgutachter": {
               "status": "optional",
-              "confidence": 0.648,
+              "confidence": 0.608,
               "begruendung": "Dachbegruenung und Fassadenbegruenung - optional"
             },
             "Kostenplaner": {
               "status": "optional",
-              "confidence": 0.658,
+              "confidence": 0.623,
               "begruendung": "Dachbegruenung und Fassadenbegruenung - optional"
             },
             "Bauablaufplaner": {
               "status": "optional",
-              "confidence": 0.647,
+              "confidence": 0.645,
               "begruendung": "Dachbegruenung und Fassadenbegruenung - optional"
             },
             "Hauptgutachter": {
               "status": "optional",
-              "confidence": 0.628,
+              "confidence": 0.604,
               "begruendung": "Dachbegruenung und Fassadenbegruenung - optional"
             }
           }
@@ -1180,16 +1180,16 @@
             "DG"
           ],
           "status": "empfohlen",
-          "confidence": 0.984,
+          "confidence": 0.985,
           "bewertungen": {
             "Tragwerksplaner": {
               "status": "empfohlen",
-              "confidence": 0.991,
+              "confidence": 0.988,
               "begruendung": "Einheitliche Raummodule fuer reduzierte Schalungskosten - empfohlen"
             },
             "Energieberater": {
               "status": "empfohlen",
-              "confidence": 1.0,
+              "confidence": 0.981,
               "begruendung": "Einheitliche Raummodule fuer reduzierte Schalungskosten - empfohlen"
             },
             "Brandschuetzer": {
@@ -1199,32 +1199,32 @@
             },
             "Schallschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.987,
+              "confidence": 0.979,
               "begruendung": "Einheitliche Raummodule fuer reduzierte Schalungskosten - empfohlen"
             },
             "Barrierefreiheitsexperte": {
               "status": "empfohlen",
-              "confidence": 0.967,
+              "confidence": 1.0,
               "begruendung": "Einheitliche Raummodule fuer reduzierte Schalungskosten - empfohlen"
             },
             "Nachhaltigkeitsgutachter": {
               "status": "empfohlen",
-              "confidence": 0.978,
+              "confidence": 0.977,
               "begruendung": "Einheitliche Raummodule fuer reduzierte Schalungskosten - empfohlen"
             },
             "Kostenplaner": {
               "status": "empfohlen",
-              "confidence": 0.955,
+              "confidence": 0.978,
               "begruendung": "Einheitliche Raummodule fuer reduzierte Schalungskosten - empfohlen"
             },
             "Bauablaufplaner": {
               "status": "empfohlen",
-              "confidence": 0.988,
+              "confidence": 0.997,
               "begruendung": "Einheitliche Raummodule fuer reduzierte Schalungskosten - empfohlen"
             },
             "Hauptgutachter": {
               "status": "empfohlen",
-              "confidence": 0.994,
+              "confidence": 0.963,
               "begruendung": "Einheitliche Raummodule fuer reduzierte Schalungskosten - empfohlen"
             }
           }
@@ -1242,51 +1242,51 @@
             "DG"
           ],
           "status": "empfohlen",
-          "confidence": 0.775,
+          "confidence": 0.773,
           "bewertungen": {
             "Tragwerksplaner": {
               "status": "empfohlen",
-              "confidence": 0.775,
+              "confidence": 0.776,
               "begruendung": "Fertigteildecken statt Ortbeton fuer schnellere Bauzeit - empfohlen"
             },
             "Energieberater": {
               "status": "empfohlen",
-              "confidence": 0.794,
+              "confidence": 0.791,
               "begruendung": "Fertigteildecken statt Ortbeton fuer schnellere Bauzeit - empfohlen"
             },
             "Brandschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.764,
+              "confidence": 0.776,
               "begruendung": "Fertigteildecken statt Ortbeton fuer schnellere Bauzeit - empfohlen"
             },
             "Schallschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.78,
+              "confidence": 0.773,
               "begruendung": "Fertigteildecken statt Ortbeton fuer schnellere Bauzeit - empfohlen"
             },
             "Barrierefreiheitsexperte": {
               "status": "empfohlen",
-              "confidence": 0.777,
+              "confidence": 0.785,
               "begruendung": "Fertigteildecken statt Ortbeton fuer schnellere Bauzeit - empfohlen"
             },
             "Nachhaltigkeitsgutachter": {
               "status": "empfohlen",
-              "confidence": 0.769,
+              "confidence": 0.767,
               "begruendung": "Fertigteildecken statt Ortbeton fuer schnellere Bauzeit - empfohlen"
             },
             "Kostenplaner": {
               "status": "empfohlen",
-              "confidence": 0.779,
+              "confidence": 0.752,
               "begruendung": "Fertigteildecken statt Ortbeton fuer schnellere Bauzeit - empfohlen"
             },
             "Bauablaufplaner": {
               "status": "empfohlen",
-              "confidence": 0.772,
+              "confidence": 0.765,
               "begruendung": "Fertigteildecken statt Ortbeton fuer schnellere Bauzeit - empfohlen"
             },
             "Hauptgutachter": {
               "status": "empfohlen",
-              "confidence": 0.761,
+              "confidence": 0.77,
               "begruendung": "Fertigteildecken statt Ortbeton fuer schnellere Bauzeit - empfohlen"
             }
           }
@@ -1305,51 +1305,51 @@
             "DG"
           ],
           "status": "empfohlen",
-          "confidence": 0.981,
+          "confidence": 0.975,
           "bewertungen": {
             "Tragwerksplaner": {
               "status": "empfohlen",
-              "confidence": 1.0,
+              "confidence": 0.951,
               "begruendung": "BIM-basierte Mengenermittlung fuer reduzierte Ueberbestellung - empfohlen"
             },
             "Energieberater": {
               "status": "empfohlen",
-              "confidence": 0.979,
+              "confidence": 0.986,
               "begruendung": "BIM-basierte Mengenermittlung fuer reduzierte Ueberbestellung - empfohlen"
             },
             "Brandschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.978,
+              "confidence": 0.981,
               "begruendung": "BIM-basierte Mengenermittlung fuer reduzierte Ueberbestellung - empfohlen"
             },
             "Schallschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.993,
+              "confidence": 0.951,
               "begruendung": "BIM-basierte Mengenermittlung fuer reduzierte Ueberbestellung - empfohlen"
             },
             "Barrierefreiheitsexperte": {
               "status": "empfohlen",
-              "confidence": 0.993,
+              "confidence": 0.954,
               "begruendung": "BIM-basierte Mengenermittlung fuer reduzierte Ueberbestellung - empfohlen"
             },
             "Nachhaltigkeitsgutachter": {
               "status": "empfohlen",
-              "confidence": 0.983,
+              "confidence": 1.0,
               "begruendung": "BIM-basierte Mengenermittlung fuer reduzierte Ueberbestellung - empfohlen"
             },
             "Kostenplaner": {
               "status": "empfohlen",
-              "confidence": 0.967,
+              "confidence": 0.98,
               "begruendung": "BIM-basierte Mengenermittlung fuer reduzierte Ueberbestellung - empfohlen"
             },
             "Bauablaufplaner": {
               "status": "empfohlen",
-              "confidence": 0.986,
+              "confidence": 0.985,
               "begruendung": "BIM-basierte Mengenermittlung fuer reduzierte Ueberbestellung - empfohlen"
             },
             "Hauptgutachter": {
               "status": "empfohlen",
-              "confidence": 0.953,
+              "confidence": 0.983,
               "begruendung": "BIM-basierte Mengenermittlung fuer reduzierte Ueberbestellung - empfohlen"
             }
           }
@@ -1377,51 +1377,51 @@
             "DG"
           ],
           "status": "empfohlen",
-          "confidence": 0.938,
+          "confidence": 0.927,
           "bewertungen": {
             "Tragwerksplaner": {
               "status": "empfohlen",
-              "confidence": 0.96,
+              "confidence": 0.93,
               "begruendung": "Bau in 4 Phasen: UG, EG, OG, DG parallel - empfohlen"
             },
             "Energieberater": {
               "status": "empfohlen",
-              "confidence": 0.944,
+              "confidence": 0.948,
               "begruendung": "Bau in 4 Phasen: UG, EG, OG, DG parallel - empfohlen"
             },
             "Brandschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.923,
+              "confidence": 0.936,
               "begruendung": "Bau in 4 Phasen: UG, EG, OG, DG parallel - empfohlen"
             },
             "Schallschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.911,
+              "confidence": 0.919,
               "begruendung": "Bau in 4 Phasen: UG, EG, OG, DG parallel - empfohlen"
             },
             "Barrierefreiheitsexperte": {
               "status": "empfohlen",
-              "confidence": 0.94,
+              "confidence": 0.95,
               "begruendung": "Bau in 4 Phasen: UG, EG, OG, DG parallel - empfohlen"
             },
             "Nachhaltigkeitsgutachter": {
               "status": "empfohlen",
-              "confidence": 0.951,
+              "confidence": 0.909,
               "begruendung": "Bau in 4 Phasen: UG, EG, OG, DG parallel - empfohlen"
             },
             "Kostenplaner": {
               "status": "empfohlen",
-              "confidence": 0.909,
+              "confidence": 0.915,
               "begruendung": "Bau in 4 Phasen: UG, EG, OG, DG parallel - empfohlen"
             },
             "Bauablaufplaner": {
               "status": "empfohlen",
-              "confidence": 0.948,
+              "confidence": 0.926,
               "begruendung": "Bau in 4 Phasen: UG, EG, OG, DG parallel - empfohlen"
             },
             "Hauptgutachter": {
               "status": "empfohlen",
-              "confidence": 0.953,
+              "confidence": 0.913,
               "begruendung": "Bau in 4 Phasen: UG, EG, OG, DG parallel - empfohlen"
             }
           }
@@ -1438,51 +1438,51 @@
             "EG"
           ],
           "status": "empfohlen",
-          "confidence": 0.755,
+          "confidence": 0.749,
           "bewertungen": {
             "Tragwerksplaner": {
               "status": "empfohlen",
-              "confidence": 0.771,
+              "confidence": 0.755,
               "begruendung": "Winterbau-Massnahmen fuer ganzjaehrige Ausfuehrung - empfohlen"
             },
             "Energieberater": {
               "status": "empfohlen",
-              "confidence": 0.753,
+              "confidence": 0.758,
               "begruendung": "Winterbau-Massnahmen fuer ganzjaehrige Ausfuehrung - empfohlen"
             },
             "Brandschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.758,
+              "confidence": 0.742,
               "begruendung": "Winterbau-Massnahmen fuer ganzjaehrige Ausfuehrung - empfohlen"
             },
             "Schallschuetzer": {
               "status": "empfohlen",
-              "confidence": 0.724,
+              "confidence": 0.77,
               "begruendung": "Winterbau-Massnahmen fuer ganzjaehrige Ausfuehrung - empfohlen"
             },
             "Barrierefreiheitsexperte": {
               "status": "empfohlen",
-              "confidence": 0.773,
+              "confidence": 0.72,
               "begruendung": "Winterbau-Massnahmen fuer ganzjaehrige Ausfuehrung - empfohlen"
             },
             "Nachhaltigkeitsgutachter": {
               "status": "empfohlen",
-              "confidence": 0.774,
+              "confidence": 0.733,
               "begruendung": "Winterbau-Massnahmen fuer ganzjaehrige Ausfuehrung - empfohlen"
             },
             "Kostenplaner": {
               "status": "empfohlen",
-              "confidence": 0.744,
+              "confidence": 0.758,
               "begruendung": "Winterbau-Massnahmen fuer ganzjaehrige Ausfuehrung - empfohlen"
             },
             "Bauablaufplaner": {
               "status": "empfohlen",
-              "confidence": 0.728,
+              "confidence": 0.73,
               "begruendung": "Winterbau-Massnahmen fuer ganzjaehrige Ausfuehrung - empfohlen"
             },
             "Hauptgutachter": {
               "status": "empfohlen",
-              "confidence": 0.771,
+              "confidence": 0.772,
               "begruendung": "Winterbau-Massnahmen fuer ganzjaehrige Ausfuehrung - empfohlen"
             }
           }
@@ -1503,62 +1503,62 @@
     {
       "id": "EN-01",
       "titel": "Dämmung-Upgrade",
-      "confidence": 0.991
-    },
-    {
-      "id": "EN-04",
-      "titel": "Lueftungsanlage mit WR",
-      "confidence": 0.984
+      "confidence": 0.997
     },
     {
       "id": "KO-01",
       "titel": "Standardisierung",
-      "confidence": 0.984
-    },
-    {
-      "id": "KO-03",
-      "titel": "Material-Optimierung",
-      "confidence": 0.981
+      "confidence": 0.985
     },
     {
       "id": "EN-03",
       "titel": "PV-Anlage",
-      "confidence": 0.971
+      "confidence": 0.976
     },
     {
-      "id": "BS-03",
-      "titel": "Elektro-Leitungsschott",
-      "confidence": 0.957
+      "id": "KO-03",
+      "titel": "Material-Optimierung",
+      "confidence": 0.975
     },
     {
-      "id": "SS-01",
-      "titel": "Trittschalldaemmung",
-      "confidence": 0.957
+      "id": "EN-04",
+      "titel": "Lueftungsanlage mit WR",
+      "confidence": 0.973
     },
     {
       "id": "BF-02",
       "titel": "Stufenloser Eingang",
-      "confidence": 0.943
+      "confidence": 0.953
+    },
+    {
+      "id": "BS-03",
+      "titel": "Elektro-Leitungsschott",
+      "confidence": 0.951
+    },
+    {
+      "id": "SS-01",
+      "titel": "Trittschalldaemmung",
+      "confidence": 0.948
     },
     {
       "id": "BA-01",
       "titel": "Phasenplanung",
-      "confidence": 0.938
-    },
-    {
-      "id": "TR-01",
-      "titel": "Fundament-Optimierung",
-      "confidence": 0.904
+      "confidence": 0.927
     },
     {
       "id": "TR-03",
       "titel": "Erdbeben-Verstaerkung",
-      "confidence": 0.903
+      "confidence": 0.901
     },
     {
       "id": "BS-01",
       "titel": "RWA-Anlage",
-      "confidence": 0.897
+      "confidence": 0.896
+    },
+    {
+      "id": "TR-01",
+      "titel": "Fundament-Optimierung",
+      "confidence": 0.89
     }
   ],
   "epistemisch": {
@@ -1567,5 +1567,5 @@
     "agenten": 9,
     "gesamtwissen": 0
   },
-  "dauer_sec": 0.0029
+  "dauer_sec": 0.0022
 }
