@@ -1,0 +1,792 @@
+{
+  "system_architektur": {
+    "gesamt_bewertung": 9.153846153846153,
+    "anzahl_komponenten": 13,
+    "details": [
+      {
+        "kategorie": "architektur",
+        "name": "Microservice-Architektur",
+        "bewertung": 9.5,
+        "vorteile": [
+          "Skalierbar",
+          "Wartbar",
+          "Unabhängig deploybar"
+        ]
+      },
+      {
+        "kategorie": "architektur",
+        "name": "Event-Driven Architecture",
+        "bewertung": 9.0,
+        "vorteile": [
+          "Echtzeit",
+          "Lose Kopplung",
+          "Skalierbar"
+        ]
+      },
+      {
+        "kategorie": "architektur",
+        "name": "API-First Design",
+        "bewertung": 9.0,
+        "vorteile": [
+          "Flexibel",
+          "Dokumentiert",
+          "Versionierbar"
+        ]
+      },
+      {
+        "kategorie": "architektur",
+        "name": "Cloud-Native Deployment",
+        "bewertung": 9.5,
+        "vorteile": [
+          "Skalierbar",
+          "Resilient",
+          "Portabel"
+        ]
+      },
+      {
+        "kategorie": "datenbank",
+        "name": "PostgreSQL + PostGIS",
+        "bewertung": 9.5,
+        "vorteile": [
+          "ACID",
+          "GIS",
+          "Erweiterbar"
+        ]
+      },
+      {
+        "kategorie": "datenbank",
+        "name": "Redis Cache",
+        "bewertung": 9.0,
+        "vorteile": [
+          "Schnell",
+          "Echtzeit",
+          "Session-Management"
+        ]
+      },
+      {
+        "kategorie": "datenbank",
+        "name": "Elasticsearch",
+        "bewertung": 8.5,
+        "vorteile": [
+          "Schnelle Suche",
+          "Analytics",
+          "Logging"
+        ]
+      },
+      {
+        "kategorie": "ai_ml",
+        "name": "AI Compliance Engine",
+        "bewertung": 9.5,
+        "vorteile": [
+          "Lernfähig",
+          "Automatisch",
+          "Präzise"
+        ]
+      },
+      {
+        "kategorie": "ai_ml",
+        "name": "AI Optimization",
+        "bewertung": 9.0,
+        "vorteile": [
+          "Optimale Lösungen",
+          "Schnell",
+          "Multi-Objective"
+        ]
+      },
+      {
+        "kategorie": "ai_ml",
+        "name": "AI Prediction",
+        "bewertung": 8.5,
+        "vorteile": [
+          "Genau",
+          "Frühwarnung",
+          "Risikobewertung"
+        ]
+      },
+      {
+        "kategorie": "security",
+        "name": "OAuth2 + OIDC",
+        "bewertung": 9.5,
+        "vorteile": [
+          "Sicher",
+          "Standard",
+          "SSO"
+        ]
+      },
+      {
+        "kategorie": "security",
+        "name": "End-to-End Encryption",
+        "bewertung": 9.5,
+        "vorteile": [
+          "DSGVO",
+          "Sicher",
+          "Vertraulich"
+        ]
+      },
+      {
+        "kategorie": "security",
+        "name": "Audit Logging",
+        "bewertung": 9.0,
+        "vorteile": [
+          "Nachvollziehbar",
+          "Compliance",
+          "Forensik"
+        ]
+      }
+    ]
+  },
+  "ui_architektur": {
+    "gesamt_bewertung": 9.318181818181818,
+    "anzahl_komponenten": 11,
+    "details": [
+      {
+        "kategorie": "design_system",
+        "name": "Design System mit Komponenten",
+        "bewertung": 9.5,
+        "elemente": [
+          "Buttons",
+          "Forms",
+          "Tables",
+          "Charts",
+          "Modals",
+          "Tooltips"
+        ]
+      },
+      {
+        "kategorie": "design_system",
+        "name": "Responsive Design",
+        "bewertung": 9.5,
+        "elemente": [
+          "Desktop",
+          "Tablet",
+          "Mobile"
+        ]
+      },
+      {
+        "kategorie": "design_system",
+        "name": "Barrierefreiheit (WCAG 2.1)",
+        "bewertung": 9.0,
+        "elemente": [
+          "Screen Reader",
+          "Tastatur",
+          "Kontrast"
+        ]
+      },
+      {
+        "kategorie": "dashboard",
+        "name": "Projekt-Übersicht",
+        "bewertung": 9.5,
+        "elemente": [
+          "Projektliste",
+          "Status",
+          "Fortschritt",
+          "Benachrichtigungen"
+        ]
+      },
+      {
+        "kategorie": "dashboard",
+        "name": "Compliance-Status",
+        "bewertung": 9.5,
+        "elemente": [
+          "OIB-RL",
+          "Eurocode",
+          "Ampel-System",
+          "Details"
+        ]
+      },
+      {
+        "kategorie": "dashboard",
+        "name": "Kosten-Übersicht",
+        "bewertung": 9.0,
+        "elemente": [
+          "Gesamtkosten",
+          "Positionen",
+          "Vergleich",
+          "Prognose"
+        ]
+      },
+      {
+        "kategorie": "planung",
+        "name": "DWG/IFC Viewer",
+        "bewertung": 9.5,
+        "elemente": [
+          "3D",
+          "Layer",
+          "Messen",
+          "Schnitte"
+        ]
+      },
+      {
+        "kategorie": "planung",
+        "name": "Echtzeit-Compliance-Check",
+        "bewertung": 9.5,
+        "elemente": [
+          "Auto-Check",
+          "Warnungen",
+          "Vorschläge",
+          "Historie"
+        ]
+      },
+      {
+        "kategorie": "planung",
+        "name": "Echtzeit-Kollaboration",
+        "bewertung": 9.0,
+        "elemente": [
+          "Live-Cursor",
+          "Chat",
+          "Kommentare",
+          "Versionen"
+        ]
+      },
+      {
+        "kategorie": "berichte",
+        "name": "Automatische Berichte",
+        "bewertung": 9.5,
+        "elemente": [
+          "PDF",
+          "Excel",
+          "OIB-Nachweis",
+          "Energieausweis"
+        ]
+      },
+      {
+        "kategorie": "berichte",
+        "name": "Export-Funktionen",
+        "bewertung": 9.0,
+        "elemente": [
+          "PDF",
+          "DWG",
+          "IFC",
+          "Excel",
+          "CSV",
+          "JSON"
+        ]
+      }
+    ]
+  },
+  "verbesserungen": {
+    "gesamt": 17,
+    "top_empfehlungen": [
+      {
+        "id": "UV-TR-01",
+        "name": "KI-optimierte Fundamentbemessung",
+        "beschreibung": "ML-basierte Optimierung der Fundamentabmessungen",
+        "einsparung": "15-20% Material",
+        "aufwand": "mittel",
+        "impact": 9.5
+      },
+      {
+        "id": "UV-TR-02",
+        "name": "Automatische Erdbebenanalyse",
+        "beschreibung": "Echtzeit-Erdbebenanalyse mit EC8",
+        "einsparung": "10% Planungszeit",
+        "aufwand": "hoch",
+        "impact": 9.0
+      },
+      {
+        "id": "UV-TR-03",
+        "name": "Parametrische Tragwerksoptimierung",
+        "beschreibung": "Automatische Optimierung aller Tragwerkparameter",
+        "einsparung": "20% Material",
+        "aufwand": "hoch",
+        "impact": 9.5
+      },
+      {
+        "id": "UV-EN-01",
+        "name": "KI-Energieberatung",
+        "beschreibung": "ML-basierte Energieoptimierung in Echtzeit",
+        "einsparung": "30% HWB",
+        "aufwand": "mittel",
+        "impact": 10.0
+      },
+      {
+        "id": "UV-EN-02",
+        "name": "PV-Simulation",
+        "beschreibung": "Automatische PV-Anlagen-Simulation",
+        "einsparung": "20% Energie",
+        "aufwand": "mittel",
+        "impact": 9.0
+      },
+      {
+        "id": "UV-EN-03",
+        "name": "Wärmebrücken-Optimierung",
+        "beschreibung": "Automatische Wärmebrückenminimierung",
+        "einsparung": "15% HWB",
+        "aufwand": "mittel",
+        "impact": 9.0
+      },
+      {
+        "id": "UV-BS-01",
+        "name": "Brandschutz-Simulation",
+        "beschreibung": "3D-Brandschutz-Simulation",
+        "einsparung": "25% Planungszeit",
+        "aufwand": "hoch",
+        "impact": 9.0
+      },
+      {
+        "id": "UV-KO-01",
+        "name": "KI-Kostenprognose",
+        "beschreibung": "ML-basierte Kostenprognose mit Marktdaten",
+        "einsparung": "10% Kosten",
+        "aufwand": "mittel",
+        "impact": 9.5
+      },
+      {
+        "id": "UV-KO-02",
+        "name": "Automatische Mengenermittlung",
+        "beschreibung": "BIM-basierte automatische Mengenermittlung",
+        "einsparung": "50% Zeit",
+        "aufwand": "mittel",
+        "impact": 9.5
+      },
+      {
+        "id": "UV-KL-01",
+        "name": "Echtzeit-Kollaboration",
+        "beschreibung": "Multi-User-Editing mit Konfliktlösung",
+        "einsparung": "40% Koordinationszeit",
+        "aufwand": "hoch",
+        "impact": 9.5
+      },
+      {
+        "id": "UV-KL-02",
+        "name": "Automatische Kollisionsprüfung",
+        "beschreibung": "KI-basierte Kollisionserkennung",
+        "einsparung": "30% Nachträge",
+        "aufwand": "mittel",
+        "impact": 9.0
+      },
+      {
+        "id": "UV-KL-03",
+        "name": "Version-Control",
+        "beschreibung": "Git-ähnliche Versionierung für Baupläne",
+        "einsparung": "50% Dokumentationszeit",
+        "aufwand": "mittel",
+        "impact": 9.0
+      },
+      {
+        "id": "UV-CO-01",
+        "name": "Auto-Compliance-Check",
+        "beschreibung": "Echtzeit-Compliance-Prüfung aller Normen",
+        "einsparung": "60% Prüfungszeit",
+        "aufwand": "hoch",
+        "impact": 10.0
+      },
+      {
+        "id": "UV-CO-02",
+        "name": "Normen-Update-Service",
+        "beschreibung": "Automatische Normen-Updates",
+        "einsparung": "100% manuelle Updates",
+        "aufwand": "mittel",
+        "impact": 9.5
+      },
+      {
+        "id": "UV-CO-03",
+        "name": "Bundesland-spezifische Prüfung",
+        "beschreibung": "Automatische Erkennung der Bauordnung",
+        "einsparung": "90% Konfigurationszeit",
+        "aufwand": "mittel",
+        "impact": 9.0
+      }
+    ],
+    "details": [
+      {
+        "kategorie": "tragwerk",
+        "id": "UV-TR-01",
+        "name": "KI-optimierte Fundamentbemessung",
+        "impact": 9.5,
+        "einsparung": "15-20% Material",
+        "aufwand": "mittel"
+      },
+      {
+        "kategorie": "tragwerk",
+        "id": "UV-TR-02",
+        "name": "Automatische Erdbebenanalyse",
+        "impact": 9.0,
+        "einsparung": "10% Planungszeit",
+        "aufwand": "hoch"
+      },
+      {
+        "kategorie": "tragwerk",
+        "id": "UV-TR-03",
+        "name": "Parametrische Tragwerksoptimierung",
+        "impact": 9.5,
+        "einsparung": "20% Material",
+        "aufwand": "hoch"
+      },
+      {
+        "kategorie": "energie",
+        "id": "UV-EN-01",
+        "name": "KI-Energieberatung",
+        "impact": 10.0,
+        "einsparung": "30% HWB",
+        "aufwand": "mittel"
+      },
+      {
+        "kategorie": "energie",
+        "id": "UV-EN-02",
+        "name": "PV-Simulation",
+        "impact": 9.0,
+        "einsparung": "20% Energie",
+        "aufwand": "mittel"
+      },
+      {
+        "kategorie": "energie",
+        "id": "UV-EN-03",
+        "name": "Wärmebrücken-Optimierung",
+        "impact": 9.0,
+        "einsparung": "15% HWB",
+        "aufwand": "mittel"
+      },
+      {
+        "kategorie": "brandschutz",
+        "id": "UV-BS-01",
+        "name": "Brandschutz-Simulation",
+        "impact": 9.0,
+        "einsparung": "25% Planungszeit",
+        "aufwand": "hoch"
+      },
+      {
+        "kategorie": "brandschutz",
+        "id": "UV-BS-02",
+        "name": "Automatische RWA-Planung",
+        "impact": 8.5,
+        "einsparung": "15% Kosten",
+        "aufwand": "mittel"
+      },
+      {
+        "kategorie": "kosten",
+        "id": "UV-KO-01",
+        "name": "KI-Kostenprognose",
+        "impact": 9.5,
+        "einsparung": "10% Kosten",
+        "aufwand": "mittel"
+      },
+      {
+        "kategorie": "kosten",
+        "id": "UV-KO-02",
+        "name": "Automatische Mengenermittlung",
+        "impact": 9.5,
+        "einsparung": "50% Zeit",
+        "aufwand": "mittel"
+      },
+      {
+        "kategorie": "kosten",
+        "id": "UV-KO-03",
+        "name": "Materialpreis-Monitor",
+        "impact": 8.5,
+        "einsparung": "8% Materialkosten",
+        "aufwand": "gering"
+      },
+      {
+        "kategorie": "kollaboration",
+        "id": "UV-KL-01",
+        "name": "Echtzeit-Kollaboration",
+        "impact": 9.5,
+        "einsparung": "40% Koordinationszeit",
+        "aufwand": "hoch"
+      },
+      {
+        "kategorie": "kollaboration",
+        "id": "UV-KL-02",
+        "name": "Automatische Kollisionsprüfung",
+        "impact": 9.0,
+        "einsparung": "30% Nachträge",
+        "aufwand": "mittel"
+      },
+      {
+        "kategorie": "kollaboration",
+        "id": "UV-KL-03",
+        "name": "Version-Control",
+        "impact": 9.0,
+        "einsparung": "50% Dokumentationszeit",
+        "aufwand": "mittel"
+      },
+      {
+        "kategorie": "compliance",
+        "id": "UV-CO-01",
+        "name": "Auto-Compliance-Check",
+        "impact": 10.0,
+        "einsparung": "60% Prüfungszeit",
+        "aufwand": "hoch"
+      },
+      {
+        "kategorie": "compliance",
+        "id": "UV-CO-02",
+        "name": "Normen-Update-Service",
+        "impact": 9.5,
+        "einsparung": "100% manuelle Updates",
+        "aufwand": "mittel"
+      },
+      {
+        "kategorie": "compliance",
+        "id": "UV-CO-03",
+        "name": "Bundesland-spezifische Prüfung",
+        "impact": 9.0,
+        "einsparung": "90% Konfigurationszeit",
+        "aufwand": "mittel"
+      }
+    ]
+  },
+  "swarm": {
+    "partikel": [
+      {
+        "id": "UV-TR-01",
+        "name": "KI-optimierte Fundamentbemessung",
+        "fitness": 8.54809565,
+        "position": 8.9423285,
+        "velocity": -0.22422150000000013
+      },
+      {
+        "id": "UV-TR-02",
+        "name": "Automatische Erdbebenanalyse",
+        "fitness": 8.153862799999999,
+        "position": 8.504292,
+        "velocity": -0.19930799999999993
+      },
+      {
+        "id": "UV-TR-03",
+        "name": "Parametrische Tragwerksoptimierung",
+        "fitness": 8.54809565,
+        "position": 8.9423285,
+        "velocity": -0.22422150000000013
+      },
+      {
+        "id": "UV-EN-01",
+        "name": "KI-Energieberatung",
+        "fitness": 8.942328500000002,
+        "position": 9.380365000000001,
+        "velocity": -0.2491349999999997
+      },
+      {
+        "id": "UV-EN-02",
+        "name": "PV-Simulation",
+        "fitness": 8.153862799999999,
+        "position": 8.504292,
+        "velocity": -0.19930799999999993
+      },
+      {
+        "id": "UV-EN-03",
+        "name": "Wärmebrücken-Optimierung",
+        "fitness": 8.153862799999999,
+        "position": 8.504292,
+        "velocity": -0.19930799999999993
+      },
+      {
+        "id": "UV-BS-01",
+        "name": "Brandschutz-Simulation",
+        "fitness": 8.153862799999999,
+        "position": 8.504292,
+        "velocity": -0.19930799999999993
+      },
+      {
+        "id": "UV-KO-01",
+        "name": "KI-Kostenprognose",
+        "fitness": 8.54809565,
+        "position": 8.9423285,
+        "velocity": -0.22422150000000013
+      },
+      {
+        "id": "UV-KO-02",
+        "name": "Automatische Mengenermittlung",
+        "fitness": 8.54809565,
+        "position": 8.9423285,
+        "velocity": -0.22422150000000013
+      },
+      {
+        "id": "UV-KL-01",
+        "name": "Echtzeit-Kollaboration",
+        "fitness": 8.54809565,
+        "position": 8.9423285,
+        "velocity": -0.22422150000000013
+      },
+      {
+        "id": "UV-KL-02",
+        "name": "Automatische Kollisionsprüfung",
+        "fitness": 8.153862799999999,
+        "position": 8.504292,
+        "velocity": -0.19930799999999993
+      },
+      {
+        "id": "UV-KL-03",
+        "name": "Version-Control",
+        "fitness": 8.153862799999999,
+        "position": 8.504292,
+        "velocity": -0.19930799999999993
+      },
+      {
+        "id": "UV-CO-01",
+        "name": "Auto-Compliance-Check",
+        "fitness": 8.942328500000002,
+        "position": 9.380365000000001,
+        "velocity": -0.2491349999999997
+      },
+      {
+        "id": "UV-CO-02",
+        "name": "Normen-Update-Service",
+        "fitness": 8.54809565,
+        "position": 8.9423285,
+        "velocity": -0.22422150000000013
+      },
+      {
+        "id": "UV-CO-03",
+        "name": "Bundesland-spezifische Prüfung",
+        "fitness": 8.153862799999999,
+        "position": 8.504292,
+        "velocity": -0.19930799999999993
+      }
+    ],
+    "validierte": [
+      {
+        "id": "UV-TR-01",
+        "name": "KI-optimierte Fundamentbemessung",
+        "fitness": 8.54809565,
+        "position": 8.9423285,
+        "velocity": -0.22422150000000013,
+        "des_validiert": true,
+        "des_confidence": 0.854809565
+      },
+      {
+        "id": "UV-TR-02",
+        "name": "Automatische Erdbebenanalyse",
+        "fitness": 8.153862799999999,
+        "position": 8.504292,
+        "velocity": -0.19930799999999993,
+        "des_validiert": true,
+        "des_confidence": 0.8153862799999999
+      },
+      {
+        "id": "UV-TR-03",
+        "name": "Parametrische Tragwerksoptimierung",
+        "fitness": 8.54809565,
+        "position": 8.9423285,
+        "velocity": -0.22422150000000013,
+        "des_validiert": true,
+        "des_confidence": 0.854809565
+      },
+      {
+        "id": "UV-EN-01",
+        "name": "KI-Energieberatung",
+        "fitness": 8.942328500000002,
+        "position": 9.380365000000001,
+        "velocity": -0.2491349999999997,
+        "des_validiert": true,
+        "des_confidence": 0.8942328500000002
+      },
+      {
+        "id": "UV-EN-02",
+        "name": "PV-Simulation",
+        "fitness": 8.153862799999999,
+        "position": 8.504292,
+        "velocity": -0.19930799999999993,
+        "des_validiert": true,
+        "des_confidence": 0.8153862799999999
+      },
+      {
+        "id": "UV-EN-03",
+        "name": "Wärmebrücken-Optimierung",
+        "fitness": 8.153862799999999,
+        "position": 8.504292,
+        "velocity": -0.19930799999999993,
+        "des_validiert": true,
+        "des_confidence": 0.8153862799999999
+      },
+      {
+        "id": "UV-BS-01",
+        "name": "Brandschutz-Simulation",
+        "fitness": 8.153862799999999,
+        "position": 8.504292,
+        "velocity": -0.19930799999999993,
+        "des_validiert": true,
+        "des_confidence": 0.8153862799999999
+      },
+      {
+        "id": "UV-KO-01",
+        "name": "KI-Kostenprognose",
+        "fitness": 8.54809565,
+        "position": 8.9423285,
+        "velocity": -0.22422150000000013,
+        "des_validiert": true,
+        "des_confidence": 0.854809565
+      },
+      {
+        "id": "UV-KO-02",
+        "name": "Automatische Mengenermittlung",
+        "fitness": 8.54809565,
+        "position": 8.9423285,
+        "velocity": -0.22422150000000013,
+        "des_validiert": true,
+        "des_confidence": 0.854809565
+      },
+      {
+        "id": "UV-KL-01",
+        "name": "Echtzeit-Kollaboration",
+        "fitness": 8.54809565,
+        "position": 8.9423285,
+        "velocity": -0.22422150000000013,
+        "des_validiert": true,
+        "des_confidence": 0.854809565
+      },
+      {
+        "id": "UV-KL-02",
+        "name": "Automatische Kollisionsprüfung",
+        "fitness": 8.153862799999999,
+        "position": 8.504292,
+        "velocity": -0.19930799999999993,
+        "des_validiert": true,
+        "des_confidence": 0.8153862799999999
+      },
+      {
+        "id": "UV-KL-03",
+        "name": "Version-Control",
+        "fitness": 8.153862799999999,
+        "position": 8.504292,
+        "velocity": -0.19930799999999993,
+        "des_validiert": true,
+        "des_confidence": 0.8153862799999999
+      },
+      {
+        "id": "UV-CO-01",
+        "name": "Auto-Compliance-Check",
+        "fitness": 8.942328500000002,
+        "position": 9.380365000000001,
+        "velocity": -0.2491349999999997,
+        "des_validiert": true,
+        "des_confidence": 0.8942328500000002
+      },
+      {
+        "id": "UV-CO-02",
+        "name": "Normen-Update-Service",
+        "fitness": 8.54809565,
+        "position": 8.9423285,
+        "velocity": -0.22422150000000013,
+        "des_validiert": true,
+        "des_confidence": 0.854809565
+      },
+      {
+        "id": "UV-CO-03",
+        "name": "Bundesland-spezifische Prüfung",
+        "fitness": 8.153862799999999,
+        "position": 8.504292,
+        "velocity": -0.19930799999999993,
+        "des_validiert": true,
+        "des_confidence": 0.8153862799999999
+      }
+    ],
+    "beste_loesung": {
+      "id": "UV-EN-01",
+      "name": "KI-Energieberatung",
+      "fitness": 8.942328500000002,
+      "position": 9.380365000000001,
+      "velocity": -0.2491349999999997,
+      "des_validiert": true,
+      "des_confidence": 0.8942328500000002
+    }
+  },
+  "epistemisch": {
+    "system_valid": true,
+    "contradictions": 0,
+    "agent_count": 9,
+    "global_knowledge": 71
+  },
+  "dauer_sec": 0.009486198425292969
+}
