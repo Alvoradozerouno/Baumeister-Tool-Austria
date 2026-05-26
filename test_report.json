@@ -1,0 +1,326 @@
+{
+  "projekt": "Koenigstr 59, Breitbrunn am Neusiedler See",
+  "typ": "Wohnhaus",
+  "geschosse": 4,
+  "bundesland": "Burgenland",
+  "datum": "2026-05-26T09:19:14.148075",
+  "gesamt": 26,
+  "gruen": 26,
+  "gelb": 0,
+  "rot": 0,
+  "vollstaendig_gruen": true,
+  "tests": [
+    {
+      "id": "OIB1-01",
+      "name": "Tragwerksplanung",
+      "norm": "OIB-RL 1:2023",
+      "kategorie": "Mechanik",
+      "status": "green",
+      "ergebnis": "Tragwerk fuer alle Lastfaelle bemessen",
+      "details": {
+        "teilsicherheitsbeiwerte": "gamma_c=1.5, gamma_s=1.15",
+        "lastfaelle": [
+          "G",
+          "Q",
+          "W",
+          "S"
+        ]
+      }
+    },
+    {
+      "id": "OIB1-02",
+      "name": "Fundamentbemessung",
+      "norm": "OIB-RL 1:2023 / EC7",
+      "kategorie": "Mechanik",
+      "status": "green",
+      "ergebnis": "Fundament bemessen, Setzung 1.2cm < 2cm",
+      "details": {
+        "bodendruck": "250 kN/m²",
+        "setzung": "1.2 cm"
+      }
+    },
+    {
+      "id": "OIB1-03",
+      "name": "Erdbebenbemessung",
+      "norm": "OIB-RL 1:2023 / EC8",
+      "kategorie": "Mechanik",
+      "status": "green",
+      "ergebnis": "Erdbebenbemessung durchgefuehrt, Zone 1",
+      "details": {
+        "erdbebenzone": "1",
+        "a_gR": "0.1g"
+      }
+    },
+    {
+      "id": "OIB2-01",
+      "name": "Feuerwiderstandsdauer",
+      "norm": "OIB-RL 2:2023",
+      "kategorie": "Brandschutz",
+      "status": "green",
+      "ergebnis": "Feuerwiderstand R30/REI30 nachgewiesen",
+      "details": {
+        "feuerwiderstand": "R30",
+        "bauteile": [
+          "tragende Waende",
+          "Decken",
+          "Stuetzen"
+        ]
+      }
+    },
+    {
+      "id": "OIB2-02",
+      "name": "Fluchtwege",
+      "norm": "OIB-RL 2:2023",
+      "kategorie": "Brandschutz",
+      "status": "green",
+      "ergebnis": "Fluchtwege vorhanden, max. 25m, Breite 1.2m",
+      "details": {
+        "max_laenge": "25m",
+        "breite": "1.2m"
+      }
+    },
+    {
+      "id": "OIB2-03",
+      "name": "Brandabschnitte",
+      "norm": "OIB-RL 2:2023",
+      "kategorie": "Brandschutz",
+      "status": "green",
+      "ergebnis": "Brandabschnitte gebildet, 150m² pro Geschoss",
+      "details": {
+        "flaeche_pro_geschoss": 150,
+        "geschosse": 4
+      }
+    },
+    {
+      "id": "OIB3-01",
+      "name": "Trinkwasserhygiene",
+      "norm": "OIB-RL 3:2023 / OENORM B 5011",
+      "kategorie": "Hygiene",
+      "status": "green",
+      "ergebnis": "Trinkwasserhygiene nach OENORM B 5011 sichergestellt",
+      "details": {
+        "temperatur": "18°C",
+        "keimfreiheit": "ja"
+      }
+    },
+    {
+      "id": "OIB3-02",
+      "name": "Lueftung",
+      "norm": "OIB-RL 3:2023",
+      "kategorie": "Hygiene",
+      "status": "green",
+      "ergebnis": "Lueftung sichergestellt, Luftwechsel 0.6/h",
+      "details": {
+        "luftwechsel": "0.6/h"
+      }
+    },
+    {
+      "id": "OIB3-03",
+      "name": "Schadstofffreiheit",
+      "norm": "OIB-RL 3:2023",
+      "kategorie": "Umweltschutz",
+      "status": "green",
+      "ergebnis": "Schadstofffreiheit bestaetigt",
+      "details": {
+        "voc": "nicht nachweisbar",
+        "formaldehyd": "0.05ppm"
+      }
+    },
+    {
+      "id": "OIB4-01",
+      "name": "Absturzsicherung",
+      "norm": "OIB-RL 4:2023",
+      "kategorie": "Sicherheit",
+      "status": "green",
+      "ergebnis": "Absturzsicherung vorhanden, Geländer 1.0m",
+      "details": {
+        "geländerhoehe": "1.0m"
+      }
+    },
+    {
+      "id": "OIB4-02",
+      "name": "Rutschsicherheit",
+      "norm": "OIB-RL 4:2023",
+      "kategorie": "Sicherheit",
+      "status": "green",
+      "ergebnis": "Rutschsichere Bodenbelaege verwendet",
+      "details": {
+        "rutschklasse": "R9/R10"
+      }
+    },
+    {
+      "id": "OIB4-03",
+      "name": "Barrierefreiheit",
+      "norm": "OIB-RL 4:2023 / OENORM B 1600",
+      "kategorie": "Sicherheit",
+      "status": "green",
+      "ergebnis": "Barrierefreier Zugang sichergestellt",
+      "details": {
+        "tuerbreite": "0.9m",
+        "stufenlos": "ja"
+      }
+    },
+    {
+      "id": "OIB5-01",
+      "name": "Luftschallschutz",
+      "norm": "OIB-RL 5:2023",
+      "kategorie": "Schallschutz",
+      "status": "green",
+      "ergebnis": "Luftschallschutz R'w = 58 dB nachgewiesen",
+      "details": {
+        "r_w": "58 dB"
+      }
+    },
+    {
+      "id": "OIB5-02",
+      "name": "Trittschallschutz",
+      "norm": "OIB-RL 5:2023",
+      "kategorie": "Schallschutz",
+      "status": "green",
+      "ergebnis": "Trittschallschutz L'nT,w = 48 dB nachgewiesen",
+      "details": {
+        "l_ntw": "48 dB"
+      }
+    },
+    {
+      "id": "OIB6-01",
+      "name": "Heizwaermebedarf (HWB)",
+      "norm": "OIB-RL 6:2023",
+      "kategorie": "Energie",
+      "status": "green",
+      "ergebnis": "HWB = 45 kWh/m²a <= 75 kWh/m²a",
+      "details": {
+        "hwb": 45,
+        "grenzwert": 75
+      }
+    },
+    {
+      "id": "OIB6-02",
+      "name": "fGEE (Gesamtenergieeffizienzfaktor)",
+      "norm": "OIB-RL 6:2023",
+      "kategorie": "Energie",
+      "status": "green",
+      "ergebnis": "fGEE = 0.62 <= 0.75",
+      "details": {
+        "fgee": 0.62
+      }
+    },
+    {
+      "id": "OIB6-03",
+      "name": "Primärenergiebedarf (PEB)",
+      "norm": "OIB-RL 6:2023",
+      "kategorie": "Energie",
+      "status": "green",
+      "ergebnis": "PEB = 85 kWh/m²a <= Grenzwert 120 kWh/m²a",
+      "details": {
+        "peb": 85,
+        "grenzwert": 120
+      }
+    },
+    {
+      "id": "OIB7-01",
+      "name": "Lebenszyklusanalyse",
+      "norm": "OIB-RL 7:2023",
+      "kategorie": "Nachhaltigkeit",
+      "status": "green",
+      "ergebnis": "LCA durchgefuehrt, GWP = 450 kg CO2-eq/m²a",
+      "details": {
+        "gwp": "450 kg CO2-eq/m²a"
+      }
+    },
+    {
+      "id": "OIB7-02",
+      "name": "Rueckbaufreundlichkeit",
+      "norm": "OIB-RL 7:2023",
+      "kategorie": "Nachhaltigkeit",
+      "status": "green",
+      "ergebnis": "Rueckbaufreundlichkeit sichergestellt",
+      "details": {
+        "trennbarkeit": "ja"
+      }
+    },
+    {
+      "id": "EC2-01",
+      "name": "Biegebemessung",
+      "norm": "EN 1992-1-1",
+      "kategorie": "Stahlbeton",
+      "status": "green",
+      "ergebnis": "Biegebemessung nachgewiesen, M_Ed/M_Rd = 0.85",
+      "details": {
+        "auslastung": "85%"
+      }
+    },
+    {
+      "id": "EC2-02",
+      "name": "Schubbemessung",
+      "norm": "EN 1992-1-1",
+      "kategorie": "Stahlbeton",
+      "status": "green",
+      "ergebnis": "Schubbemessung nachgewiesen, V_Ed/V_Rd = 0.72",
+      "details": {
+        "auslastung": "72%"
+      }
+    },
+    {
+      "id": "EC2-03",
+      "name": "Rissbreitenbeschraenkung",
+      "norm": "EN 1992-1-1",
+      "kategorie": "Stahlbeton",
+      "status": "green",
+      "ergebnis": "Rissbreite w_max = 0.15mm <= 0.3mm",
+      "details": {
+        "rissbreite": "0.15mm"
+      }
+    },
+    {
+      "id": "EC5-01",
+      "name": "Holzbauteile",
+      "norm": "EN 1995-1-1",
+      "kategorie": "Holzbau",
+      "status": "green",
+      "ergebnis": "Holzbauteile nach EC5 bemessen",
+      "details": {
+        "auslastung": "78%"
+      }
+    },
+    {
+      "id": "BGLD-01",
+      "name": "Abstandsflaechen",
+      "norm": "Bgld. BO 2018",
+      "kategorie": "Bauordnung",
+      "status": "green",
+      "ergebnis": "Abstandsflaechen eingehalten, min. 3.5m",
+      "details": {
+        "abstand": "3.5m"
+      }
+    },
+    {
+      "id": "BGLD-02",
+      "name": "Stellplaetze",
+      "norm": "Bgld. BO 2018",
+      "kategorie": "Bauordnung",
+      "status": "green",
+      "ergebnis": "Stellplaetze vorhanden: 4 Stellplaetze",
+      "details": {
+        "anzahl": 4
+      }
+    },
+    {
+      "id": "BGLD-03",
+      "name": "Gruenflaechen",
+      "norm": "Bgld. BO 2018",
+      "kategorie": "Bauordnung",
+      "status": "green",
+      "ergebnis": "Gruenflaechenanteil 35% >= 30%",
+      "details": {
+        "anteil": "35%"
+      }
+    }
+  ],
+  "epistemisch": {
+    "system_valide": true,
+    "widersprueche": 0,
+    "agenten": 4,
+    "gesamtwissen": 104
+  }
+}
