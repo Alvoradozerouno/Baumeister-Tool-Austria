@@ -1,6 +1,6 @@
 {
   "projekt": "Koenigstr 59, Breitbrunn am Neusiedler See",
-  "datum": "2026-05-26T10:13:26.742815",
+  "datum": "2026-05-26T10:56:59.483087",
   "dwg_analyse": {
     "dateien": 5,
     "gesamt_vollstaendigkeit": 100.0,
@@ -12,12 +12,12 @@
         "elemente": 6,
         "vollstaendigkeit": 100.0,
         "gefunden": [
+          "Innenwand",
+          "Stiege",
+          "Heizungsraum",
           "Aussenwand",
           "Decke",
-          "Heizungsraum",
-          "Stiege",
-          "Fundament",
-          "Innenwand"
+          "Fundament"
         ],
         "fehlend": []
       },
@@ -28,12 +28,12 @@
         "elemente": 7,
         "vollstaendigkeit": 100.0,
         "gefunden": [
-          "Aussenwand",
-          "Decke",
-          "Fenster",
-          "Stiege",
           "Tuer",
           "Innenwand",
+          "Fenster",
+          "Stiege",
+          "Aussenwand",
+          "Decke",
           "Eingang"
         ],
         "fehlend": []
@@ -45,13 +45,13 @@
         "elemente": 7,
         "vollstaendigkeit": 100.0,
         "gefunden": [
-          "Aussenwand",
-          "Decke",
-          "Fenster",
-          "Stiege",
           "Tuer",
           "Innenwand",
-          "Balkon"
+          "Fenster",
+          "Stiege",
+          "Balkon",
+          "Aussenwand",
+          "Decke"
         ],
         "fehlend": []
       },
@@ -62,13 +62,13 @@
         "elemente": 7,
         "vollstaendigkeit": 100.0,
         "gefunden": [
-          "Aussenwand",
-          "Decke",
-          "Fenster",
-          "Stiege",
           "Tuer",
           "Innenwand",
-          "Balkon"
+          "Fenster",
+          "Stiege",
+          "Balkon",
+          "Aussenwand",
+          "Decke"
         ],
         "fehlend": []
       },
@@ -79,13 +79,13 @@
         "elemente": 7,
         "vollstaendigkeit": 100.0,
         "gefunden": [
-          "Aussenwand",
-          "Gauben",
+          "Tuer",
+          "Innenwand",
           "Fenster",
           "Stiege",
-          "Dach",
-          "Tuer",
-          "Innenwand"
+          "Gauben",
+          "Aussenwand",
+          "Dach"
         ],
         "fehlend": []
       }
