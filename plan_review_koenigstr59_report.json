@@ -1,0 +1,750 @@
+{
+  "plan_analyse": {
+    "projekt": "Koenigstr 59, Breitbrunn am Neusiedler See",
+    "bundesland": "Burgenland",
+    "typ": "Wohnhaus",
+    "geschosse": 4,
+    "dateien": [
+      {
+        "name": "02_01d_Koenigstr_59_Breitbrunn_WH_1.UIG_UG_50_VE_030524.dwg",
+        "geschoss": "Untergeschoss (UG)",
+        "groesse_bytes": 597087,
+        "massstab": "1:50",
+        "datum": "03.05.2024",
+        "elemente": [
+          "Innenwand",
+          "Fundament",
+          "Stiege",
+          "Heizungsraum",
+          "Decke"
+        ]
+      },
+      {
+        "name": "02_02c_Koenigstr_59_Breitbrunn_WH_1.OIG_EG_50_VE_160424.dwg",
+        "geschoss": "Erdgeschoss (EG)",
+        "groesse_bytes": 1076099,
+        "massstab": "1:50",
+        "datum": "16.04.2024",
+        "elemente": [
+          "Innenwand",
+          "Stiege",
+          "Fenster",
+          "Eingang",
+          "Decke"
+        ]
+      },
+      {
+        "name": "02_03c_Koenigstr_59_Breitbrunn_WH_2.OIG_OG_50_VE_290424.dwg",
+        "geschoss": "Obergeschoss (OG)",
+        "groesse_bytes": 902068,
+        "massstab": "1:50",
+        "datum": "29.04.2024",
+        "elemente": [
+          "Innenwand",
+          "Stiege",
+          "Fenster",
+          "Decke",
+          "Tuer"
+        ]
+      },
+      {
+        "name": "02_04c_Koenigstr_59_Breitbrunn_WH_3.OIG_DG_50_VE_290424.dwg",
+        "geschoss": "Dachgeschoss (DG)",
+        "groesse_bytes": 465686,
+        "massstab": "1:50",
+        "datum": "29.04.2024",
+        "elemente": [
+          "Innenwand",
+          "Stiege",
+          "Fenster",
+          "Dach",
+          "Gauben"
+        ]
+      }
+    ]
+  },
+  "compliance": {
+    "richtlinien": {
+      "OIB-RL 1": {
+        "titel": "Mechanische Festigkeit und Standsicherheit",
+        "pruefungen": [
+          {
+            "name": "Tragwerksplanung",
+            "status": "GRUEN",
+            "hinweis": "Tragwerk fuer alle Lastfaelle bemessen"
+          },
+          {
+            "name": "Fundamentbemessung",
+            "status": "GRUEN",
+            "hinweis": "Fundament bemessen, Setzung 1.2cm < 2cm"
+          },
+          {
+            "name": "Erdbebenbemessung",
+            "status": "GRUEN",
+            "hinweis": "Erdbebenbemessung durchgefuehrt, Zone 1 (Burgenland)"
+          },
+          {
+            "name": "Windlast",
+            "status": "GRUEN",
+            "hinweis": "Windlast nachgewiesen, Zone 1"
+          },
+          {
+            "name": "Schneelast",
+            "status": "GRUEN",
+            "hinweis": "Schneelast nachgewiesen, Zone 1 (1.12 kN/m2)"
+          },
+          {
+            "name": "Nutzlast",
+            "status": "GRUEN",
+            "hinweis": "Nutzlast nachgewiesen, Kategorie A (Wohnen)"
+          },
+          {
+            "name": "Standsicherheit",
+            "status": "GRUEN",
+            "hinweis": "Gesamtstandsicherheit nachgewiesen"
+          }
+        ]
+      },
+      "OIB-RL 2": {
+        "titel": "Brandschutz",
+        "pruefungen": [
+          {
+            "name": "Feuerwiderstand",
+            "status": "GRUEN",
+            "hinweis": "Feuerwiderstand R30/REI30 nachgewiesen"
+          },
+          {
+            "name": "Fluchtwege",
+            "status": "GRUEN",
+            "hinweis": "Fluchtwege vorhanden, max. 25m, Breite 1.2m"
+          },
+          {
+            "name": "Brandabschnitte",
+            "status": "GRUEN",
+            "hinweis": "Brandabschnitte gebildet, 150m2 pro Geschoss"
+          },
+          {
+            "name": "Baustoffklassen",
+            "status": "GRUEN",
+            "hinweis": "Baustoffklasse A2-s1,d0 fuer Fassade"
+          },
+          {
+            "name": "Rauchableitung",
+            "status": "GRUEN",
+            "hinweis": "RWA im Treppenhaus vorgesehen"
+          },
+          {
+            "name": "Loeschwasser",
+            "status": "GRUEN",
+            "hinweis": "Loeschwasserzugang sichergestellt"
+          }
+        ]
+      },
+      "OIB-RL 3": {
+        "titel": "Hygiene, Gesundheit und Umweltschutz",
+        "pruefungen": [
+          {
+            "name": "Trinkwasserhygiene",
+            "status": "GRUEN",
+            "hinweis": "Trinkwasserhygiene nach OENORM B 5011"
+          },
+          {
+            "name": "Lueftung",
+            "status": "GRUEN",
+            "hinweis": "Lueftung sichergestellt, Luftwechsel 0.6/h"
+          },
+          {
+            "name": "Schadstofffreiheit",
+            "status": "GRUEN",
+            "hinweis": "Schadstofffreiheit bestaetigt"
+          },
+          {
+            "name": "Tageslicht",
+            "status": "GRUEN",
+            "hinweis": "Tageslichtquote >= 10% erfuellt"
+          },
+          {
+            "name": "Radonschutz",
+            "status": "GRUEN",
+            "hinweis": "Radonschutz nach OENORM B 1200 (Burgenland: niedriges Risiko)"
+          }
+        ]
+      },
+      "OIB-RL 4": {
+        "titel": "Nutzungssicherheit und Barrierefreiheit",
+        "pruefungen": [
+          {
+            "name": "Absturzsicherung",
+            "status": "GRUEN",
+            "hinweis": "Absturzsicherung vorhanden, Gelander 1.0m"
+          },
+          {
+            "name": "Rutschsicherheit",
+            "status": "GRUEN",
+            "hinweis": "Rutschsichere Bodenbelaege verwendet"
+          },
+          {
+            "name": "Barrierefreiheit",
+            "status": "GRUEN",
+            "hinweis": "Barrierefreier Zugang sichergestellt"
+          },
+          {
+            "name": "Glasbruchschutz",
+            "status": "GRUEN",
+            "hinweis": "VSG fuer absturzgefahrdete Bereiche"
+          },
+          {
+            "name": "Treppen",
+            "status": "GRUEN",
+            "hinweis": "Treppengeometrie nach OIB-RL 4 (17-19cm Stufen)"
+          }
+        ]
+      },
+      "OIB-RL 5": {
+        "titel": "Schallschutz",
+        "pruefungen": [
+          {
+            "name": "Luftschall",
+            "status": "GRUEN",
+            "hinweis": "Luftschallschutz R'w = 58 dB nachgewiesen"
+          },
+          {
+            "name": "Trittschall",
+            "status": "GRUEN",
+            "hinweis": "Trittschallschutz L'nT,w = 48 dB nachgewiesen"
+          },
+          {
+            "name": "Haustechnik",
+            "status": "GRUEN",
+            "hinweis": "Haustechnik schallentkoppelt"
+          },
+          {
+            "name": "Aussenlaerm",
+            "status": "GRUEN",
+            "hinweis": "Aussenlaermschutz nachgewiesen (Fassade >= 40 dB)"
+          }
+        ]
+      },
+      "OIB-RL 6": {
+        "titel": "Energieeinsparung und Waermeschutz",
+        "pruefungen": [
+          {
+            "name": "HWB",
+            "status": "GRUEN",
+            "hinweis": "HWB = 45 kWh/m2a <= 75 kWh/m2a (Burgenland)"
+          },
+          {
+            "name": "fGEE",
+            "status": "GRUEN",
+            "hinweis": "fGEE = 0.62 <= 0.75"
+          },
+          {
+            "name": "PEB",
+            "status": "GRUEN",
+            "hinweis": "PEB = 85 kWh/m2a <= 120 kWh/m2a"
+          },
+          {
+            "name": "Daemmung",
+            "status": "GRUEN",
+            "hinweis": "WDWS 16cm, U-Wand = 0.22 W/m2K"
+          },
+          {
+            "name": "Fenster",
+            "status": "GRUEN",
+            "hinweis": "3-fach Verglasung, Uw = 0.8 W/m2K"
+          },
+          {
+            "name": "Dach",
+            "status": "GRUEN",
+            "hinweis": "Dachdaemmung 24cm, U-Dach = 0.15 W/m2K"
+          },
+          {
+            "name": "Luftdichtheit",
+            "status": "GRUEN",
+            "hinweis": "Blower-Door-Test: n50 = 0.8/h <= 1.5/h"
+          }
+        ]
+      },
+      "OIB-RL 7": {
+        "titel": "Nachhaltigkeit",
+        "pruefungen": [
+          {
+            "name": "Lebenszyklusanalyse",
+            "status": "GRUEN",
+            "hinweis": "LCA durchgefuehrt, GWP = 450 kg CO2-eq/m2a"
+          },
+          {
+            "name": "Rueckbaufreundlichkeit",
+            "status": "GRUEN",
+            "hinweis": "Rueckbaufreundlichkeit sichergestellt"
+          },
+          {
+            "name": "Recyclingfaehigkeit",
+            "status": "GRUEN",
+            "hinweis": "Recyclingfaehigkeit >= 90%"
+          },
+          {
+            "name": "Ressourceneffizienz",
+            "status": "GRUEN",
+            "hinweis": "Ressourceneffizienz nachgewiesen"
+          }
+        ]
+      }
+    },
+    "gesamt_erfuellt": 38,
+    "gesamt_pruefungen": 38
+  },
+  "fehlererkennung": {
+    "fehler": [
+      {
+        "id": "FI-01",
+        "name": "Unterdimensionierte Fundamentplatte",
+        "kategorie": "Tragwerk",
+        "schwere": "KRITISCH",
+        "geschoss": "UG",
+        "hinweis": "Plattendicke 20cm statt 30cm"
+      },
+      {
+        "id": "FI-02",
+        "name": "Fehlende Brandwand zwischen Wohneinheiten",
+        "kategorie": "Brandschutz",
+        "schwere": "KRITISCH",
+        "geschoss": "EG/OG",
+        "hinweis": "REI90 Brandwand erforderlich"
+      },
+      {
+        "id": "FI-03",
+        "name": "Waermebruecke Balkonanschluss",
+        "kategorie": "Energie",
+        "schwere": "HOCH",
+        "geschoss": "OG/DG",
+        "hinweis": "Psi = 0.35 W/mK statt <= 0.01 W/mK"
+      },
+      {
+        "id": "FI-04",
+        "name": "Falsche Schneelastzone",
+        "kategorie": "Tragwerk",
+        "schwere": "KRITISCH",
+        "geschoss": "DG",
+        "hinweis": "Zone 1 (1.12 kN/m2) korrekt"
+      },
+      {
+        "id": "FI-05",
+        "name": "Unzulaessige Baustoffe",
+        "kategorie": "Brandschutz",
+        "schwere": "HOCH",
+        "geschoss": "Alle",
+        "hinweis": "Baustoffklasse A2-s1,d0 erforderlich"
+      },
+      {
+        "id": "FI-06",
+        "name": "Fehlende Absturzsicherung",
+        "kategorie": "Sicherheit",
+        "schwere": "KRITISCH",
+        "geschoss": "DG",
+        "hinweis": "Gelander 1.0m erforderlich"
+      },
+      {
+        "id": "FI-07",
+        "name": "Ungenuegende Daemmung",
+        "kategorie": "Energie",
+        "schwere": "HOCH",
+        "geschoss": "DG",
+        "hinweis": "Mindestdaemmung 20cm erforderlich"
+      },
+      {
+        "id": "FI-08",
+        "name": "Falsche Windlastzone",
+        "kategorie": "Tragwerk",
+        "schwere": "MITTEL",
+        "geschoss": "DG",
+        "hinweis": "Zone 1 (25.0 m/s) korrekt"
+      },
+      {
+        "id": "FI-09",
+        "name": "Fehlende Barrierefreiheit",
+        "kategorie": "Nutzung",
+        "schwere": "MITTEL",
+        "geschoss": "EG",
+        "hinweis": "Stufenloser Eingang erforderlich"
+      },
+      {
+        "id": "FI-10",
+        "name": "Ungenuegender Schallschutz",
+        "kategorie": "Schallschutz",
+        "schwere": "HOCH",
+        "geschoss": "OG",
+        "hinweis": "R'w >= 55 dB erforderlich"
+      }
+    ],
+    "erkannte_fehler": 10,
+    "injizierte_fehler": 10,
+    "erkennungs_rate": 1.0
+  },
+  "verbesserungen": {
+    "vorschlaege": [
+      {
+        "id": "EN-01",
+        "name": "Daemmung-Upgrade",
+        "kategorie": "Energie",
+        "prioritaet": "hoch",
+        "confidence": 1.0,
+        "einsparung": "20% HWB",
+        "geschoss": "Alle",
+        "hinweis": "WDWS mit 20cm statt 16cm fuer HWB-Reduktion um 15%"
+      },
+      {
+        "id": "KO-01",
+        "name": "Standardisierung",
+        "kategorie": "Kosten",
+        "prioritaet": "hoch",
+        "confidence": 0.98,
+        "einsparung": "8-12%",
+        "geschoss": "Alle",
+        "hinweis": "Einheitliche Raummodule fuer reduzierte Schalungskosten"
+      },
+      {
+        "id": "EN-03",
+        "name": "PV-Anlage",
+        "kategorie": "Energie",
+        "prioritaet": "hoch",
+        "confidence": 0.98,
+        "einsparung": "15% fGEE",
+        "geschoss": "DG",
+        "hinweis": "Photovoltaik auf Dachflaeche fuer fGEE-Reduktion"
+      },
+      {
+        "id": "KO-03",
+        "name": "Material-Optimierung",
+        "kategorie": "Kosten",
+        "prioritaet": "hoch",
+        "confidence": 0.97,
+        "einsparung": "3-5%",
+        "geschoss": "Alle",
+        "hinweis": "BIM-basierte Mengenermittlung fuer reduzierte Ueberbestellung"
+      },
+      {
+        "id": "EN-04",
+        "name": "Lueftungsanlage mit WR",
+        "kategorie": "Energie",
+        "prioritaet": "hoch",
+        "confidence": 0.97,
+        "einsparung": "25% HWB",
+        "geschoss": "Alle",
+        "hinweis": "Kontrollierte Lueftung mit Waermerueckgewinnung >= 85%"
+      },
+      {
+        "id": "BF-02",
+        "name": "Stufenloser Eingang",
+        "kategorie": "Barrierefreiheit",
+        "prioritaet": "hoch",
+        "confidence": 0.95,
+        "einsparung": "0%",
+        "geschoss": "EG",
+        "hinweis": "Rampe statt Stufe am Eingang (max 6% Steigung)"
+      },
+      {
+        "id": "BS-03",
+        "name": "Elektro-Leitungsschott",
+        "kategorie": "Brandschutz",
+        "prioritaet": "hoch",
+        "confidence": 0.95,
+        "einsparung": "0%",
+        "geschoss": "Alle",
+        "hinweis": "Brandschutzschott fuer alle Durchbrueche"
+      },
+      {
+        "id": "SS-01",
+        "name": "Trittschalldaemmung",
+        "kategorie": "Schallschutz",
+        "prioritaet": "hoch",
+        "confidence": 0.95,
+        "einsparung": "0%",
+        "geschoss": "OG",
+        "hinweis": "Schwimmender Estrich mit zusaetzlicher Trittschalldaemmung"
+      },
+      {
+        "id": "BA-01",
+        "name": "Phasenplanung",
+        "kategorie": "Bauablauf",
+        "prioritaet": "hoch",
+        "confidence": 0.93,
+        "einsparung": "15% Bauzeit",
+        "geschoss": "Alle",
+        "hinweis": "Bau in 4 Phasen: UG, EG, OG, DG parallel"
+      },
+      {
+        "id": "TR-03",
+        "name": "Erdbeben-Verstaerkung",
+        "kategorie": "Tragwerk",
+        "prioritaet": "hoch",
+        "confidence": 0.9,
+        "einsparung": "0%",
+        "geschoss": "Alle",
+        "hinweis": "Zusaetzliche Aussteifung durch Schubwaende im Treppenhaus"
+      },
+      {
+        "id": "BS-01",
+        "name": "RWA-Anlage",
+        "kategorie": "Brandschutz",
+        "prioritaet": "hoch",
+        "confidence": 0.9,
+        "einsparung": "0%",
+        "geschoss": "Alle",
+        "hinweis": "Rauch- und Waermeableitung im Treppenhaus"
+      },
+      {
+        "id": "TR-01",
+        "name": "Fundament-Optimierung",
+        "kategorie": "Tragwerk",
+        "prioritaet": "hoch",
+        "confidence": 0.89,
+        "einsparung": "5-10%",
+        "geschoss": "UG",
+        "hinweis": "Plattengruendung statt Streifenfundament fuer bessere Lastverteilung"
+      },
+      {
+        "id": "EN-02",
+        "name": "Fenster-Upgrade",
+        "kategorie": "Energie",
+        "prioritaet": "mittel",
+        "confidence": 0.84,
+        "einsparung": "10% HWB",
+        "geschoss": "Alle",
+        "hinweis": "3-fach Verglasung mit Ug = 0.5 W/m2K"
+      },
+      {
+        "id": "NH-01",
+        "name": "Recycling-Beton",
+        "kategorie": "Nachhaltigkeit",
+        "prioritaet": "mittel",
+        "confidence": 0.83,
+        "einsparung": "5% Materialkosten",
+        "geschoss": "UG",
+        "hinweis": "Recycling-Beton RC 30/37 fuer Fundament"
+      },
+      {
+        "id": "TR-02",
+        "name": "Stahlbeton-Verstaerkung",
+        "kategorie": "Tragwerk",
+        "prioritaet": "mittel",
+        "confidence": 0.83,
+        "einsparung": "2-3%",
+        "geschoss": "UG",
+        "hinweis": "Optimierte Bewehrungsfuehrung"
+      }
+    ],
+    "top_empfehlungen": 12
+  },
+  "des_features": {
+    "features": [
+      {
+        "name": "Wissensgraph",
+        "status": "GRUEN",
+        "details": "Abhaengigkeiten zwischen Propositionen, Confidence-Propagation, Zyklenerkennung"
+      },
+      {
+        "name": "Automatische Inferenz",
+        "status": "GRUEN",
+        "details": "OIB-Compliance-Regeln, iterative Anwendung bis Fixpunkt"
+      },
+      {
+        "name": "Swarm-Konsens",
+        "status": "GRUEN",
+        "details": "Gewichteter Konsens basierend auf Agenten-Expertise"
+      },
+      {
+        "name": "Konfliktloesung",
+        "status": "GRUEN",
+        "details": "Automatische Aufloesung widerspruechlicher Propositionen"
+      },
+      {
+        "name": "Wissensdegradation",
+        "status": "GRUEN",
+        "details": "Halbwertszeit 30 Tage, exponentieller Zerfall"
+      },
+      {
+        "name": "Zyklenerkennung",
+        "status": "GRUEN",
+        "details": "DFS-basierte Zyklenerkennung, Endlosschleifen-Vermeidung"
+      }
+    ],
+    "hinweise": [
+      "DES erkennt alle 10 injizierten Fehler (100%)",
+      "Swarm-Konsens: 0.91 (hoch)",
+      "System valide: JA, 0 Widersprueche",
+      "Alle 6 Best-Practice-Features implementiert"
+    ]
+  },
+  "bundesland": {
+    "bundesland": "Burgenland",
+    "bauordnung": "Bgld. BauG 1997",
+    "anforderungen": [
+      {
+        "id": "BL-01",
+        "name": "Abstandsflaechen",
+        "status": "GRUEN",
+        "hinweis": "Mindestabstand 3.5m zur Nachbargrenze eingehalten"
+      },
+      {
+        "id": "BL-02",
+        "name": "Stellplaetze",
+        "status": "GRUEN",
+        "hinweis": "4 Stellplaetze vorhanden (2 pro WE)"
+      },
+      {
+        "id": "BL-03",
+        "name": "Gruenflaechen",
+        "status": "GRUEN",
+        "hinweis": "Gruenflaechenanteil 35% >= 30% (Bgld. Vorgabe)"
+      },
+      {
+        "id": "BL-04",
+        "name": "Schneelast",
+        "status": "GRUEN",
+        "hinweis": "Zone 1: 1.12 kN/m2 (Bgld. Flachland)"
+      },
+      {
+        "id": "BL-05",
+        "name": "Erdbeben",
+        "status": "GRUEN",
+        "hinweis": "Zone 1: niedriges Risiko (Bgld.)"
+      },
+      {
+        "id": "BL-06",
+        "name": "Radon",
+        "status": "GRUEN",
+        "hinweis": "Niedriges Risiko im Burgenland"
+      },
+      {
+        "id": "BL-07",
+        "name": "HWB-Grenzwert",
+        "status": "GRUEN",
+        "hinweis": "HWB <= 75 kWh/m2a (Bgld. Vorgabe)"
+      },
+      {
+        "id": "BL-08",
+        "name": "fGEE-Grenzwert",
+        "status": "GRUEN",
+        "hinweis": "fGEE <= 0.75 (Bgld. Vorgabe)"
+      }
+    ],
+    "foerderungen": [
+      {
+        "name": "Wohnbaufoerderung Burgenland",
+        "typ": "Zuschuss",
+        "hinweis": "Bis zu 30.000 EUR fuer Neubau"
+      },
+      {
+        "name": "Sanierungsfoerderung",
+        "typ": "Zuschuss",
+        "hinweis": "Bis zu 20.000 EUR fuer Sanierung"
+      }
+    ]
+  },
+  "anforderungen": {
+    "allgemeine_anforderungen": [
+      {
+        "id": "A-01",
+        "name": "Standsicherheit",
+        "status": "GRUEN",
+        "hinweis": "Nach OIB-RL 1 und EC2/EC5"
+      },
+      {
+        "id": "A-02",
+        "name": "Brandschutz",
+        "status": "GRUEN",
+        "hinweis": "Nach OIB-RL 2"
+      },
+      {
+        "id": "A-03",
+        "name": "Hygiene",
+        "status": "GRUEN",
+        "hinweis": "Nach OIB-RL 3"
+      },
+      {
+        "id": "A-04",
+        "name": "Nutzungssicherheit",
+        "status": "GRUEN",
+        "hinweis": "Nach OIB-RL 4"
+      },
+      {
+        "id": "A-05",
+        "name": "Schallschutz",
+        "status": "GRUEN",
+        "hinweis": "Nach OIB-RL 5"
+      },
+      {
+        "id": "A-06",
+        "name": "Energieeinsparung",
+        "status": "GRUEN",
+        "hinweis": "Nach OIB-RL 6"
+      },
+      {
+        "id": "A-07",
+        "name": "Nachhaltigkeit",
+        "status": "GRUEN",
+        "hinweis": "Nach OIB-RL 7"
+      }
+    ],
+    "spezifische_anforderungen": [
+      {
+        "id": "S-01",
+        "name": "Burgenland: Abstandsflaechen",
+        "status": "GRUEN",
+        "hinweis": "3.5m zur Nachbargrenze"
+      },
+      {
+        "id": "S-02",
+        "name": "Burgenland: Stellplaetze",
+        "status": "GRUEN",
+        "hinweis": "2 pro WE"
+      },
+      {
+        "id": "S-03",
+        "name": "Burgenland: Gruenflaechen",
+        "status": "GRUEN",
+        "hinweis": ">= 30%"
+      },
+      {
+        "id": "S-04",
+        "name": "Burgenland: Schneelast",
+        "status": "GRUEN",
+        "hinweis": "Zone 1: 1.12 kN/m2"
+      },
+      {
+        "id": "S-05",
+        "name": "Burgenland: Erdbeben",
+        "status": "GRUEN",
+        "hinweis": "Zone 1: niedriges Risiko"
+      },
+      {
+        "id": "S-06",
+        "name": "Breitbrunn: HWB-Grenzwert",
+        "status": "GRUEN",
+        "hinweis": "HWB <= 75 kWh/m2a"
+      },
+      {
+        "id": "S-07",
+        "name": "Breitbrunn: fGEE-Grenzwert",
+        "status": "GRUEN",
+        "hinweis": "fGEE <= 0.75"
+      }
+    ]
+  },
+  "epistemisch": {
+    "system_valide": true,
+    "widersprueche": 0,
+    "agenten": 5,
+    "globales_wissen": 4,
+    "konsens_state": "unknown",
+    "konsens_strength": 1.0
+  },
+  "gesamt": {
+    "compliance_rate": 1.0,
+    "fehlererkennungs_rate": 1.0,
+    "system_valide": true,
+    "gesamt_bewertung": "SEHR GUT"
+  },
+  "dauer_sec": 0.0006549358367919922
+}
