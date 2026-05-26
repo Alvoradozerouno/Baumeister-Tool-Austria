@@ -1,0 +1,418 @@
+{
+  "basis_plan": {
+    "geschosse": [
+      "UG",
+      "EG",
+      "OG",
+      "OG",
+      "DG"
+    ],
+    "mengen": {
+      "wand_fläche_m2": 650,
+      "fenster_anzahl": 30,
+      "tuer_anzahl": 19,
+      "decke_fläche_m2": 430,
+      "stiege_anzahl": 5
+    },
+    "hwb": 60,
+    "fgee": 0.7,
+    "kosten_basis": 231900
+  },
+  "oib_compliance": {
+    "erfuellt": 48,
+    "gesamt": 48,
+    "details": [
+      {
+        "rl": "OIB-RL 1",
+        "id": "RL1-01",
+        "name": "Tragwerksplanung",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 1",
+        "id": "RL1-02",
+        "name": "Fundamentbemessung",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 1",
+        "id": "RL1-03",
+        "name": "Erdbebenbemessung",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 1",
+        "id": "RL1-04",
+        "name": "Windlast",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 1",
+        "id": "RL1-05",
+        "name": "Schneelast",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 1",
+        "id": "RL1-06",
+        "name": "Nutzlast",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 1",
+        "id": "RL1-07",
+        "name": "Standsicherheit",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 2",
+        "id": "RL2-01",
+        "name": "Feuerwiderstand",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 2",
+        "id": "RL2-02",
+        "name": "Fluchtwege",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 2",
+        "id": "RL2-03",
+        "name": "Brandabschnitte",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 2",
+        "id": "RL2-04",
+        "name": "Baustoffklassen",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 2",
+        "id": "RL2-05",
+        "name": "Rauchableitung",
+        "status": "GRUEN",
+        "gesetzlich": false
+      },
+      {
+        "rl": "OIB-RL 2",
+        "id": "RL2-06",
+        "name": "Loeschwasser",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 3",
+        "id": "RL3-01",
+        "name": "Trinkwasserhygiene",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 3",
+        "id": "RL3-02",
+        "name": "Lueftung",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 3",
+        "id": "RL3-03",
+        "name": "Schadstofffreiheit",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 3",
+        "id": "RL3-04",
+        "name": "Tageslicht",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 3",
+        "id": "RL3-05",
+        "name": "Radonschutz",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 4",
+        "id": "RL4-01",
+        "name": "Absturzsicherung",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 4",
+        "id": "RL4-02",
+        "name": "Rutschsicherheit",
+        "status": "GRUEN",
+        "gesetzlich": false
+      },
+      {
+        "rl": "OIB-RL 4",
+        "id": "RL4-03",
+        "name": "Barrierefreiheit",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 4",
+        "id": "RL4-04",
+        "name": "Glasbruchschutz",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 4",
+        "id": "RL4-05",
+        "name": "Treppen",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 5",
+        "id": "RL5-01",
+        "name": "Luftschall",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 5",
+        "id": "RL5-02",
+        "name": "Trittschall",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 5",
+        "id": "RL5-03",
+        "name": "Haustechnik",
+        "status": "GRUEN",
+        "gesetzlich": false
+      },
+      {
+        "rl": "OIB-RL 5",
+        "id": "RL5-04",
+        "name": "Aussenlaerm",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 6",
+        "id": "RL6-01",
+        "name": "HWB",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 6",
+        "id": "RL6-02",
+        "name": "fGEE",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 6",
+        "id": "RL6-03",
+        "name": "PEB",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 6",
+        "id": "RL6-04",
+        "name": "Dämmung",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 6",
+        "id": "RL6-05",
+        "name": "Fenster",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 6",
+        "id": "RL6-06",
+        "name": "Dach",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "OIB-RL 6",
+        "id": "RL6-07",
+        "name": "Luftdichtheit",
+        "status": "GRUEN",
+        "gesetzlich": false
+      },
+      {
+        "rl": "OIB-RL 7",
+        "id": "RL7-01",
+        "name": "Lebenszyklusanalyse",
+        "status": "GRUEN",
+        "gesetzlich": false
+      },
+      {
+        "rl": "OIB-RL 7",
+        "id": "RL7-02",
+        "name": "Rueckbaufreundlichkeit",
+        "status": "GRUEN",
+        "gesetzlich": false
+      },
+      {
+        "rl": "OIB-RL 7",
+        "id": "RL7-03",
+        "name": "Recyclingfaehigkeit",
+        "status": "GRUEN",
+        "gesetzlich": false
+      },
+      {
+        "rl": "OIB-RL 7",
+        "id": "RL7-04",
+        "name": "Ressourceneffizienz",
+        "status": "GRUEN",
+        "gesetzlich": false
+      },
+      {
+        "rl": "Eurocode 2",
+        "id": "EC2-01",
+        "name": "Biegebemessung",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "Eurocode 2",
+        "id": "EC2-02",
+        "name": "Schubbemessung",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "Eurocode 2",
+        "id": "EC2-03",
+        "name": "Rissbreitenbeschraenkung",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "Eurocode 3",
+        "id": "EC3-01",
+        "name": "Stahlbauteile",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "Eurocode 5",
+        "id": "EC5-01",
+        "name": "Holzbauteile",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "Eurocode 7",
+        "id": "EC7-01",
+        "name": "Fundament",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "Eurocode 8",
+        "id": "EC8-01",
+        "name": "Erdbeben",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "Bgld BO",
+        "id": "BO-01",
+        "name": "Abstandsflaechen",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "Bgld BO",
+        "id": "BO-02",
+        "name": "Stellplaetze",
+        "status": "GRUEN",
+        "gesetzlich": true
+      },
+      {
+        "rl": "Bgld BO",
+        "id": "BO-03",
+        "name": "Gruenflaechen",
+        "status": "GRUEN",
+        "gesetzlich": true
+      }
+    ],
+    "status": "gruen"
+  },
+  "optimierter_plan": {
+    "geschosse": [
+      "UG",
+      "EG",
+      "OG",
+      "OG",
+      "DG"
+    ],
+    "mengen": {
+      "wand_fläche_m2": 650,
+      "fenster_anzahl": 30,
+      "tuer_anzahl": 19,
+      "decke_fläche_m2": 430,
+      "stiege_anzahl": 5
+    },
+    "hwb": 30.0,
+    "fgee": 0.595,
+    "kosten_basis": 231900,
+    "kosten_verbesserungen": 53000,
+    "kosten_gesamt": 246153.6,
+    "kosten_einsparung": 10256.4,
+    "verbesserungen_angewendet": [
+      "EN-01",
+      "EN-02",
+      "EN-03",
+      "EN-04",
+      "BS-01",
+      "BS-03",
+      "SS-01",
+      "BF-02",
+      "KO-01",
+      "KO-03"
+    ]
+  },
+  "kosten": {
+    "basis": 231900,
+    "verbesserungen": 53000,
+    "einsparung": 10256.4,
+    "gesamt": 246153.6,
+    "pro_m2": 1641.0240000000001
+  },
+  "gesamtbewertung": {
+    "hwb": 60,
+    "fgee": 0.7,
+    "hwb_klasse": "B",
+    "energieklasse": "B",
+    "kosten_gesamt": 246153.6,
+    "kosten_pro_m2": 1641.0240000000001,
+    "verbesserungen": 0,
+    "bewertung": "BEFRIEDIGEND",
+    "oib_konform": true,
+    "gesetzlich_konform": true
+  },
+  "dauer_sec": 0.00014400482177734375
+}
