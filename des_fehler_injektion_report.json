@@ -1,0 +1,310 @@
+{
+  "injizierte_fehler": [
+    {
+      "id": "FI-01",
+      "kategorie": "Tragwerk",
+      "name": "Unterdimensionierte Fundamentplatte",
+      "beschreibung": "Fundamentplatte mit 20cm statt erforderlichen 30cm bei schlechtem Baugrund",
+      "norm": "OIB-RL 1 + EC7",
+      "pruefung": "Fundamentbemessung bei Baugrundklasse 3",
+      "soll_wert": "30cm Plattendicke",
+      "ist_wert": "20cm Plattendicke",
+      "schwere": "KRITISCH",
+      "sicherheitsrelevant": true,
+      "gesetzlich": true,
+      "konsequenz": "Grundbruchgefahr, Setzungsrisiko > 3cm, Tragwerksversagen möglich",
+      "empfehlung": "Fundamentplatte auf 30cm verstärken, zusätzliche Bewehrung",
+      "kosten_fehler": "50.000-100.000 EUR bei Nachbesserung im Bestand",
+      "erkennbarkeit": "Schwer - nur durch detaillierte statische Berechnung erkennbar"
+    },
+    {
+      "id": "FI-02",
+      "kategorie": "Brandschutz",
+      "name": "Fehlende Brandwand zwischen Wohneinheiten",
+      "beschreibung": "Keine Brandwand (REI90) zwischen WH1 und WH2 im OG, nur leichte Trennwand",
+      "norm": "OIB-RL 2",
+      "pruefung": "Brandabschnitte zwischen Wohneinheiten",
+      "soll_wert": "REI90 Brandwand",
+      "ist_wert": "Leichte Trennwand (kein Feuerwiderstand)",
+      "schwere": "KRITISCH",
+      "sicherheitsrelevant": true,
+      "gesetzlich": true,
+      "konsequenz": "Brandausbreitung zwischen Wohneinheiten, Lebensgefahr, keine Baugenehmigung",
+      "empfehlung": "Brandwand REI90 zwischen WH1 und WH2 einfügen",
+      "kosten_fehler": "20.000-40.000 EUR bei Nachbesserung",
+      "erkennbarkeit": "Mittel - durch Brandschutzgutachter erkennbar"
+    },
+    {
+      "id": "FI-03",
+      "kategorie": "Energie",
+      "name": "Wärmebrücke an Balkonanschluss nicht berücksichtigt",
+      "beschreibung": "Balkonanschluss ohne thermische Trennung, Ψ = 0.35 W/mK statt ≤ 0.01 W/mK",
+      "norm": "OIB-RL 6 + EN ISO 6946",
+      "pruefung": "Wärmebrückennachweis",
+      "soll_wert": "Ψ ≤ 0.01 W/mK (thermisch getrennt)",
+      "ist_wert": "Ψ = 0.35 W/mK (nicht getrennt)",
+      "schwere": "HOCH",
+      "sicherheitsrelevant": false,
+      "gesetzlich": true,
+      "konsequenz": "HWB um 15 kWh/m²a erhöht, Kondensationsrisiko, Schimmelgefahr",
+      "empfehlung": "Balkon thermisch trennen (Körbe oder thermische Trennung)",
+      "kosten_fehler": "8.000-15.000 EUR bei Nachbesserung",
+      "erkennbarkeit": "Schwer - nur durch Wärmebrückenberechnung erkennbar"
+    }
+  ],
+  "normen_pruefung": {
+    "erfuellt": 17,
+    "nicht_erfuellt": 3,
+    "gesamt": 20,
+    "details": [
+      {
+        "norm": "OIB-RL 1",
+        "id": "OIB1-01",
+        "name": "Tragwerksplanung",
+        "status": "GRUEN",
+        "fehler_id": null,
+        "grenzwert": "EC0 Teilsicherheitsbeiwerte"
+      },
+      {
+        "norm": "OIB-RL 1",
+        "id": "OIB1-02",
+        "name": "Fundamentbemessung",
+        "status": "ROT",
+        "fehler_id": "FI-01",
+        "grenzwert": "30cm bei Baugrundklasse 3"
+      },
+      {
+        "norm": "OIB-RL 1",
+        "id": "OIB1-03",
+        "name": "Erdbeben",
+        "status": "GRUEN",
+        "fehler_id": null,
+        "grenzwert": "EC8 Zone 1"
+      },
+      {
+        "norm": "OIB-RL 1",
+        "id": "OIB1-04",
+        "name": "Windlast",
+        "status": "GRUEN",
+        "fehler_id": null,
+        "grenzwert": "EC1 Windzone 2"
+      },
+      {
+        "norm": "OIB-RL 1",
+        "id": "OIB1-05",
+        "name": "Schneelast",
+        "status": "GRUEN",
+        "fehler_id": null,
+        "grenzwert": "EC1 Schneelastzone 3"
+      },
+      {
+        "norm": "OIB-RL 1",
+        "id": "OIB1-06",
+        "name": "Nutzlast",
+        "status": "GRUEN",
+        "fehler_id": null,
+        "grenzwert": "EC1 Kategorie A"
+      },
+      {
+        "norm": "OIB-RL 1",
+        "id": "OIB1-07",
+        "name": "Standsicherheit",
+        "status": "GRUEN",
+        "fehler_id": null,
+        "grenzwert": "μ ≥ 1.5"
+      },
+      {
+        "norm": "OIB-RL 2",
+        "id": "OIB2-01",
+        "name": "Feuerwiderstand",
+        "status": "ROT",
+        "fehler_id": "FI-02",
+        "grenzwert": "REI90 zwischen WE"
+      },
+      {
+        "norm": "OIB-RL 2",
+        "id": "OIB2-02",
+        "name": "Fluchtwege",
+        "status": "GRUEN",
+        "fehler_id": null,
+        "grenzwert": "≤ 40m / ≥ 1.0m"
+      },
+      {
+        "norm": "OIB-RL 2",
+        "id": "OIB2-03",
+        "name": "Brandabschnitte",
+        "status": "GRUEN",
+        "fehler_id": null,
+        "grenzwert": "≤ 1200m²"
+      },
+      {
+        "norm": "OIB-RL 2",
+        "id": "OIB2-04",
+        "name": "Baustoffklassen",
+        "status": "GRUEN",
+        "fehler_id": null,
+        "grenzwert": "A2-s1,d0"
+      },
+      {
+        "norm": "OIB-RL 2",
+        "id": "OIB2-05",
+        "name": "Rauchableitung",
+        "status": "GRUEN",
+        "fehler_id": null,
+        "grenzwert": "≥ 1% Grundfläche"
+      },
+      {
+        "norm": "OIB-RL 2",
+        "id": "OIB2-06",
+        "name": "Löschwasser",
+        "status": "GRUEN",
+        "fehler_id": null,
+        "grenzwert": "≤ 150m"
+      },
+      {
+        "norm": "OIB-RL 6",
+        "id": "OIB6-01",
+        "name": "HWB",
+        "status": "GRUEN",
+        "fehler_id": null,
+        "grenzwert": "≤ 75 kWh/m²a"
+      },
+      {
+        "norm": "OIB-RL 6",
+        "id": "OIB6-02",
+        "name": "fGEE",
+        "status": "GRUEN",
+        "fehler_id": null,
+        "grenzwert": "≤ 0.75"
+      },
+      {
+        "norm": "OIB-RL 6",
+        "id": "OIB6-03",
+        "name": "PEB",
+        "status": "GRUEN",
+        "fehler_id": null,
+        "grenzwert": "≤ 120 kWh/m²a"
+      },
+      {
+        "norm": "OIB-RL 6",
+        "id": "OIB6-04",
+        "name": "U-Wand",
+        "status": "GRUEN",
+        "fehler_id": null,
+        "grenzwert": "≤ 0.28 W/m²K"
+      },
+      {
+        "norm": "OIB-RL 6",
+        "id": "OIB6-05",
+        "name": "U-Fenster",
+        "status": "GRUEN",
+        "fehler_id": null,
+        "grenzwert": "≤ 1.1 W/m²K"
+      },
+      {
+        "norm": "OIB-RL 6",
+        "id": "OIB6-06",
+        "name": "U-Dach",
+        "status": "GRUEN",
+        "fehler_id": null,
+        "grenzwert": "≤ 0.15 W/m²K"
+      },
+      {
+        "norm": "OIB-RL 6",
+        "id": "OIB6-07",
+        "name": "Luftdichtheit",
+        "status": "ROT",
+        "fehler_id": "FI-03",
+        "grenzwert": "n50 ≤ 0.6/h"
+      }
+    ],
+    "status": "rot",
+    "gesetzlich_erfuellt": 17,
+    "gesetzlich_nicht_erfuellt": 3,
+    "gesetzlich_gesamt": 20
+  },
+  "agenten_erkennung": {
+    "erkannt": 3,
+    "gesamt": 3,
+    "details": [
+      {
+        "fehler_id": "FI-01",
+        "name": "Unterdimensionierte Fundamentplatte",
+        "erkannt": true,
+        "confidence": 0.95,
+        "agenten": [
+          "Statiker",
+          "Hauptgutachter"
+        ],
+        "schwere": "KRITISCH"
+      },
+      {
+        "fehler_id": "FI-02",
+        "name": "Fehlende Brandwand zwischen Wohneinheiten",
+        "erkannt": true,
+        "confidence": 0.95,
+        "agenten": [
+          "Brandschuetzer",
+          "Architekt",
+          "Hauptgutachter"
+        ],
+        "schwere": "KRITISCH"
+      },
+      {
+        "fehler_id": "FI-03",
+        "name": "Wärmebrücke an Balkonanschluss nicht berücksichtigt",
+        "erkannt": true,
+        "confidence": 0.85,
+        "agenten": [
+          "Energieberater",
+          "Nachhaltigkeitsgutachter",
+          "Hauptgutachter"
+        ],
+        "schwere": "HOCH"
+      }
+    ],
+    "konsens": 0.9166666666666666
+  },
+  "epistemisch": {
+    "system_valid": true,
+    "contradictions": 0,
+    "agent_count": 9,
+    "global_knowledge": 11
+  },
+  "system_reaktion": {
+    "status": "FEHLER GEFUNDEN",
+    "anzahl_fehler": 3,
+    "kritische_fehler": 2,
+    "hohe_fehler": 1,
+    "empfehlungen": [
+      {
+        "fehler_id": "FI-01",
+        "name": "Unterdimensionierte Fundamentplatte",
+        "empfehlung": "Fundamentplatte auf 30cm verstärken, zusätzliche Bewehrung",
+        "kosten_fehler": "50.000-100.000 EUR bei Nachbesserung im Bestand",
+        "prioritaet": "SOFORT"
+      },
+      {
+        "fehler_id": "FI-02",
+        "name": "Fehlende Brandwand zwischen Wohneinheiten",
+        "empfehlung": "Brandwand REI90 zwischen WH1 und WH2 einfügen",
+        "kosten_fehler": "20.000-40.000 EUR bei Nachbesserung",
+        "prioritaet": "SOFORT"
+      },
+      {
+        "fehler_id": "FI-03",
+        "name": "Wärmebrücke an Balkonanschluss nicht berücksichtigt",
+        "empfehlung": "Balkon thermisch trennen (Körbe oder thermische Trennung)",
+        "kosten_fehler": "8.000-15.000 EUR bei Nachbesserung",
+        "prioritaet": "HOCH"
+      }
+    ],
+    "baugenehmigung": "NICHT MÖGLICH",
+    "naechste_schritte": [
+      "  1. Fundamentplatte auf 30cm verstärken, zusätzliche Bewehrung",
+      "  1. Brandwand REI90 zwischen WH1 und WH2 einfügen",
+      "  1. Balkon thermisch trennen (Körbe oder thermische Trennung)"
+    ]
+  },
+  "dauer_sec": 0.0006470680236816406
+}
