@@ -1,18 +1,18 @@
 {
   "test": "DES-Stress-Test-mit-Plaenen",
-  "datum": "2026-05-26T09:50:17.031069",
+  "datum": "2026-05-26T10:13:32.802955",
   "ergebnisse": {
     "des_mit_fehlern": {
       "anzahl_fehler_props": 12,
       "system_valide": true,
       "widersprueche": 0,
-      "dauer_sec": 0.0002
+      "dauer_sec": 0.001
     },
     "geschoss_widersprueche": {
       "anzahl_widersprueche": 2,
       "erkannte_widersprueche": 0,
       "system_valide": true,
-      "dauer_sec": 0.0
+      "dauer_sec": 0.0003
     },
     "unvollstaendige_plaene": {
       "anzahl_unvollstaendig": 0,
@@ -22,20 +22,20 @@
     "korrupte_daten": {
       "anzahl_korrupt": 1,
       "fallback_aktiv": 1,
-      "dauer_sec": 0.0
+      "dauer_sec": 0.0001
     },
     "last_mit_varianten": {
       "anzahl_varianten": 100,
       "anzahl_agenten": 20,
       "system_valide": true,
-      "gesamtwissen": 490,
-      "dauer_sec": 0.0029
+      "gesamtwissen": 548,
+      "dauer_sec": 0.012
     },
     "fallback_mechanismen": {
       "anzahl_szenarien": 5,
       "fallback_erkannt": 5,
       "fallback_rate": 100.0,
-      "dauer_sec": 0.0001
+      "dauer_sec": 0.0003
     },
     "konsens_unter_fehlern": {
       "anzahl_agenten": 10,
@@ -44,9 +44,9 @@
         "probable": 0,
         "unknown": 12
       },
-      "dauer_sec": 0.0005
+      "dauer_sec": 0.0016
     }
   },
-  "gesamtzeit_sec": 0.5868,
+  "gesamtzeit_sec": 4.212,
   "bestanden": true
 }

@@ -1,6 +1,6 @@
 {
   "projekt": "Koenigstr 59, Breitbrunn am Neusiedler See",
-  "datum": "2026-05-26T09:37:46.708291",
+  "datum": "2026-05-26T10:13:26.742815",
   "dwg_analyse": {
     "dateien": 5,
     "gesamt_vollstaendigkeit": 100.0,
@@ -12,12 +12,12 @@
         "elemente": 6,
         "vollstaendigkeit": 100.0,
         "gefunden": [
+          "Aussenwand",
           "Decke",
+          "Heizungsraum",
           "Stiege",
           "Fundament",
-          "Innenwand",
-          "Aussenwand",
-          "Heizungsraum"
+          "Innenwand"
         ],
         "fehlend": []
       },
@@ -28,12 +28,12 @@
         "elemente": 7,
         "vollstaendigkeit": 100.0,
         "gefunden": [
+          "Aussenwand",
           "Decke",
           "Fenster",
           "Stiege",
-          "Innenwand",
-          "Aussenwand",
           "Tuer",
+          "Innenwand",
           "Eingang"
         ],
         "fehlend": []
@@ -45,12 +45,12 @@
         "elemente": 7,
         "vollstaendigkeit": 100.0,
         "gefunden": [
+          "Aussenwand",
           "Decke",
           "Fenster",
           "Stiege",
-          "Innenwand",
-          "Aussenwand",
           "Tuer",
+          "Innenwand",
           "Balkon"
         ],
         "fehlend": []
@@ -62,12 +62,12 @@
         "elemente": 7,
         "vollstaendigkeit": 100.0,
         "gefunden": [
+          "Aussenwand",
           "Decke",
           "Fenster",
           "Stiege",
-          "Innenwand",
-          "Aussenwand",
           "Tuer",
+          "Innenwand",
           "Balkon"
         ],
         "fehlend": []
@@ -79,13 +79,13 @@
         "elemente": 7,
         "vollstaendigkeit": 100.0,
         "gefunden": [
+          "Aussenwand",
+          "Gauben",
           "Fenster",
           "Stiege",
           "Dach",
-          "Innenwand",
-          "Aussenwand",
           "Tuer",
-          "Gauben"
+          "Innenwand"
         ],
         "fehlend": []
       }

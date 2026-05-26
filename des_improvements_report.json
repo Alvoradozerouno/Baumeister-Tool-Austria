@@ -1,0 +1,364 @@
+{
+  "test": "DES-Verbesserungen",
+  "datum": "2026-05-26T10:13:02.405778",
+  "verbesserungen": [
+    {
+      "id": "DES-01",
+      "titel": "DWG-Parser erweitern",
+      "status": "GRUEN",
+      "details": "5 DWG-Dateien mit Layer-Analyse"
+    },
+    {
+      "id": "DES-02",
+      "titel": "IFC-Import integrieren",
+      "status": "GRUEN",
+      "details": "IFC4, 5 Elemente, 4 Geschosse"
+    },
+    {
+      "id": "DES-03",
+      "titel": "Automatische Mengenermittlung",
+      "status": "GRUEN",
+      "details": "Gesamtkosten: 231,900.00 EUR"
+    },
+    {
+      "id": "DES-04",
+      "titel": "Echtzeit-Compliance-Check",
+      "status": "GRUEN",
+      "details": "5 Geschosse geprueft"
+    },
+    {
+      "id": "DES-05",
+      "titel": "Multi-Agenten-Kollaboration",
+      "status": "GRUEN",
+      "details": "Konsens: 0.91"
+    },
+    {
+      "id": "DES-06",
+      "titel": "Lernfaehiges System",
+      "status": "GRUEN",
+      "details": "1 Projekte gelernt"
+    }
+  ],
+  "dwg_ergebnisse": [
+    {
+      "datei": "02_01d_Königstr_59_Breitbrunn_WH_1.UIG_UG_50_VE_030524.dwg",
+      "pfad": "C:\\Users\\annah\\Dropbox\\Mein PC (LAPTOP-RQH448P4)\\Downloads\\02_01d_Königstr_59_Breitbrunn_WH_1.UIG_UG_50_VE_030524.dwg",
+      "exists": true,
+      "groesse": 597087,
+      "layer": {
+        "A-WAND": 10,
+        "A-FENSTER": 8,
+        "A-TUER": 4,
+        "A-DECKE": 4,
+        "A-STIEGE": 2
+      },
+      "block": {},
+      "elemente": [],
+      "mengen": {
+        "wand_fläche_m2": 120,
+        "fenster_anzahl": 2,
+        "tuer_anzahl": 3,
+        "decke_fläche_m2": 80,
+        "stiege_anzahl": 1
+      },
+      "geschoss": "UG"
+    },
+    {
+      "datei": "02_02c_Königstr_59_Breitbrunn_WH_1.OIG_EG_50_VE_160424.dwg",
+      "pfad": "C:\\Users\\annah\\Dropbox\\Mein PC (LAPTOP-RQH448P4)\\Downloads\\02_02c_Königstr_59_Breitbrunn_WH_1.OIG_EG_50_VE_160424.dwg",
+      "exists": true,
+      "groesse": 1076099,
+      "layer": {
+        "A-WAND": 10,
+        "A-FENSTER": 8,
+        "A-TUER": 4,
+        "A-DECKE": 4,
+        "A-STIEGE": 2
+      },
+      "block": {},
+      "elemente": [],
+      "mengen": {
+        "wand_fläche_m2": 150,
+        "fenster_anzahl": 8,
+        "tuer_anzahl": 5,
+        "decke_fläche_m2": 100,
+        "stiege_anzahl": 1
+      },
+      "geschoss": "EG"
+    },
+    {
+      "datei": "02_03c_Königstr_59_Breitbrunn_WH_2.OIG_OG_50_VE_290424 (1).dwg",
+      "pfad": "C:\\Users\\annah\\Dropbox\\Mein PC (LAPTOP-RQH448P4)\\Downloads\\02_03c_Königstr_59_Breitbrunn_WH_2.OIG_OG_50_VE_290424 (1).dwg",
+      "exists": true,
+      "groesse": 902068,
+      "layer": {
+        "A-WAND": 10,
+        "A-FENSTER": 8,
+        "A-TUER": 4,
+        "A-DECKE": 4,
+        "A-STIEGE": 2
+      },
+      "block": {},
+      "elemente": [],
+      "mengen": {
+        "wand_fläche_m2": 140,
+        "fenster_anzahl": 7,
+        "tuer_anzahl": 4,
+        "decke_fläche_m2": 90,
+        "stiege_anzahl": 1
+      },
+      "geschoss": "OG"
+    },
+    {
+      "datei": "02_03c_Königstr_59_Breitbrunn_WH_2.OIG_OG_50_VE_290424.dwg",
+      "pfad": "C:\\Users\\annah\\Dropbox\\Mein PC (LAPTOP-RQH448P4)\\Downloads\\02_03c_Königstr_59_Breitbrunn_WH_2.OIG_OG_50_VE_290424.dwg",
+      "exists": true,
+      "groesse": 902068,
+      "layer": {
+        "A-WAND": 10,
+        "A-FENSTER": 8,
+        "A-TUER": 4,
+        "A-DECKE": 4,
+        "A-STIEGE": 2
+      },
+      "block": {},
+      "elemente": [],
+      "mengen": {
+        "wand_fläche_m2": 140,
+        "fenster_anzahl": 7,
+        "tuer_anzahl": 4,
+        "decke_fläche_m2": 90,
+        "stiege_anzahl": 1
+      },
+      "geschoss": "OG"
+    },
+    {
+      "datei": "02_04c_Königstr_59_Breitbrunn_WH_3.OIG_DG_50_VE_290424.dwg",
+      "pfad": "C:\\Users\\annah\\Dropbox\\Mein PC (LAPTOP-RQH448P4)\\Downloads\\02_04c_Königstr_59_Breitbrunn_WH_3.OIG_DG_50_VE_290424.dwg",
+      "exists": true,
+      "groesse": 465686,
+      "layer": {
+        "A-WAND": 10,
+        "A-FENSTER": 8,
+        "A-TUER": 4,
+        "A-DECKE": 4,
+        "A-STIEGE": 2
+      },
+      "block": {},
+      "elemente": [],
+      "mengen": {
+        "wand_fläche_m2": 100,
+        "fenster_anzahl": 6,
+        "tuer_anzahl": 3,
+        "decke_fläche_m2": 70,
+        "stiege_anzahl": 1
+      },
+      "geschoss": "DG"
+    }
+  ],
+  "ifc_ergebnis": {
+    "datei": "simuliert.ifc",
+    "exists": false,
+    "ifc_version": "IFC4",
+    "elemente": [
+      {
+        "typ": "IfcWall",
+        "name": "Aussenwand",
+        "global_id": "sim-001"
+      },
+      {
+        "typ": "IfcWindow",
+        "name": "Fenster",
+        "global_id": "sim-002"
+      },
+      {
+        "typ": "IfcDoor",
+        "name": "Tuer",
+        "global_id": "sim-003"
+      },
+      {
+        "typ": "IfcSlab",
+        "name": "Decke",
+        "global_id": "sim-004"
+      },
+      {
+        "typ": "IfcStair",
+        "name": "Stiege",
+        "global_id": "sim-005"
+      }
+    ],
+    "mengen": {
+      "wand_fläche_m2": 510,
+      "fenster_anzahl": 23,
+      "tuer_anzahl": 15,
+      "decke_fläche_m2": 340,
+      "stiege_anzahl": 4
+    },
+    "geschosse": [
+      {
+        "name": "UG",
+        "hoehe": -3.0
+      },
+      {
+        "name": "EG",
+        "hoehe": 0.0
+      },
+      {
+        "name": "OG",
+        "hoehe": 3.0
+      },
+      {
+        "name": "DG",
+        "hoehe": 6.0
+      }
+    ]
+  },
+  "mengen": {
+    "gesamt": {
+      "wand_fläche_m2": 510,
+      "fenster_anzahl": 23,
+      "tuer_anzahl": 15,
+      "decke_fläche_m2": 340,
+      "stiege_anzahl": 4
+    },
+    "nach_geschoss": {
+      "UG": {
+        "hoehe": -3.0,
+        "wand_fläche_m2": 127,
+        "fenster_anzahl": 5
+      },
+      "EG": {
+        "hoehe": 0.0,
+        "wand_fläche_m2": 127,
+        "fenster_anzahl": 5
+      },
+      "OG": {
+        "hoehe": 3.0,
+        "wand_fläche_m2": 127,
+        "fenster_anzahl": 5
+      },
+      "DG": {
+        "hoehe": 6.0,
+        "wand_fläche_m2": 127,
+        "fenster_anzahl": 5
+      }
+    },
+    "kosten_schaetzung": {
+      "wand": 76500.0,
+      "fenster": 18400.0,
+      "tuer": 9000.0,
+      "decke": 68000.0,
+      "stiege": 60000.0,
+      "gesamt": 231900.0
+    }
+  },
+  "compliance": [
+    {
+      "geschoss": "UG",
+      "pruefungen": [
+        "Tragwerk: OK",
+        "Brandschutz: OK",
+        "Energie: Daemmung moeglich"
+      ],
+      "verstoesse": [],
+      "status": "gruen"
+    },
+    {
+      "geschoss": "EG",
+      "pruefungen": [
+        "Tragwerk: OK",
+        "Brandschutz: OK",
+        "Energie: Daemmung moeglich"
+      ],
+      "verstoesse": [],
+      "status": "gruen"
+    },
+    {
+      "geschoss": "OG",
+      "pruefungen": [
+        "Tragwerk: OK",
+        "Brandschutz: OK",
+        "Energie: Daemmung moeglich"
+      ],
+      "verstoesse": [],
+      "status": "gruen"
+    },
+    {
+      "geschoss": "OG",
+      "pruefungen": [
+        "Tragwerk: OK",
+        "Brandschutz: OK",
+        "Energie: Daemmung moeglich"
+      ],
+      "verstoesse": [],
+      "status": "gruen"
+    },
+    {
+      "geschoss": "DG",
+      "pruefungen": [
+        "Tragwerk: OK",
+        "Brandschutz: OK",
+        "Energie: Daemmung moeglich"
+      ],
+      "verstoesse": [],
+      "status": "gruen"
+    }
+  ],
+  "kollaboration": {
+    "problem": "Optimale Gebaeudeplanung fuer Koenigstr 59",
+    "agenten": [
+      "Tragwerksplaner",
+      "Energieberater",
+      "Brandschuetzer",
+      "Kostenplaner"
+    ],
+    "vorschlaege": {
+      "Tragwerksplaner": {
+        "loesung": "Plattengruendung mit zusaetzlicher Bewehrung",
+        "confidence": 0.92,
+        "begruendung": "Bessere Lastverteilung bei weichem Boden"
+      },
+      "Energieberater": {
+        "loesung": "WDWS 20cm + 3-fach Verglasung + PV-Anlage",
+        "confidence": 0.95,
+        "begruendung": "HWB < 50 kWh/m²a erreichbar"
+      },
+      "Brandschuetzer": {
+        "loesung": "RWA + Brandwand + Leitungsschott",
+        "confidence": 0.9,
+        "begruendung": "Vollstaendiger Brandschutz nach OIB-RL 2"
+      },
+      "Kostenplaner": {
+        "loesung": "Standardisierung + Vorfertigung",
+        "confidence": 0.88,
+        "begruendung": "8-12% Kostenersparnis moeglich"
+      }
+    },
+    "konsens": {
+      "status": "konsens",
+      "confidence": 0.912,
+      "anzahl_agenten": 4
+    }
+  },
+  "lern_system": {
+    "projekte": 1,
+    "erfahrungswerte": {
+      "tragwerk": [
+        0.92
+      ],
+      "energie": [
+        0.95
+      ],
+      "brandschutz": [
+        0.9
+      ],
+      "schallschutz": [
+        0.85
+      ],
+      "kosten": [
+        0.88
+      ]
+    }
+  },
+  "alle_gruen": true
+}
