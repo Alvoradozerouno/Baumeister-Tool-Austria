@@ -359,7 +359,7 @@ Permissions-Policy: geolocation=(), microphone=(), camera=()
 ## Competitive Position Analysis
 
 ### Global Market Rating: 10.0/10
-**Status:** Beyond Global Leading
+**Status:** Global Leading (True North)
 
 ### Competitor Comparison
 ```

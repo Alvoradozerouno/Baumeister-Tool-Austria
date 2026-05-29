@@ -2,7 +2,7 @@
 ORION Architekt AT - Advanced AI Features
 =========================================
 
-Beyond Global Leading Features:
+Global Leading Features (True North):
 - Real-time predictive cost analytics with ML
 - AI-powered BIM compliance suggestions
 - Automated clash resolution algorithms
